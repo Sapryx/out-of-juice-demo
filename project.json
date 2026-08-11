@@ -28,13 +28,9 @@
             "windows.js"
         ],
         "src/": [
-            "gameLoop.js",
-            "loading.js",
-            "main.js"
-        ],
-        "../../eeditor/plugins/": [
-            "physics.js",
-            "matter.js"
+            "bootstrap/main.js",
+            "bootstrap/loading.js",
+            "gameLoop.js"
         ]
     },
     "options": {
