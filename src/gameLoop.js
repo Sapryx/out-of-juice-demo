@@ -3,7 +3,8 @@ let gameLoop = {
         const movementInputRaw = new Vector2(Input.getAxis(Axis.Horizontal), Input.getAxis(Axis.Vertical));
         const movementInput = math2d.normalize(movementInputRaw);
 
-        console.log(movementInput);
+        G.player.__x += movementInput.x;
+        G.player.__y += -movementInput.y;
 
         return 0;
     }

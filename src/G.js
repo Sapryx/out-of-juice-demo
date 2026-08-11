@@ -1,0 +1,3 @@
+const G = {
+    player: null
+};

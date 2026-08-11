@@ -1,7 +1,10 @@
 class Input {
     static init() {
-        Input.__horizontal = 0;
-        Input.__vertical = 0;
+        Input.__upPressed = false;
+        Input.__downPressed = false;
+        Input.__leftPressed = false;
+        Input.__rightPressed = false;
+
         gestures.__onKeyDown = Input.__onKeyDown;
         gestures.__onKeyUp = Input.__onKeyUp;
     }
@@ -10,7 +13,31 @@ class Input {
      * @param {Axis} axis
      */
     static getAxis(axis) {
-        return axis === Axis.Horizontal ? Input.__horizontal : Input.__vertical;
+        switch(axis) {
+            case Axis.Horizontal: {
+                if(Input.__rightPressed) {
+                    return 1;
+                }
+
+                if(Input.__leftPressed) {
+                    return -1;
+                }
+
+                return 0;
+            }
+
+            case Axis.Vertical: {
+                if(Input.__downPressed) {
+                    return -1;
+                }
+
+                if(Input.__upPressed) {
+                    return 1;
+                }
+
+                return 0;
+            }
+        }
     }
 
     /**
@@ -23,10 +50,10 @@ class Input {
      */
     static __onKeyDown(keyCode, key, ctrl, shift, alt, e) {
         switch(key) {
-            case "a":Input.__horizontal = -1; break;
-            case "d":Input.__horizontal = 1; break;
-            case "w": Input.__vertical = 1; break;
-            case "s": Input.__vertical = -1; break;
+            case "w": Input.__upPressed = true; break;
+            case "s": Input.__downPressed = true; break;
+            case "a": Input.__leftPressed = true; break;
+            case "d": Input.__rightPressed = true; break;
         }
     }
 
@@ -39,11 +66,11 @@ class Input {
      * @param e
      */
     static __onKeyUp(keyCode, key, ctrl, shift, alt, e) {
-        switch(key.toLowerCase()) {
-            case "a":Input.__horizontal = 0; break;
-            case "d":Input.__horizontal = 0; break;
-            case "w": Input.__vertical = 0; break;
-            case "s": Input.__vertical = 0; break;
+        switch(key) {
+            case "w": Input.__upPressed = false; break;
+            case "s": Input.__downPressed = false; break;
+            case "a": Input.__leftPressed = false; break;
+            case "d": Input.__rightPressed = false; break;
         }
     }
 }

@@ -29,6 +29,8 @@
         ],
         "src/": [
             "math2d.js",
+            "G.js",
+            "Prototypes.js",
             "gameLoop.js",
 
             "input/Axis.js",

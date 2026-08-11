@@ -34,18 +34,6 @@
           }
         }
       },
-      "player": {
-        "__img": "player",
-        "__needScissor": false,
-        "__size": [
-          14,
-          26
-        ],
-        "__ofs": [
-          -112,
-          -16
-        ]
-      },
       "sweeper": {
         "__img": "sweeper",
         "__size": [
@@ -54,8 +42,8 @@
         ],
         "__scalex": -1,
         "__ofs": [
-          -48,
-          -16
+          -3,
+          43
         ]
       }
     }
