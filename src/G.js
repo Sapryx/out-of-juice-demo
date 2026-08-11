@@ -1,3 +1,4 @@
 const G = {
-    player: null
+    player: null,
+    turnManager: new TurnManager()
 };

@@ -29,6 +29,7 @@
         ],
         "src/": [
             "math2d.js",
+            "TurnManager.js",
             "G.js",
             "Prototypes.js",
             "gameLoop.js",
