@@ -28,9 +28,14 @@
             "windows.js"
         ],
         "src/": [
+            "math2d.js",
+            "gameLoop.js",
+
+            "input/Axis.js",
+            "input/Input.js",
+
             "bootstrap/main.js",
-            "bootstrap/loading.js",
-            "gameLoop.js"
+            "bootstrap/loading.js"
         ]
     },
     "options": {
