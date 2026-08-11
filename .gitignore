@@ -1,0 +1,4 @@
+tmp/
+builds/
+build_res/*
+!build_res/index.html
