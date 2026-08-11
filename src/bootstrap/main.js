@@ -3,6 +3,8 @@ BUS.__addEventListener(
         scene.__addChildBox("test_level");
         G.player = scene.__addChildBox(Prototypes.Player);
 
+        camera.__zoom = 4;
+
         updatable.__push(gameLoop);
         Input.init();
 
