@@ -1,7 +1,11 @@
 BUS.__addEventListener(
     __ON_GAME_LOADED, a => {
         scene.__addChildBox("test_level");
-        G.player = scene.__addChildBox(Prototypes.Player);
+
+        G.player = new Player();
+        G.turnManager = new TurnManager();
+
+        G.playerView = scene.__addChildBox(Prototypes.Player);
 
         camera.__zoom = 4;
 

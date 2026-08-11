@@ -1,4 +1,6 @@
 const G = {
     player: null,
-    turnManager: new TurnManager()
+    turnManager: null,
+
+    playerView: null
 };
