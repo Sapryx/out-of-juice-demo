@@ -1,7 +1,6 @@
 let gameLoop = {
     __update: function(t, dt) {
         handleInput();
-        render();
     }
 };
 
@@ -10,8 +9,6 @@ function handleInput() {
     const inputIsEmpty = movementInputRaw.x === 0 && movementInputRaw.y === 0;
     const notPlayerTurn = !G.turnManager.isPlayerTurn;
     const playerIsDead = G.player == null;
-
-    console.log(notPlayerTurn);
 
     if(inputIsEmpty || notPlayerTurn || playerIsDead) {
         return;
@@ -24,28 +21,26 @@ function handleInput() {
     movePlayer(movementInputRaw);
 }
 
+let walkAnim = null;
+
 function movePlayer(movementInput) {
     const scale = 16;
+    const walkSpeed = 0.15;
 
-    if(movementInput.x !== 0) {
+    G.turnManager.isPlayerTurn = false;
 
-    }
+    G.playerView.__x = G.player.pos.x;
+    G.playerView.__y = -G.player.pos.y;
 
     G.player.moveHorizontal(movementInput.x * scale);
     G.player.moveVertical(movementInput.y * scale);
 
-    G.turnManager.isPlayerTurn = false;
+    walkAnim = anim(G.playerView, {
+        __x: G.player.pos.x,
+        __y: -G.player.pos.y
+    }, walkSpeed);
 
     _setTimeout(() => {
         G.turnManager.isPlayerTurn = true;
-    }, 0.2);
-}
-
-function render() {
-    if(G.player == null) {
-        return;
-    }
-
-    G.playerView.__x = G.player.pos.x + 8;
-    G.playerView.__y = -G.player.pos.y - 8 + 3;
+    }, walkSpeed);
 }
