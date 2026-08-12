@@ -10,5 +10,14 @@ const math2d = {
      */
     length(vector) {
         return sqrt(vector.x * vector.x + vector.y * vector.y);
+    },
+
+    /**
+     * @param {Vector2} vector
+     * @param {number} scalar
+     * @returns {Vector2}
+     */
+    mul(vector, scalar) {
+        return new Vector2(vector.x * scalar, vector.y * scalar);
     }
 };

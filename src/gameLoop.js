@@ -23,10 +23,12 @@ function handleInput() {
 }
 
 function movePlayer(movementInput) {
+    const movement = math2d.mul(movementInput, Cfg.TileSize);
+
     G.turnManager.isPlayerTurn = false;
 
-    G.player.moveHorizontal(movementInput.x * Cfg.TileSize);
-    G.player.moveVertical(movementInput.y * Cfg.TileSize);
+    G.player.moveHorizontal(movement.x);
+    G.player.moveVertical(movement.y);
 
     BUS.__post(E.EntityMove, G.player);
 }
