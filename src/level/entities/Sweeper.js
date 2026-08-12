@@ -1,0 +1,3 @@
+class Sweeper extends Entity {
+
+}

@@ -28,25 +28,29 @@
             "windows.js"
         ],
         "src/": [
-            "E.js",
-            "math2d.js",
-            "Level.js",
-            "Cfg.js",
-            "event_handlers/EntityMove_PlayMoveAnimation.js",
-            "event_handlers/AddEntity_CreateEntityView.js",
-            "EntityViews.js",
-            "Entity.js",
-            "Player.js",
-            "TurnManager.js",
-            "G.js",
-            "Prototypes.js",
-            "gameLoop.js",
+            "util/math2d.js",
 
-            "input/Axis.js",
-            "input/Input.js",
+            "core/input/Axis.js",
+            "core/input/Input.js",
+            "core/Cfg.js",
+            "core/G.js",
+            "core/gameLoop.js",
 
-            "bootstrap/main.js",
-            "bootstrap/loading.js"
+            "level/entities/Entity.js",
+            "level/entities/Player.js",
+            "level/entities/Sweeper.js",
+            "level/Level.js",
+            "level/TurnManager.js",
+
+            "events/E.js",
+            "events/AddEntity_CreateEntityView.js",
+            "events/EntityMove_PlayMoveAnimation.js",
+
+            "render/EntityViews.js",
+
+            "core/Prototypes.js",
+            "bootstrap/loading.js",
+            "bootstrap/main.js"
         ]
     },
     "options": {
