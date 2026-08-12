@@ -29,6 +29,7 @@
         ],
         "src/": [
             "math2d.js",
+            "Cfg.js",
             "Entity.js",
             "Player.js",
             "TurnManager.js",
