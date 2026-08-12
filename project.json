@@ -33,6 +33,7 @@
             "Level.js",
             "Cfg.js",
             "event_handlers/EntityMove_PlayMoveAnimation.js",
+            "event_handlers/AddEntity_CreateEntityView.js",
             "EntityViews.js",
             "Entity.js",
             "Player.js",

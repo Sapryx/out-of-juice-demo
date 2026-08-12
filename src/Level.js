@@ -3,6 +3,9 @@ class Level {
         this.rootEntity = null;
     }
 
+    /**
+     * @param {Entity} entity
+     */
     addEntity(entity) {
         BUS.__post(E.AddEntity, entity);
 
@@ -20,6 +23,9 @@ class Level {
         entity.next = this.rootEntity;
     }
 
+    /**
+     * @param {Entity} entity
+     */
     removeEntity(entity) {
         const entityIsLast = entity.next === entity;
 
@@ -27,7 +33,7 @@ class Level {
             this.rootEntity = entityIsLast ? null : entity.next;
         }
 
-        if(entityIsLast) {
+        if(!entityIsLast) {
             const nextEntity = entity.next;
             const prevEntity = entity.prev;
             nextEntity.prev = prevEntity;

@@ -8,6 +8,7 @@ class EntityViews {
     }
 
     add(entity) {
-        this.__views[entity] = scene.__addChildBox(Prototypes.Player);
+        const prototype = Prototypes.get(entity);
+        this.__views[entity] = scene.__addChildBox(prototype);
     }
 }
