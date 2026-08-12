@@ -4,8 +4,7 @@ BUS.__addEventListener(
 
         G.player = new Player();
         G.turnManager = new TurnManager();
-
-        G.playerView = scene.__addChildBox(Prototypes.Player);
+        G.entityViews.add(Prototypes.Player);
 
         camera.__zoom = 4;
 
