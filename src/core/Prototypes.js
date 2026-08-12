@@ -1,9 +1,7 @@
 const Prototypes = {
     __prototypes: new Map([
-        [Player, {
-            __img: "player",
-            __size: [14, 26]
-        }]
+        [Player, "entities/player"],
+        [Sweeper, "entities/sweeper"]
     ]),
 
     /**

@@ -99,6 +99,8 @@
         ],
         [
             "layout",
+            "entities/player.json",
+            "entities/sweeper.json",
             "test_level.json"
         ],
         [

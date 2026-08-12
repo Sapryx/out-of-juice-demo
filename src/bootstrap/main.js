@@ -9,7 +9,10 @@ BUS.__addEventListener(
         G.entityViews = new EntityViews();
 
         camera.__zoom = 4;
+
         G.level.addEntity(G.player);
+        G.level.addEntity(new Sweeper());
+
         updatable.__push(gameLoop);
 
         return 1;
