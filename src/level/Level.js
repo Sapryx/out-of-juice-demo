@@ -7,20 +7,19 @@ class Level {
      * @param {Entity} entity
      */
     addEntity(entity) {
-        BUS.__post(E.AddEntity, entity);
-
         if(this.rootEntity == null) {
             this.rootEntity = entity;
-            return;
+        } else {
+            const beforeRootEntity = this.rootEntity.prev;
+
+            beforeRootEntity.next = entity;
+            entity.prev = beforeRootEntity;
+
+            this.rootEntity.prev = entity;
+            entity.next = this.rootEntity;
         }
 
-        const beforeRootEntity = this.rootEntity.prev;
-
-        beforeRootEntity.next = entity;
-        entity.prev = beforeRootEntity;
-
-        this.rootEntity.prev = entity;
-        entity.next = this.rootEntity;
+        BUS.__post(E.AddEntity, entity);
     }
 
     /**

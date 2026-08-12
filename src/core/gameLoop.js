@@ -22,6 +22,9 @@ function handleInput() {
     movePlayer(movementInputRaw);
 }
 
+/**
+ * @param {Vector2} movementInput
+ */
 function movePlayer(movementInput) {
     const movement = math2d.mul(movementInput, Cfg.TileSize);
 

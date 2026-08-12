@@ -1,5 +1,5 @@
-const Prototypes = {
-    __prototypes: new Map([
+const EntityViews = {
+    __entityViews: new Map([
         [Player, "entities/player"],
         [Sweeper, "entities/sweeper"]
     ]),
@@ -8,6 +8,6 @@ const Prototypes = {
      * @param {Entity} entity
      */
     get(entity) {
-        return this.__prototypes.get(entity.constructor);
+        return this.__entityViews.get(entity.constructor);
     }
 };
