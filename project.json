@@ -28,8 +28,9 @@
             "windows.js"
         ],
         "src/": [
-            "Events.js",
+            "E.js",
             "math2d.js",
+            "Level.js",
             "Cfg.js",
             "event_handlers/EntityMove_PlayMoveAnimation.js",
             "EntityViews.js",

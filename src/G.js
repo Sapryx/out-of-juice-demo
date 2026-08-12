@@ -1,6 +1,7 @@
 const G = {
     player: null,
     turnManager: null,
+    level: null,
 
-    entityViews: new EntityViews()
+    entityViews: null
 };

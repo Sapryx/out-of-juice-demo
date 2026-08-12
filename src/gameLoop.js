@@ -1,6 +1,7 @@
 let gameLoop = {
     __update: function(t, dt) {
         handleInput();
+        G.level.tick();
     }
 };
 
@@ -27,5 +28,5 @@ function movePlayer(movementInput) {
     G.player.moveHorizontal(movementInput.x * Cfg.TileSize);
     G.player.moveVertical(movementInput.y * Cfg.TileSize);
 
-    BUS.__post(Events.EntityMove, G.player);
+    BUS.__post(E.EntityMove, G.player);
 }

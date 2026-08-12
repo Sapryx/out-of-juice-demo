@@ -4,6 +4,10 @@ BUS.__addEventListener(
 
         G.player = new Player();
         G.turnManager = new TurnManager();
+        G.level = new Level();
+        G.level.addEntity(G.player);
+
+        G.entityViews = new EntityViews();
         G.entityViews.add(Prototypes.Player);
 
         camera.__zoom = 4;

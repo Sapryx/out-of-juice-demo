@@ -1,4 +1,4 @@
-BUS.__addEventListener(Events.EntityMove, (type, entity) => {
+BUS.__addEventListener(E.EntityMove, (type, entity) => {
     const view = G.entityViews.get(entity);
 
     anim(view, {
