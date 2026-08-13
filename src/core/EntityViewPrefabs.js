@@ -1,4 +1,4 @@
-const EntityViews = {
+const EntityViewPrefabs = {
     __entityViews: new Map([
         [Player, "entities/player"],
         [Sweeper, "entities/sweeper"]

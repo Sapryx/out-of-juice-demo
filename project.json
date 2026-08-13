@@ -46,9 +46,10 @@
             "events/AddEntity_CreateEntityView.js",
             "events/EntityMove_PlayMoveAnimation.js",
 
+            "render/EntityView.js",
             "render/EntityViewManager.js",
 
-            "core/EntityViews.js",
+            "core/EntityViewPrefabs.js",
             "bootstrap/loading.js",
             "bootstrap/main.js"
         ]

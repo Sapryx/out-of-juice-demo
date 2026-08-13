@@ -11,8 +11,8 @@ BUS.__addEventListener(
 
         camera.__zoom = 4;
 
-        G.level.addEntity(G.player);
-        G.level.addEntity(new Sweeper());
+        G.level.addEntity(G.player, new Vector2(0, 0));
+        G.level.addEntity(new Sweeper(), new Vector2(1, 0));
 
         updatable.__push(gameLoop);
 

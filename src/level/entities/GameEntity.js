@@ -1,12 +1,16 @@
 class GameEntity {
     constructor() {
-        this.__pos = new Vector2(0, 0);
         this.next = this;
         this.prev = this;
+        this._position = new Vector2(0, 0);
     }
 
-    get pos() {
-        return this.__pos;
+    get position() {
+        return this._position;
+    }
+
+    set position(value) {
+        this._position = value;
     }
 
     tick() {
@@ -14,10 +18,10 @@ class GameEntity {
     }
 
     moveHorizontal(direction) {
-        this.__pos.x += direction;
+        this._position.x += direction;
     }
 
     moveVertical(direction) {
-        this.__pos.y += direction;
+        this._position.y += direction;
     }
 }

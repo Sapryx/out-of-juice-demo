@@ -26,12 +26,10 @@ function handleInput() {
  * @param {Vector2} movementInput
  */
 function movePlayer(movementInput) {
-    const movement = math2d.mul(movementInput, Cfg.TileSize);
-
     G.turnManager.isPlayerTurn = false;
 
-    G.player.moveHorizontal(movement.x);
-    G.player.moveVertical(movement.y);
+    G.player.moveHorizontal(movementInput.x);
+    G.player.moveVertical(movementInput.y);
 
     BUS.__post(E.EntityMove, G.player);
 }

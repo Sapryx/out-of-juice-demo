@@ -1,12 +1,17 @@
 class Level {
     constructor() {
         this.rootEntity = null;
+        this.grid = new Map();
     }
 
     /**
      * @param {GameEntity} entity
+     * @param {Vector2} position
      */
-    addEntity(entity) {
+    addEntity(entity, position) {
+        this.grid.set(position, entity);
+        entity.position = position;
+
         if(this.rootEntity == null) {
             this.rootEntity = entity;
         } else {
@@ -41,6 +46,7 @@ class Level {
 
         entity.next = null;
         entity.prev = null;
+        this.grid.set(entity.position, entity);
     }
 
     tick() {
