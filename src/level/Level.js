@@ -4,7 +4,7 @@ class Level {
     }
 
     /**
-     * @param {Entity} entity
+     * @param {GameEntity} entity
      */
     addEntity(entity) {
         if(this.rootEntity == null) {
@@ -23,7 +23,7 @@ class Level {
     }
 
     /**
-     * @param {Entity} entity
+     * @param {GameEntity} entity
      */
     removeEntity(entity) {
         const entityIsLast = entity.next === entity;

@@ -1,3 +1,3 @@
-class Player extends Entity {
+class Player extends GameEntity {
 
 }

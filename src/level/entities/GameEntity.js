@@ -1,4 +1,4 @@
-class Entity {
+class GameEntity {
     constructor() {
         this.__pos = new Vector2(0, 0);
         this.next = this;

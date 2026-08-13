@@ -4,14 +4,14 @@ class EntityViewManager {
     }
 
     /**
-     * @param {Entity} entity
+     * @param {GameEntity} entity
      */
     get(entity) {
         return this.__views.get(entity);
     }
 
     /**
-     * @param {Entity} entity
+     * @param {GameEntity} entity
      */
     add(entity) {
         const view = EntityViews.get(entity);

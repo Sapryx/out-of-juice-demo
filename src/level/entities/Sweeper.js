@@ -1,3 +1,3 @@
-class Sweeper extends Entity {
+class Sweeper extends GameEntity {
 
 }

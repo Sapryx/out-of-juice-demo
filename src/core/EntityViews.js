@@ -5,7 +5,7 @@ const EntityViews = {
     ]),
 
     /**
-     * @param {Entity} entity
+     * @param {GameEntity} entity
      */
     get(entity) {
         return this.__entityViews.get(entity.constructor);

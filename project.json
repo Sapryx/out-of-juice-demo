@@ -36,7 +36,7 @@
             "core/G.js",
             "core/gameLoop.js",
 
-            "level/entities/Entity.js",
+            "level/entities/GameEntity.js",
             "level/entities/Player.js",
             "level/entities/Sweeper.js",
             "level/Level.js",
@@ -159,7 +159,7 @@
                 "src": [
                     "lang/*.json",
                     "shaders/*",
-                    "layouts/*.json",
+                    "layouts/**/*.json",
                     "fonts/*.*",
                     "vfx/*",
                     "build_res/*.json",
@@ -176,7 +176,7 @@
                     "build_res/data.js"
                 ],
                 "dst": "build_res/min.js",
-                "rmdebug": "debug/undebug,3d/no3d,cheats/endcheats,multiclass/unmulticlass",
+                "rmdebug": "debug/undebug,3d/no3d,cheats/endcheats",
                 "configuration": "release"
             },
             {
