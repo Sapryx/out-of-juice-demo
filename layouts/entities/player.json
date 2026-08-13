@@ -2,7 +2,8 @@
     "__childs": {
         "sprite": {
             "__img": "player",
-            "__size": [14, 26]
+            "__size": [14, 26],
+            "__ofs": [0, -21]
         }
     }
 }

@@ -15,6 +15,6 @@ class EntityViewManager {
      */
     add(entity) {
         const view = EntityViews.get(entity);
-        this.__views.set(entity, scene.__addChildBox(view));
+        this.__views.set(entity, G.levelView.__addChildBox(view));
     }
 }

@@ -3,5 +3,6 @@ const G = {
     turnManager: null,
     level: null,
 
-    entityViews: null
+    entityViews: null,
+    levelView: null
 };
