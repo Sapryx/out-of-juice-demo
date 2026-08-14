@@ -11,16 +11,19 @@ BUS.__addEventListener(
         }
 
         Input.init();
-        G.player = new Player();
+        G.defs = new Defs();
         G.turnManager = new TurnManager();
         G.level = new Level(levelWorldSize);
-
         G.entityViews = new EntityViewManager();
-        camera.__zoom = 4;
 
+        G.defs.register("player", {maxHealth: 100}, Player);
+        G.defs.register("sweeper", {maxHealth: 20}, Sweeper);
+
+        G.player = G.defs.create("player");
         G.level.addEntity(G.player, new Vector2(0, 0));
-        G.level.addEntity(new Sweeper(), new Vector2(1, 0));
+        G.level.addEntity(G.defs.create("sweeper"), new Vector2(1, 0));
 
+        camera.__zoom = 4;
         updatable.__push(gameLoop);
 
         return 1;

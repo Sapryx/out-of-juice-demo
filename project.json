@@ -29,26 +29,22 @@
         ],
         "src/": [
             "util/math2d.js",
-
             "core/input/Axis.js",
             "core/input/Input.js",
             "core/Cfg.js",
             "core/G.js",
             "core/gameLoop.js",
-
             "level/entities/GameEntity.js",
             "level/entities/Player.js",
             "level/entities/Sweeper.js",
             "level/Level.js",
             "level/TurnManager.js",
-
+            "core/Defs.js",
             "events/E.js",
             "events/AddEntity_CreateEntityView.js",
             "events/EntityMove_PlayMoveAnimation.js",
-
             "render/EntityView.js",
             "render/EntityViewManager.js",
-
             "core/EntityViewPrefabs.js",
             "bootstrap/loading.js",
             "bootstrap/main.js"

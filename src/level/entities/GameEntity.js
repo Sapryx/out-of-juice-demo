@@ -1,8 +1,10 @@
 class GameEntity {
-    constructor() {
+    constructor(config) {
         this.next = this;
         this.prev = this;
         this._position = new Vector2(0, 0);
+        this._health = config.maxHealth;
+        this._maxHealth = config.maxHealth;
     }
 
     /**
