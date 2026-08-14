@@ -16,16 +16,27 @@ BUS.__addEventListener(
         G.level = new Level(levelWorldSize);
         G.entityViews = new EntityViewManager();
 
-        G.defs.register("player", {maxHealth: 100}, Player);
-        G.defs.register("sweeper", {maxHealth: 20}, Sweeper);
-
-        G.player = G.defs.create("player");
-        G.level.addEntity(G.player, new Vector2(0, 0));
-        G.level.addEntity(G.defs.create("sweeper"), new Vector2(1, 0));
-
         camera.__zoom = 4;
-        updatable.__push(gameLoop);
+
+        registerConfig("player", Player)
+            .then(() => registerConfig("sweeper", Sweeper))
+            .then(() => {
+                G.player = G.defs.create("player");
+
+                G.level.addEntity(G.player, new Vector2(0, 0));
+                G.level.addEntity(G.defs.create("sweeper"), new Vector2(1, 0));
+
+                updatable.__push(gameLoop);
+            });
 
         return 1;
     }
 );
+
+function registerConfig(id, factory) {
+    return fetch(`configs/${id}.json`)
+        .then(response => response.json())
+        .then(config => {
+            G.defs.register(id, config, factory);
+        });
+}

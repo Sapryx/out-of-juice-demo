@@ -69,7 +69,7 @@
         "__baseLayoutsFolder": "layouts/",
         "__baseParticlesFolder": "vfx/",
         "__baseFontsFolder": "fonts/",
-        "__baseConfigsFolder": "conf/",
+        "__baseConfigsFolder": "configs/",
         "__disablePacking": 1
     },
     "res": [
