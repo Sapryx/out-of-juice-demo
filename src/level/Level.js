@@ -30,7 +30,6 @@ class Level {
         }
 
         BUS.__post(E.AddEntity, entity);
-        console.log(this.grid);
     }
 
     /**

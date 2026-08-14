@@ -1,39 +1,27 @@
 [
   {
-    "__imgRepeatX": 1,
-    "__imgRepeatY": 1,
-    "__needScissor": false,
+    "name": "ground",
+    "__img": "level1_ground",
     "__size": [
-      1,
-      1,
-      1,
-      1
+      448,
+      256
     ],
+    "__x": -8,
     "__childs": {
-      "ground": {
-        "__img": "level1_ground",
+      "walls": {
+        "__anchor": {
+          "x": -1,
+          "y": -1
+        },
+        "__img": "level1_walls",
         "__size": [
-          448,
-          256
+          400,
+          208
         ],
-        "__x": -8,
-        "__childs": {
-          "walls": {
-            "__anchor": {
-              "x": -1,
-              "y": -1
-            },
-            "__img": "level1_walls",
-            "__size": [
-              400,
-              208
-            ],
-            "__ofs": [
-              24,
-              -8
-            ]
-          }
-        }
+        "__ofs": [
+          24,
+          -8
+        ]
       }
     }
   }
