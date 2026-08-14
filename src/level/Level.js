@@ -1,7 +1,11 @@
 class Level {
-    constructor() {
-        this.rootEntity = null;
-        this.grid = new Map();
+    /**
+     * @param {Vector2} size
+     */
+    constructor(size) {
+        this._rootEntity = null;
+        this._grid = new Map();
+        this._size = size;
     }
 
     /**
@@ -17,16 +21,16 @@ class Level {
 
         this.moveEntity(entity, position);
 
-        if(this.rootEntity == null) {
-            this.rootEntity = entity;
+        if(this._rootEntity == null) {
+            this._rootEntity = entity;
         } else {
-            const beforeRootEntity = this.rootEntity.prev;
+            const beforeRootEntity = this._rootEntity.prev;
 
             beforeRootEntity.next = entity;
             entity.prev = beforeRootEntity;
 
-            this.rootEntity.prev = entity;
-            entity.next = this.rootEntity;
+            this._rootEntity.prev = entity;
+            entity.next = this._rootEntity;
         }
 
         BUS.__post(E.AddEntity, entity);
@@ -38,8 +42,8 @@ class Level {
     removeEntity(entity) {
         const entityIsLast = entity.next === entity;
 
-        if(entity === this.rootEntity) {
-            this.rootEntity = entityIsLast ? null : entity.next;
+        if(entity === this._rootEntity) {
+            this._rootEntity = entityIsLast ? null : entity.next;
         }
 
         if(!entityIsLast) {
@@ -51,7 +55,7 @@ class Level {
 
         entity.next = null;
         entity.prev = null;
-        this.grid.set(entity.position.y + 100 * entity.position.x, entity);
+        this._grid.set(this._getPositionHash(entity.position), entity);
     }
 
     /**
@@ -65,21 +69,21 @@ class Level {
             return;
         }
 
-        this.grid.delete(entity.position.y + 100 * entity.position.x);
+        this._grid.delete(this._getPositionHash(entity.position));
         entity.position = position;
-        this.grid.set(position.y + 100 * position.x, entity);
+        this._grid.set(this._getPositionHash(position), entity);
     }
 
     tick() {
-        if(this.rootEntity == null) {
+        if(this._rootEntity == null) {
             return;
         }
 
-        let current = this.rootEntity;
+        let current = this._rootEntity;
         current.tick();
         current = current.next;
 
-        while(current !== this.rootEntity) {
+        while(current !== this._rootEntity) {
             current.tick();
             current = current.next;
         }
@@ -91,6 +95,15 @@ class Level {
      * @private
      */
     _isFree(position) {
-        return !this.grid.has(position.y + 100 * position.x);
+        return !this._grid.has(this._getPositionHash(position));
+    }
+
+    /**
+     * @param {Vector2} position
+     * @returns {int}
+     * @private
+     */
+    _getPositionHash(position) {
+        return position.y + this._size.x * position.x;
     }
 }

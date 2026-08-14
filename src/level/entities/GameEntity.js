@@ -5,10 +5,16 @@ class GameEntity {
         this._position = new Vector2(0, 0);
     }
 
+    /**
+     * @returns {Vector2}
+     */
     get position() {
         return this._position;
     }
 
+    /**
+     * @param {Vector2} value
+     */
     set position(value) {
         this._position = value;
     }

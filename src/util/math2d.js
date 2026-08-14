@@ -28,5 +28,13 @@ const math2d = {
      */
     mul(vector, scalar) {
         return new Vector2(vector.x * scalar, vector.y * scalar);
+    },
+
+    /**
+     * @param {Vector2} vector
+     * @param {number} scalar
+     */
+    div(vector, scalar) {
+        return new Vector2(vector.x / scalar, vector.y / scalar);
     }
 };
