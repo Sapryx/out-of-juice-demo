@@ -13,6 +13,15 @@ const math2d = {
     },
 
     /**
+     * @param {Vector2} vector1
+     * @param {Vector2} vector2
+     * @returns {Vector2}
+     */
+    sum(vector1, vector2) {
+        return new Vector2(vector1.x + vector2.x, vector1.y + vector2.y);
+    },
+
+    /**
      * @param {Vector2} vector
      * @param {number} scalar
      * @returns {Vector2}

@@ -17,11 +17,17 @@ class GameEntity {
 
     }
 
-    moveHorizontal(direction) {
-        this._position.x += direction;
+    /**
+     * @param {Vector2} position
+     */
+    moveTo(position) {
+        G.level.moveEntity(this, position);
     }
 
-    moveVertical(direction) {
-        this._position.y += direction;
+    /**
+     * @param {Vector2} offset
+     */
+    moveBy(offset) {
+        this.moveTo(math2d.sum(this.position, offset));
     }
 }

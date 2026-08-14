@@ -9,8 +9,13 @@ class Level {
      * @param {Vector2} position
      */
     addEntity(entity, position) {
-        this.grid.set(position, entity);
-        entity.position = position;
+        const targetIsFree = this._isFree(position);
+
+        if(!targetIsFree) {
+            return;
+        }
+
+        this.moveEntity(entity, position);
 
         if(this.rootEntity == null) {
             this.rootEntity = entity;
@@ -25,6 +30,7 @@ class Level {
         }
 
         BUS.__post(E.AddEntity, entity);
+        console.log(this.grid);
     }
 
     /**
@@ -46,7 +52,23 @@ class Level {
 
         entity.next = null;
         entity.prev = null;
-        this.grid.set(entity.position, entity);
+        this.grid.set(entity.position.y + 100 * entity.position.x, entity);
+    }
+
+    /**
+     * @param {GameEntity} entity
+     * @param {Vector2} position
+     */
+    moveEntity(entity, position) {
+        const targetIsFree = this._isFree(position);
+
+        if(!targetIsFree) {
+            return;
+        }
+
+        this.grid.delete(entity.position.y + 100 * entity.position.x);
+        entity.position = position;
+        this.grid.set(position.y + 100 * position.x, entity);
     }
 
     tick() {
@@ -62,5 +84,14 @@ class Level {
             current.tick();
             current = current.next;
         }
+    }
+
+    /**
+     * @param {Vector2} position
+     * @returns {boolean}
+     * @private
+     */
+    _isFree(position) {
+        return !this.grid.has(position.y + 100 * position.x);
     }
 }

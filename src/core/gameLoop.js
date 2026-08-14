@@ -27,9 +27,7 @@ function handleInput() {
  */
 function movePlayer(movementInput) {
     G.turnManager.isPlayerTurn = false;
-
-    G.player.moveHorizontal(movementInput.x);
-    G.player.moveVertical(movementInput.y);
+    G.player.moveBy(movementInput);
 
     BUS.__post(E.EntityMove, G.player);
 }
