@@ -77,6 +77,11 @@
             "locale"
         ],
         [
+            "config",
+            "player.json",
+            "sweeper.json"
+        ],
+        [
             "sound",
             "build_res/sounds.json"
         ],
@@ -157,6 +162,7 @@
                     "lang/*.json",
                     "shaders/*",
                     "layouts/**/*.json",
+                    "configs/**/*.json",
                     "fonts/*.*",
                     "vfx/*",
                     "build_res/*.json",
