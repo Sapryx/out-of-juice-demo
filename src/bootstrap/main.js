@@ -59,7 +59,7 @@ function loadEntityDefs(defs, entries, onLoaded) {
     }
 
     entries.forEach(([id, factory]) => {
-        getJson(`configs/${id}.json`, (config) => {
+        getJson(`configs/entities/${id}.json`, (config) => {
             defs.register(id, config, factory);
 
             remaining--;

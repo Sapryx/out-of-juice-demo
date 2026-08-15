@@ -79,8 +79,8 @@
         [
             "config",
             "game.json",
-            "player.json",
-            "sweeper.json"
+            "entities/player.json",
+            "entities/sweeper.json"
         ],
         [
             "sound",
