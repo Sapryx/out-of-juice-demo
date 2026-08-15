@@ -31,7 +31,7 @@
             "util/math2d.js",
             "core/input/Axis.js",
             "core/input/Input.js",
-            "core/Cfg.js",
+            "core/GameConfig.js",
             "core/G.js",
             "core/gameLoop.js",
             "level/entities/GameEntity.js",
@@ -78,6 +78,7 @@
         ],
         [
             "config",
+            "game.json",
             "player.json",
             "sweeper.json"
         ],

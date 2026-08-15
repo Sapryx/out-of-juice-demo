@@ -3,6 +3,7 @@ const G = {
     turnManager: null,
     level: null,
     defs: null,
+    config: null,
 
     entityViews: null,
     levelView: null

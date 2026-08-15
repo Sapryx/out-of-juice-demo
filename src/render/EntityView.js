@@ -15,8 +15,8 @@ class EntityView {
      * @param {Vector2} value
      */
     set position(value) {
-        this._node.__x = value.x * Cfg.TileSize;
-        this._node.__y = value.y * Cfg.TileSize;
+        this._node.__x = value.x * G.config.tileSize;
+        this._node.__y = value.y * G.config.tileSize;
     }
 
     /**
@@ -25,8 +25,8 @@ class EntityView {
      */
     animateTo(worldPos, speed) {
         return anim(this._node, {
-            __x: worldPos.x * Cfg.TileSize,
-            __y: -worldPos.y * Cfg.TileSize
+            __x: worldPos.x * G.config.tileSize,
+            __y: -worldPos.y * G.config.tileSize
         }, speed);
     }
 }
