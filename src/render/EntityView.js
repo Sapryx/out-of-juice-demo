@@ -16,7 +16,7 @@ class EntityView {
      */
     set position(value) {
         this._node.__x = value.x * G.config.tileSize;
-        this._node.__y = value.y * G.config.tileSize;
+        this._node.__y = -value.y * G.config.tileSize;
     }
 
     /**

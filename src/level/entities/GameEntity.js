@@ -36,6 +36,6 @@ class GameEntity {
      * @param {Vector2} offset
      */
     moveBy(offset) {
-        this.moveTo(math2d.sum(this.position, offset));
+        this.moveTo(math2d.add(this.position, offset));
     }
 }

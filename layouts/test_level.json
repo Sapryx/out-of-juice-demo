@@ -1,19 +1,24 @@
 [
   {
     "name": "ground",
-    "__img": "level1_ground",
+    "__img": "room_1_ground",
+    "sha": 0,
+    "sva": 2,
     "__size": [
       448,
       256
     ],
-    "__x": -8,
+    "__ofs": [
+      -8,
+      8
+    ],
     "__childs": {
       "walls": {
         "__anchor": {
           "x": -1,
           "y": -1
         },
-        "__img": "level1_walls",
+        "__img": "room_1_walls",
         "__size": [
           400,
           208

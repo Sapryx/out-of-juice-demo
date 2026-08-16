@@ -19,24 +19,27 @@ BUS.__addEventListener(
         const levelScreenSize = new Vector2(levelNode.__width, levelNode.__height);
         const levelWorldSize = math2d.div(levelScreenSize, G.config.tileSize);
 
+        camera.__zoom = 4;
+        camera.__x = levelNode.__width / 2 - 8;
+        camera.__y = levelNode.__height / 2 - 8;
+
         if(levelWorldSize.y > levelWorldSize.x) {
             throw new Error("Level width must be greater than the height for the current position tracking to work!");
         }
 
+        getJson("configs/rooms/room_1_col.json", (collisionMap) => {
+            G.level = new Level(levelWorldSize, collisionMap);
+        });
+
         Input.init();
         G.defs = new Defs();
         G.turnManager = new TurnManager();
-        G.level = new Level(levelWorldSize);
         G.entityViews = new EntityViewManager();
-
-        camera.__zoom = 4;
-
-
 
         loadEntityDefs(G.defs, ENTITY_FACTORIES, () => {
             G.player = G.defs.create("player");
-            G.level.addEntity(G.player, new Vector2(0, 0));
-            G.level.addEntity(G.defs.create("sweeper"), new Vector2(1, 0));
+            G.level.addEntity(G.player, new Vector2(5, 8));
+            G.level.addEntity(G.defs.create("sweeper"), new Vector2(7, 9));
 
             updatable.__push(gameLoop);
         });

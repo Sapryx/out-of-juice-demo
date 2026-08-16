@@ -1,4 +1,5 @@
 import argparse
+import json
 
 import numpy as np
 from PIL import Image
@@ -25,14 +26,16 @@ def collision_numpy(alpha: np.ndarray, tile_size: int) -> np.ndarray:
     blocks = alpha.reshape(tiles_y, tile_size, tiles_x, tile_size)
     block_max = blocks.max(axis=(1, 3))
 
-    return block_max > 0
+    return (block_max > 0).astype(np.uint8)
 
 
-def grid_to_ascii(grid: np.ndarray) -> str:
-    return "\n".join(
-        "".join("#" if cell else "." for cell in row)
+def grid_to_json(grid: np.ndarray) -> str:
+    rows = [
+        json.dumps(row.tolist(), separators=(", ", ":"))
         for row in grid
-    )
+    ]
+
+    return "[\n" + ",\n".join(rows) + "\n]"
 
 
 def main():
@@ -42,21 +45,21 @@ def main():
     parser.add_argument(
         "--out",
         default=None,
-        help="where to save the ASCII map (defaults to stdout)",
+        help="where to save the JSON map (defaults to stdout)",
     )
     args = parser.parse_args()
 
     alpha = load_alpha(args.png)
     grid = collision_numpy(alpha, args.tile_size)
-    ascii_map = grid_to_ascii(grid)
+    collision_map = grid_to_json(grid)
 
     if args.out:
         with open(args.out, "w") as f:
-            f.write(ascii_map)
+            f.write(collision_map)
 
         print(f"Saved to {args.out}")
     else:
-        print(ascii_map)
+        print(collision_map)
 
 
 if __name__ == "__main__":

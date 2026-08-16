@@ -17,8 +17,12 @@ const math2d = {
      * @param {Vector2} vector2
      * @returns {Vector2}
      */
-    sum(vector1, vector2) {
+    add(vector1, vector2) {
         return new Vector2(vector1.x + vector2.x, vector1.y + vector2.y);
+    },
+
+    sub(vector1, vector2) {
+        return new Vector2(vector1.x - vector2.x, vector1.y - vector2.y);
     },
 
     /**
