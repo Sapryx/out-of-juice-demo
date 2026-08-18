@@ -105,7 +105,14 @@ class Level {
      */
     _isFree(position) {
         const index = this._getPositionHash(position);
-        return !this._collisionMap[index] && !this._grid.has(index);
+        return !this._isCollider(position) && !this._grid.has(index);
+    }
+
+    _isCollider(position) {
+        const offsetPosition = new Vector2(position.x - this._size.x / 2, position.y + this._size.y / 2);
+        const index = this._getPositionHash(offsetPosition);
+
+        return this._collisionMap[index];
     }
 
     /**
@@ -131,8 +138,8 @@ class Level {
                 const tile = G.levelView.__addChildBox("collision_debug");
 
                 tile.__color = 0xFF00FF;
-                tile.__x = x * tileSize;
-                tile.__y = -y * tileSize;
+                tile.__x = (x - (this._size.x / 2)) * tileSize;
+                tile.__y = -(y - (this._size.y / 2)) * tileSize - 16;
                 tile.__width = tileSize;
                 tile.__height = tileSize;
             }

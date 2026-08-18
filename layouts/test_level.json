@@ -2,22 +2,16 @@
   {
     "name": "ground",
     "__img": "room_1_ground",
-    "sha": 0,
-    "sva": 2,
     "__size": [
       448,
       256
     ],
     "__ofs": [
       -8,
-      8
+      -8
     ],
     "__childs": {
       "walls": {
-        "__anchor": {
-          "x": -1,
-          "y": -1
-        },
         "__img": "room_1_walls",
         "__size": [
           400,
