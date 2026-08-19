@@ -11,7 +11,7 @@ class LevelGenerator {
         const startRoom = new Room(startRoomNode, startRoomAsset);
 
         console.log("Generating level...");
-        console.log(`Using level type: ${levelType.id}`)
+        console.log(`Using level type: ${levelType.id}`);
         console.log(`Discovered ${G.roomAssetRegistry.count} unique rooms`);
 
         this._placeRoom(new Vector2(0, 0), startRoom);
@@ -74,6 +74,7 @@ class LevelGenerator {
     _placeRoom(position, room) {
         console.log(`Placing room ${room.asset.id} at ${position}`);
 
+        console.log(position);
         room.position = position;
 
         for(const tile of room.asset.getTiles()) {
@@ -83,6 +84,15 @@ class LevelGenerator {
             tileView.__x = (position.x + tile.position.x) * G.config.tileSize;
             tileView.__y = -(position.y + tile.position.y) * G.config.tileSize;
             tileView.__color = 0xFF0000;
+            tileView.__text = {
+                __text: `(${position.x + tile.position.x};${position.y + tile.position.y})`,
+                __fontsize: 10
+            };
+
+            if(tile.data != null) {
+                tileView.__color = 0xFF0;
+            }
+
         }
 
         this._roomsToProcess.enqueue(room);

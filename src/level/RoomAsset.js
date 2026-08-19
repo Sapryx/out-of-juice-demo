@@ -8,8 +8,8 @@ class RoomAsset {
         this._doors = [];
         this._tiles = config.cells.map(tileConfig => {
             const tile = new RoomTile();
-            tile.position.x = tileConfig.x;
-            tile.position.y = tileConfig.y;
+            tile.position.x = tileConfig.x - config.boundingBox.x;
+            tile.position.y = tileConfig.y - config.boundingBox.y;
 
             if(tileConfig.tile != null) {
                 tile.textureOffset = new Vector2(tileConfig.tile.x, tileConfig.tile.y);
