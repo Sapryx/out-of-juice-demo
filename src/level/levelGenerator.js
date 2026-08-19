@@ -9,32 +9,45 @@ class LevelGenerator {
         const startRoomNode = levelType.getRooms().find(roomNode => roomNode.type === "start");
         const startRoomAsset = G.roomAssetRegistry.getFirstOfType("start");
         const startRoom = new Room(startRoomNode, startRoomAsset);
+        const processedNodes = new Set([startRoomNode]);
 
         console.log("Generating level...");
         console.log(`Using level type: ${levelType.id}`);
         console.log(`Discovered ${G.roomAssetRegistry.count} unique rooms`);
 
         this._placeRoom(new Vector2(0, 0), startRoom);
+        this._roomsToProcess.enqueue(startRoom);
 
         while(!this._roomsToProcess.isEmpty()) {
             const currentRoom = this._roomsToProcess.dequeue();
             const connectedNodes = currentRoom.node.getConnectedNodes();
 
             for(const candidateNode of connectedNodes) {
+                if(processedNodes.has(candidateNode)) {
+                    continue;
+                }
+
+                console.log(candidateNode.type);
                 const roomAssetsOfType = G.roomAssetRegistry.getForType(candidateNode.type);
 
                 for(const candidateAsset of roomAssetsOfType) {
                     const [doorOffset, door1, door2] = this._matchDoors(currentRoom.getFreeDoors(), candidateAsset.getDoors());
 
-                    if(doorOffset != null) {
-                        const roomPosition = math2d.add(currentRoom.position, doorOffset);
-                        const candidateRoom = new Room(candidateNode, candidateAsset);
-                        this._placeRoom(roomPosition, candidateRoom);
-
-                        currentRoom.reserveDoor(door1);
-                        candidateRoom.reserveDoor(door2);
-                        roomAssetsOfType.splice(roomAssetsOfType.indexOf(candidateAsset), 1);
+                    if(doorOffset == null) {
+                        continue;
                     }
+
+                    const roomPosition = math2d.add(currentRoom.position, doorOffset);
+                    const candidateRoom = new Room(candidateNode, candidateAsset);
+                    this._placeRoom(roomPosition, candidateRoom);
+
+                    currentRoom.reserveDoor(door1);
+                    candidateRoom.reserveDoor(door2);
+                    roomAssetsOfType.splice(roomAssetsOfType.indexOf(candidateAsset), 1);
+                    processedNodes.add(candidateNode);
+
+                    this._roomsToProcess.enqueue(candidateRoom);
+                    break;
                 }
             }
         }
@@ -73,9 +86,9 @@ class LevelGenerator {
      * @param {Room} room
      */
     _placeRoom(position, room) {
-        console.log(`Placing "${room.asset.id}" at (${position.x}; ${position.y})`);
-
         room.position = position;
+
+        console.log(`Placing "${room.asset.id}" at (${position.x}; ${position.y})`);
 
         for(const tile of room.asset.getTiles()) {
             const tileView = G.levelView.__addChildBox("entities/sweeper.json");
@@ -97,7 +110,5 @@ class LevelGenerator {
                 }
             }
         }
-
-        this._roomsToProcess.enqueue(room);
     }
 }

@@ -8,6 +8,7 @@ const LEVEL_TYPE_COUNT = 1;
 const ROOM_ASSETS = [
     ["combat", 3],
     ["hub", 1],
+    ["exit", 1],
     ["start", 1]
 ];
 
