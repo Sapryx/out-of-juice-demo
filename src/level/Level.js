@@ -2,6 +2,8 @@ class Level {
     constructor() {
         this._rootEntity = null;
         this._grid = new Map();
+        this._rooms = [];
+        this._spawnPoint = null;
     }
 
     /**
@@ -30,6 +32,17 @@ class Level {
         }
 
         BUS.__post(E.AddEntity, entity);
+    }
+
+    /**
+     * @param {Room} room
+     */
+    pushRoom(room) {
+        this._rooms.push(room);
+
+        if(room.node.type === "start") {
+            this._spawnPoint = room.asset.getSpawnPoints()[0];
+        }
     }
 
     /**
@@ -83,6 +96,13 @@ class Level {
             current.tick();
             current = current.next;
         }
+    }
+
+    respawnPlayer() {
+        const player = G.defs.create("player");
+
+        G.player = player;
+        this.addEntity(G.player, this._spawnPoint);
     }
 
     /**

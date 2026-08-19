@@ -6,6 +6,7 @@ class RoomAsset {
     constructor(id, config) {
         this._id = id;
         this._doors = [];
+        this._spawnPoints = [];
         this._tiles = config.cells.map(tileConfig => {
             const tile = new RoomTile();
             tile.position.x = tileConfig.x - config.boundingBox.x;
@@ -15,25 +16,16 @@ class RoomAsset {
                 tile.textureOffset = new Vector2(tileConfig.tile.x, tileConfig.tile.y);
             }
 
-            tile.data = tileConfig.data;
+            if(tileConfig.data != null) {
+                tile.data = tileConfig.data;
 
-            const tileIsDoor = tile.data != null && tile.data.type === "door";
-
-            if(tileIsDoor) {
-                let directionVector = new Vector2(0, 0);
-
-                switch(tile.data.direction) {
-                    case "north": directionVector.y = 1; break;
-                    case "south": directionVector.y = -1; break;
-                    case "west": directionVector.x = -1; break;
-                    case "east": directionVector.x = 1; break;
-                    default:
-                        throw new Error(`Door at (${tile.position.x};${tile.position.y}) ` +
-                            `from "${id}" has invalid or missing direction: "${tile.data.direction}"`);
+                if(tile.data.type === "door") {
+                    this._addDoor(tile);
                 }
 
-                const door = new Door(tile.position, directionVector);
-                this._doors.push(door);
+                if(tile.data.type === "spawn") {
+                    this._addSpawnPoint(tile);
+                }
             }
 
             return tile;
@@ -53,5 +45,41 @@ class RoomAsset {
 
     getDoors() {
         return this._doors;
+    }
+
+    /**
+     * @returns {Array<Vector2>}
+     */
+    getSpawnPoints() {
+        return this._spawnPoints;
+    }
+
+    /**
+     * @param {RoomTile} tile
+     * @private
+     */
+    _addDoor(tile) {
+        let directionVector = new Vector2(0, 0);
+
+        switch(tile.data.direction) {
+            case "north": directionVector.y = 1; break;
+            case "south": directionVector.y = -1; break;
+            case "west": directionVector.x = -1; break;
+            case "east": directionVector.x = 1; break;
+            default:
+                throw new Error(`Door at (${tile.position.x};${tile.position.y}) ` +
+                    `from "${id}" has invalid or missing direction: "${tile.data.direction}"`);
+        }
+
+        const door = new Door(tile.position, directionVector);
+        this._doors.push(door);
+    }
+
+    /**
+     * @param {RoomTile} tile
+     * @private
+     */
+    _addSpawnPoint(tile) {
+        this._spawnPoints.push(tile.position);
     }
 }

@@ -15,8 +15,7 @@ class LevelGenerator {
         console.log(`Using level type: ${levelType.id}`);
         console.log(`Discovered ${G.roomAssetRegistry.count} unique rooms`);
 
-        this._placeRoom(new Vector2(0, 0), startRoom);
-        this._roomsToProcess.enqueue(startRoom);
+        this._placeRoom(level, startRoom, new Vector2(0, 0));
 
         while(!this._roomsToProcess.isEmpty()) {
             const currentRoom = this._roomsToProcess.dequeue();
@@ -30,6 +29,10 @@ class LevelGenerator {
                 const roomAssetsOfType = G.roomAssetRegistry.getForType(candidateNode.type);
 
                 for(const candidateAsset of roomAssetsOfType) {
+                    if(candidateAsset.getDoors().length !== candidateNode.connectedNodes.length) {
+                        continue;
+                    }
+
                     const [doorOffset, door1, door2] = this._matchDoors(currentRoom.getFreeDoors(), candidateAsset.getDoors());
 
                     if(doorOffset == null) {
@@ -38,14 +41,13 @@ class LevelGenerator {
 
                     const roomPosition = math2d.add(currentRoom.position, doorOffset);
                     const candidateRoom = new Room(candidateNode, candidateAsset);
-                    this._placeRoom(roomPosition, candidateRoom);
+                    this._placeRoom(level, candidateRoom, roomPosition);
 
                     currentRoom.reserveDoor(door1);
                     candidateRoom.reserveDoor(door2);
                     roomAssetsOfType.splice(roomAssetsOfType.indexOf(candidateAsset), 1);
                     processedNodes.add(candidateNode);
 
-                    this._roomsToProcess.enqueue(candidateRoom);
                     break;
                 }
             }
@@ -80,11 +82,16 @@ class LevelGenerator {
         return [null, null, null];
     }
 
+
     /**
-     * @param {Vector2} position
+     * @param {Level} level
      * @param {Room} room
+     * @param {Vector2} position
      */
-    _placeRoom(position, room) {
+    _placeRoom(level, room, position) {
+        this._roomsToProcess.enqueue(room);
+        level.pushRoom(room);
+
         room.position = position;
 
         console.log(`Placing "${room.asset.id}" at (${position.x}; ${position.y})`);

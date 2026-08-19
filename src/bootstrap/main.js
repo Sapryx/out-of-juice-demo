@@ -39,9 +39,7 @@ function initializeGame() {
 }
 
 function startGame() {
-    G.player = G.defs.create("player");
-    G.level.addEntity(G.player, new Vector2(-8, 0));
-    // G.level.addEntity(G.defs.create("sweeper"), new Vector2(-8, 1));
+    G.level.respawnPlayer();
 
     updatable.__push(gameLoop);
 }
