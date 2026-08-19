@@ -27,7 +27,6 @@ class LevelGenerator {
                     continue;
                 }
 
-                console.log(candidateNode.type);
                 const roomAssetsOfType = G.roomAssetRegistry.getForType(candidateNode.type);
 
                 for(const candidateAsset of roomAssetsOfType) {
@@ -72,7 +71,7 @@ class LevelGenerator {
                     continue;
                 }
 
-                const offset = math2d.sub(door2.position, door1.position);
+                const offset = math2d.sub(door1.position, door2.position);
 
                 return [offset, door1, door2];
             }
