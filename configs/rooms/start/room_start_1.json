@@ -137,7 +137,8 @@
       "ruleTile": null,
       "resolvedTile": null,
       "data": {
-        "type": "door"
+        "type": "door",
+        "directin": "south"
       }
     },
     {

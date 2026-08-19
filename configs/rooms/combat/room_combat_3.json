@@ -401,7 +401,8 @@
       "ruleTile": null,
       "resolvedTile": null,
       "data": {
-        "type": "door"
+        "type": "door",
+        "direction": "north"
       }
     },
     {
@@ -411,7 +412,8 @@
       "ruleTile": null,
       "resolvedTile": null,
       "data": {
-        "type": "door"
+        "type": "door",
+        "directin": "west"
       }
     }
   ]
