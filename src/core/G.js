@@ -4,6 +4,8 @@ const G = {
     level: null,
     defs: null,
     config: null,
+    roomAssetRegistry: null,
+    levelTypeRegistry: null,
 
     entityViews: null,
     levelView: null

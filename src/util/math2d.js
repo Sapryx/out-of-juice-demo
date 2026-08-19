@@ -40,5 +40,13 @@ const math2d = {
      */
     div(vector, scalar) {
         return new Vector2(vector.x / scalar, vector.y / scalar);
+    },
+
+    equal(vector1, vector2) {
+        return vector1.x === vector2.x && vector1.y === vector2.y;
+    },
+
+    neg(vector) {
+        return new Vector2(-vector.x, -vector.y);
     }
 };

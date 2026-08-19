@@ -1,20 +1,7 @@
 class Level {
-    /**
-     * @param {Vector2} size
-     * @param {bool[][]} collisionMap
-     */
-    constructor(size, collisionMap) {
+    constructor() {
         this._rootEntity = null;
         this._grid = new Map();
-        this._size = size;
-        this._collisionMap = collisionMap.slice().reverse().flat();
-    }
-
-    /**
-     * @returns {Vector2}
-     */
-    get size() {
-        return this._size;
     }
 
     /**
@@ -105,44 +92,15 @@ class Level {
      */
     _isFree(position) {
         const index = this._getPositionHash(position);
-        return !this._isCollider(position) && !this._grid.has(index);
-    }
-
-    _isCollider(position) {
-        const offsetPosition = new Vector2(position.x - this._size.x / 2, position.y + this._size.y / 2);
-        const index = this._getPositionHash(offsetPosition);
-
-        return this._collisionMap[index];
+        return !this._grid.has(index);
     }
 
     /**
      * @param {Vector2} position
-     * @returns {int}
+     * @returns {string}
      * @private
      */
     _getPositionHash(position) {
-        return position.x + this._size.x * position.y;
-    }
-
-    _debugCollision() {
-        const tileSize = G.config.tileSize;
-
-        for(let y = 0; y < this._size.y; y++) {
-            for(let x = 0; x < this._size.x; x++) {
-                const index = x + this._size.x * y;
-
-                if(!this._collisionMap[index]) {
-                    continue;
-                }
-
-                const tile = G.levelView.__addChildBox("collision_debug");
-
-                tile.__color = 0xFF00FF;
-                tile.__x = (x - (this._size.x / 2)) * tileSize;
-                tile.__y = -(y - (this._size.y / 2)) * tileSize - 16;
-                tile.__width = tileSize;
-                tile.__height = tileSize;
-            }
-        }
+        return `${position.x},${position.y}`;
     }
 }

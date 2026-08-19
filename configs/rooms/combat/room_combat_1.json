@@ -1,0 +1,506 @@
+{
+  "format": "simple-tile-editor",
+  "version": 2,
+  "tileset": {
+    "name": "wall_tileset.png",
+    "width": 80,
+    "height": 48,
+    "tileWidth": 16,
+    "tileHeight": 16
+  },
+  "map": {
+    "width": 30,
+    "height": 20
+  },
+  "ruleTiles": [],
+  "boundingBox": {
+    "x": 7,
+    "y": 6,
+    "width": 12,
+    "height": 12
+  },
+  "cells": [
+    {
+      "x": 7,
+      "y": 9,
+      "tile": {
+        "x": 0,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 7,
+      "y": 10,
+      "tile": {
+        "x": 0,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 7,
+      "y": 11,
+      "tile": {
+        "x": 0,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 12,
+      "tile": {
+        "x": 1,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 12,
+      "tile": {
+        "x": 1,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 12,
+      "tile": {
+        "x": 1,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 7,
+      "y": 15,
+      "tile": {
+        "x": 0,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 7,
+      "y": 14,
+      "tile": {
+        "x": 0,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 7,
+      "y": 13,
+      "tile": {
+        "x": 0,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 12,
+      "tile": {
+        "x": 3,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 7,
+      "y": 8,
+      "tile": {
+        "x": 0,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 7,
+      "y": 7,
+      "tile": {
+        "x": 0,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 7,
+      "y": 6,
+      "tile": {
+        "x": 0,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 8,
+      "y": 6,
+      "tile": {
+        "x": 1,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 9,
+      "y": 6,
+      "tile": {
+        "x": 1,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 10,
+      "y": 6,
+      "tile": {
+        "x": 1,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 6,
+      "tile": {
+        "x": 1,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 6,
+      "tile": {
+        "x": 1,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 6,
+      "tile": {
+        "x": 1,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 6,
+      "tile": {
+        "x": 1,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 6,
+      "tile": {
+        "x": 1,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 17,
+      "y": 6,
+      "tile": {
+        "x": 1,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 18,
+      "y": 6,
+      "tile": {
+        "x": 2,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 18,
+      "y": 7,
+      "tile": {
+        "x": 2,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 18,
+      "y": 8,
+      "tile": {
+        "x": 2,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 18,
+      "y": 9,
+      "tile": {
+        "x": 2,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 18,
+      "y": 10,
+      "tile": {
+        "x": 2,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 18,
+      "y": 11,
+      "tile": {
+        "x": 2,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 18,
+      "y": 12,
+      "tile": {
+        "x": 2,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 17,
+      "y": 12,
+      "tile": {
+        "x": 1,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 13,
+      "tile": {
+        "x": 2,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 16,
+      "tile": {
+        "x": 2,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 17,
+      "tile": {
+        "x": 2,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 17,
+      "tile": {
+        "x": 1,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 17,
+      "tile": {
+        "x": 1,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 10,
+      "y": 17,
+      "tile": {
+        "x": 1,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 9,
+      "y": 17,
+      "tile": {
+        "x": 1,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 8,
+      "y": 17,
+      "tile": {
+        "x": 1,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 7,
+      "y": 17,
+      "tile": {
+        "x": 0,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 7,
+      "y": 16,
+      "tile": {
+        "x": 0,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 14,
+      "tile": {
+        "x": 2,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 15,
+      "tile": {
+        "x": 2,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 6,
+      "tile": null,
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "door"
+      }
+    },
+    {
+      "x": 7,
+      "y": 12,
+      "tile": null,
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "door"
+      }
+    }
+  ]
+}
