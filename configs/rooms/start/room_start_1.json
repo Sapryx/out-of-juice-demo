@@ -138,7 +138,7 @@
       "resolvedTile": null,
       "data": {
         "type": "door",
-        "directin": "south"
+        "direction": "south"
       }
     },
     {

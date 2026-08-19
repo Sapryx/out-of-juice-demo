@@ -27,6 +27,9 @@ class RoomAsset {
                     case "south": directionVector.y = -1; break;
                     case "west": directionVector.x = -1; break;
                     case "east": directionVector.x = 1; break;
+                    default:
+                        throw new Error(`Door at (${tile.position.x};${tile.position.y}) ` +
+                            `from "${id}" has invalid or missing direction: "${tile.data.direction}"`);
                 }
 
                 const door = new Door(tile.position, directionVector);

@@ -32,7 +32,8 @@ class LevelGenerator {
                         this._placeRoom(roomPosition, candidateRoom);
 
                         currentRoom.reserveDoor(door1);
-                        roomAssetsOfType.splice(roomAssetsOfType.indexOf(candidateAsset));
+                        candidateRoom.reserveDoor(door2);
+                        roomAssetsOfType.splice(roomAssetsOfType.indexOf(candidateAsset), 1);
                     }
                 }
             }
@@ -72,9 +73,8 @@ class LevelGenerator {
      * @param {Room} room
      */
     _placeRoom(position, room) {
-        console.log(`Placing room ${room.asset.id} at ${position}`);
+        console.log(`Placing "${room.asset.id}" at (${position.x}; ${position.y})`);
 
-        console.log(position);
         room.position = position;
 
         for(const tile of room.asset.getTiles()) {
@@ -90,9 +90,12 @@ class LevelGenerator {
             };
 
             if(tile.data != null) {
-                tileView.__color = 0xFF0;
+                if(tile.data.type === "door") {
+                    tileView.__color = 0x0000FF;
+                } else {
+                    tileView.__color = 0x00FF00;
+                }
             }
-
         }
 
         this._roomsToProcess.enqueue(room);
