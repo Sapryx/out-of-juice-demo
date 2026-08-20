@@ -34,6 +34,6 @@ class EntityView {
         return anim(this._node, {
             __x: value.x * G.config.tileSize,
             __y: value.y * G.config.tileSize
-        }, speed);
+        }, speed, undefined, easeLinear);
     }
 }
