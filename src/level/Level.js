@@ -1,7 +1,8 @@
 class Level {
     constructor() {
         this._rootEntity = null;
-        this._grid = new Map();
+        this._entityGrid = new Map();
+        this._colliders = new Set();
         this._rooms = [];
         this._spawnPoint = null;
     }
@@ -11,7 +12,7 @@ class Level {
      * @param {Vector2} position
      */
     addEntity(entity, position) {
-        const targetIsFree = this._isFree(position);
+        const targetIsFree = this.isTileFree(position);
 
         if(!targetIsFree) {
             return;
@@ -43,6 +44,13 @@ class Level {
         if(room.node.type === "start") {
             this._spawnPoint = room.asset.getSpawnPoints()[0];
         }
+
+        for(const tile of room.asset.getTiles().filter(tile => tile.isWall)) {
+            const tileGlobalPosition = math2d.add(tile.position, room.position);
+            const positionHash = this._getHash(tileGlobalPosition);
+
+            this._colliders.add(positionHash);
+        }
     }
 
     /**
@@ -64,23 +72,24 @@ class Level {
 
         entity.next = null;
         entity.prev = null;
-        this._grid.set(this._getPositionHash(entity.position), entity);
+        this._entityGrid.set(this._getHash(entity.position), entity);
     }
 
     /**
      * @param {GameEntity} entity
-     * @param {Vector2} position
+     * @param {Vector2} targetPosition
      */
-    moveEntity(entity, position) {
-        const targetIsFree = this._isFree(position);
-
-        if(!targetIsFree) {
+    moveEntity(entity, targetPosition) {
+        if(!this.isTileFree(targetPosition)) {
             return;
         }
 
-        this._grid.delete(this._getPositionHash(entity.position));
-        entity.position = position;
-        this._grid.set(this._getPositionHash(position), entity);
+        const currentPositionHash = this._getHash(entity.position);
+        const targetPositionHash = this._getHash(targetPosition);
+
+        entity.position = targetPosition;
+        this._entityGrid.delete(currentPositionHash);
+        this._entityGrid.set(targetPositionHash, entity);
     }
 
     tick() {
@@ -108,11 +117,27 @@ class Level {
     /**
      * @param {Vector2} position
      * @returns {boolean}
-     * @private
      */
-    _isFree(position) {
-        const index = this._getPositionHash(position);
-        return !this._grid.has(index);
+    isTileFree(position) {
+        return !this.isTileCollider(position) && !this.isEntityInTile(position);
+    }
+
+    /**
+     * @param {Vector2} position
+     * @returns {boolean}
+     */
+    isEntityInTile(position) {
+        const positionHash = this._getHash(position);
+        return this._entityGrid.has(positionHash);
+    }
+
+    /**
+     * @param {Vector2} position
+     * @returns {boolean}
+     */
+    isTileCollider(position) {
+        const positionHash = this._getHash(position);
+        return this._colliders.has(positionHash);
     }
 
     /**
@@ -120,7 +145,7 @@ class Level {
      * @returns {string}
      * @private
      */
-    _getPositionHash(position) {
+    _getHash(position) {
         return `${position.x},${position.y}`;
     }
 }

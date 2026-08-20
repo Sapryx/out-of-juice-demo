@@ -100,10 +100,10 @@ class LevelGenerator {
      * @param {Vector2} position
      */
     _placeRoom(level, room, position) {
+        room.position = position;
+
         this._roomsToProcess.enqueue(room);
         level.pushRoom(room);
-
-        room.position = position;
 
         console.log(`Placing "${room.asset.id}" at (${position.x}; ${position.y})`);
 
