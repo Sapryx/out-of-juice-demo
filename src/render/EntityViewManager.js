@@ -19,7 +19,7 @@ class EntityViewManager {
         const view = new EntityView(viewPrefab);
 
         view.init();
-        view.position = entity.position;
+        view.position = math2d.flipY(entity.position);
 
         this._views.set(entity, view);
     }

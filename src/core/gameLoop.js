@@ -2,6 +2,7 @@ let gameLoop = {
     __update: function(t, dt) {
         handleInput();
         G.level.tick();
+        updateCameraPosition();
     }
 };
 
@@ -30,4 +31,14 @@ function movePlayer(movementInput) {
     G.player.moveBy(movementInput);
 
     BUS.__post(E.EntityMove, G.player);
+}
+
+function updateCameraPosition() {
+    if(G.player == null) {
+        return;
+    }
+
+    const playerView = G.entityViews.get(G.player);
+    camera.__x = playerView.position.x;
+    camera.__y = -playerView.position.y;
 }

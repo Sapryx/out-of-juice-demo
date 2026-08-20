@@ -42,11 +42,28 @@ const math2d = {
         return new Vector2(vector.x / scalar, vector.y / scalar);
     },
 
+    /**
+     * @param {Vector2} vector1
+     * @param {Vector2} vector2
+     * @returns {boolean}
+     */
     equal(vector1, vector2) {
         return vector1.x === vector2.x && vector1.y === vector2.y;
     },
 
+    /**
+     * @param {Vector2} vector
+     * @returns {Vector2}
+     */
     neg(vector) {
         return new Vector2(-vector.x, -vector.y);
+    },
+
+    /**
+     * @param {Vector2} vector
+     * @returns {Vector2}
+     */
+    flipY(vector) {
+        return new Vector2(vector.x, -vector.y);
     }
 };

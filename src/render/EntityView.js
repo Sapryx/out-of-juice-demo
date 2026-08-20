@@ -12,21 +12,28 @@ class EntityView {
     }
 
     /**
+     * @returns {Vector2}
+     */
+    get position() {
+        return new Vector2(this._node.__x, this._node.__y);
+    }
+
+    /**
      * @param {Vector2} value
      */
     set position(value) {
         this._node.__x = value.x * G.config.tileSize;
-        this._node.__y = -value.y * G.config.tileSize;
+        this._node.__y = value.y * G.config.tileSize;
     }
 
     /**
-     * @param {Vector2} worldPos
+     * @param {Vector2} value
      * @param {float} speed
      */
-    animateTo(worldPos, speed) {
+    animateTo(value, speed) {
         return anim(this._node, {
-            __x: worldPos.x * G.config.tileSize,
-            __y: -worldPos.y * G.config.tileSize
+            __x: value.x * G.config.tileSize,
+            __y: value.y * G.config.tileSize
         }, speed);
     }
 }
