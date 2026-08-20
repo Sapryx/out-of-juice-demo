@@ -35,7 +35,7 @@ function registerContent() {
 
 function initializeGame() {
     Input.init();
-    camera.__zoom = 2;
+    camera.__zoom = 1;
 }
 
 function startGame() {

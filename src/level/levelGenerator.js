@@ -39,8 +39,15 @@ class LevelGenerator {
                         continue;
                     }
 
+                    if(doorOffset.x > doorOffset.y) {
+                        doorOffset.x += sign(doorOffset.x) * 2;
+                    } else {
+                        doorOffset.y += sign(doorOffset.y) * 2;
+                    }
+
                     const roomPosition = math2d.add(currentRoom.position, doorOffset);
                     const candidateRoom = new Room(candidateNode, candidateAsset);
+
                     this._placeRoom(level, candidateRoom, roomPosition);
 
                     currentRoom.reserveDoor(door1);
