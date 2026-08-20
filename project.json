@@ -54,6 +54,7 @@
             "events/E.js",
             "events/AddEntity_CreateEntityView.js",
             "events/EntityMove_PlayMoveAnimation.js",
+            "render/StaticNodeBatch.js",
             "render/EntityView.js",
             "render/EntityViewManager.js",
             "core/EntityViewPrefabs.js",

@@ -1,10 +1,12 @@
 class LevelGenerator {
     constructor() {
         this._roomsToProcess = new Queue();
+        this._tileBatch = null;
     }
 
     generateLevel() {
         const level = new Level();
+        this._tileBatch = new StaticBatchNode();
         const levelType = G.levelTypeRegistry.getRandom();
         const startRoomNode = levelType.getRooms().find(roomNode => roomNode.type === "start");
         const startRoomAsset = G.roomAssetRegistry.getFirstOfType("start");
@@ -60,6 +62,8 @@ class LevelGenerator {
             }
         }
 
+        G.levelView.add(this._tileBatch.__bake());
+
         return level;
     }
 
@@ -104,9 +108,11 @@ class LevelGenerator {
         console.log(`Placing "${room.asset.id}" at (${position.x}; ${position.y})`);
 
         for(const tile of room.asset.getTiles()) {
-            const tileView = G.levelView.__addChildBox("entities/sweeper.json");
-            tileView.__width = G.config.tileSize;
-            tileView.__height = G.config.tileSize;
+            const tileViewParent = tile.isWall ? this._tileBatch : G.levelView;
+            const tileView = tileViewParent.__addChildBox({
+                __img: "white",
+                __size: [G.config.tileSize, G.config.tileSize]
+            });
             tileView.__x = (position.x + tile.position.x) * G.config.tileSize;
             tileView.__y = -(position.y + tile.position.y) * G.config.tileSize;
             tileView.__color = 0xFF0000;

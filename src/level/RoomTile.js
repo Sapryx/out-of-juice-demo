@@ -4,4 +4,8 @@ class RoomTile {
         this.data = null;
         this.textureOffset = null;
     }
+
+    get isWall() {
+        return this.data == null && this.textureOffset != null;
+    }
 }
