@@ -38,7 +38,7 @@ class Level {
     /**
      * @param {Room} room
      */
-    pushRoom(room) {
+    addRoom(room) {
         this._rooms.push(room);
 
         if(room.node.type === "start") {
@@ -51,6 +51,8 @@ class Level {
 
             this._colliders.add(positionHash);
         }
+
+        BUS.__post(E.AddRoom, room);
     }
 
     /**

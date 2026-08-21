@@ -8,7 +8,7 @@ class EntityView {
     }
 
     init() {
-        this._node = G.levelView.__addChildBox(this._prototype);
+        this._node = G.levelView.addNode(this._prototype);
     }
 
     /**

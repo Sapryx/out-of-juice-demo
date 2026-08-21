@@ -44,6 +44,7 @@
             "level/LevelType.js",
             "level/LevelTypeRegistry.js",
             "level/Room.js",
+            "level/RoomMatch.js",
             "level/RoomAsset.js",
             "level/RoomAssetRegistry.js",
             "level/RoomTile.js",
@@ -52,12 +53,16 @@
             "level/TurnManager.js",
             "core/Defs.js",
             "events/E.js",
-            "events/AddEntity_CreateEntityView.js",
-            "events/EntityMove_PlayMoveAnimation.js",
             "render/StaticNodeBatch.js",
             "render/EntityView.js",
             "render/EntityViewManager.js",
+            "render/LevelView.js",
             "core/EntityViewPrefabs.js",
+
+            "events/AddEntity_CreateEntityView.js",
+            "events/EntityMove_PlayMoveAnimation.js",
+            "events/AddRoom_CreateRoomView.js",
+
             "bootstrap/loading.js",
             "bootstrap/contentBootstrapper.js",
             "bootstrap/main.js"

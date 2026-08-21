@@ -1,12 +1,10 @@
 class LevelGenerator {
     constructor() {
         this._roomsToProcess = new Queue();
-        this._tileBatch = null;
     }
 
     generateLevel() {
         const level = new Level();
-        this._tileBatch = new StaticBatchNode();
         const levelType = G.levelTypeRegistry.getRandom();
         const startRoomNode = levelType.getRooms().find(roomNode => roomNode.type === "start");
         const startRoomAsset = G.roomAssetRegistry.getFirstOfType("start");
@@ -20,79 +18,115 @@ class LevelGenerator {
         this._placeRoom(level, startRoom, new Vector2(0, 0));
 
         while(!this._roomsToProcess.isEmpty()) {
-            const currentRoom = this._roomsToProcess.dequeue();
-            const connectedNodes = currentRoom.node.getConnectedNodes();
+            const targetRoom = this._roomsToProcess.dequeue();
+            const connectedRoomNodes = targetRoom.node.getConnectedNodes();
 
-            for(const candidateNode of connectedNodes) {
-                if(processedNodes.has(candidateNode)) {
+            for(const roomNode of connectedRoomNodes) {
+                if(processedNodes.has(roomNode)) {
                     continue;
                 }
 
-                const roomAssetsOfType = G.roomAssetRegistry.getForType(candidateNode.type);
+                const roomAssetsOfType = G.roomAssetRegistry.getForType(roomNode.type);
+                const targetDoorCount = roomNode.connectedNodes.length;
+                const roomMatch = this._findMatchingRoomAsset(roomAssetsOfType, targetRoom, targetDoorCount);
 
-                for(const candidateAsset of roomAssetsOfType) {
-                    if(candidateAsset.getDoors().length !== candidateNode.connectedNodes.length) {
-                        continue;
-                    }
-
-                    const [doorOffset, door1, door2] = this._matchDoors(currentRoom.getFreeDoors(), candidateAsset.getDoors());
-
-                    if(doorOffset == null) {
-                        continue;
-                    }
-
-                    if(abs(doorOffset.x) > abs(doorOffset.y)) {
-                        doorOffset.x += sign(doorOffset.x) * 6;
-                    } else {
-                        doorOffset.y += sign(doorOffset.y) * 6;
-                    }
-
-                    const roomPosition = math2d.add(currentRoom.position, doorOffset);
-                    const candidateRoom = new Room(candidateNode, candidateAsset);
-
-                    this._placeRoom(level, candidateRoom, roomPosition);
-
-                    currentRoom.reserveDoor(door1);
-                    candidateRoom.reserveDoor(door2);
-                    roomAssetsOfType.splice(roomAssetsOfType.indexOf(candidateAsset), 1);
-                    processedNodes.add(candidateNode);
-
-                    break;
+                if(roomMatch == null) {
+                    console.warn(`Could not find a matching asset of type "${roomNode.type}" for "${targetRoom.asset.id}"`);
+                    continue;
                 }
+
+                this._appendRoom(level, roomMatch, roomNode);
+
+                list.remove(roomAssetsOfType, roomMatch.matchedRoomAsset);
+                processedNodes.add(roomNode);
             }
         }
 
-        G.levelView.add(this._tileBatch.__bake());
-
+        G.levelView.bakeTiles();
         return level;
     }
 
     /**
-     * @param {Array<Door>} freeDoors1
-     * @param {Array<Door>} freeDoors2
-     * @returns {[Vector2, Door, Door]}
+     * @param {Array<RoomAsset>} assets
+     * @param {Room} targetRoom
+     * @param {int} doorCount
+     * @returns {RoomMatch | null}
+     * @private
      */
-    _matchDoors(freeDoors1, freeDoors2) {
-        for(const door1 of freeDoors1) {
-            for(const door2 of freeDoors2) {
+    _findMatchingRoomAsset(assets, targetRoom, doorCount) {
+        for(const candidateAsset of assets) {
+            const doorCountMatches = candidateAsset.getDoors().length >= doorCount;
+
+            if(!doorCountMatches) {
+                continue;
+            }
+
+            const doorPair = this._matchDoors(targetRoom.getFreeDoors(), candidateAsset.getDoors());
+
+            if(doorPair != null) {
+                const [door1, door2] = doorPair;
+                return new RoomMatch(targetRoom, candidateAsset, door1, door2);
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * @param {Level} level
+     * @param {RoomMatch} roomMatch
+     * @param {RoomNode} roomNode
+     * @private
+     */
+    _appendRoom(level, roomMatch, roomNode) {
+        const roomOffset = this._calculateRoomOffset(roomMatch.targetDoor, roomMatch.matchedDoor);
+        const roomPosition = math2d.add(roomMatch.targetRoom.position, roomOffset);
+        const room = new Room(roomNode, roomMatch.matchedRoomAsset);
+
+        this._placeRoom(level, room, roomPosition);
+
+        roomMatch.targetRoom.reserveDoor(roomMatch.targetDoor);
+        room.reserveDoor(roomMatch.matchedDoor);
+    }
+
+    /**
+     * @param {Door} door1
+     * @param {Door} door2
+     * @returns {Vector2}
+     */
+    _calculateRoomOffset(door1, door2) {
+        const doorOffset = math2d.sub(door1.position, door2.position);
+
+        if(abs(doorOffset.x) > abs(doorOffset.y)) {
+            doorOffset.x += sign(doorOffset.x) * 6;
+        } else {
+            doorOffset.y += sign(doorOffset.y) * 6;
+        }
+
+        return doorOffset;
+    }
+
+    /**
+     * @param {Array<Door>} doors1
+     * @param {Array<Door>} doors2
+     * @returns {[Door, Door] | null}
+     */
+    _matchDoors(doors1, doors2) {
+        for(const door1 of doors1) {
+            for(const door2 of doors2) {
                 const doorsMatch = math2d.equal(
                     door2.direction,
                     math2d.neg(door1.direction)
                 );
 
-                if(!doorsMatch) {
-                    continue;
+                if(doorsMatch) {
+                    return [door1, door2];
                 }
-
-                const offset = math2d.sub(door1.position, door2.position);
-
-                return [offset, door1, door2];
             }
         }
 
-        return [null, null, null];
+        return null;
     }
-
 
     /**
      * @param {Level} level
@@ -100,34 +134,10 @@ class LevelGenerator {
      * @param {Vector2} position
      */
     _placeRoom(level, room, position) {
-        room.position = position;
-
-        this._roomsToProcess.enqueue(room);
-        level.pushRoom(room);
-
         console.log(`Placing "${room.asset.id}" at (${position.x}; ${position.y})`);
 
-        for(const tile of room.asset.getTiles()) {
-            const tileViewParent = tile.isWall ? this._tileBatch : G.levelView;
-            const tileView = tileViewParent.__addChildBox({
-                __img: "white",
-                __size: [G.config.tileSize, G.config.tileSize]
-            });
-            tileView.__x = (position.x + tile.position.x) * G.config.tileSize;
-            tileView.__y = -(position.y + tile.position.y) * G.config.tileSize;
-            tileView.__color = 0xFF0000;
-            tileView.__text = {
-                __text: `(${position.x + tile.position.x};${position.y + tile.position.y})`,
-                __fontsize: 10
-            };
-
-            if(tile.data != null) {
-                if(tile.data.type === "door") {
-                    tileView.__color = 0x0000FF;
-                } else {
-                    tileView.__color = 0x00FF00;
-                }
-            }
-        }
+        room.position = position;
+        level.addRoom(room);
+        this._roomsToProcess.enqueue(room);
     }
 }

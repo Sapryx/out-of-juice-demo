@@ -22,7 +22,7 @@ function initializeState() {
     G.turnManager = new TurnManager();
 
     // Rendering
-    G.levelView = scene.__addChildBox("game");
+    G.levelView = new LevelView();
     G.entityViews = new EntityViewManager();
 }
 

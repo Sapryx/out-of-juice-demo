@@ -1,4 +1,5 @@
 const E = Object.freeze({
     EntityMove: "EntityMove",
-    AddEntity: "AddEntity"
+    AddEntity: "AddEntity",
+    AddRoom: "AddRoom"
 });

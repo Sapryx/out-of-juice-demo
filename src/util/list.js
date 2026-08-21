@@ -9,4 +9,13 @@ const list = {
 
         return list;
     },
+
+    /**
+     * @param {Array<Object>} list
+     * @param {Object} item
+     */
+    remove(list, item) {
+        const index = list.indexOf(item);
+        list.splice(index, 1);
+    }
 };
