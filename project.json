@@ -76,7 +76,7 @@
 
         ],
         "__defaultTextProperties": {
-            "__fontface": "Roboto_Thin"
+            "__fontface": "Roboto"
         },
         "__upscaleResolution": {
             "x": 1920,
@@ -123,7 +123,7 @@
         [
             "font",
             [
-                "Roboto-Thin"
+                "Roboto"
             ]
         ],
         [
