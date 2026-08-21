@@ -14,6 +14,9 @@ class Level {
     addEntity(entity, position) {
         const targetIsFree = this.isTileFree(position);
 
+        console.log(targetIsFree);
+        console.log(position);
+
         if(!targetIsFree) {
             return;
         }
@@ -47,12 +50,20 @@ class Level {
 
         for(const tile of room.asset.getTiles().filter(tile => tile.isWall)) {
             const tileGlobalPosition = math2d.add(tile.position, room.position);
-            const positionHash = this._getHash(tileGlobalPosition);
-
-            this._colliders.add(positionHash);
+            this._colliders.add(this._getHash(tileGlobalPosition));
         }
 
         BUS.__post(E.AddRoom, room);
+    }
+
+    /**
+     * @param {Vector2} position
+     */
+    placeWall(position) {
+        const positionHash = this._getHash(position);
+        this._colliders.add(positionHash);
+
+        BUS.__post(E.AddWall, position);
     }
 
     /**

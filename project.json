@@ -31,6 +31,7 @@
             "util/math2d.js",
             "util/Queue.js",
             "util/list.js",
+            "util/format.js",
             "core/input/Axis.js",
             "core/input/Input.js",
             "core/GameConfig.js",
@@ -62,6 +63,7 @@
             "events/AddEntity_CreateEntityView.js",
             "events/EntityMove_PlayMoveAnimation.js",
             "events/AddRoom_CreateRoomView.js",
+            "events/AddWall_CreateWallView.js",
 
             "bootstrap/loading.js",
             "bootstrap/contentBootstrapper.js",

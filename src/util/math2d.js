@@ -6,7 +6,7 @@ const math2d = {
 
     /**
      * @param {Vector2} vector
-     * @returns {number}
+     * @returns {float}
      */
     length(vector) {
         return sqrt(vector.x * vector.x + vector.y * vector.y);
@@ -65,5 +65,21 @@ const math2d = {
      */
     flipY(vector) {
         return new Vector2(vector.x, -vector.y);
+    },
+
+    /**
+     * @param {Vector2} vector
+     * @returns {Vector2}
+     */
+    rotateCw(vector) {
+        return new Vector2(vector.y, -vector.x);
+    },
+
+    /**
+     * @param {Vector2} vector
+     * @returns {Vector2}
+     */
+    rotateCcw(vector) {
+        return new Vector2(-vector.y, vector.x);
     }
 };

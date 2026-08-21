@@ -47,6 +47,19 @@ class LevelGenerator {
     }
 
     /**
+     * @param {Level} level
+     * @param {Room} room
+     * @param {Vector2} position
+     */
+    _placeRoom(level, room, position) {
+        console.log(`Placing "${room.asset.id}" at (${position.x}; ${position.y})`);
+
+        room.position = position;
+        level.addRoom(room);
+        this._roomsToProcess.enqueue(room);
+    }
+
+    /**
      * @param {Array<RoomAsset>} assets
      * @param {Room} targetRoom
      * @param {int} doorCount
@@ -73,40 +86,6 @@ class LevelGenerator {
     }
 
     /**
-     * @param {Level} level
-     * @param {RoomMatch} roomMatch
-     * @param {RoomNode} roomNode
-     * @private
-     */
-    _appendRoom(level, roomMatch, roomNode) {
-        const roomOffset = this._calculateRoomOffset(roomMatch.targetDoor, roomMatch.matchedDoor);
-        const roomPosition = math2d.add(roomMatch.targetRoom.position, roomOffset);
-        const room = new Room(roomNode, roomMatch.matchedRoomAsset);
-
-        this._placeRoom(level, room, roomPosition);
-
-        roomMatch.targetRoom.reserveDoor(roomMatch.targetDoor);
-        room.reserveDoor(roomMatch.matchedDoor);
-    }
-
-    /**
-     * @param {Door} door1
-     * @param {Door} door2
-     * @returns {Vector2}
-     */
-    _calculateRoomOffset(door1, door2) {
-        const doorOffset = math2d.sub(door1.position, door2.position);
-
-        if(abs(doorOffset.x) > abs(doorOffset.y)) {
-            doorOffset.x += sign(doorOffset.x) * 6;
-        } else {
-            doorOffset.y += sign(doorOffset.y) * 6;
-        }
-
-        return doorOffset;
-    }
-
-    /**
      * @param {Array<Door>} doors1
      * @param {Array<Door>} doors2
      * @returns {[Door, Door] | null}
@@ -129,15 +108,64 @@ class LevelGenerator {
     }
 
     /**
-     * @param {Level} level
-     * @param {Room} room
-     * @param {Vector2} position
+     * @param {Door} door1
+     * @param {Door} door2
+     * @returns {Vector2}
      */
-    _placeRoom(level, room, position) {
-        console.log(`Placing "${room.asset.id}" at (${position.x}; ${position.y})`);
+    _calculateRoomOffset(door1, door2) {
+        const doorOffset = math2d.sub(door1.position, door2.position);
 
-        room.position = position;
-        level.addRoom(room);
-        this._roomsToProcess.enqueue(room);
+        if(abs(doorOffset.x) > abs(doorOffset.y)) {
+            doorOffset.x += sign(doorOffset.x) * 6;
+        } else {
+            doorOffset.y += sign(doorOffset.y) * 6;
+        }
+
+        return doorOffset;
+    }
+
+    /**
+     * @param {Level} level
+     * @param {RoomMatch} roomMatch
+     * @param {RoomNode} roomNode
+     * @private
+     */
+    _appendRoom(level, roomMatch, roomNode) {
+        const roomOffset = this._calculateRoomOffset(roomMatch.targetDoor, roomMatch.matchedDoor);
+        const roomPosition = math2d.add(roomMatch.targetRoom.position, roomOffset);
+        const room = new Room(roomNode, roomMatch.matchedRoomAsset);
+
+        this._placeRoom(level, room, roomPosition);
+
+        const hallwayOrigin = math2d.add(roomMatch.targetRoom.position, roomMatch.targetDoor.position);
+        const hallwayTarget = math2d.add(room.position, roomMatch.matchedDoor.position);
+        const hallwayDirection = math2d.flipY(roomMatch.targetDoor.direction);
+
+        this._createHallway(level, hallwayOrigin, hallwayTarget, hallwayDirection);
+
+        roomMatch.targetRoom.reserveDoor(roomMatch.targetDoor);
+        room.reserveDoor(roomMatch.matchedDoor);
+    }
+
+    /**
+     * @param {Level} level
+     * @param {Vector2} origin
+     * @param {Vector2} target
+     * @param {Vector2} direction
+     * @private
+     */
+    _createHallway(level, origin, target, direction) {
+        console.log(`Creating hallway from ${format(origin)} to ${format(target)}, direction: ${format(direction)}`);
+
+        for(let i = 1; i < 6; i++) {
+            const currentPosition = math2d.add(origin, math2d.mul(direction, i));
+            const side1Direction = math2d.rotateCcw(direction);
+            const side2Direction = math2d.rotateCw(direction);
+            const wall1Position = math2d.add(currentPosition, side1Direction);
+            const wall2Position = math2d.add(currentPosition, side2Direction);
+
+            level.placeWall(wall1Position);
+            level.placeWall(wall2Position);
+        }
     }
 }
