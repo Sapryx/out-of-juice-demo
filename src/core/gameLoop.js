@@ -4,11 +4,6 @@ let gameLoop = {
         G.level.tick();
         updateCameraPosition();
         G.gameView.update();
-
-        const mouseWorldPos = Input.getMouseWorldPosition(G.gameView.levelView.camera);
-
-
-        console.log(`(${round(mouseWorldPos.x)}; ${round(mouseWorldPos.y)})`);
     }
 };
 

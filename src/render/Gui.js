@@ -1,7 +1,8 @@
 class Gui {
     constructor(parent) {
         this._node = parent.__addChildBox("gui");
-        this.playerHealthView = new PlayerHealthView(this._node);
+        this._playerHealthView = new PlayerHealthView(this._node);
+        this._debugView = new DebugView(this._node);
     }
 
     /**
@@ -19,6 +20,7 @@ class Gui {
     }
 
     update() {
-        this.playerHealthView.setValue(G.player.health, G.player.maxHealth);
+        this._playerHealthView.setValue(G.player.health, G.player.maxHealth);
+        this._debugView.update();
     }
 }

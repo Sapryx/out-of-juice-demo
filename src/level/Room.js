@@ -11,8 +11,6 @@ class Room {
     }
 
     init() {
-        console.log(this.asset.getSpawnPoints());
-
         for(const spawnPoint of this.asset.getSpawnPoints()) {
             if(spawnPoint.def === "player") {
                 continue;

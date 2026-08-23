@@ -32,6 +32,7 @@
             "util/Queue.js",
             "util/list.js",
             "util/format.js",
+            "util/nulls.js",
             "core/input/Axis.js",
             "core/input/Input.js",
             "core/GameConfig.js",
@@ -62,6 +63,7 @@
             "render/GameView.js",
             "render/Gui.js",
             "render/PlayerHealthView.js",
+            "render/DebugView.js",
             "core/EntityViewPrefabs.js",
 
             "events/AddEntity_CreateEntityView.js",
