@@ -10,6 +10,27 @@ class Input {
     }
 
     /**
+     * @returns {Vector2}
+     */
+    static getMouseScreenPosition() {
+        return new Vector2(mouse.x / layoutsResolutionMult, mouse.y / layoutsResolutionMult);
+    }
+
+    /**
+     * @param {CameraOrtho} camera
+     * @returns {Vector2}
+     */
+    static getMouseWorldPosition(camera) {
+        const screenPosition = Input.getMouseScreenPosition();
+
+        const worldX = (screenPosition.x - __screenCenter.x) / camera.__zoom + camera.__x;
+        const worldY = ((__screenCenter.y - screenPosition.y) / camera.__zoom) + camera.__y;
+        const worldPosition = math2d.div(new Vector2(worldX, worldY), G.config.tileSize);
+
+        return worldPosition;
+    }
+
+    /**
      * @param {Axis} axis
      */
     static getAxis(axis) {
