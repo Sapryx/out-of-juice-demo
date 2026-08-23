@@ -99,9 +99,10 @@ class Level {
     /**
      * @param {GameEntity} entity
      * @param {Vector2} targetPosition
+     * @param {() => void} callback
      * @returns {boolean}
      */
-    moveEntity(entity, targetPosition) {
+    moveEntity(entity, targetPosition, callback) {
         if(!this.isTileFree(targetPosition)) {
             return false;
         }
@@ -113,7 +114,7 @@ class Level {
         this._entityGrid.delete(currentPositionHash);
         this._entityGrid.set(targetPositionHash, entity);
 
-        BUS.__post(E.MoveEntity, entity);
+        G.presenter.onMoveEntity(entity, callback);
 
         return true;
     }

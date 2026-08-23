@@ -28,23 +28,28 @@ class GameEntity {
         this._health = mmax(0, this._health - value);
     }
 
-    onTurnStart() {
+    /**
+     * @param {() => void} onResolved
+     */
+    resolveTurn(onResolved) {
 
     }
 
     /**
      * @param {Vector2} position
+     * @param {() => void} callback
      * @returns {boolean}
      */
-    moveTo(position) {
-        return G.level.moveEntity(this, position);
+    moveTo(position, callback) {
+        return G.level.moveEntity(this, position, callback);
     }
 
     /**
      * @param {Vector2} offset
+     * @param {() => void} callback
      * @returns {boolean}
      */
-    moveBy(offset) {
-        return this.moveTo(math2d.add(this.position, offset));
+    moveBy(offset, callback) {
+        return this.moveTo(math2d.add(this.position, offset), callback);
     }
 }

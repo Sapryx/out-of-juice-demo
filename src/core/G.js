@@ -7,6 +7,7 @@ const G = {
     roomAssetRegistry: null,
     levelTypeRegistry: null,
 
+    presenter: null,
     entityViews: null,
     levelView: null,
     gameView: null

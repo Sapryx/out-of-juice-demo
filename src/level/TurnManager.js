@@ -17,7 +17,7 @@ class TurnManager {
             return;
         }
 
-        this.currentEntity.onTurnStart();
+        this.currentEntity.resolveTurn(() => this.commitTurn());
         this.turnIsInProgress = true;
     }
 

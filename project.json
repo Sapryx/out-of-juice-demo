@@ -64,10 +64,10 @@
             "render/Gui.js",
             "render/PlayerHealthView.js",
             "render/DebugView.js",
+            "render/Presenter.js",
             "core/EntityViewPrefabs.js",
 
             "events/AddEntity_CreateEntityView.js",
-            "events/MoveEntity_PlayMoveAnimation.js",
             "events/AddRoom_CreateRoomView.js",
             "events/AddWall_CreateWallView.js",
 

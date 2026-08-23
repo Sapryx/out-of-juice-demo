@@ -19,6 +19,7 @@ function initializeState() {
     G.turnManager = new TurnManager();
 
     // Rendering
+    G.presenter = new Presenter();
     G.gameView = new GameView(scene);
     G.entityViews = new EntityViewManager();
 }

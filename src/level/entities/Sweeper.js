@@ -1,15 +1,10 @@
 class Sweeper extends GameEntity {
     constructor(config) {
         super(config);
-        this.canMove = true;
     }
 
-    onTurnStart() {
-        super.onTurnStart();
-
-        if(!this.canMove || G.player == null) {
-            return;
-        }
+    resolveTurn(onResolved) {
+        super.resolveTurn(onResolved);
 
         const vectorToTarget = math2d.sub(G.player.position, this.position);
         const offset = new Vector2(0, 0);
@@ -28,16 +23,8 @@ class Sweeper extends GameEntity {
             altOffset.x = xDirection;
         }
 
-        if(!this.moveBy(offset)) {
-            this.moveBy(altOffset);
+        if(!this.moveBy(offset, onResolved) && !this.moveBy(altOffset, onResolved)) {
+            onResolved();
         }
-
-        this.canMove = false;
-        console.log("sweep!");
-
-        _setTimeout(() => {
-            G.turnManager.commitTurn();
-            this.canMove = true;
-        }, G.config.tilePassTime);
     }
 }
