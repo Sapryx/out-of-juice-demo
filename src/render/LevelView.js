@@ -11,6 +11,20 @@ class LevelView {
     }
 
     /**
+     * @returns {CameraOrtho | null}
+     */
+    get camera() {
+        return this._node.__camera;
+    }
+
+    /**
+     * @param {CameraOrtho} value
+     */
+    set camera(value) {
+        this._node.__camera = value;
+    }
+
+    /**
      * @param {Node | string} node
      * @returns {Node}
      */

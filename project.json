@@ -59,6 +59,7 @@
             "render/EntityViewManager.js",
             "render/LevelView.js",
             "render/GameView.js",
+            "render/Gui.js",
             "core/EntityViewPrefabs.js",
 
             "events/AddEntity_CreateEntityView.js",

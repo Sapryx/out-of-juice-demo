@@ -39,11 +39,12 @@ function updateCameraPosition() {
     }
 
     const playerView = G.entityViews.get(G.player);
+    const levelCamera = G.gameView.levelView.camera;
 
-    if(playerView == null) {
+    if(playerView == null || levelCamera == null) {
         return;
     }
 
-    G.levelCamera.__x = playerView.position.x;
-    G.levelCamera.__y = -playerView.position.y;
+    levelCamera.__x = playerView.position.x;
+    levelCamera.__y = -playerView.position.y;
 }
