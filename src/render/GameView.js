@@ -39,6 +39,10 @@ class GameView {
         };
     }
 
+    update() {
+        this.gui.update();
+    }
+
     /**
      * @returns {CameraOrtho}
      */

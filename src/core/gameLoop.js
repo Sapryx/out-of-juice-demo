@@ -3,6 +3,7 @@ let gameLoop = {
         handleInput();
         G.level.tick();
         updateCameraPosition();
+        G.gameView.update();
     }
 };
 

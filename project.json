@@ -60,6 +60,7 @@
             "render/LevelView.js",
             "render/GameView.js",
             "render/Gui.js",
+            "render/PlayerHealthView.js",
             "core/EntityViewPrefabs.js",
 
             "events/AddEntity_CreateEntityView.js",

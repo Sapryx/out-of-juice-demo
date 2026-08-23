@@ -16,6 +16,9 @@
     "__childs": {
       "health bar": {
         "__color": 0.8083,
+        "__userData": {
+          "type": "player_health_view"
+        },
         "ha": 1,
         "va": 1,
         "sha": 0,
@@ -34,6 +37,9 @@
         "__childs": {
           "fill": {
             "__color": "#eb2626",
+            "__userData": {
+              "type": "fill"
+            },
             "__margin": 2,
             "sha": 0,
             "sva": 1,
