@@ -1,5 +1,5 @@
 const E = Object.freeze({
-    EntityMove: "EntityMove",
+    MoveEntity: "MoveEntity",
     AddEntity: "AddEntity",
     AddRoom: "AddRoom",
     AddWall: "WallAdded"

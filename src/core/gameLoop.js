@@ -21,17 +21,8 @@ function handleInput() {
         movementInputRaw.y = 0;
     }
 
-    movePlayer(movementInputRaw);
-}
-
-/**
- * @param {Vector2} movementInput
- */
-function movePlayer(movementInput) {
     G.turnManager.isPlayerTurn = false;
-    G.player.moveBy(movementInput);
-
-    BUS.__post(E.EntityMove, G.player);
+    G.player.moveBy(movementInputRaw);
 }
 
 function updateCameraPosition() {

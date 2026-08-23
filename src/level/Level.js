@@ -18,13 +18,9 @@ class Level {
      * @param {Vector2} position
      */
     addEntity(entity, position) {
-        const targetIsFree = this.isTileFree(position);
-
-        if(!targetIsFree) {
+        if(!this.isTileFree(position)) {
             return;
         }
-
-        this.moveEntity(entity, position);
 
         if(this._rootEntity == null) {
             this._rootEntity = entity;
@@ -39,6 +35,8 @@ class Level {
         }
 
         BUS.__post(E.AddEntity, entity);
+
+        this.moveEntity(entity, position);
     }
 
     /**
@@ -114,6 +112,8 @@ class Level {
         entity.position = targetPosition;
         this._entityGrid.delete(currentPositionHash);
         this._entityGrid.set(targetPositionHash, entity);
+
+        BUS.__post(E.MoveEntity, entity);
 
         return true;
     }

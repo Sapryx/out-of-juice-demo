@@ -67,7 +67,7 @@
             "core/EntityViewPrefabs.js",
 
             "events/AddEntity_CreateEntityView.js",
-            "events/EntityMove_PlayMoveAnimation.js",
+            "events/MoveEntity_PlayMoveAnimation.js",
             "events/AddRoom_CreateRoomView.js",
             "events/AddWall_CreateWallView.js",
 

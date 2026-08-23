@@ -2,23 +2,9 @@ class GameEntity {
     constructor(config) {
         this.next = this;
         this.prev = this;
-        this._position = new Vector2(0, 0);
+        this.position = new Vector2(0, 0);
         this._health = config.maxHealth;
         this._maxHealth = config.maxHealth;
-    }
-
-    /**
-     * @returns {Vector2}
-     */
-    get position() {
-        return this._position;
-    }
-
-    /**
-     * @param {Vector2} value
-     */
-    set position(value) {
-        this._position = value;
     }
 
     /**
