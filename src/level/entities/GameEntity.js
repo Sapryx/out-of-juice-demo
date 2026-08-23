@@ -21,6 +21,27 @@ class GameEntity {
         this._position = value;
     }
 
+    /**
+     * @returns {float}
+     */
+    get health() {
+        return this._health;
+    }
+
+    /**
+     * @returns {float}
+     */
+    get maxHealth() {
+        return this._maxHealth;
+    }
+
+    /**
+     * @param {float} value
+     */
+    damage(value) {
+        this._health = mmax(0, this._health - value);
+    }
+
     tick() {
 
     }
