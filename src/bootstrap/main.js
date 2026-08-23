@@ -39,8 +39,10 @@ function startGame() {
     const levelGenerator = new LevelGenerator();
     const level = levelGenerator.generateLevel();
 
-    level.respawnPlayer();
     G.level = level;
+
+    level.initRooms();
+    level.respawnPlayer();
 
     updatable.__push(gameLoop);
 }

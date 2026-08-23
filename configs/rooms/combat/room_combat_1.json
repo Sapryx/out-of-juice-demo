@@ -503,6 +503,17 @@
         "type": "door",
         "direction": "west"
       }
+    },
+    {
+      "x": 11,
+      "y": 10,
+      "tile": null,
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "sweeper"
+      }
     }
   ]
 }

@@ -4,7 +4,13 @@ class Level {
         this._entityGrid = new Map();
         this._colliders = new Set();
         this._rooms = [];
-        this._spawnPoint = null;
+        this._playerSpawnPoint = null;
+    }
+
+    initRooms() {
+        for(const room of this._rooms) {
+            room.init();
+        }
     }
 
     /**
@@ -36,13 +42,20 @@ class Level {
     }
 
     /**
+     * @returns {Array<Room>}
+     */
+    getRooms() {
+        return this._rooms;
+    }
+
+    /**
      * @param {Room} room
      */
     addRoom(room) {
         this._rooms.push(room);
 
         if(room.node.type === "start") {
-            this._spawnPoint = room.asset.getSpawnPoints()[0];
+            this._playerSpawnPoint = room.asset.getSpawnPoints().find(it => it.def === "player");
         }
 
         for(const tile of room.asset.getTiles().filter(tile => tile.isWall)) {
@@ -124,7 +137,7 @@ class Level {
         const player = G.defs.create("player");
 
         G.player = player;
-        this.addEntity(G.player, this._spawnPoint);
+        this.addEntity(G.player, this._playerSpawnPoint.position);
     }
 
     /**

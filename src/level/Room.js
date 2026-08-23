@@ -10,6 +10,21 @@ class Room {
         this._freeDoors = asset.getDoors();
     }
 
+    init() {
+        console.log(this.asset.getSpawnPoints());
+
+        for(const spawnPoint of this.asset.getSpawnPoints()) {
+            if(spawnPoint.def === "player") {
+                continue;
+            }
+
+            const entity = G.defs.create(spawnPoint.def);
+            const globalPosition = math2d.add(this.position, spawnPoint.position);
+
+            G.level.addEntity(entity, globalPosition);
+        }
+    }
+
     /**
      * @returns {Array<Door>}
      */

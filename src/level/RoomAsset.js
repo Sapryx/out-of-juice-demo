@@ -48,7 +48,7 @@ class RoomAsset {
     }
 
     /**
-     * @returns {Array<Vector2>}
+     * @returns {Array<SpawnPoint>}
      */
     getSpawnPoints() {
         return this._spawnPoints;
@@ -80,6 +80,11 @@ class RoomAsset {
      * @private
      */
     _addSpawnPoint(tile) {
-        this._spawnPoints.push(tile.position);
+        const spawnPoint = new SpawnPoint();
+        spawnPoint.position = tile.position;
+        spawnPoint.def = tile.data.def;
+        spawnPoint.chance = tile.data?.chance ?? 1;
+
+        this._spawnPoints.push(spawnPoint);
     }
 }
