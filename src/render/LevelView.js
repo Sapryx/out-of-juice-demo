@@ -1,6 +1,9 @@
 class LevelView {
-    constructor() {
-        this._node = scene.__addChildBox("game");
+    /**
+     * @param {ENode} parent
+     */
+    constructor(parent) {
+        this._node = parent.__addChildBox("level");
         this._tileBatch = new StaticBatchNode();
         this._bakedTiles = null;
 

@@ -14,9 +14,6 @@ class Level {
     addEntity(entity, position) {
         const targetIsFree = this.isTileFree(position);
 
-        console.log(targetIsFree);
-        console.log(position);
-
         if(!targetIsFree) {
             return;
         }
@@ -91,10 +88,11 @@ class Level {
     /**
      * @param {GameEntity} entity
      * @param {Vector2} targetPosition
+     * @returns {boolean}
      */
     moveEntity(entity, targetPosition) {
         if(!this.isTileFree(targetPosition)) {
-            return;
+            return false;
         }
 
         const currentPositionHash = this._getHash(entity.position);
@@ -103,6 +101,8 @@ class Level {
         entity.position = targetPosition;
         this._entityGrid.delete(currentPositionHash);
         this._entityGrid.set(targetPositionHash, entity);
+
+        return true;
     }
 
     tick() {

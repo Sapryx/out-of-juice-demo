@@ -10,5 +10,5 @@ BUS.__addEventListener(E.AddWall, (type, position) => {
         __fontsize: 10
     };
 
-    G.levelView.addBakedNode(tileNode);
+    G.gameView.levelView.addBakedNode(tileNode);
 });

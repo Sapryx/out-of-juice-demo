@@ -58,6 +58,7 @@
             "render/EntityView.js",
             "render/EntityViewManager.js",
             "render/LevelView.js",
+            "render/GameView.js",
             "core/EntityViewPrefabs.js",
 
             "events/AddEntity_CreateEntityView.js",
@@ -132,7 +133,8 @@
             "layout",
             "entities/player.json",
             "entities/sweeper.json",
-            "test_level.json"
+            "test_level.json",
+            "gui.json"
         ],
         [
             "shaders",

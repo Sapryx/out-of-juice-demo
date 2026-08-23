@@ -20,9 +20,9 @@ BUS.__addEventListener(E.AddRoom, (type, room) => {
         }
 
         if(tile.isWall) {
-            G.levelView.addBakedNode(tileNode);
+            G.gameView.levelView.addBakedNode(tileNode);
         } else {
-            G.levelView.addNode(tileNode);
+            G.gameView.levelView.addNode(tileNode);
         }
     }
 });

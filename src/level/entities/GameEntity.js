@@ -27,15 +27,17 @@ class GameEntity {
 
     /**
      * @param {Vector2} position
+     * @returns {boolean}
      */
     moveTo(position) {
-        G.level.moveEntity(this, position);
+        return G.level.moveEntity(this, position);
     }
 
     /**
      * @param {Vector2} offset
+     * @returns {boolean}
      */
     moveBy(offset) {
-        this.moveTo(math2d.add(this.position, offset));
+        return this.moveTo(math2d.add(this.position, offset));
     }
 }

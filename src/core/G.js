@@ -8,5 +8,9 @@ const G = {
     levelTypeRegistry: null,
 
     entityViews: null,
-    levelView: null
+    levelView: null,
+    gameView: null,
+
+    levelCamera: null,
+    guiCamera: null
 };

@@ -42,7 +42,7 @@ class LevelGenerator {
             }
         }
 
-        G.levelView.bakeTiles();
+        G.gameView.levelView.bakeTiles();
         return level;
     }
 

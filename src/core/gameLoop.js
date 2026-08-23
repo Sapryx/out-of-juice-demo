@@ -44,6 +44,6 @@ function updateCameraPosition() {
         return;
     }
 
-    camera.__x = playerView.position.x;
-    camera.__y = -playerView.position.y;
+    G.levelCamera.__x = playerView.position.x;
+    G.levelCamera.__y = -playerView.position.y;
 }
