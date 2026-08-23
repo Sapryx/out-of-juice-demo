@@ -28,7 +28,7 @@ class GameEntity {
         this._health = mmax(0, this._health - value);
     }
 
-    tick() {
+    onTurnStart() {
 
     }
 

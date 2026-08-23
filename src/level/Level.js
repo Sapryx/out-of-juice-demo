@@ -93,7 +93,7 @@ class Level {
 
         entity.next = null;
         entity.prev = null;
-        this._entityGrid.set(this._getHash(entity.position), entity);
+        this._entityGrid.delete(this._getHash(entity.position));
     }
 
     /**
@@ -116,21 +116,6 @@ class Level {
         BUS.__post(E.MoveEntity, entity);
 
         return true;
-    }
-
-    tick() {
-        if(this._rootEntity == null) {
-            return;
-        }
-
-        let current = this._rootEntity;
-        current.tick();
-        current = current.next;
-
-        while(current !== this._rootEntity) {
-            current.tick();
-            current = current.next;
-        }
     }
 
     respawnPlayer() {

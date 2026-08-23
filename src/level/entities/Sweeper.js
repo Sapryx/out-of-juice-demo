@@ -1,22 +1,13 @@
 class Sweeper extends GameEntity {
     constructor(config) {
         super(config);
-
         this.canMove = true;
     }
 
-    tick() {
-        super.tick();
+    onTurnStart() {
+        super.onTurnStart();
 
-        if(!this.canMove) {
-            return;
-        }
-
-        if(G.player == null) {
-            return;
-        }
-
-        if(G.turnManager.isPlayerTurn) {
+        if(!this.canMove || G.player == null) {
             return;
         }
 
@@ -42,9 +33,10 @@ class Sweeper extends GameEntity {
         }
 
         this.canMove = false;
+        console.log("sweep!");
 
         _setTimeout(() => {
-            G.turnManager.isPlayerTurn = true;
+            G.turnManager.commitTurn();
             this.canMove = true;
         }, G.config.tilePassTime);
     }

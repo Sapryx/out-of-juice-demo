@@ -1,7 +1,9 @@
 let gameLoop = {
     __update: function(t, dt) {
         handleInput();
-        G.level.tick();
+
+        G.turnManager.tick();
+
         updateCameraPosition();
         G.gameView.update();
     }
@@ -21,8 +23,8 @@ function handleInput() {
         movementInputRaw.y = 0;
     }
 
-    G.turnManager.isPlayerTurn = false;
     G.player.moveBy(movementInputRaw);
+    G.turnManager.commitTurn();
 }
 
 function updateCameraPosition() {

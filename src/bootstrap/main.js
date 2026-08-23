@@ -41,8 +41,10 @@ function startGame() {
 
     G.level = level;
 
-    level.initRooms();
     level.respawnPlayer();
+    level.initRooms();
+
+    G.turnManager.setEntity(G.player);
 
     updatable.__push(gameLoop);
 }
