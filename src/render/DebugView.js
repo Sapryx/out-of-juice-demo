@@ -1,6 +1,12 @@
 class DebugView {
     constructor(parent) {
-        this._node = parent.__traverse(node =>
+        this._parent = parent;
+        this._node = null;
+        this._mousePositionText = null;
+    }
+
+    init() {
+        this._node = this._parent.__traverse(node =>
             node.__userData && node.__userData.type === "debug_info" ? node : undefined
         );
 

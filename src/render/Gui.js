@@ -1,8 +1,18 @@
 class Gui {
     constructor(parent) {
-        this._node = parent.__addChildBox("gui");
+        this._parent = parent;
+        this._node = null;
+        this._playerHealthView = null;
+        this._debugView = null;
+    }
+
+    init() {
+        this._node = this._parent.__addChildBox("gui");
         this._playerHealthView = new PlayerHealthView(this._node);
         this._debugView = new DebugView(this._node);
+
+        this._playerHealthView.init();
+        this._debugView.init();
     }
 
     /**

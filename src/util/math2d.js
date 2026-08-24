@@ -81,5 +81,9 @@ const math2d = {
      */
     rotateCcw(vector) {
         return new Vector2(-vector.y, vector.x);
+    },
+
+    round(vector) {
+        return new Vector2(round(vector.x), round(vector.y));
     }
 };

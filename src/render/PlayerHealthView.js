@@ -3,7 +3,14 @@ class PlayerHealthView {
      * @param {ENode} parent
      */
     constructor(parent) {
-        this._node = parent.__traverse(node =>
+        this._parent = parent;
+        this._node = null;
+        this._text = null;
+        this._fill = null;
+    }
+
+    init() {
+        this._node = this._parent.__traverse(node =>
             node.__userData && node.__userData.type === "player_health_view" ? node : undefined
         );
         this._text = this._node.__text;

@@ -30,6 +30,10 @@ class Input {
         return worldPosition;
     }
 
+    static getMouseGridPosition(camera) {
+        return math2d.round(Input.getMouseWorldPosition(camera));
+    }
+
     /**
      * @param {Axis} axis
      */

@@ -8,6 +8,9 @@ class GameView {
     }
 
     init() {
+        this.levelView.init();
+        this.gui.init();
+
         const levelCamera = this._createCamera();
         const guiCamera = camera;
 
@@ -40,6 +43,7 @@ class GameView {
     }
 
     update() {
+        this.levelView.update();
         this.gui.update();
     }
 
