@@ -69,10 +69,6 @@
             "render/TileSelectionView.js",
             "core/EntityViewPrefabs.js",
 
-            "events/AddEntity_CreateEntityView.js",
-            "events/AddRoom_CreateRoomView.js",
-            "events/AddWall_CreateWallView.js",
-
             "bootstrap/loading.js",
             "bootstrap/contentBootstrapper.js",
             "bootstrap/main.js"

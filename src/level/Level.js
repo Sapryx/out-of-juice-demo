@@ -34,9 +34,9 @@ class Level {
             entity.next = this._rootEntity;
         }
 
-        BUS.__post(E.AddEntity, entity);
+        G.presenter.onAddEntity(entity);
 
-        this.moveEntity(entity, position);
+        this.moveEntity(entity, position, undefined);
     }
 
     /**
@@ -61,7 +61,7 @@ class Level {
             this._colliders.add(this._getHash(tileGlobalPosition));
         }
 
-        BUS.__post(E.AddRoom, room);
+        G.presenter.onAddRoom(room);
     }
 
     /**
@@ -71,7 +71,7 @@ class Level {
         const positionHash = this._getHash(position);
         this._colliders.add(positionHash);
 
-        BUS.__post(E.AddWall, position);
+        G.presenter.onAddWall(position);
     }
 
     /**
