@@ -139,8 +139,17 @@ class Level {
      * @returns {boolean}
      */
     isEntityInTile(position) {
+        return this.getEntityInTile(position) !== undefined;
+    }
+
+    /**
+     *
+     * @param {Vector2} position
+     * @returns {GameEntity | undefined}
+     */
+    getEntityInTile(position) {
         const positionHash = this._getHash(position);
-        return this._entityGrid.has(positionHash);
+        return this._entityGrid.get(positionHash);
     }
 
     /**

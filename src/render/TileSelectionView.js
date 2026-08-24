@@ -17,5 +17,24 @@ class TileSelectionView {
 
         this._node.__x = screenPosition.x;
         this._node.__y = screenPosition.y;
+        this._node.__color = this._getSelectionColor(gridPosition);
+    }
+
+    /**
+     * @returns {int}
+     * @private
+     */
+    _getSelectionColor(position) {
+        const selectedEntity = G.level.getEntityInTile(position);
+
+        if(selectedEntity === undefined || selectedEntity === G.player) {
+            return 0xFFFFFF;
+        }
+
+        if(G.player.canAttack(selectedEntity)) {
+            return 0x00FF00;
+        }
+
+        return 0xFF0000;
     }
 }

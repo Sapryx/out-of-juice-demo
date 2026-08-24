@@ -37,6 +37,17 @@ class GameEntity {
     }
 
     /**
+     * @param {GameEntity} target
+     */
+    canAttack(target) {
+        const vectorToTarget = math2d.sub(target.position, this.position);
+        const distanceX = abs(vectorToTarget.x);
+        const distanceY = abs(vectorToTarget.y);
+
+        return distanceX <= 1 && distanceY <= 1;
+    }
+
+    /**
      * @param {Vector2} position
      * @param {() => void} callback
      * @returns {boolean}
