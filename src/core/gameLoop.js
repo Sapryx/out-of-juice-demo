@@ -10,25 +10,60 @@ let gameLoop = {
 };
 
 function handleInput() {
-    const movementInputRaw = new Vector2(Input.getAxis(Axis.Horizontal), Input.getAxis(Axis.Vertical));
-    const inputIsEmpty = movementInputRaw.x === 0 && movementInputRaw.y === 0;
     const notPlayerTurn = !G.turnManager.isPlayerTurn;
     const playerIsDead = G.player == null;
+
+    if(playerIsDead || notPlayerTurn) {
+        return;
+    }
+
+    const playerHasMoved = handleMovementInput();
+    const playerHasAttacked = handleAttackInput();
+
+    if(playerHasMoved || playerHasAttacked) {
+        G.turnManager.commitTurn();
+    }
+}
+
+/**
+ * @returns {boolean}
+ */
+function handleMovementInput() {
+    const movementInputRaw = new Vector2(Input.getAxis(Axis.Horizontal), Input.getAxis(Axis.Vertical));
+    const inputIsEmpty = movementInputRaw.x === 0 && movementInputRaw.y === 0;
     const playerIsMoving = G.player.state === EntityState.Moving;
 
-    if(inputIsEmpty || notPlayerTurn || playerIsDead || playerIsMoving) {
-        return;
+    if(inputIsEmpty || playerIsMoving) {
+        return false;
     }
 
     if(movementInputRaw.x !== 0) {
         movementInputRaw.y = 0;
     }
 
-    const playerHasMoved = G.player.moveBy(movementInputRaw, undefined);
+    return G.player.moveBy(movementInputRaw, undefined);
+}
 
-    if(playerHasMoved) {
-        G.turnManager.commitTurn();
+/**
+ * @returns {boolean}
+ */
+function handleAttackInput() {
+    const attackIsPressed = Input.consumeAttack();
+
+    if(!attackIsPressed) {
+        return false;
     }
+
+    const levelCamera = G.gameView.levelView.camera;
+    const mouseGridPosition = Input.getMouseGridPosition(levelCamera);
+    const target = G.level.getEntityInTile(mouseGridPosition);
+
+    if(target === undefined || !G.player.canAttack(target)) {
+        return false;
+    }
+
+    G.player.attack(target);
+    return true;
 }
 
 function updateCameraPosition() {

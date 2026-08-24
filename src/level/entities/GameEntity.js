@@ -23,7 +23,7 @@ class GameEntity {
     }
 
     /**
-     * @param {float} value
+     * @param {number} value
      */
     damage(value) {
         this._health = mmax(0, this._health - value);
@@ -40,11 +40,23 @@ class GameEntity {
      * @param {GameEntity} target
      */
     canAttack(target) {
+        if(target === this) {
+            return false;
+        }
+
         const vectorToTarget = math2d.sub(target.position, this.position);
         const distanceX = abs(vectorToTarget.x);
         const distanceY = abs(vectorToTarget.y);
 
         return distanceX <= 1 && distanceY <= 1;
+    }
+
+    /**
+     * @param {GameEntity} target
+     */
+    attack(target) {
+        console.log("attack");
+        this.damage(10);
     }
 
     /**

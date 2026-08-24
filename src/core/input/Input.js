@@ -1,12 +1,14 @@
 class Input {
     static init() {
-        Input.__upPressed = false;
-        Input.__downPressed = false;
-        Input.__leftPressed = false;
-        Input.__rightPressed = false;
+        Input._upPressed = false;
+        Input._downPressed = false;
+        Input._leftPressed = false;
+        Input._rightPressed = false;
+        Input._attackIsPressed = false;
 
-        gestures.__onKeyDown = Input.__onKeyDown;
-        gestures.__onKeyUp = Input.__onKeyUp;
+        gestures.__onKeyDown = Input._onKeyDown;
+        gestures.__onKeyUp = Input._onKeyUp;
+        gestures.tap = Input._onTap;
     }
 
     /**
@@ -41,11 +43,11 @@ class Input {
     static getAxis(axis) {
         switch(axis) {
             case Axis.Horizontal: {
-                if(Input.__rightPressed) {
+                if(Input._rightPressed) {
                     return 1;
                 }
 
-                if(Input.__leftPressed) {
+                if(Input._leftPressed) {
                     return -1;
                 }
 
@@ -53,11 +55,11 @@ class Input {
             }
 
             case Axis.Vertical: {
-                if(Input.__downPressed) {
+                if(Input._downPressed) {
                     return -1;
                 }
 
-                if(Input.__upPressed) {
+                if(Input._upPressed) {
                     return 1;
                 }
 
@@ -66,20 +68,30 @@ class Input {
         }
     }
 
+    static consumeAttack() {
+        if(Input._attackIsPressed) {
+            console.log("consume")
+            Input._attackIsPressed = false;
+            return true;
+        }
+
+        return false;
+    }
+
     /**
      * @param {number} keyCode
      * @param {string} key
      * @param {boolean} ctrl
      * @param {boolean} shift
      * @param {boolean} alt
-     * @param e
+     * @param {Object} e
      */
-    static __onKeyDown(keyCode, key, ctrl, shift, alt, e) {
+    static _onKeyDown(keyCode, key, ctrl, shift, alt, e) {
         switch(key) {
-            case "w": Input.__upPressed = true; break;
-            case "s": Input.__downPressed = true; break;
-            case "a": Input.__leftPressed = true; break;
-            case "d": Input.__rightPressed = true; break;
+            case "w": Input._upPressed = true; break;
+            case "s": Input._downPressed = true; break;
+            case "a": Input._leftPressed = true; break;
+            case "d": Input._rightPressed = true; break;
         }
     }
 
@@ -91,12 +103,21 @@ class Input {
      * @param {boolean} alt
      * @param e
      */
-    static __onKeyUp(keyCode, key, ctrl, shift, alt, e) {
+    static _onKeyUp(keyCode, key, ctrl, shift, alt, e) {
         switch(key) {
-            case "w": Input.__upPressed = false; break;
-            case "s": Input.__downPressed = false; break;
-            case "a": Input.__leftPressed = false; break;
-            case "d": Input.__rightPressed = false; break;
+            case "w": Input._upPressed = false; break;
+            case "s": Input._downPressed = false; break;
+            case "a": Input._leftPressed = false; break;
+            case "d": Input._rightPressed = false; break;
         }
+    }
+
+    /**
+     * @param {Vector2} mousePosition
+     * @private
+     */
+    static _onTap() {
+        console.log("tap");
+        Input._attackIsPressed = true;
     }
 }
