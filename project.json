@@ -38,6 +38,7 @@
             "core/GameConfig.js",
             "core/G.js",
             "core/gameLoop.js",
+            "level/EntityState.js",
             "level/entities/GameEntity.js",
             "level/entities/Player.js",
             "level/entities/Sweeper.js",

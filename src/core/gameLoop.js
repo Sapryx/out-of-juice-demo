@@ -14,8 +14,9 @@ function handleInput() {
     const inputIsEmpty = movementInputRaw.x === 0 && movementInputRaw.y === 0;
     const notPlayerTurn = !G.turnManager.isPlayerTurn;
     const playerIsDead = G.player == null;
+    const playerIsMoving = G.player.state === EntityState.Moving;
 
-    if(inputIsEmpty || notPlayerTurn || playerIsDead) {
+    if(inputIsEmpty || notPlayerTurn || playerIsDead || playerIsMoving) {
         return;
     }
 
@@ -23,8 +24,11 @@ function handleInput() {
         movementInputRaw.y = 0;
     }
 
-    G.player.moveBy(movementInputRaw);
-    G.turnManager.commitTurn();
+    const playerHasMoved = G.player.moveBy(movementInputRaw, undefined);
+
+    if(playerHasMoved) {
+        G.turnManager.commitTurn();
+    }
 }
 
 function updateCameraPosition() {

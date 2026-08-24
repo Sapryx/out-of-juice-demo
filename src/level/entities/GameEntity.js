@@ -3,6 +3,7 @@ class GameEntity {
         this.next = this;
         this.prev = this;
         this.position = new Vector2(0, 0);
+        this.state = EntityState.Idle;
         this._health = config.maxHealth;
         this._maxHealth = config.maxHealth;
     }
@@ -41,7 +42,19 @@ class GameEntity {
      * @returns {boolean}
      */
     moveTo(position, callback) {
-        return G.level.moveEntity(this, position, callback);
+        const isMoving = G.level.moveEntity(this, position, () => {
+            this.state = EntityState.Idle;
+
+            if(callback !== undefined) {
+                callback();
+            }
+        });
+
+        if(isMoving) {
+            this.state = EntityState.Moving;
+        }
+
+        return isMoving;
     }
 
     /**
