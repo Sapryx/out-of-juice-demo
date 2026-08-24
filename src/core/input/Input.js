@@ -22,12 +22,13 @@ class Input {
      */
     static getMouseWorldPosition(camera) {
         const screenPosition = Input.getMouseScreenPosition();
+        const cameraPosition = new Vector2(camera.__x, camera.__y);
 
-        const worldX = (screenPosition.x - __screenCenter.x) / camera.__zoom + camera.__x;
-        const worldY = ((__screenCenter.y - screenPosition.y) / camera.__zoom) + camera.__y;
-        const worldPosition = math2d.div(new Vector2(worldX, worldY), G.config.tileSize);
+        const screenOffset = math2d.flipY(math2d.sub(screenPosition, __screenCenter));
+        const worldOffset = math2d.div(screenOffset, camera.__zoom);
+        const worldPixelPosition = math2d.add(worldOffset, cameraPosition);
 
-        return worldPosition;
+        return math2d.div(worldPixelPosition, G.config.tileSize);
     }
 
     static getMouseGridPosition(camera) {

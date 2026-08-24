@@ -1,10 +1,10 @@
 BUS.__addEventListener(E.AddRoom, (type, room) => {
     for(const tile of room.asset.getTiles()) {
+        const tileWorldPosition = math2d.add(room.position, tile.position);
         const tileNode = new Node();
         tileNode.__img = "white";
         tileNode.__size = [G.config.tileSize, G.config.tileSize];
-        tileNode.__x = (room.position.x + tile.position.x) * G.config.tileSize;
-        tileNode.__y = -(room.position.y + tile.position.y) * G.config.tileSize;
+        tileNode.__ofs = math2d.flipY(math2d.mul(tileWorldPosition, G.config.tileSize));
         tileNode.__color = 0xFF0000;
         tileNode.__text = {
             __text: `(${room.position.x + tile.position.x};${room.position.y + tile.position.y})`,

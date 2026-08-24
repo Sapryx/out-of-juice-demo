@@ -15,15 +15,14 @@ class EntityView {
      * @returns {Vector2}
      */
     get position() {
-        return new Vector2(this._node.__x, this._node.__y);
+        return this._node.__ofs;
     }
 
     /**
      * @param {Vector2} value
      */
     set position(value) {
-        this._node.__x = value.x * G.config.tileSize;
-        this._node.__y = value.y * G.config.tileSize;
+        this._node.__ofs = math2d.mul(value, G.config.tileSize);
     }
 
     /**
