@@ -18,8 +18,6 @@ class Presenter {
         const startPosition = math2d.flipY(attacker.position);
         const animationDuration = G.config.tilePassTime;
 
-        console.log("atack anim");
-
         Anims.attack(attackerView.node, startPosition, targetPosition, animationDuration)
             .__setOnComplete(callback);
     }
@@ -35,7 +33,9 @@ class Presenter {
      * @param {Room} room
      */
     onAddRoom(room) {
-        for(const tile of room.asset.getTiles()) {
+        const tileset = room.asset.tileset;
+
+        for (const tile of room.asset.getTiles()) {
             const tileWorldPosition = math2d.add(room.position, tile.position);
             const tileNode = new Node();
             tileNode.__img = "white";
@@ -47,15 +47,26 @@ class Presenter {
                 __fontsize: 10
             };
 
-            if(tile.data != null) {
-                if(tile.data.type === "door") {
+            if (tile.data != null) {
+                if (tile.data.type === "door") {
                     tileNode.__color = 0x0000FF;
                 } else {
                     tileNode.__color = 0x00FF00;
                 }
             }
 
-            if(tile.isWall) {
+            if (tile.isWall) {
+                tileNode.__color = 0xFFFFFF;
+                tileNode.__text = null;
+
+                if (tileset != null && tile.textureOffset != null) {
+                    tileset.applyToNode(
+                        tileNode,
+                        tile.textureOffset.x,
+                        tile.textureOffset.y
+                    );
+                }
+
                 G.gameView.levelView.addBakedNode(tileNode);
             } else {
                 G.gameView.levelView.addNode(tileNode);

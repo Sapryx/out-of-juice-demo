@@ -7,6 +7,10 @@ class RoomAsset {
         this._id = id;
         this._doors = [];
         this._spawnPoints = [];
+        this._tileset = config.tileset != null
+            ? Tileset.fromConfig(config.tileset)
+            : null;
+
         this._tiles = config.cells.map(tileConfig => {
             const tile = new RoomTile();
             tile.position.x = tileConfig.x - config.boundingBox.x;
@@ -37,6 +41,13 @@ class RoomAsset {
     }
 
     /**
+     * @returns {Tileset | null}
+     */
+    get tileset() {
+        return this._tileset;
+    }
+
+    /**
      * @returns {Array<RoomTile>}
      */
     getTiles() {
@@ -62,10 +73,18 @@ class RoomAsset {
         let directionVector = new Vector2(0, 0);
 
         switch(tile.data.direction) {
-            case "north": directionVector.y = 1; break;
-            case "south": directionVector.y = -1; break;
-            case "west": directionVector.x = -1; break;
-            case "east": directionVector.x = 1; break;
+            case "north":
+                directionVector.y = 1;
+                break;
+            case "south":
+                directionVector.y = -1;
+                break;
+            case "west":
+                directionVector.x = -1;
+                break;
+            case "east":
+                directionVector.x = 1;
+                break;
             default:
                 throw new Error(`Door at (${tile.position.x};${tile.position.y}) ` +
                     `from "${id}" has invalid or missing direction: "${tile.data.direction}"`);
@@ -84,7 +103,6 @@ class RoomAsset {
         spawnPoint.position = tile.position;
         spawnPoint.def = tile.data.def;
         spawnPoint.chance = nulls.getOr(() => tile.data.chance, 1);
-        // spawnPoint.chance = tile.data.chance ?? 1;
 
         this._spawnPoints.push(spawnPoint);
     }
