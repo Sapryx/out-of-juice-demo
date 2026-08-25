@@ -3,7 +3,7 @@ class GameEntity {
         this.next = this;
         this.prev = this;
         this.position = new Vector2(0, 0);
-        this.state = EntityState.Idle;
+        this._state = EntityState.Idle;
         this._health = config.maxHealth;
         this._maxHealth = config.maxHealth;
     }
@@ -20,6 +20,10 @@ class GameEntity {
      */
     get maxHealth() {
         return this._maxHealth;
+    }
+
+    get isAttacking() {
+        return this._state === EntityState.Attacking;
     }
 
     /**
@@ -55,8 +59,10 @@ class GameEntity {
      * @param {GameEntity} target
      */
     attack(target) {
-        console.log("attack");
+        this._state = EntityState.Attacking;
         this.damage(10);
+
+        G.presenter.onEntityAttack(this, target, () => this._state = EntityState.Idle);
     }
 
     /**
@@ -66,7 +72,7 @@ class GameEntity {
      */
     moveTo(position, callback) {
         const isMoving = G.level.moveEntity(this, position, () => {
-            this.state = EntityState.Idle;
+            this._state = EntityState.Idle;
 
             if(callback !== undefined) {
                 callback();
@@ -74,7 +80,7 @@ class GameEntity {
         });
 
         if(isMoving) {
-            this.state = EntityState.Moving;
+            this._state = EntityState.Moving;
         }
 
         return isMoving;

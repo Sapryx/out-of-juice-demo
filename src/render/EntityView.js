@@ -12,6 +12,13 @@ class EntityView {
     }
 
     /**
+     * @returns {ENode | undefined}
+     */
+    get node() {
+        return this._node;
+    }
+
+    /**
      * @returns {Vector2}
      */
     get position() {
@@ -23,16 +30,5 @@ class EntityView {
      */
     set position(value) {
         this._node.__ofs = math2d.mul(value, G.config.tileSize);
-    }
-
-    /**
-     * @param {Vector2} value
-     * @param {float} speed
-     */
-    animateTo(value, speed) {
-        return anim(this._node, {
-            __x: value.x * G.config.tileSize,
-            __y: value.y * G.config.tileSize
-        }, speed, undefined, easeLinear);
     }
 }

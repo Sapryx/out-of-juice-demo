@@ -70,7 +70,6 @@ class Input {
 
     static consumeAttack() {
         if(Input._attackIsPressed) {
-            console.log("consume")
             Input._attackIsPressed = false;
             return true;
         }
@@ -113,11 +112,9 @@ class Input {
     }
 
     /**
-     * @param {Vector2} mousePosition
      * @private
      */
     static _onTap() {
-        console.log("tap");
         Input._attackIsPressed = true;
     }
 }

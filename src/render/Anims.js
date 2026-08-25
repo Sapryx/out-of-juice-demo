@@ -1,0 +1,41 @@
+const Anims = {
+    /**
+     * @param {ENode} node
+     * @param {Vector2} targetPosition
+     * @param {number} duration
+     * @returns {Tween}
+     */
+    walk(node, targetPosition, duration) {
+        const tileSize = G.config.tileSize;
+
+        return anim(node, {
+            __x: targetPosition.x * tileSize,
+            __y: targetPosition.y * tileSize
+        }, duration, undefined, easeLinear);
+    },
+
+    /**
+     * @param {ENode} node
+     * @param {Vector2} currentPosition
+     * @param {Vector2} targetPosition
+     * @param {number} duration
+     * @param {ENode} node
+     * @returns {TweenSequence}
+     */
+    attack(node, currentPosition, targetPosition, duration) {
+        const start = math2d.copy(currentPosition);
+        const halfDuration = duration / 2;
+        const tileSize = G.config.tileSize;
+
+        return anim([
+            [node, {
+                __x: targetPosition.x * tileSize,
+                __y:targetPosition.y * tileSize
+            }, halfDuration, undefined, easeQuadO],
+            [node, {
+                __x: start.x * tileSize,
+                __y:start.y * tileSize
+            }, halfDuration, undefined, easeQuadI],
+        ]);
+    }
+};

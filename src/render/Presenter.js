@@ -5,7 +5,22 @@ class Presenter {
      */
     onMoveEntity(entity, callback) {
         const view = G.entityViews.get(entity);
-        view.animateTo(math2d.flipY(entity.position), G.config.tilePassTime)
+        const targetPosition = math2d.flipY(entity.position);
+        const animationDuration = G.config.tilePassTime;
+
+        Anims.walk(view.node, targetPosition, animationDuration)
+            .__setOnComplete(callback);
+    }
+
+    onEntityAttack(attacker, target, callback) {
+        const attackerView = G.entityViews.get(attacker);
+        const targetPosition = math2d.flipY(target.position);
+        const startPosition = math2d.flipY(attacker.position);
+        const animationDuration = G.config.tilePassTime;
+
+        console.log("atack anim");
+
+        Anims.attack(attackerView.node, startPosition, targetPosition, animationDuration)
             .__setOnComplete(callback);
     }
 

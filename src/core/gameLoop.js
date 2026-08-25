@@ -31,7 +31,7 @@ function handleInput() {
 function handleMovementInput() {
     const movementInputRaw = new Vector2(Input.getAxis(Axis.Horizontal), Input.getAxis(Axis.Vertical));
     const inputIsEmpty = movementInputRaw.x === 0 && movementInputRaw.y === 0;
-    const playerIsMoving = G.player.state === EntityState.Moving;
+    const playerIsMoving = G.player._state === EntityState.Moving;
 
     if(inputIsEmpty || playerIsMoving) {
         return false;
@@ -73,8 +73,9 @@ function updateCameraPosition() {
 
     const playerView = G.entityViews.get(G.player);
     const levelCamera = G.gameView.levelView.camera;
+    const playerIsAttacking = G.player.isAttacking;
 
-    if(playerView == null || levelCamera == null) {
+    if(playerView == null || levelCamera == null || playerIsAttacking) {
         return;
     }
 

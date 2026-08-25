@@ -21,6 +21,11 @@ const math2d = {
         return new Vector2(vector1.x + vector2.x, vector1.y + vector2.y);
     },
 
+    /**
+     * @param {Vector2} vector1
+     * @param {Vector2} vector2
+     * @returns {Vector2}
+     */
     sub(vector1, vector2) {
         return new Vector2(vector1.x - vector2.x, vector1.y - vector2.y);
     },
@@ -83,7 +88,19 @@ const math2d = {
         return new Vector2(-vector.y, vector.x);
     },
 
+    /**
+     * @param {Vector2} vector
+     * @returns {Vector2}
+     */
     round(vector) {
         return new Vector2(round(vector.x), round(vector.y));
+    },
+
+    /**
+     * @param {Vector2} vector
+     * @returns {Vector2}
+     */
+    copy(vector) {
+        return new Vector2(vector.x, vector.y);
     }
 };
