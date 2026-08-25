@@ -6,6 +6,7 @@ class GameEntity {
         this._state = EntityState.Idle;
         this._health = config.maxHealth;
         this._maxHealth = config.maxHealth;
+        this._attackDistance = 1;
     }
 
     /**
@@ -27,13 +28,6 @@ class GameEntity {
     }
 
     /**
-     * @param {number} value
-     */
-    damage(value) {
-        this._health = mmax(0, this._health - value);
-    }
-
-    /**
      * @param {() => void} onResolved
      */
     resolveTurn(onResolved) {
@@ -52,7 +46,7 @@ class GameEntity {
         const distanceX = abs(vectorToTarget.x);
         const distanceY = abs(vectorToTarget.y);
 
-        return distanceX <= 1 && distanceY <= 1;
+        return distanceX <= this._attackDistance && distanceY <= this._attackDistance;
     }
 
     /**
@@ -60,9 +54,16 @@ class GameEntity {
      */
     attack(target) {
         this._state = EntityState.Attacking;
-        this.damage(10);
+        target.dealDamage(10);
 
         G.presenter.onEntityAttack(this, target, () => this._state = EntityState.Idle);
+    }
+
+    /**
+     * @param {number} amount
+     */
+    dealDamage(amount) {
+        this._health = mmax(0, this._health - amount);
     }
 
     /**
@@ -93,5 +94,30 @@ class GameEntity {
      */
     moveBy(offset, callback) {
         return this.moveTo(math2d.add(this.position, offset), callback);
+    }
+
+    /**
+     * @param {Vector2} position
+     * @param {() => void} onTargetReach
+     */
+    moveTowards(position, onTargetReach) {
+        const vectorToTarget = math2d.sub(position, this.position);
+        const offset = new Vector2(0, 0);
+        const altOffset = new Vector2(0, 0);
+
+        const xLength = abs(vectorToTarget.x);
+        const yLength = abs(vectorToTarget.y);
+        const xDirection = sign(vectorToTarget.x);
+        const yDirection = sign(vectorToTarget.y);
+
+        if(xLength > yLength) {
+            offset.x = xDirection;
+            altOffset.y = yDirection;
+        } else {
+            offset.y = yDirection;
+            altOffset.x = xDirection;
+        }
+
+        return this.moveBy(offset, onTargetReach) || this.moveBy(altOffset, onTargetReach);
     }
 }
