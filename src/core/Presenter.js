@@ -1,6 +1,17 @@
 class Presenter {
     /**
      * @param {GameEntity} entity
+     */
+    onAddEntity(entity) {
+        G.entityViews.add(entity);
+    }
+
+    onRemoveEntity(entity) {
+        G.entityViews.remove(entity);
+    }
+
+    /**
+     * @param {GameEntity} entity
      * @param {() => void} callback
      */
     onMoveEntity(entity, callback) {
@@ -20,13 +31,6 @@ class Presenter {
 
         Anims.attack(attackerView.node, startPosition, targetPosition, animationDuration)
             .__setOnComplete(callback);
-    }
-
-    /**
-     * @param {GameEntity} entity
-     */
-    onAddEntity(entity) {
-        G.entityViews.add(entity);
     }
 
     /**

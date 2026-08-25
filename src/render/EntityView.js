@@ -31,4 +31,8 @@ class EntityView {
     set position(value) {
         this._node.__ofs = math2d.mul(value, G.config.tileSize);
     }
+
+    remove() {
+        this._node.__removeFromParent();
+    }
 }

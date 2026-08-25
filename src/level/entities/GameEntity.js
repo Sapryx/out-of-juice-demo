@@ -64,6 +64,10 @@ class GameEntity {
      */
     dealDamage(amount) {
         this._health = mmax(0, this._health - amount);
+
+        if(this._health === 0) {
+            this._die();
+        }
     }
 
     /**
@@ -119,5 +123,9 @@ class GameEntity {
         }
 
         return this.moveBy(offset, onTargetReach) || this.moveBy(altOffset, onTargetReach);
+    }
+
+    _die() {
+        G.level.removeEntity(this);
     }
 }

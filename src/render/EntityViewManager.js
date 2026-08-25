@@ -23,4 +23,15 @@ class EntityViewManager {
 
         this._views.set(entity, view);
     }
+
+    remove(entity) {
+        const view = this._views.get(entity);
+
+        if(view === undefined) {
+            throw new Error(`Cannot remove view for entity "${entity}": view not found`);
+        }
+
+        view.remove();
+        this._views.delete(entity);
+    }
 }

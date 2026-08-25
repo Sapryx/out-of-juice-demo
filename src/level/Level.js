@@ -94,6 +94,8 @@ class Level {
         entity.next = null;
         entity.prev = null;
         this._entityGrid.delete(this._getHash(entity.position));
+
+        G.presenter.onRemoveEntity(entity);
     }
 
     /**

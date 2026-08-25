@@ -1,6 +1,7 @@
 class Sweeper extends GameEntity {
     constructor(config) {
         super(config);
+        this._health = 30;
     }
 
     resolveTurn(onResolved) {
