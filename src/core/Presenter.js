@@ -23,14 +23,18 @@ class Presenter {
             .__setOnComplete(callback);
     }
 
+    /**
+     * @param {GameEntity} attacker
+     * @param {GameEntity} target
+     * @param {() => void} callback
+     */
     onEntityAttack(attacker, target, callback) {
         const attackerView = G.entityViews.get(attacker);
         const targetPosition = math2d.flipY(target.position);
         const startPosition = math2d.flipY(attacker.position);
         const animationDuration = G.config.tilePassTime;
 
-        Anims.attack(attackerView.node, startPosition, targetPosition, animationDuration)
-            .__setOnComplete(callback);
+        Anims.attack(attackerView.node, startPosition, targetPosition, animationDuration, callback)
     }
 
     /**

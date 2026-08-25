@@ -1,28 +1,26 @@
 class TurnManager {
     constructor() {
-        this.currentEntity = null;
-        this.turnIsInProgress = false;
+        this._currentEntity = null;
     }
 
     get isPlayerTurn() {
-        return this.currentEntity != null && this.currentEntity === G.player;
+        return G.player != null && this._currentEntity === G.player;
     }
 
     setEntity(entity) {
-        this.currentEntity = entity;
+        this._currentEntity = entity;
     }
 
     tick() {
-        if(this.turnIsInProgress) {
-            return;
-        }
+        console.log(this._currentEntity._state);
 
-        this.currentEntity.resolveTurn(() => this.commitTurn());
-        this.turnIsInProgress = true;
+        if(this._currentEntity.isIdle && !this.isPlayerTurn) {
+            this.commitTurn();
+        }
     }
 
     commitTurn() {
-        this.currentEntity = this.currentEntity.next;
-        this.turnIsInProgress = false;
+        this._currentEntity = this._currentEntity.next;
+        this._currentEntity.resolveTurn();
     }
 }

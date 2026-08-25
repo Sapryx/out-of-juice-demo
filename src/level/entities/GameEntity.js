@@ -27,10 +27,11 @@ class GameEntity {
         return this._state === EntityState.Attacking;
     }
 
-    /**
-     * @param {() => void} onResolved
-     */
-    resolveTurn(onResolved) {
+    get isIdle() {
+        return this._state === EntityState.Idle;
+    }
+
+    resolveTurn() {
 
     }
 
@@ -56,7 +57,9 @@ class GameEntity {
         this._state = EntityState.Attacking;
         target.dealDamage(10);
 
-        G.presenter.onEntityAttack(this, target, () => this._state = EntityState.Idle);
+        G.presenter.onEntityAttack(this, target, () => {
+            this._state = EntityState.Idle;
+        });
     }
 
     /**
@@ -72,39 +75,34 @@ class GameEntity {
 
     /**
      * @param {Vector2} position
-     * @param {() => void} callback
      * @returns {boolean}
      */
-    moveTo(position, callback) {
-        const isMoving = G.level.moveEntity(this, position, () => {
-            this._state = EntityState.Idle;
-
-            if(callback !== undefined) {
-                callback();
-            }
-        });
-
-        if(isMoving) {
-            this._state = EntityState.Moving;
+    moveTo(position) {
+        if(!G.level.isTileFree(position)) {
+            return false;
         }
 
-        return isMoving;
+        this._state = EntityState.Moving;
+
+        G.level.moveEntity(this, position, () => {
+            this._state = EntityState.Idle;
+        });
+
+        return true;
     }
 
     /**
      * @param {Vector2} offset
-     * @param {() => void} callback
      * @returns {boolean}
      */
-    moveBy(offset, callback) {
-        return this.moveTo(math2d.add(this.position, offset), callback);
+    moveBy(offset) {
+        return this.moveTo(math2d.add(this.position, offset));
     }
 
     /**
      * @param {Vector2} position
-     * @param {() => void} onTargetReach
      */
-    moveTowards(position, onTargetReach) {
+    moveTowards(position) {
         const vectorToTarget = math2d.sub(position, this.position);
         const offset = new Vector2(0, 0);
         const altOffset = new Vector2(0, 0);
@@ -122,7 +120,7 @@ class GameEntity {
             altOffset.x = xDirection;
         }
 
-        return this.moveBy(offset, onTargetReach) || this.moveBy(altOffset, onTargetReach);
+        return this.moveBy(offset) || this.moveBy(altOffset);
     }
 
     _die() {

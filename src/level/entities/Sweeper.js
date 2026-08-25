@@ -4,23 +4,20 @@ class Sweeper extends GameEntity {
         this._health = 30;
     }
 
-    resolveTurn(onResolved) {
-        super.resolveTurn(onResolved);
-
+    resolveTurn() {
+        super.resolveTurn();
         const player = G.player;
 
         if(player == null) {
             return;
         }
 
-        if(this.canAttack(G.player)) {
-            this.attack(G.player);
-            onResolved();
-            return;
+        if(this.canAttack(player)) {
+            this.attack(player);
+        } else {
+            this.moveTowards(player.position);
         }
 
-        if(!this.moveTowards(G.player.position, onResolved)) {
-            onResolved();
-        }
+        console.log(this._state);
     }
 }
