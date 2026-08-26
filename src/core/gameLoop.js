@@ -1,7 +1,14 @@
 let gameLoop = {
     __update: function(t, dt) {
-        handleInput();
+        handleUiInput();
 
+        const windowIsOpen = G.gameView.gui.currentWindow != null;
+
+        if(windowIsOpen) {
+            return;
+        }
+
+        handleGameInput();
         G.turnManager.tick();
 
         updateCameraPosition();
@@ -9,7 +16,7 @@ let gameLoop = {
     }
 };
 
-function handleInput() {
+function handleGameInput() {
     const notPlayerTurn = !G.turnManager.isPlayerTurn;
     const playerIsDead = G.player == null;
 
@@ -17,11 +24,7 @@ function handleInput() {
         return;
     }
 
-    const playerHasMoved = handleMovementInput();
-    const playerHasAttacked = handleAttackInput();
-    handleUiInput();
-
-    if(playerHasMoved || playerHasAttacked) {
+    if(handleAttackInput() || handleMovementInput()) {
         G.turnManager.commitTurn();
     }
 }
