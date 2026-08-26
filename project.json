@@ -62,6 +62,7 @@
             "registry/Defs.js",
             "registry/RoomAssetRegistry.js",
             "registry/LevelTypeRegistry.js",
+            "registry/WindowRegistry.js",
             "registry/EntityViewPrefabs.js",
             "registry/Anims.js",
 
@@ -75,6 +76,8 @@
             "render/PlayerHealthView.js",
             "render/DebugView.js",
             "render/TileSelectionView.js",
+            "render/windows/GameWindow.js",
+            "render/windows/InventoryWindow.js",
 
             "bootstrap/loading.js",
             "bootstrap/contentBootstrapper.js",
@@ -144,7 +147,8 @@
             "entities/player.json",
             "entities/sweeper.json",
             "test_level.json",
-            "gui.json"
+            "gui.json",
+            "inventory_window.json"
         ],
         [
             "shaders",

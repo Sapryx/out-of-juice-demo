@@ -1,5 +1,6 @@
 class Gui {
     constructor(parent) {
+        this.currentWindow = null;
         this._parent = parent;
         this._node = null;
         this._playerHealthView = null;
@@ -18,6 +19,13 @@ class Gui {
      */
     set camera(value) {
         this._node.__camera = value;
+    }
+
+    /**
+     * @returns {ENode | undefined}
+     */
+    get node() {
+        return this._node;
     }
 
     init() {

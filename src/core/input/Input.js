@@ -5,6 +5,7 @@ class Input {
         Input._leftPressed = false;
         Input._rightPressed = false;
         Input._attackIsPressed = false;
+        Input._openInventoryIsPressed = false;
 
         gestures.__onKeyDown = Input._onKeyDown;
         gestures.__onKeyUp = Input._onKeyUp;
@@ -68,9 +69,24 @@ class Input {
         }
     }
 
+    /**
+     * @returns {boolean}
+     */
     static consumeAttack() {
         if(Input._attackIsPressed) {
             Input._attackIsPressed = false;
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @returns {boolean}
+     */
+    static consumeOpenInventory() {
+        if(Input._openInventoryIsPressed) {
+            Input._openInventoryIsPressed = false;
             return true;
         }
 
@@ -91,6 +107,7 @@ class Input {
             case "s": Input._downPressed = true; break;
             case "a": Input._leftPressed = true; break;
             case "d": Input._rightPressed = true; break;
+            case "i": Input._openInventoryIsPressed = true; break;
         }
     }
 

@@ -19,6 +19,7 @@ function handleInput() {
 
     const playerHasMoved = handleMovementInput();
     const playerHasAttacked = handleAttackInput();
+    handleUiInput();
 
     if(playerHasMoved || playerHasAttacked) {
         G.turnManager.commitTurn();
@@ -64,6 +65,23 @@ function handleAttackInput() {
 
     G.player.attack(target);
     return true;
+}
+
+function handleUiInput() {
+    if(!Input.consumeOpenInventory()) {
+        return;
+    }
+
+    const gui = G.gameView.gui;
+
+    if(gui.currentWindow == null) {
+        const window = G.windowRegistry.get(InventoryWindow);
+        gui.currentWindow = window;
+        window.open();
+    } else {
+        gui.currentWindow.close();
+        gui.currentWindow = null;
+    }
 }
 
 function updateCameraPosition() {

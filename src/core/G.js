@@ -5,8 +5,10 @@ const G = {
     level: null,
     defs: null,
     config: null,
+
     roomAssetRegistry: null,
     levelTypeRegistry: null,
+    windowRegistry: null,
 
     presenter: null,
     entityViews: null,

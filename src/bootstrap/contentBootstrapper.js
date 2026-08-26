@@ -57,5 +57,9 @@ const contentBootstrapper = {
                 });
             }
         });
+    },
+
+    registerWindows() {
+        G.windowRegistry.register(InventoryWindow);
     }
 };
