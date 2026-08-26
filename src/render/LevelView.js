@@ -24,6 +24,13 @@ class LevelView {
         this._node.__camera = value;
     }
 
+    /**
+     * @returns {TileSelectionView | undefined}
+     */
+    get tileSelectionView() {
+        return this._tileSelectionView;
+    }
+
     init() {
         this._node = this._parent.__addChildBox("level");
         this._tileBatch = new StaticBatchNode();

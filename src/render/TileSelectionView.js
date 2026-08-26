@@ -20,6 +20,14 @@ class TileSelectionView {
         this._node.__color = this._getSelectionColor(gridPosition);
     }
 
+    enable() {
+        this._node.__alpha = 1;
+    }
+
+    disable() {
+        this._node.__alpha = 0;
+    }
+
     /**
      * @returns {int}
      * @private

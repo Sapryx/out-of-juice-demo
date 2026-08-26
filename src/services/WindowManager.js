@@ -11,12 +11,18 @@ class WindowManager {
         const window = G.windowRegistry.get(windowType);
         this._currentWindow = window;
         window.open();
+
+        G.presenter.onWindowOpen(window);
     }
 
     closeCurrent() {
         if(this.windowIsOpen) {
-            this._currentWindow.close();
+            const window = this._currentWindow;
+
+            window.close();
             this._currentWindow = null;
+
+            G.presenter.onWindowClose(window);
         }
     }
 }

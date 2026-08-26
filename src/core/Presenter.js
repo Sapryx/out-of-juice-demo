@@ -101,4 +101,20 @@ class Presenter {
 
         G.gameView.levelView.addBakedNode(tileNode);
     }
+
+    onWindowOpen(window) {
+        const tileSelection = G.gameView.levelView.tileSelectionView;
+
+        if(tileSelection != null) {
+            tileSelection.disable();
+        }
+    }
+
+    onWindowClose(window) {
+        const tileSelection = G.gameView.levelView.tileSelectionView;
+
+        if(tileSelection != null) {
+            tileSelection.enable();
+        }
+    }
 }
