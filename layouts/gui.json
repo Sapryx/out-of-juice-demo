@@ -1,17 +1,15 @@
 [
   {
     "__padding": [
-      64,
-      64,
+      16,
+      16,
       0,
       0
     ],
     "__alpha": 0,
     "__size": [
-      1,
-      1,
-      1,
-      1
+      640,
+      360
     ],
     "__childs": {
       "health bar": {
@@ -28,10 +26,11 @@
           0
         ],
         "__size": [
-          240,
-          32
+          80,
+          12
         ],
         "__text": {
+          "__fontsize": 8,
           "__text": "100"
         },
         "__childs": {
@@ -66,8 +65,8 @@
         "sha": 2,
         "sva": 2,
         "__size": [
-          349,
-          120
+          120,
+          36
         ],
         "__childs": {
           "_0": {
@@ -87,9 +86,10 @@
                 "__needScissor": false,
                 "__size": [
                   0.5,
-                  36
+                  12
                 ],
                 "__text": {
+                  "__fontsize": 8,
                   "__text": "Mouse Pos:",
                   "__align": 0
                 }
@@ -103,9 +103,10 @@
                 "__needScissor": false,
                 "__size": [
                   0.5,
-                  36
+                  12
                 ],
                 "__text": {
+                  "__fontsize": 8,
                   "__text": "0; 0",
                   "__align": 0
                 }

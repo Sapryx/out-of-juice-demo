@@ -96,8 +96,8 @@
             "__fontface": "Roboto"
         },
         "__upscaleResolution": {
-            "x": 1920,
-            "y": 1080
+            "x": 640,
+            "y": 360
         },
         "__localesDir": "lang/",
         "__baseShadersFolder": "shaders/",

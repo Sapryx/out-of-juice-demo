@@ -36,7 +36,7 @@ class GameView {
         this.levelView.camera = levelCamera;
         this.gui.camera = guiCamera;
 
-        levelCamera.__zoom = 3;
+        // levelCamera.__zoom = 3;
 
         renderer.__renderLoop = function() {
             let c = 0;
