@@ -17,6 +17,7 @@ function initializeState() {
 
     // Systems
     G.turnManager = new TurnManager();
+    G.levelGenerator = new LevelGenerator();
 
     // Rendering
     G.presenter = new Presenter();
@@ -34,21 +35,31 @@ function registerContent() {
 function initializeGame() {
     Input.init();
     G.gameView.init();
+
+    updatable.__push(gameLoop);
 }
 
 function startGame() {
-    const levelGenerator = new LevelGenerator();
-    const level = levelGenerator.generateLevel();
-
+    const level = G.levelGenerator.generateLevel();
     G.level = level;
 
     level.respawnPlayer();
-
     level.addEntity(G.defs.create("sweeper"), math2d.add(G.player.position, new Vector2(0, 2)));
-
     level.initRooms();
 
     G.turnManager.setEntity(G.player);
+}
 
-    updatable.__push(gameLoop);
+function restartGame() {
+    G.gameView.reinit();
+    G.entityViews.cleanup();
+
+    const level = G.levelGenerator.generateLevel();
+    G.level = level;
+
+    level.respawnPlayer();
+    level.addEntity(G.defs.create("sweeper"), math2d.add(G.player.position, new Vector2(0, 2)));
+    level.initRooms();
+
+    G.turnManager.setEntity(G.player);
 }

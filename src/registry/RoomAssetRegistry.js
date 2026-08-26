@@ -37,7 +37,7 @@ class RoomAssetRegistry {
      * @returns {Array<RoomAsset>}
      */
     getForType(type) {
-        return this._roomAssets.get(type);
+        return this._roomAssets.get(type).slice();
     }
 
     /**

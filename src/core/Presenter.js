@@ -34,7 +34,9 @@ class Presenter {
         const startPosition = math2d.flipY(attacker.position);
         const animationDuration = G.config.tilePassTime;
 
-        Anims.attack(attackerView.node, startPosition, targetPosition, animationDuration, callback)
+        if(attackerView !== undefined) {
+            Anims.attack(attackerView.node, startPosition, targetPosition, animationDuration, callback);
+        }
     }
 
     /**

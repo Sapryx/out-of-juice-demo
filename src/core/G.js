@@ -1,6 +1,7 @@
 const G = {
     player: null,
     turnManager: null,
+    levelGenerator: null,
     level: null,
     defs: null,
     config: null,

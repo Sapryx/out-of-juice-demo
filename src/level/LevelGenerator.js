@@ -27,6 +27,7 @@ class LevelGenerator {
                 }
 
                 const roomAssetsOfType = G.roomAssetRegistry.getForType(roomNode.type);
+
                 const targetDoorCount = roomNode.connectedNodes.length;
                 const roomMatch = this._findMatchingRoomAsset(roomAssetsOfType, targetRoom, targetDoorCount);
 

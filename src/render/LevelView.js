@@ -10,14 +10,6 @@ class LevelView {
         this._tileSelectionView = null;
     }
 
-    init() {
-        this._node = this._parent.__addChildBox("level");
-        this._node.add(this._tileBatch);
-        this._tileSelectionView = new TileSelectionView(this._node);
-
-        this._tileSelectionView.init();
-    }
-
     /**
      * @returns {CameraOrtho | null}
      */
@@ -30,6 +22,18 @@ class LevelView {
      */
     set camera(value) {
         this._node.__camera = value;
+    }
+
+    init() {
+        this._node = this._parent.__addChildBox("level");
+        this._node.add(this._tileBatch);
+        this._tileSelectionView = new TileSelectionView(this._node);
+
+        this._tileSelectionView.init();
+    }
+
+    remove() {
+        this._node.__removeFromParent();
     }
 
     /**

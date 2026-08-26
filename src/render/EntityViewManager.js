@@ -34,4 +34,12 @@ class EntityViewManager {
         view.remove();
         this._views.delete(entity);
     }
+
+    cleanup() {
+        for(let view in this._views.values()) {
+            view.remove();
+        }
+
+        this._views.clear();
+    }
 }

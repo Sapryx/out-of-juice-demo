@@ -8,9 +8,34 @@ class GameView {
     }
 
     init() {
+        this._initViews();
+        this._setupCameras();
+    }
+
+    reinit() {
+        this.cleanup();
+        this._initViews();
+        this._setupCameras();
+    }
+
+    cleanup() {
+
+
+        this.levelView.remove();
+        this.gui.remove();
+    }
+
+    update() {
+        this.levelView.update();
+        this.gui.update();
+    }
+
+    _initViews() {
         this.levelView.init();
         this.gui.init();
+    }
 
+    _setupCameras() {
         const levelCamera = this._createCamera();
         const guiCamera = camera;
 
@@ -40,11 +65,6 @@ class GameView {
 
             renderer.__finishRender();
         };
-    }
-
-    update() {
-        this.levelView.update();
-        this.gui.update();
     }
 
     /**

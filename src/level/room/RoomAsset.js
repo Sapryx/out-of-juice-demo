@@ -54,8 +54,11 @@ class RoomAsset {
         return this._tiles;
     }
 
+    /**
+     * @returns {Array<Door>}
+     */
     getDoors() {
-        return this._doors;
+        return this._doors.slice();
     }
 
     /**

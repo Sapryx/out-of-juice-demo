@@ -6,15 +6,6 @@ class Gui {
         this._debugView = null;
     }
 
-    init() {
-        this._node = this._parent.__addChildBox("gui");
-        this._playerHealthView = new PlayerHealthView(this._node);
-        this._debugView = new DebugView(this._node);
-
-        this._playerHealthView.init();
-        this._debugView.init();
-    }
-
     /**
      * @returns {CameraOrtho | null}
      */
@@ -27,6 +18,19 @@ class Gui {
      */
     set camera(value) {
         this._node.__camera = value;
+    }
+
+    init() {
+        this._node = this._parent.__addChildBox("gui");
+        this._playerHealthView = new PlayerHealthView(this._node);
+        this._debugView = new DebugView(this._node);
+
+        this._playerHealthView.init();
+        this._debugView.init();
+    }
+
+    remove() {
+        this._node.__removeFromParent();
     }
 
     update() {
