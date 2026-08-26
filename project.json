@@ -43,6 +43,7 @@
             "core/E.js",
 
             "services/TurnManager.js",
+            "services/WindowManager.js",
 
             "level/entities/EntityState.js",
             "level/entities/GameEntity.js",

@@ -1,6 +1,7 @@
 const G = {
     player: null,
     turnManager: null,
+    windowManager: null,
     levelGenerator: null,
     level: null,
     defs: null,

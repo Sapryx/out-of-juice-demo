@@ -2,9 +2,7 @@ let gameLoop = {
     __update: function(t, dt) {
         handleUiInput();
 
-        const windowIsOpen = G.gameView.gui.currentWindow != null;
-
-        if(windowIsOpen) {
+        if(G.windowManager.windowIsOpen) {
             return;
         }
 
@@ -75,15 +73,10 @@ function handleUiInput() {
         return;
     }
 
-    const gui = G.gameView.gui;
-
-    if(gui.currentWindow == null) {
-        const window = G.windowRegistry.get(InventoryWindow);
-        gui.currentWindow = window;
-        window.open();
+    if(!G.windowManager.windowIsOpen) {
+        G.windowManager.open(InventoryWindow);
     } else {
-        gui.currentWindow.close();
-        gui.currentWindow = null;
+        G.windowManager.closeCurrent();
     }
 }
 

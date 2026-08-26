@@ -1,6 +1,5 @@
 class Gui {
     constructor(parent) {
-        this.currentWindow = null;
         this._parent = parent;
         this._node = null;
         this._playerHealthView = null;
