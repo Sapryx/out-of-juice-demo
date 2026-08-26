@@ -12,8 +12,6 @@ class TurnManager {
     }
 
     tick() {
-        console.log(this._currentEntity._state);
-
         if(this._currentEntity.isIdle && !this.isPlayerTurn) {
             this.commitTurn();
         }

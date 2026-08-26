@@ -15,6 +15,7 @@ class LevelGenerator {
         console.log(`Using level type: ${levelType.id}`);
         console.log(`Discovered ${G.roomAssetRegistry.count} unique rooms`);
 
+        G.roomAssetRegistry.shuffle();
         this._placeRoom(level, startRoom, new Vector2(0, 0));
 
         while(!this._roomsToProcess.isEmpty()) {

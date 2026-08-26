@@ -17,7 +17,5 @@ class Sweeper extends GameEntity {
         } else {
             this.moveTowards(player.position);
         }
-
-        console.log(this._state);
     }
 }

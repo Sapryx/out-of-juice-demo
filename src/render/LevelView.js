@@ -5,7 +5,7 @@ class LevelView {
     constructor(parent) {
         this._parent = parent;
         this._node = null;
-        this._tileBatch = new StaticBatchNode();
+        this._tileBatch = null;
         this._bakedTiles = null;
         this._tileSelectionView = null;
     }
@@ -26,13 +26,14 @@ class LevelView {
 
     init() {
         this._node = this._parent.__addChildBox("level");
-        this._node.add(this._tileBatch);
+        this._tileBatch = new StaticBatchNode();
         this._tileSelectionView = new TileSelectionView(this._node);
 
+        this._node.add(this._tileBatch);
         this._tileSelectionView.init();
     }
 
-    remove() {
+    cleanup() {
         this._node.__removeFromParent();
     }
 

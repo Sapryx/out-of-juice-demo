@@ -57,7 +57,5 @@ const contentBootstrapper = {
                 });
             }
         });
-
-        G.roomAssetRegistry.shuffle();
     }
 };

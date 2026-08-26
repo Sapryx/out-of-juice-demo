@@ -29,7 +29,7 @@ class Gui {
         this._debugView.init();
     }
 
-    remove() {
+    cleanup() {
         this._node.__removeFromParent();
     }
 

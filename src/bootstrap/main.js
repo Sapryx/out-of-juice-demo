@@ -40,20 +40,17 @@ function initializeGame() {
 }
 
 function startGame() {
-    const level = G.levelGenerator.generateLevel();
-    G.level = level;
-
-    level.respawnPlayer();
-    level.addEntity(G.defs.create("sweeper"), math2d.add(G.player.position, new Vector2(0, 2)));
-    level.initRooms();
-
-    G.turnManager.setEntity(G.player);
+    setupLevel();
 }
 
 function restartGame() {
-    G.gameView.reinit();
+    G.gameView.reset();
     G.entityViews.cleanup();
 
+    setupLevel();
+}
+
+function setupLevel() {
     const level = G.levelGenerator.generateLevel();
     G.level = level;
 
