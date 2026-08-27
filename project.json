@@ -60,6 +60,10 @@
             "content/level/Level.js",
             "content/level/LevelType.js",
 
+            "content/items/GameItem.js",
+            "content/items/Inventory.js",
+            "content/items/ItemInstance.js",
+
             "registry/Defs.js",
             "registry/RoomAssetRegistry.js",
             "registry/LevelTypeRegistry.js",

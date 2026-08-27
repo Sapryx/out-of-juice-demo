@@ -1,11 +1,10 @@
 class GameConfig {
     /**
-     * @param {int} tileSize
-     * @param {float} tilePassTime
+     * @param {Object} config
      */
-    constructor(tileSize, tilePassTime) {
-        this._tileSize = tileSize;
-        this._tilePassTime = tilePassTime;
+    constructor(config) {
+        this._tileSize = config.tileSize;
+        this._tilePassTime = config.tilePassTime;
     }
 
     /**

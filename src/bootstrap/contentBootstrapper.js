@@ -15,10 +15,7 @@ const ROOM_ASSETS = [
 const contentBootstrapper = {
     registerConfigs() {
         getJson("configs/game.json", (config) => {
-            G.config = new GameConfig(
-                config.tileSize,
-                config.tilePassTime
-            );
+            G.config = new GameConfig(config);
         });
     },
 
