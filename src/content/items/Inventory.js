@@ -9,6 +9,23 @@ class Inventory {
     }
 
     /**
+     * @param {int} slot
+     * @returns {ItemInstance}
+     * @throws {RangeError} slot out of range
+     */
+    getItem(slot) {
+        this._verifySlotIsInRange(slot);
+        return this._items[slot];
+    }
+
+    /**
+     * @returns {ReadonlyArray<ItemInstance|null>}
+     */
+    getItems() {
+        return Object.freeze([...this._items]);
+    }
+
+    /**
      * @param {ItemInstance} item
      * @returns {boolean}
      */
@@ -39,16 +56,6 @@ class Inventory {
 
         this._items[slot] = null;
         return true;
-    }
-
-    /**
-     * @param {int} slot
-     * @returns {ItemInstance}
-     * @throws {RangeError} slot out of range
-     */
-    getItem(slot) {
-        this._verifySlotIsInRange(slot);
-        return this._items[slot];
     }
 
     /**

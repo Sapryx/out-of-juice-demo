@@ -80,6 +80,7 @@
             "render/Gui.js",
             "render/PlayerHealthView.js",
             "render/DebugView.js",
+            "render/ItemCardView.js",
             "render/TileSelectionView.js",
             "render/windows/GameWindow.js",
             "render/windows/InventoryWindow.js",

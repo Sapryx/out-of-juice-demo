@@ -7,7 +7,16 @@ class InventoryWindow extends GameWindow {
     open() {
         super.open();
         const itemSidebar = this._node.__findChild(node => node.__userData && node.__userData.type === "item_sidebar");
+        const inventory = G.player.inventory;
 
-        itemSidebar.__addChildBox("item_card");
+        for(const item of inventory.getItems()) {
+            if(item == null) {
+                continue;
+            }
+
+            const itemCard = new ItemCardView(itemSidebar);
+            itemCard.init();
+            itemCard.set(item.item);
+        }
     }
 }
