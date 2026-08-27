@@ -1,7 +1,24 @@
 [
   {
     "__color": "#333941",
-    "name": "item_card",
+    "name": {
+      "__color": "#333941",
+      "name": "name",
+      "__userData": {
+        "type": "name"
+      },
+      "__blending": 0,
+      "__size": [
+        1,
+        1,
+        "o",
+        "o"
+      ],
+      "__text": {
+        "__fontsize": 12,
+        "__text": "Bandage"
+      }
+    },
     "__padding": 8,
     "ha": 3,
     "va": 1,
@@ -13,7 +30,9 @@
     ],
     "__childs": {
       "icon": {
-        "__color": "#9c67e9",
+        "__userData": {
+          "type": "icon"
+        },
         "__spacing": [
           0,
           0,
@@ -27,6 +46,9 @@
       },
       "name": {
         "__color": "#333941",
+        "__userData": {
+          "type": "name"
+        },
         "__blending": 0,
         "__size": [
           1,
