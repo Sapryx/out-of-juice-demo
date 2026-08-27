@@ -1,10 +1,170 @@
 [
   {
-    "__color": 0.2292,
-    "__img": "white",
+    "__color": "#4a5462",
+    "name": "root",
+    "ha": 3,
+    "va": 1,
     "__size": [
-      640,
-      360
-    ]
+      384,
+      224
+    ],
+    "__childs": {
+      "item_sidebar": {
+        "__color": "#4a5462",
+        "__userData": {
+          "type": "item_sidebar"
+        },
+        "__spacing": [
+          0,
+          0,
+          -47,
+          0
+        ],
+        "ha": 0,
+        "va": 3,
+        "__size": [
+          160,
+          1
+        ],
+        "__childs": {
+          "item_card": {
+            "__color": "#333941",
+            "__padding": 8,
+            "ha": 3,
+            "va": 1,
+            "__size": [
+              1,
+              1,
+              0,
+              "o"
+            ],
+            "__childs": {
+              "icon": {
+                "__color": "#9c67e9",
+                "__spacing": [
+                  0,
+                  0,
+                  0,
+                  8
+                ],
+                "__size": [
+                  16,
+                  16
+                ]
+              },
+              "name": {
+                "__color": "#333941",
+                "__blending": 0,
+                "__size": [
+                  1,
+                  1,
+                  "o",
+                  "o"
+                ],
+                "__text": {
+                  "__fontsize": 12,
+                  "__text": "Bandage"
+                }
+              }
+            }
+          }
+        }
+      },
+      "scrollbar": {
+        "__color": "#6d758d",
+        "__size": [
+          8,
+          1
+        ]
+      },
+      "[object Object]": {
+        "__color": "#4a5462",
+        "__padding": 8,
+        "ha": 1,
+        "va": 3,
+        "__size": [
+          1,
+          1,
+          "a"
+        ],
+        "__childs": {
+          "name": {
+            "__color": "#4a5462",
+            "__spacing": [
+              0,
+              0,
+              8,
+              0
+            ],
+            "__size": [
+              1,
+              1,
+              0,
+              "o"
+            ],
+            "__text": {
+              "__fontsize": 16,
+              "__text": "Bandage"
+            }
+          },
+          "description": {
+            "__color": "#4a5462",
+            "ha": 0,
+            "va": 0,
+            "__corner": [
+              0,
+              0
+            ],
+            "__size": [
+              1,
+              1,
+              0,
+              "a"
+            ],
+            "__text": {
+              "__fontsize": 12,
+              "__text": "Use to restore 15 HP.",
+              "__align": 0
+            }
+          },
+          "buttons": {
+            "__color": "#a676be",
+            "__alpha": 0,
+            "ha": 3,
+            "va": 1,
+            "sha": 1,
+            "sva": 2,
+            "__size": [
+              1,
+              1,
+              0,
+              "o"
+            ],
+            "__childs": {
+              "use_button": {
+                "__color": "#b3b9d1",
+                "__padding": [
+                  4,
+                  12,
+                  4,
+                  12
+                ],
+                "__size": [
+                  1,
+                  1,
+                  "o",
+                  "o"
+                ],
+                "__text": {
+                  "__color": 0,
+                  "__fontsize": 8,
+                  "__text": "Use"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 ]
