@@ -149,7 +149,8 @@
             "entities/sweeper.json",
             "test_level.json",
             "gui.json",
-            "inventory_window.json"
+            "inventory_window.json",
+            "item_card.json"
         ],
         [
             "shaders",

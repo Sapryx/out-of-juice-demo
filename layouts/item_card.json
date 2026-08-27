@@ -1,0 +1,44 @@
+[
+  {
+    "__color": "#333941",
+    "name": "item_card",
+    "__padding": 8,
+    "ha": 3,
+    "va": 1,
+    "__size": [
+      1,
+      1,
+      0,
+      "o"
+    ],
+    "__childs": {
+      "icon": {
+        "__color": "#9c67e9",
+        "__spacing": [
+          0,
+          0,
+          0,
+          8
+        ],
+        "__size": [
+          16,
+          16
+        ]
+      },
+      "name": {
+        "__color": "#333941",
+        "__blending": 0,
+        "__size": [
+          1,
+          1,
+          "o",
+          "o"
+        ],
+        "__text": {
+          "__fontsize": 12,
+          "__text": "Bandage"
+        }
+      }
+    }
+  }
+]

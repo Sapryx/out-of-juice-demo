@@ -7,5 +7,7 @@ class InventoryWindow extends GameWindow {
     open() {
         super.open();
         const itemSidebar = this._node.__findChild(node => node.__userData && node.__userData.type === "item_sidebar");
+
+        itemSidebar.__addChildBox("item_card");
     }
 }
