@@ -10,6 +10,7 @@ class LevelGenerator {
         const startRoomAsset = G.roomAssetRegistry.getFirstOfType("start");
         const startRoom = new Room(startRoomNode, startRoomAsset);
         const processedNodes = new Set([startRoomNode]);
+        const usedAssets = new Set([startRoomAsset]);
 
         console.log("Generating level...");
         console.log(`Using level type: ${levelType.id}`);
@@ -30,7 +31,7 @@ class LevelGenerator {
                 const roomAssetsOfType = G.roomAssetRegistry.getForType(roomNode.type);
 
                 const targetDoorCount = roomNode.connectedNodes.length;
-                const roomMatch = this._findMatchingRoomAsset(roomAssetsOfType, targetRoom, targetDoorCount);
+                const roomMatch = this._findMatchingRoomAsset(roomAssetsOfType, usedAssets, targetRoom, targetDoorCount);
 
                 if(roomMatch == null) {
                     console.warn(`Could not find a matching asset of type "${roomNode.type}" for "${targetRoom.asset.id}"`);
@@ -39,7 +40,7 @@ class LevelGenerator {
 
                 this._appendRoom(level, roomMatch, roomNode);
 
-                list.remove(roomAssetsOfType, roomMatch.matchedRoomAsset);
+                usedAssets.add(roomMatch.matchedRoomAsset);
                 processedNodes.add(roomNode);
             }
         }
@@ -63,13 +64,18 @@ class LevelGenerator {
 
     /**
      * @param {Array<RoomAsset>} assets
+     * @param {Set<RoomAsset>} usedAssets
      * @param {Room} targetRoom
      * @param {int} doorCount
      * @returns {RoomMatch | null}
      * @private
      */
-    _findMatchingRoomAsset(assets, targetRoom, doorCount) {
+    _findMatchingRoomAsset(assets, usedAssets, targetRoom, doorCount) {
         for(const candidateAsset of assets) {
+            if(usedAssets.has(candidateAsset)) {
+                continue;
+            }
+
             const doorCountMatches = candidateAsset.getDoors().length >= doorCount;
 
             if(!doorCountMatches) {
