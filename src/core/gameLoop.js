@@ -2,14 +2,12 @@ let gameLoop = {
     __update: function(t, dt) {
         handleUiInput();
 
-        if(G.windowManager.windowIsOpen) {
-            return;
+        if(!G.windowManager.windowIsOpen) {
+            handleGameInput();
+            G.turnManager.tick();
+            updateCameraPosition();
         }
 
-        handleGameInput();
-        G.turnManager.tick();
-
-        updateCameraPosition();
         G.gameView.update();
     }
 };
