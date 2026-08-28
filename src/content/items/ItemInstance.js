@@ -12,4 +12,12 @@ class ItemInstance {
     get item() {
         return this._item;
     }
+
+    /**
+     * @param {GameEntity} user
+     * @returns {boolean}
+     */
+    use(user) {
+        return this._item.use(user);
+    }
 }

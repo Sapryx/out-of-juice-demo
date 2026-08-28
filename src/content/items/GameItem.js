@@ -32,4 +32,12 @@ class GameItem {
     get iconPath() {
         return this._id;
     }
+
+    /**
+     * @param {GameEntity} user
+     * @returns {boolean}
+     */
+    use(user) {
+        return false;
+    }
 }
