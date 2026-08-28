@@ -13,7 +13,7 @@
     ],
     "__childs": {
       "health bar": {
-        "__color": 0.8083,
+        "__color": "#4a5462",
         "__userData": {
           "type": "player_health_view"
         },
@@ -27,19 +27,19 @@
         ],
         "__size": [
           80,
-          12
+          16
         ],
         "__text": {
-          "__fontsize": 8,
+          "__fontsize": 12,
           "__text": "100"
         },
         "__childs": {
           "fill": {
-            "__color": "#eb2626",
+            "__color": "#b4202a",
             "__userData": {
               "type": "fill"
             },
-            "__margin": 2,
+            "__margin": 1,
             "sha": 0,
             "sva": 1,
             "__size": [
@@ -50,7 +50,7 @@
         }
       },
       "debug_info": {
-        "__color": 0.2085,
+        "__color": "#4a5462",
         "__userData": {
           "type": "debug_info"
         },
