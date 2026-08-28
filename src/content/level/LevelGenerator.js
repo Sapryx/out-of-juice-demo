@@ -160,12 +160,13 @@ class LevelGenerator {
         console.log(`Creating hallway from ${format(origin)} to ${format(target)}, direction: ${format(direction)}`);
 
         for(let i = 1; i < 6; i++) {
-            const currentPosition = math2d.add(origin, math2d.mul(direction, i));
-            const side1Direction = math2d.rotateCcw(direction);
-            const side2Direction = math2d.rotateCw(direction);
-            const wall1Position = math2d.add(currentPosition, side1Direction);
-            const wall2Position = math2d.add(currentPosition, side2Direction);
+            const floorPosition = math2d.add(origin, math2d.mul(direction, i));
+            const wall1Direction = math2d.rotateCcw(direction);
+            const wall2Direction = math2d.rotateCw(direction);
+            const wall1Position = math2d.add(floorPosition, wall1Direction);
+            const wall2Position = math2d.add(floorPosition, wall2Direction);
 
+            level.placeFloor(floorPosition);
             level.placeWall(wall1Position);
             level.placeWall(wall2Position);
         }

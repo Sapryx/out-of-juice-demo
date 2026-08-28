@@ -45,16 +45,16 @@ class LevelView {
     }
 
     /**
-     * @param {Node | string} node
-     * @returns {Node}
+     * @param {ENode | string} node
+     * @returns {ENode}
      */
     addNode(node) {
         return this._node.__addChildBox(node);
     }
 
     /**
-     * @param {Node} node
-     * @returns {Node}
+     * @param {ENode} node
+     * @returns {ENode}
      */
     addBakedNode(node) {
         return this._tileBatch.__addChildBox(node);

@@ -69,18 +69,28 @@ class Presenter {
     /**
      * @param {Vector2} position
      */
-    onAddWall(position) {
-        const tileNode = new Node();
+    onPlaceWall(position) {
+        const tileNode = new ENode();
         tileNode.__img = "white";
         tileNode.__size = [G.config.tileSize, G.config.tileSize];
-
         tileNode.__ofs = math2d.flipY(math2d.mul(position, G.config.tileSize));
-        tileNode.__color = 0xFF0000;
-        tileNode.__text = {
-            __text: `(${position.x};${position.y})`,
-            __fontsize: 10
-        };
 
+        G.gameView.levelView.addBakedNode(tileNode);
+    }
+
+    /**
+     * @param {Level} level
+     * @param {Vector2} position
+     */
+    onPlaceFloor(level, position) {
+        const tileNode = new ENode();
+        tileNode.__img = "wall_tileset";
+        tileNode.__size = [G.config.tileSize, G.config.tileSize];
+        tileNode.__ofs = math2d.flipY(math2d.mul(position, G.config.tileSize));
+
+        const tileset = level.getRooms()[0].asset.tileset;
+
+        tileset.applyToNode(tileNode, 1, 1);
         G.gameView.levelView.addBakedNode(tileNode);
     }
 

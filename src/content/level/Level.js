@@ -71,7 +71,14 @@ class Level {
         const positionHash = this._getHash(position);
         this._colliders.add(positionHash);
 
-        G.presenter.onAddWall(position);
+        G.presenter.onPlaceWall(position);
+    }
+
+    /**
+     * @param {Vector2} position
+     */
+    placeFloor(position) {
+        G.presenter.onPlaceFloor(this, position);
     }
 
     /**
