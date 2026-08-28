@@ -36,6 +36,9 @@
       },
       "[object Object]": {
         "__color": "#4a5462",
+        "__userData": {
+          "type": "item_panel"
+        },
         "__padding": 8,
         "ha": 1,
         "va": 3,
@@ -47,6 +50,9 @@
         "__childs": {
           "name": {
             "__color": "#4a5462",
+            "__userData": {
+              "type": "name"
+            },
             "__spacing": [
               0,
               0,
@@ -60,12 +66,14 @@
               "o"
             ],
             "__text": {
-              "__fontsize": 16,
-              "__text": "Bandage"
+              "__fontsize": 16
             }
           },
           "description": {
             "__color": "#4a5462",
+            "__userData": {
+              "type": "description"
+            },
             "ha": 0,
             "va": 0,
             "__corner": [
@@ -80,7 +88,6 @@
             ],
             "__text": {
               "__fontsize": 12,
-              "__text": "Use to restore 15 HP.",
               "__align": 0
             }
           },
