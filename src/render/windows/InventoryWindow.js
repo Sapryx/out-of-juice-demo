@@ -2,6 +2,7 @@ class InventoryWindow extends GameWindow {
     constructor() {
         super();
         this._id = "inventory_window";
+        this._selectedItem = null;
     }
 
     open() {
@@ -13,8 +14,25 @@ class InventoryWindow extends GameWindow {
             return;
         }
 
+        this._selectedItem = items[0];
+
         this._fillItemSidebar(items);
-        this._updateItemPanel(items);
+        this._updateItemPanel();
+    }
+
+    _onShowWindow(windowNode) {
+        super._onShowWindow(windowNode);
+        const self = this;
+
+        windowNode.__setAliasesData({
+            use_button: {
+                __onTap() {
+                    if(self._selectedItem != null) {
+                        self._selectedItem.use(G.player);
+                    }
+                }
+            }
+        });
     }
 
     /**
@@ -36,16 +54,14 @@ class InventoryWindow extends GameWindow {
     }
 
     /**
-     * @param {ReadonlyArray<ItemInstance>} items
      * @private
      */
-    _updateItemPanel(items) {
+    _updateItemPanel() {
         const itemPanel = this._node.__findChild(node => node.__userData && node.__userData.type === "item_panel");
         const nameNode = itemPanel.__findChild(node => node.__userData && node.__userData.type === "name");
         const descriptionNode = itemPanel.__findChild(node => node.__userData && node.__userData.type === "description");
-        const firstItem = items[0];
 
-        nameNode.__text = firstItem.item.name;
-        descriptionNode.__text = firstItem.item.description;
+        nameNode.__text = this._selectedItem.item.name;
+        descriptionNode.__text = this._selectedItem.item.description;
     }
 }
