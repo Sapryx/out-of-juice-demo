@@ -74,6 +74,23 @@ class GameEntity {
     }
 
     /**
+     * @param {number} amount
+     * @returns {boolean}
+     */
+    heal(amount) {
+        if(amount < 0) {
+            throw new Error(`Heal amount cannot be negative (was "${amount}")`);
+        }
+
+        if(this._health === this._maxHealth) {
+            return false;
+        }
+
+        this._health = mmin(this._health + amount, this._maxHealth);
+        return true;
+    }
+
+    /**
      * @param {Vector2} position
      * @returns {boolean}
      */
