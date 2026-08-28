@@ -4,8 +4,23 @@ class Inventory {
             throw new RangeError(`Cannot create inventory with zero or negative size`);
         }
 
+        this._itemCount = 0;
         this._maxSize = size;
         this._items = new Array(size).fill(null);
+    }
+
+    /**
+     * @returns {int}
+     */
+    get itemCount() {
+        return this._itemCount;
+    }
+
+    /**
+     * @returns {int}
+     */
+    get maxSize() {
+        return this._maxSize;
     }
 
     /**
@@ -38,6 +53,7 @@ class Inventory {
         }
 
         this._items[freeSlot] = item;
+        this._itemCount++;
         return true;
     }
 
@@ -54,6 +70,7 @@ class Inventory {
             return false;
         }
 
+        this._itemCount--;
         this._items[slot] = null;
         return true;
     }
