@@ -99,7 +99,7 @@
 
         ],
         "__defaultTextProperties": {
-            "__fontface": "Roboto"
+            "__fontface": "ModernDOS8x14"
         },
         "__upscaleResolution": {
             "x": 640,
@@ -146,7 +146,7 @@
         [
             "font",
             [
-                "Roboto"
+                "ModernDOS8x14"
             ]
         ],
         [
