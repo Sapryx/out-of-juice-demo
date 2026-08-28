@@ -56,7 +56,10 @@
     {
       "x": 14,
       "y": 7,
-      "tile": null,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
       "ruleTile": null,
       "resolvedTile": null,
       "data": {
@@ -309,7 +312,10 @@
     {
       "x": 17,
       "y": 12,
-      "tile": null,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
       "ruleTile": null,
       "resolvedTile": null,
       "data": {
@@ -320,13 +326,401 @@
     {
       "x": 11,
       "y": 12,
-      "tile": null,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
       "ruleTile": null,
       "resolvedTile": null,
       "data": {
         "type": "door",
         "direction": "west"
       }
+    },
+    {
+      "x": 12,
+      "y": 8,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 12,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 13,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 14,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 14,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 14,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 14,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 14,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 13,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 12,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 8,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 8,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 8,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 8,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 12,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 13,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 13,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 12,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 12,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 13,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
     }
   ]
 }

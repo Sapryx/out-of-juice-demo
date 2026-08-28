@@ -133,7 +133,10 @@
     {
       "x": 12,
       "y": 12,
-      "tile": null,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
       "ruleTile": null,
       "resolvedTile": null,
       "data": {
@@ -265,13 +268,225 @@
     {
       "x": 12,
       "y": 9,
-      "tile": null,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
       "ruleTile": null,
       "resolvedTile": null,
       "data": {
         "type": "spawn",
         "def": "player"
       }
+    },
+    {
+      "x": 10,
+      "y": 8,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 8,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 8,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 8,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 8,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 10,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 10,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 10,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
     }
   ]
 }

@@ -6,6 +6,8 @@ class RoomTile {
     }
 
     get isWall() {
-        return this.data == null && this.textureOffset != null;
+        return this.data == null
+            && this.textureOffset != null
+            && !math2d.equal(this.textureOffset, new Vector2(1, 1));
     }
 }
