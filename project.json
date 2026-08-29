@@ -84,6 +84,7 @@
             "render/ItemCardView.js",
             "render/TileSelectionView.js",
             "render/GameWindowManager.js",
+            "render/SpriteSorting.js",
 
             "bootstrap/loading.js",
             "bootstrap/contentBootstrapper.js",

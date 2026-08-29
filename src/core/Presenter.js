@@ -18,6 +18,7 @@ class Presenter {
         const view = G.entityViews.get(entity);
         const targetPosition = math2d.flipY(entity.position);
         const animationDuration = G.config.tilePassTime;
+        view.node.__z = SpriteSorting.getZ(SortingLayer.Entities) + entity.position.y;
 
         Anims.walk(view.node, targetPosition, animationDuration)
             .__setOnComplete(callback);
