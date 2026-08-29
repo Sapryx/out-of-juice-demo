@@ -4,8 +4,8 @@ class Input {
         Input._downPressed = false;
         Input._leftPressed = false;
         Input._rightPressed = false;
+
         Input._attackIsPressed = false;
-        Input._openInventoryIsPressed = false;
 
         gestures.__onKeyDown = Input._onKeyDown;
         gestures.__onKeyUp = Input._onKeyUp;
@@ -14,7 +14,6 @@ class Input {
 
     static reset() {
         Input._attackIsPressed = false;
-        Input._openInventoryIsPressed = false;
     }
 
     /**
@@ -87,18 +86,6 @@ class Input {
     }
 
     /**
-     * @returns {boolean}
-     */
-    static consumeOpenInventory() {
-        if(Input._openInventoryIsPressed) {
-            Input._openInventoryIsPressed = false;
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
      * @param {number} keyCode
      * @param {string} key
      * @param {boolean} ctrl
@@ -112,14 +99,26 @@ class Input {
             case "s": Input._downPressed = true; break;
             case "a": Input._leftPressed = true; break;
             case "d": Input._rightPressed = true; break;
+
             case "i": {
-                if(G.windows.windowIsOpen) {
+                if(G.windows.isOpen(WindowType.Inventory)) {
                     G.windows.closeCurrentWindow();
-                } else {
-                    G.windows.showInventoryWindow();
+                    return;
+                }
+
+                if(G.windows.nothingIsOpen) {
+                    G.windows.openInventoryWindow();
                 }
 
                 break;
+            }
+
+            case "escape": {
+                if(G.windows.anyIsOpen) {
+                    G.windows.closeCurrentWindow();
+                } else {
+                    G.windows.openPauseWindow();
+                }
             }
         }
     }

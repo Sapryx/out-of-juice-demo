@@ -1,6 +1,6 @@
 let gameLoop = {
     __update: function(t, dt) {
-        if(!G.windows.windowIsOpen) {
+        if(G.windows.nothingIsOpen) {
             handleGameInput();
             G.turnManager.tick();
             updateCameraPosition();

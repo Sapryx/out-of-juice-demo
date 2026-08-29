@@ -1,0 +1,96 @@
+[
+  {
+    "__color": 0,
+    "__padding": 2,
+    "ha": 1,
+    "va": 3,
+    "__size": [
+      160,
+      120
+    ],
+    "__childs": {
+      "_0": {
+        "__color": "#4a5462",
+        "ha": 1,
+        "va": 3,
+        "__size": [
+          1,
+          1
+        ],
+        "__childs": {
+          "_0": {
+            "__color": "#4a5462",
+            "__spacing": [
+              0,
+              0,
+              16,
+              0
+            ],
+            "__size": [
+              1,
+              1,
+              0,
+              "o"
+            ],
+            "__text": {
+              "__fontsize": 16,
+              "__text": "Pause"
+            }
+          },
+          "resume_button": {
+            "__color": "#333941",
+            "__spacing": [
+              0,
+              0,
+              4,
+              0
+            ],
+            "__size": [
+              80,
+              16
+            ],
+            "__text": {
+              "__fontsize": 12,
+              "__text": "Resume"
+            }
+          },
+          "settings_button": {
+            "__color": "#333941",
+            "__spacing": [
+              0,
+              0,
+              4,
+              0
+            ],
+            "__size": [
+              80,
+              16
+            ],
+            "__text": {
+              "__fontsize": 12,
+              "__text": "Settings"
+            }
+          },
+          "abandon_run_button": {
+            "__color": "#333941",
+            "__spacing": [
+              0,
+              0,
+              4,
+              0
+            ],
+            "__size": [
+              80,
+              16
+            ],
+            "__text": {
+              "__color": "#ff4646",
+              "__fontsize": 12,
+              "__text": "Abandon Run"
+            }
+          }
+        }
+      }
+    }
+  }
+]

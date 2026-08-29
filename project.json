@@ -80,6 +80,7 @@
             "render/TileSelectionView.js",
             "render/GameWindowManager.js",
             "render/SpriteSorting.js",
+            "render/WindowType.js",
 
             "bootstrap/loading.js",
             "bootstrap/contentBootstrapper.js",
@@ -150,8 +151,10 @@
             "entities/sweeper.json",
             "test_level.json",
             "gui.json",
+            "item_card.json",
+
             "inventory_window.json",
-            "item_card.json"
+            "pause_window.json"
         ],
         [
             "shaders",

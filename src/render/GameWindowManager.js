@@ -3,8 +3,23 @@ class GameWindowManager {
         this._currentWindowNode = null;
     }
 
-    get windowIsOpen() {
+    get anyIsOpen() {
         return this._currentWindowNode != null;
+    }
+
+    get nothingIsOpen() {
+        return this._currentWindowNode == null;
+    }
+
+    /**
+     * @param {WindowType} windowType
+     */
+    isOpen(windowType) {
+        if(this._currentWindowNode) {
+            return this._currentWindowNode._type === windowType;
+        } else {
+            return false;
+        }
     }
 
     closeCurrentWindow() {
@@ -18,14 +33,18 @@ class GameWindowManager {
         }
     }
 
-    showInventoryWindow() {
-        this._displayWindow("inventory_window", (windowNode) => {
+    openInventoryWindow() {
+        this._displayWindow(WindowType.Inventory, (windowNode) => {
             const items = G.player.inventory.getItems();
             let firstItemCard = null;
 
             windowNode.__init({
                 __addedProperties: {
                     _selectedItemCard: {
+                        get() {
+                            return this.__selectedItemCard;
+                        },
+
                         set(value) {
                             if(this.__selectedItemCard) {
                                 this.__selectedItemCard._setSelected(false);
@@ -38,9 +57,6 @@ class GameWindowManager {
                             }
 
                             this._show_info(value);
-                        },
-                        get() {
-                            return this.__selectedItemCard;
                         }
                     }
                 },
@@ -113,13 +129,36 @@ class GameWindowManager {
         });
     }
 
+    openPauseWindow() {
+        this._displayWindow("pause_window", (windowNode) => {
+            windowNode.__init({
+
+            });
+        });
+    }
+
     /**
-     * @param {string} windowName
+     * @param {WindowType} windowType
      * @param {(ENode) => void} onShow
      * @private
      */
-    _displayWindow(windowName, onShow) {
-        this._currentWindowNode = showWindow(windowName, (windowNode) => {
+    _displayWindow(windowType, onShow) {
+        this._currentWindowNode = showWindow(windowType, (windowNode) => {
+            windowNode.init({
+                __addedProperties: {
+                    _type: {
+                        get() {
+                            return this.__type;
+                        },
+                        set(value) {
+                            this.__type = value;
+                        }
+                    }
+                },
+
+                _type: windowType
+            })
+
             if(onShow) {
                 onShow(windowNode);
             }
