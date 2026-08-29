@@ -25,6 +25,7 @@ function initializeState() {
     G.presenter = new Presenter();
     G.gameView = new GameView(scene);
     G.entityViews = new EntityViewManager();
+    G.windows = new GameWindowManager();
 }
 
 function registerContent() {
@@ -32,7 +33,6 @@ function registerContent() {
     contentBootstrapper.registerEntities();
     contentBootstrapper.registerLevelTypes();
     contentBootstrapper.registerRoomAssets();
-    contentBootstrapper.registerWindows();
 }
 
 function initializeGame() {

@@ -83,8 +83,7 @@
             "render/DebugView.js",
             "render/ItemCardView.js",
             "render/TileSelectionView.js",
-            "render/windows/GameWindow.js",
-            "render/windows/InventoryWindow.js",
+            "render/GameWindowManager.js",
 
             "bootstrap/loading.js",
             "bootstrap/contentBootstrapper.js",

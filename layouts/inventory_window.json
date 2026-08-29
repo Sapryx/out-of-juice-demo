@@ -34,7 +34,7 @@
           1
         ]
       },
-      "item_panel": {
+      "item_info": {
         "__color": "#4a5462",
         "__userData": {
           "type": "item_panel"
@@ -48,11 +48,8 @@
           "a"
         ],
         "__childs": {
-          "name": {
+          "item_info_name": {
             "__color": "#4a5462",
-            "__userData": {
-              "type": "name"
-            },
             "__spacing": [
               0,
               0,
@@ -66,14 +63,12 @@
               "o"
             ],
             "__text": {
-              "__fontsize": 16
+              "__fontsize": 16,
+              "__text": "Gseffl kj"
             }
           },
-          "description": {
+          "item_info_description": {
             "__color": "#4a5462",
-            "__userData": {
-              "type": "description"
-            },
             "ha": 0,
             "va": 0,
             "__corner": [
@@ -88,6 +83,7 @@
             ],
             "__text": {
               "__fontsize": 12,
+              "__text": "ef lesj selkf j",
               "__align": 0
             }
           },

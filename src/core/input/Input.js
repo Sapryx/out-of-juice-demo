@@ -107,7 +107,15 @@ class Input {
             case "s": Input._downPressed = true; break;
             case "a": Input._leftPressed = true; break;
             case "d": Input._rightPressed = true; break;
-            case "i": Input._openInventoryIsPressed = true; break;
+            case "i": {
+                if(G.windows.windowIsOpen) {
+                    G.windows.closeCurrentWindow();
+                } else {
+                    G.windows.showInventoryWindow();
+                }
+
+                break;
+            }
         }
     }
 
