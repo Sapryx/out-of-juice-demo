@@ -2,7 +2,6 @@ class Gui {
     constructor(parent) {
         this._parent = parent;
         this._node = null;
-        this._debugView = null;
     }
 
     /**
@@ -28,8 +27,6 @@ class Gui {
 
     init() {
         this._node = this._parent.__addChildBox("gui");
-        this._debugView = new DebugView(this._node);
-        this._debugView.init();
     }
 
     cleanup() {
@@ -37,6 +34,8 @@ class Gui {
     }
 
     update() {
+        const mouseWorldPos = Input.getMouseWorldPosition(G.gameView.levelView.camera);
+
         this._node.__init({
             __aliasing1: {
                 health_bar: {
@@ -45,10 +44,12 @@ class Gui {
 
                 health_bar_fill: {
                     __width: G.player.health / G.player.maxHealth
+                },
+
+                mouse_pos: {
+                    __text: `(${round(mouseWorldPos.x)}; ${round(mouseWorldPos.y)})`
                 }
             }
         });
-
-        this._debugView.update();
     }
 }
