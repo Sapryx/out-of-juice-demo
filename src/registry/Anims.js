@@ -33,16 +33,20 @@ const Anims = {
                 __x: targetPosition.x * tileSize,
                 __y: targetPosition.y * tileSize
             }, halfDuration, undefined, easeQuadO],
+            
             [node, {
                 __x: start.x * tileSize,
                 __y: start.y * tileSize
             }, halfDuration, undefined, easeQuadI],
         ];
 
-        if(onComplete !== undefined) {
-            steps.push(onComplete);
-        }
+        if(onComplete) steps.push(onComplete);
 
         return anim(steps);
+    },
+
+    hurt(node, duration) {
+        node.sprite.__color = 0xFF0000;
+        _setTimeout(() => node.sprite.__color = 0xFFFFFF, duration);
     }
 };

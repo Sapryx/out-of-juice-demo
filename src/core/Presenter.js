@@ -49,6 +49,15 @@ class Presenter {
     }
 
     /**
+     * @param {GameEntity} entity
+     */
+    onEntityHurt(entity) {
+        const view = G.entityViews.get(entity);
+
+        Anims.hurt(view.node, 0.2);
+    }
+
+    /**
      * @param {Room} room
      */
     onAddRoom(room) {
