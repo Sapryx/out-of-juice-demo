@@ -12,6 +12,11 @@ class Input {
         gestures.tap = Input._onTap;
     }
 
+    static reset() {
+        Input._attackIsPressed = false;
+        Input._openInventoryIsPressed = false;
+    }
+
     /**
      * @returns {Vector2}
      */

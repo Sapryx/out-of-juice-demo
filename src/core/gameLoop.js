@@ -7,6 +7,7 @@ let gameLoop = {
         }
 
         G.gameView.update();
+        Input.reset();
     }
 };
 
@@ -21,25 +22,6 @@ function handleGameInput() {
     if(handleAttackInput() || handleMovementInput()) {
         G.turnManager.playerHasActed = true;
     }
-}
-
-/**
- * @returns {boolean}
- */
-function handleMovementInput() {
-    const movementInputRaw = new Vector2(Input.getAxis(Axis.Horizontal), Input.getAxis(Axis.Vertical));
-    const inputIsEmpty = movementInputRaw.x === 0 && movementInputRaw.y === 0;
-    const playerIsMoving = G.player._state === EntityState.Moving;
-
-    if(inputIsEmpty || playerIsMoving) {
-        return false;
-    }
-
-    if(movementInputRaw.x !== 0) {
-        movementInputRaw.y = 0;
-    }
-
-    return G.player.moveBy(movementInputRaw, undefined);
 }
 
 /**
@@ -62,6 +44,24 @@ function handleAttackInput() {
 
     G.player.attack(target);
     return true;
+}
+
+/**
+ * @returns {boolean}
+ */
+function handleMovementInput() {
+    const movementInputRaw = new Vector2(Input.getAxis(Axis.Horizontal), Input.getAxis(Axis.Vertical));
+    const inputIsEmpty = movementInputRaw.x === 0 && movementInputRaw.y === 0;
+
+    if(inputIsEmpty) {
+        return false;
+    }
+
+    if(movementInputRaw.x !== 0) {
+        movementInputRaw.y = 0;
+    }
+
+    return G.player.moveBy(movementInputRaw, undefined);
 }
 
 function updateCameraPosition() {

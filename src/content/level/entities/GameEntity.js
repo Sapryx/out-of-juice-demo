@@ -59,9 +59,9 @@ class GameEntity {
      */
     attack(target) {
         this._state = EntityState.Attacking;
-        target.dealDamage(10);
 
         G.presenter.onEntityAttack(this, target, () => {
+            target.dealDamage(10);
             this._state = EntityState.Idle;
         });
     }
