@@ -1,8 +1,6 @@
 let gameLoop = {
     __update: function(t, dt) {
-        handleUiInput();
-
-        if(!G.windowManager.windowIsOpen) {
+        if(!G.windows.windowIsOpen) {
             handleGameInput();
             G.turnManager.tick();
             updateCameraPosition();
@@ -64,18 +62,6 @@ function handleAttackInput() {
 
     G.player.attack(target);
     return true;
-}
-
-function handleUiInput() {
-    if(!Input.consumeOpenInventory()) {
-        return;
-    }
-
-    if(!G.windowManager.windowIsOpen) {
-        G.windowManager.open(InventoryWindow);
-    } else {
-        G.windowManager.closeCurrent();
-    }
 }
 
 function updateCameraPosition() {

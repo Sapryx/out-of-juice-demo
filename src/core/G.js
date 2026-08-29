@@ -1,7 +1,6 @@
 const G = {
     player: null,
     turnManager: null,
-    windowManager: null,
     levelGenerator: null,
     level: null,
     defs: null,
@@ -9,7 +8,6 @@ const G = {
 
     roomAssetRegistry: null,
     levelTypeRegistry: null,
-    windowRegistry: null,
 
     presenter: null,
     entityViews: null,

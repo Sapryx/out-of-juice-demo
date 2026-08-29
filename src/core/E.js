@@ -1,3 +1,0 @@
-const E = Object.freeze({
-
-});

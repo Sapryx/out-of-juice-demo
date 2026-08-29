@@ -14,12 +14,10 @@ function initializeState() {
     G.defs = new Defs();
     G.roomAssetRegistry = new RoomAssetRegistry();
     G.levelTypeRegistry = new LevelTypeRegistry();
-    G.windowRegistry = new WindowRegistry();
 
     // Systems
     G.turnManager = new TurnManager();
     G.levelGenerator = new LevelGenerator();
-    G.windowManager = new WindowManager();
 
     // Rendering
     G.presenter = new Presenter();

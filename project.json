@@ -40,10 +40,8 @@
             "core/G.js",
             "core/gameLoop.js",
             "core/Presenter.js",
-            "core/E.js",
 
             "services/TurnManager.js",
-            "services/WindowManager.js",
 
             "content/level/entities/EntityState.js",
             "content/level/entities/GameEntity.js",
@@ -68,7 +66,6 @@
             "registry/Defs.js",
             "registry/RoomAssetRegistry.js",
             "registry/LevelTypeRegistry.js",
-            "registry/WindowRegistry.js",
             "registry/EntityViewPrefabs.js",
             "registry/Anims.js",
 
