@@ -1,6 +1,6 @@
 const SpriteSorting = {
     getZ(sortingLayer) {
-        const sortingLayerSize = 10_000;
+        const sortingLayerSize = 10000;
         return sortingLayer * sortingLayerSize;
     }
 }
