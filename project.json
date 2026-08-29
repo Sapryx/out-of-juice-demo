@@ -61,8 +61,8 @@
             "content/level/LevelType.js",
 
             "content/items/Inventory.js",
-            "content/items/ItemInstance.js",
-            "content/items/GameItem.js",
+            "content/items/Item.js",
+            "content/items/ItemAsset.js",
             "content/items/BandageItem.js",
 
             "registry/Defs.js",

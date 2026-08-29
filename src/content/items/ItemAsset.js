@@ -1,4 +1,4 @@
-class GameItem {
+class ItemAsset {
     constructor() {
         this._id = "";
         this._name = "";

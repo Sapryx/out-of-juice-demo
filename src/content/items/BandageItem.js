@@ -1,4 +1,4 @@
-class BandageItem extends GameItem {
+class BandageItem extends ItemAsset {
     constructor() {
         super();
         this._id = "bandage";

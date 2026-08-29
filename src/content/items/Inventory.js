@@ -25,7 +25,7 @@ class Inventory {
 
     /**
      * @param {int} slot
-     * @returns {ItemInstance}
+     * @returns {Item}
      * @throws {RangeError} slot out of range
      */
     getItem(slot) {
@@ -34,14 +34,14 @@ class Inventory {
     }
 
     /**
-     * @returns {ReadonlyArray<ItemInstance|null>}
+     * @returns {ReadonlyArray<Item|null>}
      */
     getItems() {
         return Object.freeze([...this._items]);
     }
 
     /**
-     * @param {ItemInstance} item
+     * @param {Item} item
      * @returns {boolean}
      */
     addItem(item) {

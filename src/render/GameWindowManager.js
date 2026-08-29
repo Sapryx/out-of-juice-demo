@@ -22,21 +22,20 @@ class GameWindowManager {
                 __addedProperties: {
                     _selectedItem: {
                         set(value) {
-                            console.log("F");
-                            this.__si = value;
-                            this.__show_info(value);
+                            this.__selectedItem = value;
+                            this._show_info(value);
                         },
                         get() {
-                            return this.__si;
+                            return this.__selectedItem;
                         }
                     }
                 },
 
-                __show_info(item) {
+                _show_info(item) {
                     if(item != null) {
                         windowNode.__setAliasesData({
-                            item_info_name: {__text: item.item.name},
-                            item_info_description: {__text: item.item.description}
+                            item_info_name: {__text: item.asset.name},
+                            item_info_description: {__text: item.asset.description}
                         });
 
 
@@ -55,11 +54,10 @@ class GameWindowManager {
                     item_sidebar: {
                         __childs: $map(items.filter(it => it != null), item => new ENode("item_card").__init({
                             __aliasing1: {
-                                item_icon: {__img: item.item.iconPath},
-                                item_text: {__text: item.item.name}
+                                item_icon: {__img: item.asset.iconPath},
+                                item_text: {__text: item.asset.name}
                             },
                             __onTap() {
-                                console.log("Tap");
                                 windowNode._selectedItem = item;
                             }
                         }))

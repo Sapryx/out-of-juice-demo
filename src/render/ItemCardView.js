@@ -16,7 +16,7 @@ class ItemCardView {
     }
 
     /**
-     * @param {GameItem} item
+     * @param {ItemAsset} item
      */
     set(item) {
         this._nameNode.__text = item.name;
