@@ -56,6 +56,9 @@ class GameWindowManager {
                     },
 
                     item_sidebar: {
+                        __scroll: {
+                            __onlyScrollY: true
+                        },
                         __childs: $map(items.filter(it => it != null), item => new ENode("item_card").__init({
                             __aliasing1: {
                                 item_icon: {__img: item.asset.iconPath},
