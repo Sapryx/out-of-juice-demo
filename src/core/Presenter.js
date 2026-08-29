@@ -95,7 +95,11 @@ class Presenter {
         G.gameView.levelView.addBakedNode(tileNode);
     }
 
-    onWindowOpen(window) {
+    /**
+     *
+     * @param {ENode} windowNode
+     */
+    onWindowOpen(windowNode) {
         const tileSelection = G.gameView.levelView.tileSelectionView;
 
         if(tileSelection != null) {
@@ -103,7 +107,11 @@ class Presenter {
         }
     }
 
-    onWindowClose(window) {
+    /**
+     *
+     * @param {ENode} windowNode
+     */
+    onWindowClose(windowNode) {
         const tileSelection = G.gameView.levelView.tileSelectionView;
 
         if(tileSelection != null) {

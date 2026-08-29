@@ -8,14 +8,18 @@ class GameWindowManager {
     }
 
     closeCurrentWindow() {
-        if(this.windowIsOpen) {
-            this._currentWindowNode.__close();
+        const windowNode = this._currentWindowNode;
+
+        if(windowNode != null) {
+            windowNode.__close();
             this._currentWindowNode = null;
+
+            G.presenter.onWindowClose(windowNode);
         }
     }
 
     showInventoryWindow() {
-        this._currentWindowNode = showWindow("inventory_window", (windowNode) => {
+        this._displayWindow("inventory_window", (windowNode) => {
             const items = G.player.inventory.getItems();
 
             windowNode.__init({
@@ -66,6 +70,22 @@ class GameWindowManager {
             });
 
             windowNode._selectedItem = items[0];
+        });
+
+    }
+
+    /**
+     * @param {string} windowName
+     * @param {(ENode) => void} onShow
+     * @private
+     */
+    _displayWindow(windowName, onShow) {
+        this._currentWindowNode = showWindow(windowName, (windowNode) => {
+            if(onShow) {
+                onShow(windowNode);
+            }
+
+            G.presenter.onWindowOpen(windowNode);
         });
     }
 }
