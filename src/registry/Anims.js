@@ -20,10 +20,11 @@ const Anims = {
      * @param {Vector2} targetPosition
      * @param {number} duration
      * @param {ENode} node
+     * @param {() => void} onHitTarget
      * @param {() => void} onComplete
      * @returns {TweenSequence}
      */
-    attack(node, currentPosition, targetPosition, duration, onComplete) {
+    attack(node, currentPosition, targetPosition, duration, onHitTarget, onComplete) {
         const start = math2d.copy(currentPosition);
         const halfDuration = duration / 2;
         const tileSize = G.config.tileSize;
@@ -33,7 +34,11 @@ const Anims = {
                 __x: targetPosition.x * tileSize,
                 __y: targetPosition.y * tileSize
             }, halfDuration, undefined, easeQuadO],
-            
+
+            () => {
+                if(onHitTarget) onHitTarget();
+            },
+
             [node, {
                 __x: start.x * tileSize,
                 __y: start.y * tileSize

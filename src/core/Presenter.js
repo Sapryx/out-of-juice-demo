@@ -35,16 +35,23 @@ class Presenter {
     /**
      * @param {GameEntity} attacker
      * @param {GameEntity} target
-     * @param {() => void} callback
+     * @param {() => void} onHitTarget
+     * @param {() => void} onComplete
      */
-    onEntityAttack(attacker, target, callback) {
+    onEntityAttack(attacker, target, onHitTarget, onComplete) {
         const attackerView = G.entityViews.get(attacker);
         const targetPosition = math2d.flipY(target.position);
         const startPosition = math2d.flipY(attacker.position);
-        const animationDuration = G.config.tilePassTime;
 
         if(attackerView !== undefined) {
-            Anims.attack(attackerView.node, startPosition, targetPosition, animationDuration, callback);
+            Anims.attack(
+                attackerView.node,
+                startPosition,
+                targetPosition,
+                0.25,
+                onHitTarget,
+                onComplete
+            );
         }
     }
 
@@ -54,7 +61,7 @@ class Presenter {
     onEntityHurt(entity) {
         const view = G.entityViews.get(entity);
 
-        Anims.hurt(view.node, 0.2);
+        Anims.hurt(view.node, 0.1);
     }
 
     /**
