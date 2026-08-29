@@ -2,8 +2,6 @@
   {
     "__color": 0,
     "name": "border",
-    "ha": 3,
-    "va": 1,
     "__size": [
       384,
       224
@@ -24,12 +22,6 @@
             "__userData": {
               "type": "item_sidebar"
             },
-            "__spacing": [
-              0,
-              0,
-              -47,
-              0
-            ],
             "ha": 0,
             "va": 3,
             "__size": [

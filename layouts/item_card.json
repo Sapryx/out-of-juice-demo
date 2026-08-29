@@ -1,6 +1,6 @@
 [
   {
-    "__color": "#333941",
+    "__color": "#4a5462",
     "name": "item_card",
     "__padding": 8,
     "ha": 3,
@@ -26,7 +26,7 @@
         ]
       },
       "item_name": {
-        "__color": "#333941",
+        "__color": "#4a5462",
         "__blending": 0,
         "__size": [
           1,

@@ -21,60 +21,96 @@ class GameWindowManager {
     showInventoryWindow() {
         this._displayWindow("inventory_window", (windowNode) => {
             const items = G.player.inventory.getItems();
+            let firstItemCard = null;
 
             windowNode.__init({
                 __addedProperties: {
-                    _selectedItem: {
+                    _selectedItemCard: {
                         set(value) {
-                            this.__selectedItem = value;
+                            if(this.__selectedItemCard) {
+                                this.__selectedItemCard._setSelected(false);
+                            }
+
+                            this.__selectedItemCard = value;
+
+                            if(value) {
+                                value._setSelected(true);
+                            }
+
                             this._show_info(value);
                         },
                         get() {
-                            return this.__selectedItem;
+                            return this.__selectedItemCard;
                         }
                     }
                 },
 
-                _show_info(item) {
-                    if(item != null) {
+                _show_info(itemCard) {
+                    if(itemCard) {
                         windowNode.__setAliasesData({
-                            item_info_name: {__text: item.asset.name},
-                            item_info_description: {__text: item.asset.description}
+                            item_info_name: {__text: itemCard._item.asset.name},
+                            item_info_description: {__text: itemCard._item.asset.description}
                         });
-
-
                     }
                 },
 
                 __aliasing1: {
                     use_button: {
                         __onTap() {
-                            if(windowNode._selectedItem !== undefined) {
-                                windowNode._selectedItem.use(G.player);
+                            if(windowNode._selectedItemCard) {
+                                windowNode._selectedItemCard._item.use(G.player);
                             }
                         }
                     },
 
                     item_sidebar: {
-                        __scroll: {
-                            __onlyScrollY: true
-                        },
-                        __childs: $map(items.filter(it => it != null), item => new ENode("item_card").__init({
-                            __aliasing1: {
-                                item_icon: {__img: item.asset.iconPath},
-                                item_text: {__text: item.asset.name}
-                            },
-                            __onTap() {
-                                windowNode._selectedItem = item;
+                        __childs: $map(items.filter(it => it != null), item => {
+                            const itemCard = new ENode("item_card").__init({
+                                __addedProperties: {
+                                    _item: {
+                                        set(value) {
+                                            this.__item = value;
+                                        },
+                                        get() {
+                                            return this.__item;
+                                        }
+                                    }
+                                },
+                                _item: item,
+
+                                _setSelected(selected) {
+                                    const defaultColor = 0x4a5462;
+                                    const selectedColor = 0xfa6a0a;
+
+                                    this.__color = selected ? selectedColor : defaultColor;
+                                    this.__setAliasesData({
+                                        item_name: {__color: selected ? selectedColor : defaultColor}
+                                    });
+                                },
+
+                                __aliasing1: {
+                                    item_icon: {__img: item.asset.iconPath},
+                                    item_text: {__text: item.asset.name}
+                                },
+                                __onTap() {
+                                    windowNode._selectedItemCard = this;
+                                }
+                            });
+
+                            if(!firstItemCard) {
+                                firstItemCard = itemCard;
                             }
-                        }))
+
+                            return itemCard;
+                        })
                     }
                 }
             });
 
-            windowNode._selectedItem = items[0];
+            if(firstItemCard) {
+                windowNode._selectedItemCard = firstItemCard;
+            }
         });
-
     }
 
     /**

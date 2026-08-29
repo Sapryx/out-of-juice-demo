@@ -4,6 +4,9 @@ class Player extends GameEntity {
         this.inventory = new Inventory(config.inventorySize);
 
         this.inventory.addItem(new Item(new BandageItem()));
+        this.inventory.addItem(new Item(new BandageItem()));
+        this.inventory.addItem(new Item(new BandageItem()));
+        this.inventory.addItem(new Item(new BandageItem()));
     }
 
     _die() {
