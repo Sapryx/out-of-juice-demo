@@ -1,6 +1,7 @@
 class TurnManager {
     constructor() {
         this._currentEntity = null;
+        this.playerHasActed = false;
     }
 
     get isPlayerTurn() {
@@ -12,7 +13,20 @@ class TurnManager {
     }
 
     tick() {
-        if(this._currentEntity.isIdle && !this.isPlayerTurn) {
+        const entity = this._currentEntity;
+        const readyToAdvance = entity.isIdle || entity.isMoving;
+
+        if(!readyToAdvance) {
+            return;
+        }
+
+        if(!this.isPlayerTurn) {
+            this.commitTurn();
+            return;
+        }
+
+        if(this.playerHasActed) {
+            this.playerHasActed = false;
             this.commitTurn();
         }
     }

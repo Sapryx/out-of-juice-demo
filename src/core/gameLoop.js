@@ -14,12 +14,12 @@ function handleGameInput() {
     const notPlayerTurn = !G.turnManager.isPlayerTurn;
     const playerIsDead = G.player == null;
 
-    if(playerIsDead || notPlayerTurn) {
+    if(playerIsDead || notPlayerTurn || !G.player.isIdle) {
         return;
     }
 
     if(handleAttackInput() || handleMovementInput()) {
-        G.turnManager.commitTurn();
+        G.turnManager.playerHasActed = true;
     }
 }
 

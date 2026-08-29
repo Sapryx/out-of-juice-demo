@@ -31,6 +31,10 @@ class GameEntity {
         return this._state === EntityState.Idle;
     }
 
+    get isMoving() {
+        return this._state === EntityState.Moving;
+    }
+
     resolveTurn() {
 
     }
