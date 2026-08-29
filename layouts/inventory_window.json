@@ -64,7 +64,7 @@
             ],
             "__text": {
               "__fontsize": 16,
-              "__text": "Gseffl kj"
+              "__text": "Item Name"
             }
           },
           "item_info_description": {
@@ -83,7 +83,7 @@
             ],
             "__text": {
               "__fontsize": 12,
-              "__text": "ef lesj selkf j",
+              "__text": "Item description.",
               "__align": 0
             }
           },

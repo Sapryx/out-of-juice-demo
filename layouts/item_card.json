@@ -19,6 +19,7 @@
           0,
           8
         ],
+        "__img": "white",
         "__size": [
           16,
           16
@@ -35,7 +36,7 @@
         ],
         "__text": {
           "__fontsize": 12,
-          "__text": "Bandage"
+          "__text": "Item Name"
         }
       }
     }
