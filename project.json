@@ -76,7 +76,6 @@
             "render/LevelView.js",
             "render/GameView.js",
             "render/Gui.js",
-            "render/PlayerHealthView.js",
             "render/DebugView.js",
             "render/ItemCardView.js",
             "render/TileSelectionView.js",

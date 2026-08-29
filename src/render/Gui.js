@@ -2,7 +2,6 @@ class Gui {
     constructor(parent) {
         this._parent = parent;
         this._node = null;
-        this._playerHealthView = null;
         this._debugView = null;
     }
 
@@ -29,10 +28,7 @@ class Gui {
 
     init() {
         this._node = this._parent.__addChildBox("gui");
-        this._playerHealthView = new PlayerHealthView(this._node);
         this._debugView = new DebugView(this._node);
-
-        this._playerHealthView.init();
         this._debugView.init();
     }
 
@@ -41,7 +37,18 @@ class Gui {
     }
 
     update() {
-        this._playerHealthView.setValue(G.player.health, G.player.maxHealth);
+        this._node.__init({
+            __aliasing1: {
+                health_bar: {
+                    __text: G.player.health
+                },
+
+                health_bar_fill: {
+                    __width: G.player.health / G.player.maxHealth
+                }
+            }
+        });
+
         this._debugView.update();
     }
 }
