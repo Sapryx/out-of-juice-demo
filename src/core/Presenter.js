@@ -127,11 +127,7 @@ class Presenter {
      * @param {ENode} windowNode
      */
     onWindowOpen(windowNode) {
-        const tileSelection = G.gameView.levelView.tileSelectionView;
-
-        if(tileSelection != null) {
-            tileSelection.disable();
-        }
+        G.gameView.levelView.tileSelection.__alpha = 0;
     }
 
     /**
@@ -139,10 +135,6 @@ class Presenter {
      * @param {ENode} windowNode
      */
     onWindowClose(windowNode) {
-        const tileSelection = G.gameView.levelView.tileSelectionView;
-
-        if(tileSelection != null) {
-            tileSelection.enable();
-        }
+        G.gameView.levelView.tileSelection.__alpha = 1;
     }
 }

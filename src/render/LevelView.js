@@ -7,7 +7,8 @@ class LevelView {
         this.node = null;
         this._tileBatch = null;
         this._bakedTiles = null;
-        this._tileSelectionView = null;
+
+        this.tileSelection = null;
     }
 
     /**
@@ -24,20 +25,17 @@ class LevelView {
         this.node.__camera = value;
     }
 
-    /**
-     * @returns {TileSelectionView | undefined}
-     */
-    get tileSelectionView() {
-        return this._tileSelectionView;
-    }
-
     init() {
         this.node = this._parent.__addChildBox("level");
         this._tileBatch = new StaticBatchNode();
-        this._tileSelectionView = new TileSelectionView(this.node);
+
+        this.tileSelection = this.node.__addChildBox({
+            __img: "selection_frame",
+            __size: [G.config.tileSize, G.config.tileSize],
+            __z: -100
+        });
 
         this.node.add(this._tileBatch);
-        this._tileSelectionView.init();
     }
 
     cleanup() {
@@ -71,6 +69,26 @@ class LevelView {
     }
 
     update() {
-        this._tileSelectionView.update();
+        const gridPosition = Input.getMouseGridPosition(G.gameView.levelView.camera);
+        const screenPosition = math2d.mul(math2d.flipY(gridPosition), G.config.tileSize);
+
+        this.tileSelection.__init({
+            __ofs: screenPosition,
+            __color: this._getSelectionColor(gridPosition)
+        });
+    }
+
+    _getSelectionColor(position) {
+        const selectedEntity = G.level.getEntityInTile(position);
+
+        if(!selectedEntity || selectedEntity === G.player) {
+            return 0xFFFFFF;
+        }
+
+        if(G.player.canAttack(selectedEntity)) {
+            return 0x00FF00;
+        }
+
+        return 0xFF0000;
     }
 }

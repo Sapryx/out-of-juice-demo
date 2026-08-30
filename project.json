@@ -77,7 +77,6 @@
             "render/GameView.js",
             "render/Gui.js",
             "render/ItemCardView.js",
-            "render/TileSelectionView.js",
             "render/GameWindowManager.js",
             "render/SpriteSorting.js",
             "render/WindowType.js",
