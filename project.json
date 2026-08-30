@@ -91,6 +91,7 @@
         "__disableCache": 0,
         "__disableCacheByVer": 0,
         "__storeChildsAsObject": 1,
+        "__minimalTapArea": 0,
         "__supportedLangs": [
 
         ],
