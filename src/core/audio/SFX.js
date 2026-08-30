@@ -12,7 +12,7 @@ const SFX = Object.freeze({
     ),
 
     Swing: new SoundEffect(
-        1,
+        0.8,
         "sfx",
         [
             "swing_1",
@@ -23,7 +23,7 @@ const SFX = Object.freeze({
     ),
 
     HitMetal: new SoundEffect(
-        1,
+        0.9,
         "sfx",
         [
             "hit_metal"
@@ -31,7 +31,7 @@ const SFX = Object.freeze({
     ),
 
     Burn: new SoundEffect(
-        1,
+        0.8,
         "sfx",
         [
             "burn"
