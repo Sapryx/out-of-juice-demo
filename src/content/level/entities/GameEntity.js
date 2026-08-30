@@ -94,6 +94,7 @@ class GameEntity {
         }
 
         this._health = mmin(this._health + amount, this._maxHealth);
+        G.presenter.onEntityHeal(this);
         return true;
     }
 
