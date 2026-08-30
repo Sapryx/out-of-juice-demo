@@ -28,6 +28,17 @@ class Presenter {
             }
         }
 
+        if(entity === G.player) {
+            Howler.volume(0.1);
+            playSound(randomArrayMember([
+                "player_walk_1",
+                "player_walk_2",
+                "player_walk_3",
+                "player_walk_4",
+                "player_walk_5",
+            ]));
+        }
+
         Anims.walk(view.node, targetPosition, animationDuration)
             .__setOnComplete(callback);
     }

@@ -107,7 +107,8 @@
         "__baseParticlesFolder": "vfx/",
         "__baseFontsFolder": "fonts/",
         "__baseConfigsFolder": "configs/",
-        "__disablePacking": 1
+        "__disablePacking": 1,
+        "__soundDisabled": false
     },
     "res": [
         [
