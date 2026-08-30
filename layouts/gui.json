@@ -1,5 +1,6 @@
 [
   {
+    "name": "root",
     "__padding": [
       16,
       16,
@@ -12,7 +13,7 @@
       360
     ],
     "__childs": {
-      "health_bar_border": {
+      "health_bar": {
         "__color": 0,
         "__userData": {
           "type": "player_health_view"
@@ -34,7 +35,7 @@
           "__fontsize": 12
         },
         "__childs": {
-          "health_bar": {
+          "health_bar_bg": {
             "__color": "#505c6b",
             "__userData": {
               "type": "player_health_view"
@@ -54,21 +55,19 @@
             "__text": {
               "__fontsize": 12,
               "__text": "100"
-            },
-            "__childs": {
-              "health_bar_fill": {
-                "__color": "#b4202a",
-                "__userData": {
-                  "type": "fill"
-                },
-                "sha": 0,
-                "sva": 1,
-                "__size": [
-                  1,
-                  1
-                ]
-              }
             }
+          },
+          "health_bar_fill": {
+            "__color": "#b4202a",
+            "__userData": {
+              "type": "fill"
+            },
+            "sha": 0,
+            "sva": 1,
+            "__size": [
+              1,
+              1
+            ]
           }
         }
       },

@@ -38,12 +38,8 @@ class Gui {
 
         this._node.__init({
             __aliasing1: {
-                health_bar: {
+                health_bar_bg: {
                     __text: G.player.health
-                },
-
-                health_bar_fill: {
-                    __width: G.player.health / G.player.maxHealth
                 },
 
                 mouse_pos: {

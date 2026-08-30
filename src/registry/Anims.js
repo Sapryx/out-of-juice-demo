@@ -53,5 +53,14 @@ const Anims = {
     hurt(node, duration) {
         node.sprite.__color = 0xFF0000;
         _setTimeout(() => node.sprite.__color = 0xFFFFFF, duration);
+    },
+
+    healthBarDamage(node, duration) {
+        const target = G.player.health / G.player.maxHealth;
+        console.log(G)
+
+        anim(node, {
+            __width: target
+        }, duration, undefined, easeQuadO);
     }
 };
