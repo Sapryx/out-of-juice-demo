@@ -40,6 +40,9 @@
             "core/G.js",
             "core/gameLoop.js",
             "core/Presenter.js",
+            "core/audio/GameAudio.js",
+            "core/audio/SoundEffect.js",
+            "core/audio/SFX.js",
 
             "services/TurnManager.js",
 

@@ -24,6 +24,7 @@ function initializeState() {
     G.gameView = new GameView(scene);
     G.entityViews = new EntityViewManager();
     G.windows = new GameWindowManager();
+    G.audio = new GameAudio();
 }
 
 function registerContent() {

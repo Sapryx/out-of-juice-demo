@@ -1,8 +1,8 @@
 class Sweeper extends GameEntity {
     constructor(config) {
         super(config);
-        this.takeDamageSound = "hit_metal";
-        this.dealDamageSound = "burn"
+        this.takeDamageSfx = SFX.HitMetal;
+        this.dealDamageSfx = SFX.Burn;
     }
 
     resolveTurn() {

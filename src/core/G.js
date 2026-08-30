@@ -13,5 +13,6 @@ const G = {
     entityViews: null,
     levelView: null,
     gameView: null,
-    windows: null
+    windows: null,
+    audio: null
 };

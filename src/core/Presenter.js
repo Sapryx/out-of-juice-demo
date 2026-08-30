@@ -29,14 +29,7 @@ class Presenter {
         }
 
         if(entity === G.player) {
-            Howler.volume(0.1);
-            playSound(randomArrayMember([
-                "player_walk_1",
-                "player_walk_2",
-                "player_walk_3",
-                "player_walk_4",
-                "player_walk_5",
-            ]));
+            G.audio.play(SFX.PlayerWalk);
         }
 
         Anims.walk(view.node, targetPosition, animationDuration)
@@ -61,20 +54,15 @@ class Presenter {
                 targetPosition,
                 0.25,
                 () => {
-                    if(target.takeDamageSound) playSound(target.takeDamageSound);
-                    if(attacker.dealDamageSound) playSound(attacker.dealDamageSound);
+                    G.audio.play(attacker.dealDamageSfx);
+                    G.audio.play(target.takeDamageSfx);
                     onHitTarget();
                 },
                 onComplete
             );
         }
 
-        playSound(randomArrayMember([
-            "swing_1",
-            "swing_2",
-            "swing_3",
-            "swing_4",
-        ]));
+        G.audio.play(SFX.Swing);
     }
 
     /**
