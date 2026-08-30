@@ -130,9 +130,20 @@ class GameWindowManager {
     }
 
     openPauseWindow() {
-        this._displayWindow("pause_window", (windowNode) => {
-            windowNode.__init({
+        this._displayWindow(WindowType.Pause, (windowNode) => {
+            windowNode.__setAliasesData({
+                resume_button: {
+                    __onTap() {
+                        G.windows.closeCurrentWindow();
+                    }
+                },
 
+                abandon_run_button: {
+                    __onTap() {
+                        restartGame();
+                        G.windows.closeCurrentWindow();
+                    }
+                }
             });
         });
     }
