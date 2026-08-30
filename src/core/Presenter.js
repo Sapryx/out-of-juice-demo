@@ -54,16 +54,27 @@ class Presenter {
         const targetPosition = math2d.flipY(target.position);
         const startPosition = math2d.flipY(attacker.position);
 
-        if(attackerView !== undefined) {
+        if(attackerView) {
             Anims.attack(
                 attackerView.node,
                 startPosition,
                 targetPosition,
                 0.25,
-                onHitTarget,
+                () => {
+                    if(target.takeDamageSound) playSound(target.takeDamageSound);
+                    if(attacker.dealDamageSound) playSound(attacker.dealDamageSound);
+                    onHitTarget();
+                },
                 onComplete
             );
         }
+
+        playSound(randomArrayMember([
+            "swing_1",
+            "swing_2",
+            "swing_3",
+            "swing_4",
+        ]));
     }
 
     /**

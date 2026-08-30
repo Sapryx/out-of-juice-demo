@@ -3,6 +3,10 @@ class GameEntity {
         this.next = this;
         this.prev = this;
         this.position = new Vector2(0, 0);
+
+        this.takeDamageSound = null;
+        this.dealDamageSound = null;
+
         this._state = EntityState.Idle;
         this._health = config.maxHealth;
         this._maxHealth = config.maxHealth;
