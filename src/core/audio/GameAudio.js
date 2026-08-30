@@ -15,7 +15,7 @@ class GameAudio {
         const howl = getSoundHowl(soundId);
         const channelVolumeMult = this.channelVolume[sfx.channel] || 1;
 
-        howl.volume(sfx.volume * channelVolumeMult);
-        howl.play(soundId);
+        const instanceId = howl.play(soundId);
+        howl.volume(sfx.volume * channelVolumeMult, instanceId);
     }
 }
