@@ -11,7 +11,8 @@ class GameView {
         this.levelView.init();
         this.gui.init();
 
-        this._setupCameras();
+        this.levelView.camera = this._createCamera();
+        this.levelView.node.__allProjectionMatrix = this.levelView.camera.__projectionMatrix;
     }
 
     cleanup() {
@@ -27,36 +28,6 @@ class GameView {
     update() {
         this.levelView.update();
         this.gui.update();
-    }
-
-    _setupCameras() {
-        const levelCamera = this._createCamera();
-        const guiCamera = camera;
-
-        this.levelView.camera = levelCamera;
-        this.gui.camera = guiCamera;
-
-        renderer.__renderLoop = function() {
-            let c = 0;
-
-            updateCamera(__screenSize.x, __screenSize.y, guiCamera, 0, 0);
-
-            $each(scenes, function(s) {
-                if(s.__childs.length) {
-                    renderer.__setRenderTarget(0);
-                    if(!c) {
-                        renderer.__clear();
-                        c = 1;
-                    }
-                    for(let i = 0; i < s.__childs.length; i++) {
-                        const gg = s.__childs[i];
-                        renderer.__render(gg, gg.__camera || camera);
-                    }
-                }
-            });
-
-            renderer.__finishRender();
-        };
     }
 
     /**

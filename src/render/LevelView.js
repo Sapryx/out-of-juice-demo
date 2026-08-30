@@ -4,7 +4,7 @@ class LevelView {
      */
     constructor(parent) {
         this._parent = parent;
-        this._node = null;
+        this.node = null;
         this._tileBatch = null;
         this._bakedTiles = null;
         this._tileSelectionView = null;
@@ -14,14 +14,14 @@ class LevelView {
      * @returns {CameraOrtho | null}
      */
     get camera() {
-        return this._node.__camera;
+        return this.node.__camera;
     }
 
     /**
      * @param {CameraOrtho} value
      */
     set camera(value) {
-        this._node.__camera = value;
+        this.node.__camera = value;
     }
 
     /**
@@ -32,16 +32,16 @@ class LevelView {
     }
 
     init() {
-        this._node = this._parent.__addChildBox("level");
+        this.node = this._parent.__addChildBox("level");
         this._tileBatch = new StaticBatchNode();
-        this._tileSelectionView = new TileSelectionView(this._node);
+        this._tileSelectionView = new TileSelectionView(this.node);
 
-        this._node.add(this._tileBatch);
+        this.node.add(this._tileBatch);
         this._tileSelectionView.init();
     }
 
     cleanup() {
-        this._node.__removeFromParent();
+        this.node.__removeFromParent();
     }
 
     /**
@@ -49,7 +49,7 @@ class LevelView {
      * @returns {ENode}
      */
     addNode(node) {
-        return this._node.__addChildBox(node);
+        return this.node.__addChildBox(node);
     }
 
     /**
@@ -66,7 +66,7 @@ class LevelView {
         }
 
         this._bakedTiles = this._tileBatch.__bake();
-        this._node.add(this._bakedTiles);
+        this.node.add(this._bakedTiles);
         this._bakedTiles.__z = SpriteSorting.getZ(SortingLayer.Floor);
     }
 

@@ -149,7 +149,6 @@
             "layout",
             "entities/player.json",
             "entities/sweeper.json",
-            "test_level.json",
             "gui.json",
             "item_card.json",
 

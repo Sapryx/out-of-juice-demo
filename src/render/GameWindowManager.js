@@ -168,7 +168,7 @@ class GameWindowManager {
                 },
 
                 _type: windowType
-            })
+            });
 
             if(onShow) {
                 onShow(windowNode);
