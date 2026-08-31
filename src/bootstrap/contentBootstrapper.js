@@ -10,13 +10,6 @@ const ITEM_FACTORIES = [
 
 const LEVEL_TYPE_COUNT = 1;
 
-const ROOM_ASSETS = [
-    ["combat", 4],
-    ["hub", 1],
-    ["exit", 1],
-    ["start", 1]
-];
-
 const contentBootstrapper = {
     registerConfigs() {
         getJson("configs/game.json", (config) => {
@@ -71,16 +64,23 @@ const contentBootstrapper = {
     },
 
     registerRoomAssets() {
-        ROOM_ASSETS.forEach(([type, count]) => {
-            for(let i = 0; i < count; i++) {
-                const id = `room_${type}_${i + 1}`;
+        this._registerRoomAsset(RoomType.Combat, "room_combat_d2_1");
+        this._registerRoomAsset(RoomType.Combat, "room_combat_d2_2");
+        this._registerRoomAsset(RoomType.Combat, "room_combat_d2_3");
+        this._registerRoomAsset(RoomType.Combat, "room_combat_d2_4");
 
-                    getJson(`configs/rooms/${type}/${id}.json`, (config) => {
-                    G.roomAssets.register(type, new RoomAsset(id, config));
-                });
-            }
-        });
+        this._registerRoomAsset(RoomType.Exit, "room_exit_1");
+
+        this._registerRoomAsset(RoomType.Hub, "room_hub_d3_1");
+
+        this._registerRoomAsset(RoomType.Start, "room_start_1");
 
         console.log(`Registered ${G.roomAssets.count} rooms`);
+    },
+
+    _registerRoomAsset(type, id) {
+        getJson(`configs/rooms/${type}/${id}.json`, (config) => {
+            G.roomAssets.register(type, new RoomAsset(id, config));
+        });
     }
 };
