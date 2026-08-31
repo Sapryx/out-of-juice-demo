@@ -3,12 +3,8 @@ class GameWindowManager {
         this._currentWindowNode = null;
     }
 
-    get anyIsOpen() {
+    get hasOpenWindow() {
         return this._currentWindowNode != null;
-    }
-
-    get nothingIsOpen() {
-        return this._currentWindowNode == null;
     }
 
     /**
@@ -34,7 +30,7 @@ class GameWindowManager {
     }
 
     openInventoryWindow() {
-        this._displayWindow(WindowType.Inventory, (windowNode) => {
+        this._openWindow(WindowType.Inventory, (windowNode) => {
             const items = G.player.inventory.getItems();
             let firstItemCard = null;
 
@@ -130,7 +126,7 @@ class GameWindowManager {
     }
 
     openPauseWindow() {
-        this._displayWindow(WindowType.Pause, (windowNode) => {
+        this._openWindow(WindowType.Pause, (windowNode) => {
             windowNode.__setAliasesData({
                 resume_button: {
                     __onTap() {
@@ -150,10 +146,10 @@ class GameWindowManager {
 
     /**
      * @param {WindowType} windowType
-     * @param {(ENode) => void} onShow
+     * @param {(ENode) => void} onOpened
      * @private
      */
-    _displayWindow(windowType, onShow) {
+    _openWindow(windowType, onOpened) {
         this._currentWindowNode = showWindow(windowType, (windowNode) => {
             windowNode.init({
                 __addedProperties: {
@@ -170,10 +166,7 @@ class GameWindowManager {
                 _type: windowType
             });
 
-            if(onShow) {
-                onShow(windowNode);
-            }
-
+            if(onOpened) onOpened(windowNode);
             G.presenter.onWindowOpen(windowNode);
         });
     }

@@ -106,7 +106,7 @@ class Input {
                     return;
                 }
 
-                if(G.windows.nothingIsOpen) {
+                if(!G.windows.hasOpenWindow) {
                     G.windows.openInventoryWindow();
                 }
 
@@ -114,7 +114,7 @@ class Input {
             }
 
             case "escape": {
-                if(G.windows.anyIsOpen) {
+                if(G.windows.hasOpenWindow) {
                     G.windows.closeCurrentWindow();
                 } else {
                     G.windows.openPauseWindow();
