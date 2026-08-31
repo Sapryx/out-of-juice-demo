@@ -1,15 +1,13 @@
 class Input {
     static init() {
-        Input._upPressed = false;
-        Input._downPressed = false;
-        Input._leftPressed = false;
-        Input._rightPressed = false;
-
+        Input._upIsPressed = false;
+        Input._downIsPressed = false;
+        Input._leftIsPressed = false;
+        Input._rightIsPressed = false;
         Input._attackIsPressed = false;
 
         gestures.__onKeyDown = Input._onKeyDown;
         gestures.__onKeyUp = Input._onKeyUp;
-        gestures.tap = Input._onTap;
     }
 
     static reset() {
@@ -48,11 +46,11 @@ class Input {
     static getAxis(axis) {
         switch(axis) {
             case Axis.Horizontal: {
-                if(Input._rightPressed) {
+                if(Input._rightIsPressed) {
                     return 1;
                 }
 
-                if(Input._leftPressed) {
+                if(Input._leftIsPressed) {
                     return -1;
                 }
 
@@ -60,11 +58,11 @@ class Input {
             }
 
             case Axis.Vertical: {
-                if(Input._downPressed) {
+                if(Input._downIsPressed) {
                     return -1;
                 }
 
-                if(Input._upPressed) {
+                if(Input._upIsPressed) {
                     return 1;
                 }
 
@@ -78,6 +76,7 @@ class Input {
      */
     static consumeAttack() {
         if(Input._attackIsPressed) {
+            console.log("k");
             Input._attackIsPressed = false;
             return true;
         }
@@ -95,10 +94,11 @@ class Input {
      */
     static _onKeyDown(keyCode, key, ctrl, shift, alt, e) {
         switch(key) {
-            case "w": Input._upPressed = true; break;
-            case "s": Input._downPressed = true; break;
-            case "a": Input._leftPressed = true; break;
-            case "d": Input._rightPressed = true; break;
+            case "w": Input._upIsPressed = true; break;
+            case "s": Input._downIsPressed = true; break;
+            case "a": Input._leftIsPressed = true; break;
+            case "d": Input._rightIsPressed = true; break;
+            case " ": Input._attackIsPressed = true; break;
 
             case "i": {
                 if(G.windows.isOpen(WindowType.Inventory)) {
@@ -133,17 +133,11 @@ class Input {
      */
     static _onKeyUp(keyCode, key, ctrl, shift, alt, e) {
         switch(key) {
-            case "w": Input._upPressed = false; break;
-            case "s": Input._downPressed = false; break;
-            case "a": Input._leftPressed = false; break;
-            case "d": Input._rightPressed = false; break;
+            case "w": Input._upIsPressed = false; break;
+            case "s": Input._downIsPressed = false; break;
+            case "a": Input._leftIsPressed = false; break;
+            case "d": Input._rightIsPressed = false; break;
+            case " ": Input._attackIsPressed = false; break;
         }
-    }
-
-    /**
-     * @private
-     */
-    static _onTap() {
-        Input._attackIsPressed = true;
     }
 }

@@ -35,10 +35,11 @@ function handleAttackInput() {
     }
 
     const levelCamera = G.gameView.levelView.camera;
-    const mouseGridPosition = Input.getMouseGridPosition(levelCamera);
-    const target = G.level.getEntityInTile(mouseGridPosition);
+    const target = G.targeting.entity;
+    // const mouseGridPosition = Input.getMouseGridPosition(levelCamera);
+    // const target = G.level.getEntityInTile(mouseGridPosition);
 
-    if(target === undefined || !G.player.canInteractWith(target)) {
+    if(!target || !G.player.canInteractWith(target)) {
         return false;
     }
 
