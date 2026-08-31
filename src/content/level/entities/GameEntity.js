@@ -52,11 +52,7 @@ class GameEntity {
             return false;
         }
 
-        const vectorToTarget = math2d.sub(target.position, this.position);
-        const distanceX = abs(vectorToTarget.x);
-        const distanceY = abs(vectorToTarget.y);
-
-        return distanceX <= this._interactionRange && distanceY <= this._interactionRange;
+        return math2d.chebyshevDistance(target.position, this.position) <= this._interactionRange;
     }
 
     /**

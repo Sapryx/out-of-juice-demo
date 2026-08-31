@@ -102,5 +102,9 @@ const math2d = {
      */
     copy(vector) {
         return new Vector2(vector.x, vector.y);
+    },
+
+    chebyshevDistance(vector1, vector2) {
+        return mmax(abs(vector2.x - vector1.x), abs(vector2.y - vector1.y));
     }
 };
