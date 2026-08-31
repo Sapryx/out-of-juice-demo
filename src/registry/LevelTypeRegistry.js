@@ -3,6 +3,10 @@ class LevelTypeRegistry {
         this._levelTypes = [];
     }
 
+    get count() {
+        return this._levelTypes.length;
+    }
+
     /**
      * @param {LevelType} levelType
      */

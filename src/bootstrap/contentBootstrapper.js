@@ -36,6 +36,8 @@ const contentBootstrapper = {
                 remaining--;
             });
         });
+
+        console.log(`Registered ${G.defs.count} entities`);
     },
 
     registerItems() {
@@ -63,6 +65,8 @@ const contentBootstrapper = {
                 G.levelTypeRegistry.register(new LevelType(id, config));
             });
         }
+
+        console.log(`Registered ${G.levelTypeRegistry.count} level types`);
     },
 
     registerRoomAssets() {
@@ -75,5 +79,7 @@ const contentBootstrapper = {
                 });
             }
         });
+
+        console.log(`Registered ${G.roomAssetRegistry.count} rooms`);
     }
 };

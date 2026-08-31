@@ -4,6 +4,10 @@ class Defs {
         this._factories = new Map();
     }
 
+    get count() {
+        return this._configs.size;
+    }
+
     /**
      * @param {string} id
      * @param config
