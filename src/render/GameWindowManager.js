@@ -94,7 +94,7 @@ class GameWindowManager {
 
                                     __aliasing1: {
                                         item_icon: {__img: item.asset.iconPath},
-                                        item_text: {__text: item.asset.name}
+                                        item_name: {__text: item.asset.name}
                                     },
                                     __onTap() {
                                         windowNode.selectedItemCard = this;
