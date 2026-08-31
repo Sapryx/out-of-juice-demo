@@ -136,6 +136,75 @@
             }
           }
         }
+      },
+      "_2": {
+        "__padding": [
+          0,
+          0,
+          0,
+          8
+        ],
+        "ha": 0,
+        "va": 3,
+        "sha": 2,
+        "sva": 0,
+        "__size": [
+          1,
+          1,
+          "o",
+          "o"
+        ],
+        "__childs": {
+          "_0": {
+            "__spacing": [
+              0,
+              0,
+              4,
+              0
+            ],
+            "__size": [
+              1,
+              1,
+              "o",
+              "o"
+            ],
+            "__text": {
+              "__fontsize": 8,
+              "__text": "WASD - Move"
+            }
+          },
+          "_1": {
+            "__spacing": [
+              0,
+              0,
+              4,
+              0
+            ],
+            "__size": [
+              1,
+              1,
+              "o",
+              "o"
+            ],
+            "__text": {
+              "__fontsize": 8,
+              "__text": "Q, E – Switch Target"
+            }
+          },
+          "_2": {
+            "__spacing": 0,
+            "__size": [
+              1,
+              1,
+              "o",
+              "o"
+            ],
+            "__text": {
+              "__fontsize": 8,
+              "__text": "Space - Interact"
+            }
+          }
+        }
       }
     }
   }
