@@ -64,6 +64,7 @@ const contentBootstrapper = {
     },
 
     registerRoomAssets() {
+        this._registerRoomAsset(RoomType.Combat, "room_combat_d1_1");
         this._registerRoomAsset(RoomType.Combat, "room_combat_d2_1");
         this._registerRoomAsset(RoomType.Combat, "room_combat_d2_2");
         this._registerRoomAsset(RoomType.Combat, "room_combat_d2_3");

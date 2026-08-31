@@ -134,6 +134,7 @@
 
             "level_types/level_type_1.json",
 
+            "rooms/combat/room_combat_d1_1.json",
             "rooms/combat/room_combat_d2_1.json",
             "rooms/combat/room_combat_d2_2.json",
             "rooms/combat/room_combat_d2_3.json",

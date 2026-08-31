@@ -1,0 +1,1121 @@
+{
+  "format": "simple-tile-editor",
+  "version": 2,
+  "tileset": {
+    "name": "wall_tileset.png",
+    "width": 80,
+    "height": 48,
+    "tileWidth": 16,
+    "tileHeight": 16
+  },
+  "map": {
+    "width": 30,
+    "height": 20
+  },
+  "ruleTiles": [
+    {
+      "id": "rt_dcw3jrjgmthoqj5f",
+      "name": "Rule Tile 1",
+      "defaultTile": {
+        "x": 4,
+        "y": 1
+      },
+      "rules": [
+        {
+          "id": "rt_ravv91qsmthp12rk",
+          "tile": {
+            "x": 4,
+            "y": 1
+          },
+          "dirs": {
+            "N": "empty",
+            "S": "not"
+          }
+        },
+        {
+          "id": "rt_int61xupmthowi3f",
+          "tile": {
+            "x": 4,
+            "y": 0
+          },
+          "dirs": {
+            "S": "empty",
+            "N": "not",
+            "E": "any",
+            "W": "any"
+          }
+        },
+        {
+          "id": "rt_se2dfgftmthor5vd",
+          "tile": {
+            "x": 0,
+            "y": 0
+          },
+          "dirs": {
+            "E": "this",
+            "S": "this",
+            "N": "empty",
+            "W": "empty"
+          }
+        },
+        {
+          "id": "rt_nzyl4rprmthp9wmd",
+          "tile": {
+            "x": 3,
+            "y": 0
+          },
+          "dirs": {
+            "E": "this",
+            "S": "this",
+            "N": "not",
+            "W": "not"
+          }
+        },
+        {
+          "id": "rt_vqoib0wvmthorcwt",
+          "tile": {
+            "x": 2,
+            "y": 0
+          },
+          "dirs": {
+            "W": "this",
+            "S": "this",
+            "N": "empty",
+            "E": "empty"
+          }
+        },
+        {
+          "id": "rt_4lpyyrzkmthp4m9z",
+          "tile": {
+            "x": 5,
+            "y": 0
+          },
+          "dirs": {
+            "W": "this",
+            "S": "this",
+            "N": "not",
+            "E": "not"
+          }
+        },
+        {
+          "id": "rt_mvouo5enmthorgft",
+          "tile": {
+            "x": 0,
+            "y": 3
+          },
+          "dirs": {
+            "E": "this",
+            "N": "this",
+            "W": "empty",
+            "S": "empty"
+          }
+        },
+        {
+          "id": "rt_q5z9nwxkmthpfdht",
+          "tile": {
+            "x": 3,
+            "y": 1
+          },
+          "dirs": {
+            "N": "this",
+            "E": "this",
+            "S": "not",
+            "W": "not"
+          }
+        },
+        {
+          "id": "rt_nhqf6wudmthorjlj",
+          "tile": {
+            "x": 2,
+            "y": 3
+          },
+          "dirs": {
+            "N": "this",
+            "W": "this",
+            "E": "empty",
+            "S": "empty"
+          }
+        },
+        {
+          "id": "rt_t0p1juqemthpehnh",
+          "tile": {
+            "x": 5,
+            "y": 1
+          },
+          "dirs": {
+            "N": "this",
+            "W": "this",
+            "S": "not",
+            "E": "not",
+            "NW": "empty"
+          }
+        },
+        {
+          "id": "rt_tzl6xl6vmthq1or0",
+          "tile": {
+            "x": 6,
+            "y": 3
+          },
+          "dirs": {
+            "N": "this",
+            "W": "this",
+            "S": "not",
+            "E": "not",
+            "NW": "not"
+          }
+        },
+        {
+          "id": "rt_c55d7ejhmthos3au",
+          "tile": {
+            "x": 2,
+            "y": 1
+          },
+          "dirs": {
+            "W": "not",
+            "E": "empty",
+            "N": "any",
+            "S": "any"
+          }
+        },
+        {
+          "id": "rt_c1h9gsy2mthotk3l",
+          "tile": {
+            "x": 0,
+            "y": 1
+          },
+          "dirs": {
+            "N": "any",
+            "S": "any",
+            "W": "empty",
+            "E": "not"
+          }
+        },
+        {
+          "id": "rt_xgqu0teimthotyu3",
+          "tile": {
+            "x": 0,
+            "y": 2
+          },
+          "dirs": {
+            "N": "this",
+            "S": "this",
+            "E": "this",
+            "W": "empty",
+            "NE": "empty"
+          }
+        },
+        {
+          "id": "rt_x8akruh2mthq5wwy",
+          "tile": {
+            "x": 6,
+            "y": 1
+          },
+          "dirs": {
+            "E": "this",
+            "N": "this",
+            "S": "this",
+            "W": "not",
+            "NE": "not",
+            "NW": "any"
+          }
+        },
+        {
+          "id": "rt_64oyuhpgmthpuyti",
+          "tile": {
+            "x": 5,
+            "y": 2
+          },
+          "dirs": {
+            "N": "this",
+            "E": "this",
+            "S": "this",
+            "W": "not"
+          }
+        },
+        {
+          "id": "rt_1j9g9u95mthphatl",
+          "tile": {
+            "x": 2,
+            "y": 2
+          },
+          "dirs": {
+            "N": "this",
+            "W": "this",
+            "S": "this",
+            "E": "empty"
+          }
+        },
+        {
+          "id": "rt_kc7qx204mthpt933",
+          "tile": {
+            "x": 6,
+            "y": 2
+          },
+          "dirs": {
+            "N": "this",
+            "W": "this",
+            "S": "this",
+            "E": "not"
+          }
+        },
+        {
+          "id": "rt_hlyqdcxlmthpg6mg",
+          "tile": {
+            "x": 1,
+            "y": 0
+          },
+          "dirs": {
+            "S": "this",
+            "E": "this",
+            "W": "this",
+            "N": "any"
+          }
+        },
+        {
+          "id": "rt_70d2bjb5mthpshvn",
+          "tile": {
+            "x": 4,
+            "y": 3
+          },
+          "dirs": {
+            "N": "this",
+            "E": "not",
+            "W": "not",
+            "S": "not"
+          }
+        },
+        {
+          "id": "rt_blifopl7mthpuplf",
+          "tile": {
+            "x": 4,
+            "y": 2
+          },
+          "dirs": {
+            "S": "this",
+            "E": "not",
+            "N": "not",
+            "W": "not"
+          }
+        }
+      ]
+    }
+  ],
+  "boundingBox": {
+    "x": 10,
+    "y": 3,
+    "width": 14,
+    "height": 10
+  },
+  "cells": [
+    {
+      "x": 17,
+      "y": 9,
+      "tile": {
+        "x": 2,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 17,
+      "y": 10,
+      "tile": null,
+      "ruleTile": "rt_dcw3jrjgmthoqj5f",
+      "resolvedTile": {
+        "x": 2,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 17,
+      "y": 11,
+      "tile": null,
+      "ruleTile": "rt_dcw3jrjgmthoqj5f",
+      "resolvedTile": {
+        "x": 2,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 17,
+      "y": 12,
+      "tile": {
+        "x": 2,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 12,
+      "tile": {
+        "x": 1,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 12,
+      "tile": {
+        "x": 1,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 12,
+      "tile": {
+        "x": 1,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 12,
+      "tile": {
+        "x": 1,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 12,
+      "tile": {
+        "x": 1,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 12,
+      "tile": {
+        "x": 1,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 10,
+      "y": 12,
+      "tile": {
+        "x": 0,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 10,
+      "y": 4,
+      "tile": {
+        "x": 0,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 10,
+      "y": 5,
+      "tile": null,
+      "ruleTile": "rt_dcw3jrjgmthoqj5f",
+      "resolvedTile": {
+        "x": 0,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 10,
+      "y": 6,
+      "tile": null,
+      "ruleTile": "rt_dcw3jrjgmthoqj5f",
+      "resolvedTile": {
+        "x": 0,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 10,
+      "y": 7,
+      "tile": {
+        "x": 0,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 10,
+      "y": 8,
+      "tile": {
+        "x": 0,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 10,
+      "y": 9,
+      "tile": {
+        "x": 0,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 10,
+      "y": 10,
+      "tile": {
+        "x": 0,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 10,
+      "y": 11,
+      "tile": null,
+      "ruleTile": "rt_dcw3jrjgmthoqj5f",
+      "resolvedTile": {
+        "x": 0,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 17,
+      "y": 5,
+      "tile": null,
+      "ruleTile": "rt_dcw3jrjgmthoqj5f",
+      "resolvedTile": {
+        "x": 2,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 17,
+      "y": 6,
+      "tile": {
+        "x": 2,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 17,
+      "y": 8,
+      "tile": {
+        "x": 2,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 17,
+      "y": 4,
+      "tile": {
+        "x": 2,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 4,
+      "tile": {
+        "x": 1,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 4,
+      "tile": {
+        "x": 1,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 4,
+      "tile": {
+        "x": 1,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 4,
+      "tile": {
+        "x": 1,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 17,
+      "y": 7,
+      "tile": {
+        "x": 2,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 8,
+      "tile": {
+        "x": 1,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 8,
+      "tile": {
+        "x": 1,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 8,
+      "tile": {
+        "x": 4,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 4,
+      "tile": {
+        "x": 1,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 8,
+      "tile": {
+        "x": 3,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 4,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "door",
+        "direction": "north"
+      }
+    },
+    {
+      "x": 15,
+      "y": 8,
+      "tile": {
+        "x": 1,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 9,
+      "tile": {
+        "x": 3,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 9,
+      "tile": {
+        "x": 4,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "bandage"
+      }
+    },
+    {
+      "x": 16,
+      "y": 7,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 6,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 5,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 5,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 5,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 5,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 5,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 5,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 6,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 7,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 7,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 7,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 7,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 7,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 6,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 6,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 6,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 6,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 8,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 23,
+      "y": 3,
+      "tile": {
+        "x": 5,
+        "y": 0
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    }
+  ]
+}
