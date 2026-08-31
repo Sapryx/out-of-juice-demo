@@ -14,4 +14,9 @@ class ItemEntity extends GameEntity {
         this._item = item;
         G.presenter.onEntitySpriteUpdate(this, item.asset.iconPath);
     }
+
+    interactWith() {
+        G.player.inventory.addItem(this._item);
+        this._die();
+    }
 }
