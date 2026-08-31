@@ -96,6 +96,10 @@ class Presenter {
         }
     }
 
+    onItemCollected() {
+        G.audio.play(SFX.Collect);
+    }
+
     /**
      * @param {Room} room
      */

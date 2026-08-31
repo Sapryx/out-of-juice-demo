@@ -23,7 +23,7 @@ const SFX = Object.freeze({
     ),
 
     HitMetal: new SoundEffect(
-        0.9,
+        0.8,
         "sfx",
         [
             "hit_metal"
@@ -35,6 +35,17 @@ const SFX = Object.freeze({
         "sfx",
         [
             "burn"
+        ]
+    ),
+
+    Collect: new SoundEffect(
+        0.3,
+        "sfx",
+        [
+            "collect_1",
+            "collect_2",
+            "collect_3",
+            "collect_4",
         ]
     )
 });

@@ -18,5 +18,7 @@ class ItemEntity extends GameEntity {
     interactWith() {
         G.player.inventory.addItem(this._item);
         this._die();
+
+        G.presenter.onItemCollected();
     }
 }
