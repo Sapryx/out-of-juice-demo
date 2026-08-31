@@ -38,11 +38,11 @@ function handleAttackInput() {
     const mouseGridPosition = Input.getMouseGridPosition(levelCamera);
     const target = G.level.getEntityInTile(mouseGridPosition);
 
-    if(target === undefined || !G.player.canAttack(target)) {
+    if(target === undefined || !G.player.canInteractWith(target)) {
         return false;
     }
 
-    G.player.attack(target);
+    target.interactWith();
     return true;
 }
 

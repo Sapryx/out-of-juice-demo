@@ -42,7 +42,7 @@ class TurnManager {
 
     _tickEnemy(entity) {
         if(!this._actionStarted) {
-            if(entity.canAttack(G.player) && !G.player.isIdle) {
+            if(entity.canInteractWith(G.player) && !G.player.isIdle) {
                 return;
             }
 

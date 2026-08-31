@@ -11,7 +11,7 @@ class GameEntity {
         this._state = EntityState.Idle;
         this._health = config.maxHealth;
         this._maxHealth = config.maxHealth;
-        this._attackDistance = 1;
+        this._interactionRange = 1;
     }
 
     /**
@@ -47,7 +47,7 @@ class GameEntity {
     /**
      * @param {GameEntity} target
      */
-    canAttack(target) {
+    canInteractWith(target) {
         if(target === this) {
             return false;
         }
@@ -56,7 +56,7 @@ class GameEntity {
         const distanceX = abs(vectorToTarget.x);
         const distanceY = abs(vectorToTarget.y);
 
-        return distanceX <= this._attackDistance && distanceY <= this._attackDistance;
+        return distanceX <= this._interactionRange && distanceY <= this._interactionRange;
     }
 
     /**
@@ -151,6 +151,10 @@ class GameEntity {
         }
 
         return this.moveBy(offset) || this.moveBy(altOffset);
+    }
+
+    interactWith() {
+
     }
 
     _die() {
