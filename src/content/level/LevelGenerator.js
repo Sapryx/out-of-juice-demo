@@ -28,7 +28,6 @@ class LevelGenerator {
                 }
 
                 const roomAssetsOfType = G.roomAssetRegistry.getForType(roomNode.type);
-
                 const targetDoorCount = roomNode.connectedNodes.length;
                 const roomMatch = this._findMatchingRoomAsset(roomAssetsOfType, usedAssets, targetRoom, targetDoorCount);
 
@@ -71,13 +70,9 @@ class LevelGenerator {
      */
     _findMatchingRoomAsset(assets, usedAssets, targetRoom, doorCount) {
         for(const candidateAsset of assets) {
-            if(usedAssets.has(candidateAsset)) {
-                continue;
-            }
+            const doorCountMatches = candidateAsset.getDoors().length === doorCount;
 
-            const doorCountMatches = candidateAsset.getDoors().length >= doorCount;
-
-            if(!doorCountMatches) {
+            if(usedAssets.has(candidateAsset) || !doorCountMatches) {
                 continue;
             }
 
