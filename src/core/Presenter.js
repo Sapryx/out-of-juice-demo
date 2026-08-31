@@ -100,6 +100,14 @@ class Presenter {
         G.audio.play(SFX.Collect);
     }
 
+    onPlayerInventoryChanged() {
+        const currentWindow = G.windows.current;
+
+        if(currentWindow.type === WindowType.Inventory) {
+            currentWindow.refreshItemSidebar();
+        }
+    }
+
     /**
      * @param {Room} room
      */

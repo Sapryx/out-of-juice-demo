@@ -9,41 +9,27 @@ class Inventory {
         this._items = new Array(size).fill(null);
     }
 
-    /**
-     * @returns {int}
-     */
     get itemCount() {
         return this._itemCount;
     }
 
-    /**
-     * @returns {int}
-     */
     get maxSize() {
         return this._maxSize;
     }
 
-    /**
-     * @param {int} slot
-     * @returns {Item}
-     * @throws {RangeError} slot out of range
-     */
     getItem(slot) {
         this._verifySlotIsInRange(slot);
         return this._items[slot];
     }
 
-    /**
-     * @returns {ReadonlyArray<Item|null>}
-     */
+    getSlot(item) {
+        return this._items.indexOf(item);
+    }
+
     getItems() {
         return Object.freeze([...this._items]);
     }
 
-    /**
-     * @param {Item} item
-     * @returns {boolean}
-     */
     addItem(item) {
         const freeSlot = this._items.indexOf(null);
         const freeSlotNotFound = freeSlot === -1;
@@ -57,12 +43,17 @@ class Inventory {
         return true;
     }
 
-    /**
-     * @param {int} slot
-     * @returns {boolean}
-     * @throws {RangeError} slot out of range
-     */
-    removeItem(slot) {
+    removeItem(item) {
+        const slot = this.getSlot(item);
+
+        if(slot === -1) {
+            return false;
+        }
+
+        return this.removeItemAt(slot);
+    }
+
+    removeItemAt(slot) {
         this._verifySlotIsInRange(slot);
         const noItemInSlot = this._items[slot] == null;
 
@@ -72,13 +63,11 @@ class Inventory {
 
         this._itemCount--;
         this._items[slot] = null;
+        G.presenter.onPlayerInventoryChanged();
+
         return true;
     }
 
-    /**
-     * @param {int} slot
-     * @returns {boolean}
-     */
     hasItem(slot) {
         if(!this._slotIsInRange(slot)) {
             return false;
@@ -87,20 +76,10 @@ class Inventory {
         return this._items[slot] != null;
     }
 
-    /**
-     * @param {int} slot
-     * @returns {boolean}
-     * @private
-     */
     _slotIsInRange(slot) {
         return slot >= 0 && slot < this._maxSize;
     }
 
-    /**
-     * @param {int} slot
-     * @throws {RangeError} slot out of range
-     * @private
-     */
     _verifySlotIsInRange(slot) {
         if(!this._slotIsInRange(slot)) {
             throw new RangeError(`Slot "${slot}" is out of range for inventory with size "${this._maxSize}"`);

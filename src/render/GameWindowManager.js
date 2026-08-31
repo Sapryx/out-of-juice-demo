@@ -1,29 +1,29 @@
 class GameWindowManager {
     constructor() {
-        this._currentWindowNode = null;
+        this.current = null;
     }
 
     get hasOpenWindow() {
-        return this._currentWindowNode != null;
+        return this.current != null;
     }
 
     /**
      * @param {WindowType} windowType
      */
     isOpen(windowType) {
-        if(this._currentWindowNode) {
-            return this._currentWindowNode._type === windowType;
+        if(this.current) {
+            return this.current.type === windowType;
         } else {
             return false;
         }
     }
 
     closeCurrentWindow() {
-        const windowNode = this._currentWindowNode;
+        const windowNode = this.current;
 
         if(windowNode != null) {
             windowNode.__close();
-            this._currentWindowNode = null;
+            this.current = null;
 
             G.presenter.onWindowClose(windowNode);
         }
@@ -31,22 +31,19 @@ class GameWindowManager {
 
     openInventoryWindow() {
         this._openWindow(WindowType.Inventory, (windowNode) => {
-            const items = G.player.inventory.getItems();
-            let firstItemCard = null;
-
             windowNode.__init({
                 __addedProperties: {
-                    _selectedItemCard: {
+                    selectedItemCard: {
                         get() {
-                            return this.__selectedItemCard;
+                            return this._selectedItemCard;
                         },
 
                         set(value) {
-                            if(this.__selectedItemCard) {
-                                this.__selectedItemCard._setSelected(false);
+                            if(this._selectedItemCard) {
+                                this._selectedItemCard._setSelected(false);
                             }
 
-                            this.__selectedItemCard = value;
+                            this._selectedItemCard = value;
 
                             if(value) {
                                 value._setSelected(true);
@@ -60,68 +57,87 @@ class GameWindowManager {
                 _show_info(itemCard) {
                     if(itemCard) {
                         windowNode.__setAliasesData({
-                            item_info_name: {__text: itemCard._item.asset.name},
-                            item_info_description: {__text: itemCard._item.asset.description}
+                            item_info_name: {__text: itemCard.item.asset.name},
+                            item_info_description: {__text: itemCard.item.asset.description}
                         });
+                    }
+                },
+
+                refreshItemSidebar() {
+                    const items = G.player.inventory.getItems();
+                    let firstItemCard = null;
+
+                    this.root.item_sidebar.__clearChildNodes();
+
+                    this.__setAliasesData({
+                        item_sidebar: {
+                            __childs: $map(items.filter(it => it != null), item => {
+                                const itemCard = new ENode("item_card").__init({
+                                    __addedProperties: {
+                                        item: {
+                                            set(value) {
+                                                this._item = value;
+                                            },
+                                            get() {
+                                                return this._item;
+                                            }
+                                        }
+                                    },
+                                    item: item,
+
+                                    _setSelected(selected) {
+                                        const defaultColor = 0x4a5462;
+                                        const selectedColor = 0xfa6a0a;
+
+                                        this.__color = selected ? selectedColor : defaultColor;
+                                        this.__setAliasesData({
+                                            item_name: {__color: selected ? selectedColor : defaultColor}
+                                        });
+                                    },
+
+                                    __aliasing1: {
+                                        item_icon: {__img: item.asset.iconPath},
+                                        item_text: {__text: item.asset.name}
+                                    },
+                                    __onTap() {
+                                        windowNode.selectedItemCard = this;
+                                    }
+                                });
+
+                                if(!firstItemCard) {
+                                    firstItemCard = itemCard;
+                                }
+
+                                return itemCard;
+                            })
+                        }
+                    });
+
+                    if(firstItemCard) {
+                        windowNode.selectedItemCard = firstItemCard;
                     }
                 },
 
                 __aliasing1: {
                     use_button: {
                         __onTap() {
-                            if(windowNode._selectedItemCard) {
-                                windowNode._selectedItemCard._item.use(G.player);
+                            if(windowNode.selectedItemCard) {
+                                const item = windowNode.selectedItemCard.item;
+                                item.use(G.player);
+                                G.player.inventory.removeItem(item);
                             }
                         }
                     },
 
                     item_sidebar: {
-                        __childs: $map(items.filter(it => it != null), item => {
-                            const itemCard = new ENode("item_card").__init({
-                                __addedProperties: {
-                                    _item: {
-                                        set(value) {
-                                            this.__item = value;
-                                        },
-                                        get() {
-                                            return this.__item;
-                                        }
-                                    }
-                                },
-                                _item: item,
-
-                                _setSelected(selected) {
-                                    const defaultColor = 0x4a5462;
-                                    const selectedColor = 0xfa6a0a;
-
-                                    this.__color = selected ? selectedColor : defaultColor;
-                                    this.__setAliasesData({
-                                        item_name: {__color: selected ? selectedColor : defaultColor}
-                                    });
-                                },
-
-                                __aliasing1: {
-                                    item_icon: {__img: item.asset.iconPath},
-                                    item_text: {__text: item.asset.name}
-                                },
-                                __onTap() {
-                                    windowNode._selectedItemCard = this;
-                                }
-                            });
-
-                            if(!firstItemCard) {
-                                firstItemCard = itemCard;
-                            }
-
-                            return itemCard;
-                        })
+                        __scroll: {
+                            __onlyScrollY: true
+                        }
                     }
                 }
             });
 
-            if(firstItemCard) {
-                windowNode._selectedItemCard = firstItemCard;
-            }
+            windowNode.refreshItemSidebar();
         });
     }
 
@@ -150,20 +166,20 @@ class GameWindowManager {
      * @private
      */
     _openWindow(windowType, onOpened) {
-        this._currentWindowNode = showWindow(windowType, (windowNode) => {
+        this.current = showWindow(windowType, (windowNode) => {
             windowNode.init({
                 __addedProperties: {
-                    _type: {
+                    type: {
                         get() {
-                            return this.__type;
+                            return this._type;
                         },
                         set(value) {
-                            this.__type = value;
+                            this._type = value;
                         }
                     }
                 },
 
-                _type: windowType
+                type: windowType
             });
 
             if(onOpened) onOpened(windowNode);
