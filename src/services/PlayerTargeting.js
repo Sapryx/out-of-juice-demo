@@ -1,11 +1,14 @@
 class PlayerTargeting {
     constructor() {
-        this.position = new Vector2(0, 0);
+        this.position = null;
         this.entity = null;
     }
 
     update() {
         const origin = G.player.position;
+
+        this.position = null;
+        this.entity = null;
 
         for(let y = -1; y <= 1; y++) {
             for(let x = -1; x <= 1; x++) {
@@ -20,8 +23,6 @@ class PlayerTargeting {
                 if(entity) {
                     this.position = currentPosition;
                     this.entity = entity;
-
-                    console.log(currentPosition);
                 }
             }
         }

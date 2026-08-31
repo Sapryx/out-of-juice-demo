@@ -8,6 +8,7 @@ class Presenter {
 
     onRemoveEntity(entity) {
         G.entityViews.remove(entity);
+        G.targeting.update();
     }
 
     onEntitySpriteUpdate(entity, spritePath) {

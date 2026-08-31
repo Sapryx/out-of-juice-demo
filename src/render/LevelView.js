@@ -3,8 +3,8 @@ class LevelView {
      * @param {ENode} parent
      */
     constructor(parent) {
-        this._parent = parent;
         this.node = null;
+        this._parent = parent;
         this._tileBatch = null;
         this._bakedTiles = null;
 
@@ -32,6 +32,7 @@ class LevelView {
         this.tileSelection = this.node.__addChildBox({
             __img: "selection_frame",
             __size: [G.config.tileSize, G.config.tileSize],
+            __color: 0x00FF00,
             __z: -100
         });
 
@@ -69,25 +70,15 @@ class LevelView {
     }
 
     update() {
-        const screenPosition = math2d.mul(math2d.flipY(G.targeting.position), G.config.tileSize);
+        const targetedPosition = G.targeting.position;
 
-        this.tileSelection.__init({
-            __ofs: screenPosition,
-            __color: 0x00FF00
-        });
-    }
-
-    _getSelectionColor(position) {
-        const selectedEntity = G.level.getEntityInTile(position);
-
-        if(!selectedEntity || selectedEntity === G.player) {
-            return 0xFFFFFF;
+        if(!targetedPosition) {
+            this.tileSelection.__alpha = 0;
+            return;
         }
 
-        if(G.player.canAttack(selectedEntity)) {
-            return 0x00FF00;
-        }
-
-        return 0xFF0000;
+        const screenPosition = math2d.mul(math2d.flipY(targetedPosition), G.config.tileSize);
+        this.tileSelection.__ofs = screenPosition;
+        this.tileSelection.__alpha = 1;
     }
 }
