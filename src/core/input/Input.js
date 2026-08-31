@@ -98,40 +98,44 @@ class Input {
             case "a": Input._leftIsPressed = true; break;
             case "d": Input._rightIsPressed = true; break;
             case " ": Input._attackIsPressed = true; break;
-            case "q": G.targeting.selectPrevious(); break;
-            case "e": G.targeting.selectNext(); break;
-
-            case "i": {
-                if(G.windows.isOpen(WindowType.Inventory)) {
-                    G.windows.closeCurrentWindow();
-                    return;
-                }
-
-                if(!G.windows.hasOpenWindow) {
-                    G.windows.openInventoryWindow();
-                }
-
-                break;
-            }
-
-            case "escape": {
-                if(G.windows.hasOpenWindow) {
-                    G.windows.closeCurrentWindow();
-                } else {
-                    G.windows.openPauseWindow();
-                }
-            }
+            case "e": Input._selectNextTarget(); break;
+            case "q": Input._selectPreviousTarget(); break;
+            case "i": Input._toggleInventoryWindow(); break;
+            case "escape": Input._togglePauseWindow(); break;
         }
     }
 
-    /**
-     * @param {number} keyCode
-     * @param {string} key
-     * @param {boolean} ctrl
-     * @param {boolean} shift
-     * @param {boolean} alt
-     * @param e
-     */
+    static _selectNextTarget() {
+        if(!G.windows.hasOpenWindow) {
+            G.targeting.selectNext();
+        }
+    }
+
+    static _selectPreviousTarget() {
+        if(!G.windows.hasOpenWindow) {
+            G.targeting.selectNext();
+        }
+    }
+
+    static _toggleInventoryWindow() {
+        if(G.windows.isOpen(WindowType.Inventory)) {
+            G.windows.closeCurrentWindow();
+            return;
+        }
+
+        if(!G.windows.hasOpenWindow) {
+            G.windows.openInventoryWindow();
+        }
+    }
+
+    static _togglePauseWindow() {
+        if(G.windows.hasOpenWindow) {
+            G.windows.closeCurrentWindow();
+        } else {
+            G.windows.openPauseWindow();
+        }
+    }
+
     static _onKeyUp(keyCode, key, ctrl, shift, alt, e) {
         switch(key) {
             case "w": Input._upIsPressed = false; break;
