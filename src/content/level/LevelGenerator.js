@@ -5,9 +5,9 @@ class LevelGenerator {
 
     generateLevel() {
         const level = new Level();
-        const levelType = G.levelTypeRegistry.getRandom();
+        const levelType = G.levelTypes.getRandom();
         const startRoomNode = levelType.getRooms().find(roomNode => roomNode.type === "start");
-        const startRoomAsset = G.roomAssetRegistry.getFirstOfType("start");
+        const startRoomAsset = G.roomAssets.getFirstOfType("start");
         const startRoom = new Room(startRoomNode, startRoomAsset);
         const processedNodes = new Set([startRoomNode]);
         const usedAssets = new Set([startRoomAsset]);
@@ -15,7 +15,7 @@ class LevelGenerator {
         console.log("Generating level...");
         console.log(`Using level type: ${levelType.id}`);
 
-        G.roomAssetRegistry.shuffle();
+        G.roomAssets.shuffle();
         this._placeRoom(level, startRoom, new Vector2(0, 0));
 
         while(!this._roomsToProcess.isEmpty()) {
@@ -27,7 +27,7 @@ class LevelGenerator {
                     continue;
                 }
 
-                const roomAssetsOfType = G.roomAssetRegistry.getForType(roomNode.type);
+                const roomAssetsOfType = G.roomAssets.getForType(roomNode.type);
                 const targetDoorCount = roomNode.connectedNodes.length;
                 const roomMatch = this._findMatchingRoomAsset(roomAssetsOfType, usedAssets, targetRoom, targetDoorCount);
 

@@ -12,8 +12,8 @@ BUS.__addEventListener(
 function initializeState() {
     // Content
     G.defs = new Defs();
-    G.roomAssetRegistry = new RoomAssetRegistry();
-    G.levelTypeRegistry = new LevelTypeRegistry();
+    G.roomAssets = new RoomAssetRegistry();
+    G.levelTypes = new LevelTypeRegistry();
     G.itemAssets = new ItemAssetRegistry();
 
     // Systems

@@ -1,15 +1,17 @@
 const G = {
     input: null,
-    player: null,
     turnManager: null,
     targeting: null,
     levelGenerator: null,
-    level: null,
-    defs: null,
-    config: null,
+    audio: null,
 
-    roomAssetRegistry: null,
-    levelTypeRegistry: null,
+    player: null,
+    level: null,
+
+    config: null,
+    defs: null,
+    roomAssets: null,
+    levelTypes: null,
     itemAssets: null,
 
     presenter: null,
@@ -17,5 +19,4 @@ const G = {
     levelView: null,
     gameView: null,
     windows: null,
-    audio: null
 };

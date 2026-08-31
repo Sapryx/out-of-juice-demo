@@ -63,11 +63,11 @@ const contentBootstrapper = {
             const id = `level_type_${i + 1}`;
 
             getJson(`configs/level_types/${id}.json`, (config) => {
-                G.levelTypeRegistry.register(new LevelType(id, config));
+                G.levelTypes.register(new LevelType(id, config));
             });
         }
 
-        console.log(`Registered ${G.levelTypeRegistry.count} level types`);
+        console.log(`Registered ${G.levelTypes.count} level types`);
     },
 
     registerRoomAssets() {
@@ -76,11 +76,11 @@ const contentBootstrapper = {
                 const id = `room_${type}_${i + 1}`;
 
                     getJson(`configs/rooms/${type}/${id}.json`, (config) => {
-                    G.roomAssetRegistry.register(type, new RoomAsset(id, config));
+                    G.roomAssets.register(type, new RoomAsset(id, config));
                 });
             }
         });
 
-        console.log(`Registered ${G.roomAssetRegistry.count} rooms`);
+        console.log(`Registered ${G.roomAssets.count} rooms`);
     }
 };
