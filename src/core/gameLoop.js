@@ -7,7 +7,7 @@ let gameLoop = {
         }
 
         G.gameView.update();
-        Input.reset();
+        G.input.reset();
     }
 };
 
@@ -28,7 +28,7 @@ function handleGameInput() {
  * @returns {boolean}
  */
 function handleAttackInput() {
-    const attackIsPressed = Input.consumeAttack();
+    const attackIsPressed = G.input.consumeAttack();
 
     if(!attackIsPressed) {
         return false;
@@ -48,7 +48,7 @@ function handleAttackInput() {
  * @returns {boolean}
  */
 function handleMovementInput() {
-    const movementInputRaw = new Vector2(Input.getAxis(Axis.Horizontal), Input.getAxis(Axis.Vertical));
+    const movementInputRaw = new Vector2(G.input.getAxis(Axis.Horizontal), G.input.getAxis(Axis.Vertical));
     const inputIsEmpty = movementInputRaw.x === 0 && movementInputRaw.y === 0;
 
     if(inputIsEmpty) {

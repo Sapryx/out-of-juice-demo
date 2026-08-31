@@ -1,4 +1,5 @@
 const G = {
+    input: null,
     player: null,
     turnManager: null,
     targeting: null,

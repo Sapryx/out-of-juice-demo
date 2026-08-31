@@ -1,32 +1,25 @@
 class Input {
-    static init() {
-        Input._upIsPressed = false;
-        Input._downIsPressed = false;
-        Input._leftIsPressed = false;
-        Input._rightIsPressed = false;
-        Input._attackIsPressed = false;
+    init() {
+        this._upIsPressed = false;
+        this._downIsPressed = false;
+        this._leftIsPressed = false;
+        this._rightIsPressed = false;
+        this._attackIsPressed = false;
 
-        gestures.__onKeyDown = Input._onKeyDown;
-        gestures.__onKeyUp = Input._onKeyUp;
+        gestures.__onKeyDown = this._onKeyDown.bind(this);
+        gestures.__onKeyUp = this._onKeyUp.bind(this);
     }
 
-    static reset() {
-        Input._attackIsPressed = false;
+    reset() {
+        this._attackIsPressed = false;
     }
 
-    /**
-     * @returns {Vector2}
-     */
-    static getMouseScreenPosition() {
+    getMouseScreenPosition() {
         return new Vector2(mouse.x / layoutsResolutionMult, mouse.y / layoutsResolutionMult);
     }
 
-    /**
-     * @param {CameraOrtho} camera
-     * @returns {Vector2}
-     */
-    static getMouseWorldPosition(camera) {
-        const screenPosition = Input.getMouseScreenPosition();
+    getMouseWorldPosition(camera) {
+        const screenPosition = this.getMouseScreenPosition();
         const cameraPosition = new Vector2(camera.__x, camera.__y);
 
         const screenOffset = math2d.flipY(math2d.sub(screenPosition, __screenCenter));
@@ -36,21 +29,18 @@ class Input {
         return math2d.div(worldPixelPosition, G.config.tileSize);
     }
 
-    static getMouseGridPosition(camera) {
-        return math2d.round(Input.getMouseWorldPosition(camera));
+    getMouseGridPosition(camera) {
+        return math2d.round(this.getMouseWorldPosition(camera));
     }
 
-    /**
-     * @param {Axis} axis
-     */
-    static getAxis(axis) {
+    getAxis(axis) {
         switch(axis) {
             case Axis.Horizontal: {
-                if(Input._rightIsPressed) {
+                if(this._rightIsPressed) {
                     return 1;
                 }
 
-                if(Input._leftIsPressed) {
+                if(this._leftIsPressed) {
                     return -1;
                 }
 
@@ -58,11 +48,11 @@ class Input {
             }
 
             case Axis.Vertical: {
-                if(Input._downIsPressed) {
+                if(this._downIsPressed) {
                     return -1;
                 }
 
-                if(Input._upIsPressed) {
+                if(this._upIsPressed) {
                     return 1;
                 }
 
@@ -71,53 +61,42 @@ class Input {
         }
     }
 
-    /**
-     * @returns {boolean}
-     */
-    static consumeAttack() {
-        if(Input._attackIsPressed) {
-            Input._attackIsPressed = false;
+    consumeAttack() {
+        if(this._attackIsPressed) {
+            this._attackIsPressed = false;
             return true;
         }
 
         return false;
     }
 
-    /**
-     * @param {number} keyCode
-     * @param {string} key
-     * @param {boolean} ctrl
-     * @param {boolean} shift
-     * @param {boolean} alt
-     * @param {Object} e
-     */
-    static _onKeyDown(keyCode, key, ctrl, shift, alt, e) {
+    _onKeyDown(keyCode, key, ctrl, shift, alt, e) {
         switch(key) {
-            case "w": Input._upIsPressed = true; break;
-            case "s": Input._downIsPressed = true; break;
-            case "a": Input._leftIsPressed = true; break;
-            case "d": Input._rightIsPressed = true; break;
-            case " ": Input._attackIsPressed = true; break;
-            case "e": Input._selectNextTarget(); break;
-            case "q": Input._selectPreviousTarget(); break;
-            case "i": Input._toggleInventoryWindow(); break;
-            case "escape": Input._togglePauseWindow(); break;
+            case "w": this._upIsPressed = true; break;
+            case "s": this._downIsPressed = true; break;
+            case "a": this._leftIsPressed = true; break;
+            case "d": this._rightIsPressed = true; break;
+            case " ": this._attackIsPressed = true; break;
+            case "e": this._selectNextTarget(); break;
+            case "q": this._selectPreviousTarget(); break;
+            case "i": this._toggleInventoryWindow(); break;
+            case "escape": this._togglePauseWindow(); break;
         }
     }
 
-    static _selectNextTarget() {
+    _selectNextTarget() {
         if(!G.windows.hasOpenWindow) {
             G.targeting.selectNext();
         }
     }
 
-    static _selectPreviousTarget() {
+    _selectPreviousTarget() {
         if(!G.windows.hasOpenWindow) {
             G.targeting.selectNext();
         }
     }
 
-    static _toggleInventoryWindow() {
+    _toggleInventoryWindow() {
         if(G.windows.isOpen(WindowType.Inventory)) {
             G.windows.closeCurrentWindow();
             return;
@@ -128,7 +107,7 @@ class Input {
         }
     }
 
-    static _togglePauseWindow() {
+    _togglePauseWindow() {
         if(G.windows.hasOpenWindow) {
             G.windows.closeCurrentWindow();
         } else {
@@ -136,13 +115,13 @@ class Input {
         }
     }
 
-    static _onKeyUp(keyCode, key, ctrl, shift, alt, e) {
+    _onKeyUp(keyCode, key, ctrl, shift, alt, e) {
         switch(key) {
-            case "w": Input._upIsPressed = false; break;
-            case "s": Input._downIsPressed = false; break;
-            case "a": Input._leftIsPressed = false; break;
-            case "d": Input._rightIsPressed = false; break;
-            case " ": Input._attackIsPressed = false; break;
+            case "w": this._upIsPressed = false; break;
+            case "s": this._downIsPressed = false; break;
+            case "a": this._leftIsPressed = false; break;
+            case "d": this._rightIsPressed = false; break;
+            case " ": this._attackIsPressed = false; break;
         }
     }
 }

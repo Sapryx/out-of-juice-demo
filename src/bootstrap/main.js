@@ -17,6 +17,7 @@ function initializeState() {
     G.itemAssets = new ItemAssetRegistry();
 
     // Systems
+    G.input = new Input();
     G.turnManager = new TurnManager();
     G.levelGenerator = new LevelGenerator();
     G.targeting = new PlayerTargeting();
@@ -38,7 +39,7 @@ function registerContent() {
 }
 
 function initializeGame() {
-    Input.init();
+    G.input.init();
     G.gameView.init();
 
     updatable.__push(gameLoop);
