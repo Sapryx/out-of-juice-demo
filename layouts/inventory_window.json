@@ -51,7 +51,6 @@
             ],
             "__childs": {
               "item_info_name": {
-                "__color": "#4a5462",
                 "__spacing": [
                   0,
                   0,
@@ -70,7 +69,6 @@
                 }
               },
               "item_info_description": {
-                "__color": "#4a5462",
                 "ha": 0,
                 "va": 0,
                 "__corner": [
