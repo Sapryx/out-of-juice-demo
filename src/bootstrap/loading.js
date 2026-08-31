@@ -12,8 +12,6 @@ set(__window, "$INIT$", (projectData) => {
                 });
             };
 
-            consoleLog("beginLoadGameResources");
-
             TASKS_RUN(projectData.res, a => {
                 BUS.__post(__ON_GAME_LOADED);
             });

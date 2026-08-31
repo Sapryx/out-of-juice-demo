@@ -1,7 +1,4 @@
 class GameView {
-    /**
-     * @param {ENode} scene
-     */
     constructor(scene) {
         this.levelView = new LevelView(scene);
         this.gui = new Gui(scene);
@@ -30,9 +27,6 @@ class GameView {
         this.gui.update();
     }
 
-    /**
-     * @returns {CameraOrtho}
-     */
     _createCamera() {
         const camera = new CameraOrtho();
 

@@ -64,8 +64,7 @@
                   "o"
                 ],
                 "__text": {
-                  "__fontsize": 16,
-                  "__text": "Item Name"
+                  "__fontsize": 16
                 }
               },
               "item_info_description": {
@@ -83,7 +82,6 @@
                 ],
                 "__text": {
                   "__fontsize": 12,
-                  "__text": "Item description.",
                   "__align": 0
                 }
               },

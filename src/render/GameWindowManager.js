@@ -123,8 +123,11 @@ class GameWindowManager {
                         __onTap() {
                             if(windowNode.selectedItemCard) {
                                 const item = windowNode.selectedItemCard.item;
-                                item.use(G.player);
-                                G.player.inventory.removeItem(item);
+                                const itemWasUsed = item.use(G.player);
+
+                                if(itemWasUsed) {
+                                    G.player.inventory.removeItem(item);
+                                }
                             }
                         }
                     },
