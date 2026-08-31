@@ -2,8 +2,7 @@
     "__childs": {
         "sprite": {
             "__img": "white",
-            "__size": [16, 16],
-            "__ofs": [0, 0]
+            "__size": [16, 16]
         }
     }
 }

@@ -6,6 +6,7 @@ class GameEntity {
 
         this.takeDamageSfx = null;
         this.dealDamageSfx = null;
+        this.isHostile = true;
 
         this._state = EntityState.Idle;
         this._health = config.maxHealth;

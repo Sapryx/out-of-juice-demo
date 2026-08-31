@@ -30,7 +30,7 @@ class Presenter {
         const animationDuration = G.config.tilePassTime;
         view.node.__z = SpriteSorting.getZ(SortingLayer.Entities) + entity.position.y;
 
-        if(entity !== G.player) {
+        if(entity !== G.player && entity.isHostile) {
             const playerDirection = sign(G.player.position.x - entity.position.x);
 
             if(playerDirection !== 0) {
