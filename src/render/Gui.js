@@ -34,16 +34,10 @@ class Gui {
     }
 
     update() {
-        const mouseWorldPos = Input.getMouseWorldPosition(G.gameView.levelView.camera);
-
         this._node.__init({
             __aliasing1: {
                 health_bar_bg: {
                     __text: G.player.health
-                },
-
-                mouse_pos: {
-                    __text: `(${round(mouseWorldPos.x)}; ${round(mouseWorldPos.y)})`
                 }
             }
         });

@@ -71,87 +71,15 @@
           }
         }
       },
-      "debug_info": {
-        "__color": "#4a5462",
-        "__userData": {
-          "type": "debug_info"
-        },
-        "__padding": [
-          0,
-          8,
-          0,
-          8
-        ],
-        "ha": 0,
-        "va": 3,
-        "sha": 2,
-        "sva": 2,
-        "__size": [
-          120,
-          36
-        ],
-        "__childs": {
-          "_0": {
-            "__color": 0,
-            "__alpha": 0,
-            "ha": 3,
-            "va": 0,
-            "__size": [
-              1,
-              1
-            ],
-            "__text": {},
-            "__childs": {
-              "_1": {
-                "ha": 0,
-                "va": 1,
-                "__needScissor": false,
-                "__size": [
-                  0.5,
-                  12
-                ],
-                "__text": {
-                  "__fontsize": 8,
-                  "__text": "Mouse Pos:",
-                  "__align": 0
-                }
-              },
-              "mouse_pos": {
-                "__userData": {
-                  "type": "mouse_pos"
-                },
-                "ha": 0,
-                "va": 1,
-                "__needScissor": false,
-                "__size": [
-                  0.5,
-                  12
-                ],
-                "__text": {
-                  "__fontsize": 8,
-                  "__text": "0; 0",
-                  "__align": 0
-                }
-              }
-            }
-          }
-        }
-      },
-      "_2": {
-        "__padding": [
-          0,
-          0,
-          0,
-          8
-        ],
+      "_1": {
         "ha": 0,
         "va": 3,
         "sha": 2,
         "sva": 0,
         "__size": [
+          92,
           1,
-          1,
-          "o",
+          0,
           "o"
         ],
         "__childs": {
@@ -192,7 +120,6 @@
             }
           },
           "_2": {
-            "__spacing": 0,
             "__size": [
               1,
               1,
