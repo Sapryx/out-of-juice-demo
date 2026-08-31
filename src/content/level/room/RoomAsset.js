@@ -109,6 +109,7 @@ class RoomAsset {
         spawnPoint.position = tile.position;
         spawnPoint.def = tile.data.def;
         spawnPoint.chance = nulls.getOr(() => tile.data.chance, 1);
+        spawnPoint.item = nulls.getOr(() => tile.data.item, null);
 
         this._spawnPoints.push(spawnPoint);
     }

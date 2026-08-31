@@ -20,6 +20,11 @@ class Room {
             const globalPosition = math2d.add(this.position, spawnPoint.position);
 
             G.level.addEntity(entity, globalPosition);
+
+            if(entity instanceof ItemEntity) {
+                const itemAsset = G.itemAssets.get(spawnPoint.item);
+                entity.setItem(new Item(itemAsset));
+            }
         }
     }
 

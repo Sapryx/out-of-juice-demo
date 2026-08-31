@@ -10,6 +10,16 @@ class Presenter {
         G.entityViews.remove(entity);
     }
 
+    onEntitySpriteUpdate(entity, spritePath) {
+        const view = G.entityViews.get(entity);
+
+        view.node.__setAliasesData({
+            sprite: {
+                __img: spritePath
+            }
+        });
+    }
+
     /**
      * @param {GameEntity} entity
      * @param {() => void} callback

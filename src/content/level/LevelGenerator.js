@@ -14,7 +14,6 @@ class LevelGenerator {
 
         console.log("Generating level...");
         console.log(`Using level type: ${levelType.id}`);
-        console.log(`Discovered ${G.roomAssetRegistry.count} unique rooms`);
 
         G.roomAssetRegistry.shuffle();
         this._placeRoom(level, startRoom, new Vector2(0, 0));
@@ -163,7 +162,7 @@ class LevelGenerator {
      * @private
      */
     _createHallway(level, origin, target, direction) {
-        console.log(`Creating hallway from ${format(origin)} to ${format(target)}, direction: ${format(direction)}`);
+        console.log(`Creating hallway from ${format(origin)} to ${format(target)}`);
 
         for(let i = 1; i < 6; i++) {
             const floorPosition = math2d.add(origin, math2d.mul(direction, i));

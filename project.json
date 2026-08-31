@@ -50,6 +50,7 @@
             "content/level/entities/GameEntity.js",
             "content/level/entities/Player.js",
             "content/level/entities/Sweeper.js",
+            "content/level/entities/ItemEntity.js",
             "content/level/room/Room.js",
             "content/level/room/RoomNode.js",
             "content/level/room/RoomMatch.js",
@@ -124,6 +125,7 @@
 
             "entities/player.json",
             "entities/sweeper.json",
+            "entities/item_entity.json",
 
             "items/bandage.json",
 
@@ -159,6 +161,8 @@
             "layout",
             "entities/player.json",
             "entities/sweeper.json",
+            "entities/item_entity.json",
+
             "gui.json",
             "item_card.json",
 

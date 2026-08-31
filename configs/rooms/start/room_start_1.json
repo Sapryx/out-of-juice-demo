@@ -343,7 +343,11 @@
       },
       "ruleTile": null,
       "resolvedTile": null,
-      "data": null
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "bandage"
+      }
     },
     {
       "x": 13,
