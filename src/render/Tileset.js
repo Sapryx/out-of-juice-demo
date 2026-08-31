@@ -51,7 +51,7 @@ class Tileset {
     tilePixelRect(tileX, tileY) {
         return {
             x: tileX * this._tileWidth,
-            y: (this._rows - 1 - tileY) * this._tileHeight,
+            y: tileY * this._tileHeight,
             w: this._tileWidth,
             h: this._tileHeight
         };
@@ -77,11 +77,6 @@ class Tileset {
         };
     }
 
-    /**
-     * Maps a pixel rect inside the tilesheet into atlas UV space.
-     * @param {ENode} node  must have __tilePixelRect, __sheetSize; preferably __frame/map
-     * @returns {number[]}  [tl.u, tl.v, tr.u, tr.v, bl.u, bl.v, br.u, br.v]
-     */
     static computeAtlasTileUV(node) {
         const pr = node.__tilePixelRect;
         const sheet = node.__sheetSize;

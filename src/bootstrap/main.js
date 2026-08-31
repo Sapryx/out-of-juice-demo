@@ -57,7 +57,7 @@ function setupLevel() {
     G.level = level;
 
     level.respawnPlayer();
-    level.addEntity(G.defs.create("sweeper"), math2d.add(G.player.position, new Vector2(0, 2)));
+    level.addEntity(G.defs.create("sweeper"), math2d.add(G.player.position, new Vector2(0, -2)));
     level.initRooms();
 
     G.turnManager.setEntity(G.player);

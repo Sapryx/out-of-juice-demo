@@ -147,7 +147,7 @@ class LevelGenerator {
 
         const hallwayOrigin = math2d.add(roomMatch.targetRoom.position, roomMatch.targetDoor.position);
         const hallwayTarget = math2d.add(room.position, roomMatch.matchedDoor.position);
-        const hallwayDirection = math2d.flipY(roomMatch.targetDoor.direction);
+        const hallwayDirection = roomMatch.targetDoor.direction;
 
         this._createHallway(level, hallwayOrigin, hallwayTarget, hallwayDirection);
 
