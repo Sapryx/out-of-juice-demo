@@ -27,10 +27,10 @@ class Level {
         this._rooms.push(room);
 
         if(room.node.type === "start") {
-            this._playerSpawnPoint = room.asset.getSpawnPoints().find(it => it.def === "player");
+            this._playerSpawnPoint = room.getSpawnPoints().find(it => it.def === "player");
         }
 
-        for(const tile of room.asset.getTiles().filter(tile => tile.isWall)) {
+        for(const tile of room.getTiles().filter(tile => tile.isWall)) {
             const tileGlobalPosition = math2d.add(tile.position, room.position);
             this._colliders.add(this._getHash(tileGlobalPosition));
         }

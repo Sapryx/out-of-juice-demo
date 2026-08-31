@@ -114,7 +114,7 @@ class Presenter {
     onAddRoom(room) {
         const tileset = room.asset.tileset;
 
-        for(const tile of room.asset.getTiles()) {
+        for(const tile of room.getTiles()) {
             const tileWorldPosition = math2d.add(room.position, tile.position);
             const tileNode = new Node();
             tileNode.__img = "white";

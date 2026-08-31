@@ -90,6 +90,22 @@ const math2d = {
 
     /**
      * @param {Vector2} vector
+     * @param {int} steps
+     * @returns {Vector2}
+     */
+    rotate(vector, steps) {
+        const normalizedSteps = ((steps % 4) + 4) % 4;
+        let result = vector;
+
+        for(let i = 0; i < normalizedSteps; i++) {
+            result = math2d.rotateCw(result);
+        }
+
+        return result;
+    },
+
+    /**
+     * @param {Vector2} vector
      * @returns {Vector2}
      */
     round(vector) {

@@ -76,11 +76,16 @@ class LevelGenerator {
                 continue;
             }
 
-            const doorPair = this._matchDoors(targetRoom.getFreeDoors(), candidateAsset.getDoors());
+            const rotations = list.shuffle([0, 1, 2, 3]);
 
-            if(doorPair != null) {
-                const [door1, door2] = doorPair;
-                return new RoomMatch(targetRoom, candidateAsset, door1, door2);
+            for(const rotation of rotations) {
+                const rotatedDoors = candidateAsset.getDoors(rotation);
+                const doorPair = this._matchDoors(targetRoom.getFreeDoors(), rotatedDoors);
+
+                if(doorPair != null) {
+                    const [door1, door2] = doorPair;
+                    return new RoomMatch(targetRoom, candidateAsset, door1, door2, rotation);
+                }
             }
         }
 
@@ -117,10 +122,10 @@ class LevelGenerator {
     _calculateRoomOffset(door1, door2) {
         const doorOffset = math2d.sub(door1.position, door2.position);
 
-        if(abs(doorOffset.x) > abs(doorOffset.y)) {
-            doorOffset.x += sign(doorOffset.x) * 6;
+        if(door1.direction.x !== 0) {
+            doorOffset.x += door1.direction.x * 6;
         } else {
-            doorOffset.y += sign(doorOffset.y) * 6;
+            doorOffset.y += door1.direction.y * 6;
         }
 
         return doorOffset;
@@ -135,7 +140,7 @@ class LevelGenerator {
     _appendRoom(level, roomMatch, roomNode) {
         const roomOffset = this._calculateRoomOffset(roomMatch.targetDoor, roomMatch.matchedDoor);
         const roomPosition = math2d.add(roomMatch.targetRoom.position, roomOffset);
-        const room = new Room(roomNode, roomMatch.matchedRoomAsset);
+        const room = new Room(roomNode, roomMatch.matchedRoomAsset, roomMatch.matchedRotation);
 
         this._placeRoom(level, room, roomPosition);
 

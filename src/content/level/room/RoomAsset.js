@@ -51,24 +51,55 @@ class RoomAsset {
     }
 
     /**
+     * @param {int} [rotation] - number of 90° clockwise rotation steps (0-3)
      * @returns {Array<RoomTile>}
      */
-    getTiles() {
-        return this._tiles;
+    getTiles(rotation = 0) {
+        if(rotation === 0) {
+            return this._tiles;
+        }
+
+        return this._tiles.map(tile => {
+            const rotatedTile = new RoomTile();
+
+            rotatedTile.position = math2d.rotate(tile.position, rotation);
+            rotatedTile.data = tile.data;
+            rotatedTile.textureOffset = tile.textureOffset;
+
+            return rotatedTile;
+        });
     }
 
     /**
+     * @param {int} [rotation] - number of 90° clockwise rotation steps (0-3)
      * @returns {Array<Door>}
      */
-    getDoors() {
-        return this._doors.slice();
+    getDoors(rotation = 0) {
+        return this._doors.map(door => new Door(
+            math2d.rotate(door.position, rotation),
+            math2d.rotate(door.direction, rotation)
+        ));
     }
 
     /**
+     * @param {int} [rotation] - number of 90° clockwise rotation steps (0-3)
      * @returns {Array<SpawnPoint>}
      */
-    getSpawnPoints() {
-        return this._spawnPoints;
+    getSpawnPoints(rotation = 0) {
+        if(rotation === 0) {
+            return this._spawnPoints;
+        }
+
+        return this._spawnPoints.map(spawnPoint => {
+            const rotatedSpawnPoint = new SpawnPoint();
+
+            rotatedSpawnPoint.position = math2d.rotate(spawnPoint.position, rotation);
+            rotatedSpawnPoint.def = spawnPoint.def;
+            rotatedSpawnPoint.chance = spawnPoint.chance;
+            rotatedSpawnPoint.item = spawnPoint.item;
+
+            return rotatedSpawnPoint;
+        });
     }
 
     /**
