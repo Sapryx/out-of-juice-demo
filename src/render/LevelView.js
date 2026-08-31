@@ -69,12 +69,11 @@ class LevelView {
     }
 
     update() {
-        const gridPosition = Input.getMouseGridPosition(G.gameView.levelView.camera);
-        const screenPosition = math2d.mul(math2d.flipY(gridPosition), G.config.tileSize);
+        const screenPosition = math2d.mul(math2d.flipY(G.targeting.position), G.config.tileSize);
 
         this.tileSelection.__init({
             __ofs: screenPosition,
-            __color: this._getSelectionColor(gridPosition)
+            __color: 0x00FF00
         });
     }
 

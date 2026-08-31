@@ -14,32 +14,6 @@ class Level {
     }
 
     /**
-     * @param {GameEntity} entity
-     * @param {Vector2} position
-     */
-    addEntity(entity, position) {
-        if(!this.isTileFree(position)) {
-            return;
-        }
-
-        if(this._rootEntity == null) {
-            this._rootEntity = entity;
-        } else {
-            const beforeRootEntity = this._rootEntity.prev;
-
-            beforeRootEntity.next = entity;
-            entity.prev = beforeRootEntity;
-
-            this._rootEntity.prev = entity;
-            entity.next = this._rootEntity;
-        }
-
-        G.presenter.onAddEntity(entity);
-
-        this.moveEntity(entity, position, undefined);
-    }
-
-    /**
      * @returns {Array<Room>}
      */
     getRooms() {
@@ -81,9 +55,37 @@ class Level {
         G.presenter.onPlaceFloor(this, position);
     }
 
-    /**
-     * @param {GameEntity} entity
-     */
+    isEntityInTile(position) {
+        return this.getEntityInTile(position) !== undefined;
+    }
+
+    getEntityInTile(position) {
+        const positionHash = this._getHash(position);
+        return this._entityGrid.get(positionHash);
+    }
+
+    addEntity(entity, position) {
+        if(!this.isTileFree(position)) {
+            return;
+        }
+
+        if(this._rootEntity == null) {
+            this._rootEntity = entity;
+        } else {
+            const beforeRootEntity = this._rootEntity.prev;
+
+            beforeRootEntity.next = entity;
+            entity.prev = beforeRootEntity;
+
+            this._rootEntity.prev = entity;
+            entity.next = this._rootEntity;
+        }
+
+        G.presenter.onAddEntity(entity);
+
+        this.moveEntity(entity, position, undefined);
+    }
+
     removeEntity(entity) {
         const entityIsLast = entity.next === entity;
 
@@ -105,12 +107,6 @@ class Level {
         G.presenter.onRemoveEntity(entity);
     }
 
-    /**
-     * @param {GameEntity} entity
-     * @param {Vector2} targetPosition
-     * @param {() => void} callback
-     * @returns {boolean}
-     */
     moveEntity(entity, targetPosition, callback) {
         if(!this.isTileFree(targetPosition)) {
             return false;
@@ -141,24 +137,6 @@ class Level {
      */
     isTileFree(position) {
         return !this.isTileCollider(position) && !this.isEntityInTile(position);
-    }
-
-    /**
-     * @param {Vector2} position
-     * @returns {boolean}
-     */
-    isEntityInTile(position) {
-        return this.getEntityInTile(position) !== undefined;
-    }
-
-    /**
-     *
-     * @param {Vector2} position
-     * @returns {GameEntity | undefined}
-     */
-    getEntityInTile(position) {
-        const positionHash = this._getHash(position);
-        return this._entityGrid.get(positionHash);
     }
 
     /**

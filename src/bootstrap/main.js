@@ -19,6 +19,7 @@ function initializeState() {
     // Systems
     G.turnManager = new TurnManager();
     G.levelGenerator = new LevelGenerator();
+    G.targeting = new PlayerTargeting();
 
     // Rendering
     G.presenter = new Presenter();

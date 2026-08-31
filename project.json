@@ -45,6 +45,7 @@
             "core/audio/SFX.js",
 
             "services/TurnManager.js",
+            "services/PlayerTargeting.js",
 
             "content/level/entities/EntityState.js",
             "content/level/entities/GameEntity.js",

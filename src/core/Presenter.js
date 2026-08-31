@@ -42,6 +42,8 @@ class Presenter {
             G.audio.play(SFX.PlayerWalk);
         }
 
+        G.targeting.update();
+
         Anims.walk(view.node, targetPosition, animationDuration)
             .__setOnComplete(callback);
     }
