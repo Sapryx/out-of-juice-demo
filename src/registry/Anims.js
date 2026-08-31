@@ -57,7 +57,6 @@ const Anims = {
 
     healthBarDamage(node, duration) {
         const target = G.player.health / G.player.maxHealth;
-        console.log(G)
 
         anim(node, {
             __width: target
