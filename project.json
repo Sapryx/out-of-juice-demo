@@ -37,6 +37,7 @@
             "core/input/Axis.js",
             "core/input/Input.js",
             "core/GameConfig.js",
+            "core/Colors.js",
             "core/G.js",
             "core/gameLoop.js",
             "core/Presenter.js",

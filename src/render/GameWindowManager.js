@@ -86,12 +86,9 @@ class GameWindowManager {
                                     item: item,
 
                                     _setSelected(selected) {
-                                        const defaultColor = 0x4a5462;
-                                        const selectedColor = 0xfa6a0a;
-
-                                        this.__color = selected ? selectedColor : defaultColor;
+                                        this.__color = selected ? Colors.Accent : undefined;
                                         this.__setAliasesData({
-                                            item_name: {__color: selected ? selectedColor : defaultColor}
+                                            item_name: {__color: selected ? Colors.Accent : undefined}
                                         });
                                     },
 

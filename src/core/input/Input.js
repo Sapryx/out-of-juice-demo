@@ -76,7 +76,6 @@ class Input {
      */
     static consumeAttack() {
         if(Input._attackIsPressed) {
-            console.log("k");
             Input._attackIsPressed = false;
             return true;
         }
