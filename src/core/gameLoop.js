@@ -34,10 +34,7 @@ function handleAttackInput() {
         return false;
     }
 
-    const levelCamera = G.gameView.levelView.camera;
-    const target = G.targeting.entity;
-    // const mouseGridPosition = Input.getMouseGridPosition(levelCamera);
-    // const target = G.level.getEntityInTile(mouseGridPosition);
+    const target = G.targeting.current;
 
     if(!target || !G.player.canInteractWith(target)) {
         return false;

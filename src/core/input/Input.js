@@ -99,6 +99,8 @@ class Input {
             case "a": Input._leftIsPressed = true; break;
             case "d": Input._rightIsPressed = true; break;
             case " ": Input._attackIsPressed = true; break;
+            case "q": G.targeting.selectPrevious(); break;
+            case "e": G.targeting.selectNext(); break;
 
             case "i": {
                 if(G.windows.isOpen(WindowType.Inventory)) {

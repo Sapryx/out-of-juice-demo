@@ -70,14 +70,14 @@ class LevelView {
     }
 
     update() {
-        const targetedPosition = G.targeting.position;
+        const targetedEntity = G.targeting.current;
 
-        if(!targetedPosition) {
+        if(!targetedEntity) {
             this.tileSelection.__alpha = 0;
             return;
         }
 
-        const screenPosition = math2d.mul(math2d.flipY(targetedPosition), G.config.tileSize);
+        const screenPosition = math2d.mul(math2d.flipY(targetedEntity.position), G.config.tileSize);
         this.tileSelection.__ofs = screenPosition;
         this.tileSelection.__alpha = 1;
     }

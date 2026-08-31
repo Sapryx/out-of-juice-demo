@@ -1,30 +1,70 @@
 class PlayerTargeting {
     constructor() {
-        this.position = null;
-        this.entity = null;
+        this._targets = [];
+        this._index = 0;
+
+        this._offsets = [
+            new Vector2(0, 1),
+            new Vector2(1, 1),
+            new Vector2(1, 0),
+            new Vector2(1, -1),
+            new Vector2(0, -1),
+            new Vector2(-1, -1),
+            new Vector2(-1, 0),
+            new Vector2(-1, 1)
+        ];
+    }
+
+    get current() {
+        return this._targets.length > 0
+            ? this._targets[this._index]
+            : null;
+    }
+
+    get count() {
+        return this._targets.length;
     }
 
     update() {
         const origin = G.player.position;
+        const previousEntity = this.current;
+        const entitiesInRange = [];
 
-        this.position = null;
-        this.entity = null;
+        for(const offset of this._offsets) {
+            const position = math2d.add(origin, offset);
+            const entity = G.level.getEntityInTile(position);
 
-        for(let y = -1; y <= 1; y++) {
-            for(let x = -1; x <= 1; x++) {
-                if(x === 0 && y === 0) {
-                    continue;
-                }
-
-                const offset = new Vector2(x, y);
-                const currentPosition = math2d.add(origin, offset);
-                const entity = G.level.getEntityInTile(currentPosition);
-
-                if(entity) {
-                    this.position = currentPosition;
-                    this.entity = entity;
-                }
+            if(entity != null) {
+                entitiesInRange.push(entity);
             }
         }
+
+        this._targets = entitiesInRange;
+
+        if(entitiesInRange.length === 0) {
+            this._index = 0;
+            return;
+        }
+
+        const shouldKeepTarget = entitiesInRange.indexOf(previousEntity);
+        this._index = shouldKeepTarget !== -1 ? shouldKeepTarget : 0;
+    }
+
+    selectNext() {
+        if(this._targets.length === 0) {
+            return null;
+        }
+
+        this._index = (this._index + 1) % this._targets.length;
+        return this.current;
+    }
+
+    selectPrevious() {
+        if(this._targets.length === 0) {
+            return null;
+        }
+
+        this._index = (this._index - 1 + this._targets.length) % this._targets.length;
+        return this.current;
     }
 }
