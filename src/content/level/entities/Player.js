@@ -3,10 +3,12 @@ class Player extends GameEntity {
         super(config);
         this.inventory = new Inventory(config.inventorySize);
 
-        this.inventory.addItem(new Item(new BandageItem()));
-        this.inventory.addItem(new Item(new BandageItem()));
-        this.inventory.addItem(new Item(new BandageItem()));
-        this.inventory.addItem(new Item(new BandageItem()));
+        console.log(G.itemAssets.get("bandage"));
+
+        this.inventory.addItem(new Item(G.itemAssets.get("bandage")));
+        this.inventory.addItem(new Item(G.itemAssets.get("bandage")));
+        this.inventory.addItem(new Item(G.itemAssets.get("bandage")));
+        this.inventory.addItem(new Item(G.itemAssets.get("bandage")));
     }
 
     _die() {

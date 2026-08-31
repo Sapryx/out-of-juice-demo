@@ -1,8 +1,8 @@
 class ItemAsset {
-    constructor() {
-        this._id = "";
-        this._name = "";
-        this._description = "";
+    constructor(id, config) {
+        this._id = id;
+        this._name = config.name;
+        this._description = config.description;
     }
 
     /**

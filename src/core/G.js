@@ -8,6 +8,7 @@ const G = {
 
     roomAssetRegistry: null,
     levelTypeRegistry: null,
+    itemAssets: null,
 
     presenter: null,
     entityViews: null,

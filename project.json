@@ -67,6 +67,7 @@
             "content/items/BandageItem.js",
 
             "registry/Defs.js",
+            "registry/ItemAssetRegistry.js",
             "registry/RoomAssetRegistry.js",
             "registry/LevelTypeRegistry.js",
             "registry/EntityViewPrefabs.js",
@@ -119,17 +120,22 @@
         ],
         [
             "config",
-            "level_types/level_type_1.json",
+            "game.json",
+
             "entities/player.json",
             "entities/sweeper.json",
+
+            "items/bandage.json",
+
+            "level_types/level_type_1.json",
+
             "rooms/combat/room_combat_1.json",
             "rooms/combat/room_combat_2.json",
             "rooms/combat/room_combat_3.json",
             "rooms/combat/room_combat_4.json",
             "rooms/exit/room_exit_1.json",
             "rooms/hub/room_hub_1.json",
-            "rooms/start/room_start_1.json",
-            "game.json"
+            "rooms/start/room_start_1.json"
         ],
         [
             "sound",

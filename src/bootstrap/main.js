@@ -14,6 +14,7 @@ function initializeState() {
     G.defs = new Defs();
     G.roomAssetRegistry = new RoomAssetRegistry();
     G.levelTypeRegistry = new LevelTypeRegistry();
+    G.itemAssets = new ItemAssetRegistry();
 
     // Systems
     G.turnManager = new TurnManager();
@@ -30,6 +31,7 @@ function initializeState() {
 function registerContent() {
     contentBootstrapper.registerConfigs();
     contentBootstrapper.registerEntities();
+    contentBootstrapper.registerItems();
     contentBootstrapper.registerLevelTypes();
     contentBootstrapper.registerRoomAssets();
 }

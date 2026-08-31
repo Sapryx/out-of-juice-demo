@@ -1,8 +1,6 @@
 class BandageItem extends ItemAsset {
-    constructor() {
-        super();
-        this._id = "bandage";
-        this._name = "Bandage";
+    constructor(id, config) {
+        super(id, config);
         this._restorationAmount = 15;
         this._description = `Restores ${this._restorationAmount} hp.`;
     }

@@ -3,6 +3,10 @@ const ENTITY_FACTORIES = [
     ["sweeper", Sweeper]
 ];
 
+const ITEM_FACTORIES = [
+    ["bandage", BandageItem]
+];
+
 const LEVEL_TYPE_COUNT = 1;
 
 const ROOM_ASSETS = [
@@ -32,6 +36,23 @@ const contentBootstrapper = {
                 remaining--;
             });
         });
+    },
+
+    registerItems() {
+        let remaining = ITEM_FACTORIES.length;
+
+        if(remaining === 0) {
+            return;
+        }
+
+        ITEM_FACTORIES.forEach(([id, factory]) => {
+            getJson(`configs/items/${id}.json`, (config) => {
+                G.itemAssets.register(id, new factory(id, config));
+                remaining--;
+            });
+        });
+
+        console.log(`Registered ${G.itemAssets.count} items`);
     },
 
     registerLevelTypes() {
