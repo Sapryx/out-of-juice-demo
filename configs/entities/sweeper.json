@@ -1,3 +1,4 @@
 {
-    "maxHealth": 20
+    "maxHealth": 20,
+    "damage": 100
 }

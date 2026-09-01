@@ -11,6 +11,7 @@ class GameEntity {
         this._state = EntityState.Idle;
         this._health = config.maxHealth;
         this._maxHealth = config.maxHealth;
+        this._damage = config.damage ? config.damage : 10;
         this._interactionRange = 1;
     }
 
@@ -64,7 +65,7 @@ class GameEntity {
         G.presenter.onEntityAttack(
             this,
             target,
-            () => target.dealDamage(10),
+            () => target.dealDamage(this._damage),
             () => this._state = EntityState.Idle
         );
     }
