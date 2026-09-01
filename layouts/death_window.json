@@ -1,0 +1,63 @@
+[
+  {
+    "__color": 0,
+    "__padding": 2,
+    "ha": 1,
+    "va": 3,
+    "__size": [
+      166,
+      100
+    ],
+    "__childs": {
+      "_0": {
+        "__color": "#4a5462",
+        "ha": 1,
+        "va": 3,
+        "__size": [
+          1,
+          1
+        ],
+        "__childs": {
+          "_0": {
+            "sha": 1,
+            "sva": 0,
+            "__size": [
+              1,
+              1,
+              0,
+              "o"
+            ],
+            "__text": {
+              "__color": "#df3e23",
+              "__fontsize": 16,
+              "__text": "You Died!"
+            }
+          },
+          "restart_button": {
+            "__color": "#b3b9d1",
+            "__padding": [
+              1,
+              8,
+              1,
+              8
+            ],
+            "sha": 1,
+            "sva": 2,
+            "__size": [
+              1,
+              1,
+              "o",
+              "o"
+            ],
+            "__text": {
+              "__color": 0,
+              "__fontsize": 10,
+              "__text": "Restart"
+            },
+            "__y": -8
+          }
+        }
+      }
+    }
+  }
+]

@@ -175,7 +175,8 @@
             "item_card.json",
 
             "inventory_window.json",
-            "pause_window.json"
+            "pause_window.json",
+            "death_window.json"
         ],
         [
             "shaders",

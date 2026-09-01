@@ -152,19 +152,27 @@ class GameWindowManager {
 
                 abandon_run_button: {
                     __onTap() {
-                        restartGame();
                         G.windows.closeCurrentWindow();
+                        restartGame();
                     }
                 }
             });
         });
     }
 
-    /**
-     * @param {WindowType} windowType
-     * @param {(ENode) => void} onOpened
-     * @private
-     */
+    openDeathWindow() {
+        this._openWindow(WindowType.Death, (windowNode) => {
+            windowNode.__setAliasesData({
+                restart_button: {
+                    __onTap() {
+                        G.windows.closeCurrentWindow();
+                        restartGame();
+                    }
+                }
+            });
+        });
+    }
+
     _openWindow(windowType, onOpened) {
         this.current = showWindow(windowType, (windowNode) => {
             windowNode.init({

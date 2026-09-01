@@ -86,6 +86,14 @@ class Presenter {
         }
     }
 
+    onPlayerDeath(player) {
+        if(G.windows.hasOpenWindow) {
+            G.windows.closeCurrentWindow();
+        }
+
+        G.windows.openDeathWindow();
+    }
+
     onItemCollected() {
         G.audio.play(SFX.Collect);
     }

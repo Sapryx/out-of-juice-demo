@@ -6,6 +6,6 @@ class Player extends GameEntity {
 
     _die() {
         super._die();
-        restartGame();
+        G.presenter.onPlayerDeath(this);
     }
 }
