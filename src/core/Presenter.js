@@ -109,22 +109,19 @@ class Presenter {
     }
 
     /**
-     * @param {Room} room
+     * @param {Level} level
      */
-    onAddRoom(room) {
-        const tileset = room.asset.tileset;
-
-        for(const tile of room.getTiles()) {
-            const tileWorldPosition = math2d.add(room.position, tile.position);
+    onRenderLevel(level) {
+        for(const tile of level.getTiles()) {
             const tileNode = new Node();
             tileNode.__img = "white";
             tileNode.__size = [G.config.tileSize, G.config.tileSize];
-            tileNode.__ofs = math2d.flipY(math2d.mul(tileWorldPosition, G.config.tileSize));
+            tileNode.__ofs = math2d.flipY(math2d.mul(tile.position, G.config.tileSize));
             tileNode.__color = 0xFFFFFF;
             tileNode.__text = null;
 
-            if(tileset != null && tile.textureOffset != null) {
-                tileset.applyToNode(
+            if(tile.tileset != null && tile.textureOffset != null) {
+                tile.tileset.applyToNode(
                     tileNode,
                     tile.textureOffset.x,
                     tile.textureOffset.y
@@ -136,15 +133,18 @@ class Presenter {
     }
 
     /**
+     * @param {Room} room
+     */
+    onAddRoom(room) {
+        // Room tiles are rendered only after the whole level is assembled and
+        // all Rule Tiles have been resolved.
+    }
+
+    /**
      * @param {Vector2} position
      */
     onPlaceWall(position) {
-        const tileNode = new ENode();
-        tileNode.__img = "white";
-        tileNode.__size = [G.config.tileSize, G.config.tileSize];
-        tileNode.__ofs = math2d.flipY(math2d.mul(position, G.config.tileSize));
-
-        G.gameView.levelView.addBakedNode(tileNode);
+        // Corridor walls are logical Rule Tiles until the final resolve step.
     }
 
     /**
@@ -152,15 +152,7 @@ class Presenter {
      * @param {Vector2} position
      */
     onPlaceFloor(level, position) {
-        const tileNode = new ENode();
-        tileNode.__img = "wall_tileset";
-        tileNode.__size = [G.config.tileSize, G.config.tileSize];
-        tileNode.__ofs = math2d.flipY(math2d.mul(position, G.config.tileSize));
-
-        const tileset = level.getRooms()[0].asset.tileset;
-
-        tileset.applyToNode(tileNode, 1, 1);
-        G.gameView.levelView.addBakedNode(tileNode);
+        // Floors are rendered together with the rest of the logical tile map.
     }
 
     /**

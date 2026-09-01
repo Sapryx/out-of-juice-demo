@@ -1,8 +1,4 @@
 class RoomAsset {
-    /**
-     * @param {string} id
-     * @param {Object} config
-     */
     constructor(id, config) {
         this._id = id;
         this._doors = [];
@@ -19,11 +15,15 @@ class RoomAsset {
             tile.position.x = localX;
             tile.position.y = (config.boundingBox.height - 1) - localY;
 
-            if(tileConfig.tile != null) {
+            if(tileConfig.tile) {
                 tile.textureOffset = new Vector2(tileConfig.tile.x, tileConfig.tile.y);
             }
 
-            if(tileConfig.data != null) {
+            if(tileConfig.ruleTile) {
+                tile.ruleTileName = tileConfig.ruleTile;
+            }
+
+            if(tileConfig.data) {
                 tile.data = tileConfig.data;
 
                 if(tile.data.type === "door") {
@@ -43,17 +43,20 @@ class RoomAsset {
         return this._id;
     }
 
-    /**
-     * @returns {Tileset | null}
-     */
     get tileset() {
         return this._tileset;
     }
 
-    /**
-     * @param {int} [rotation] - number of 90° clockwise rotation steps (0-3)
-     * @returns {Array<RoomTile>}
-     */
+    getRuleTileNames() {
+        return [...new Set(this._tiles
+            .map(tile => tile.ruleTileName)
+            .filter(name => name != null))];
+    }
+
+    getPrimaryRuleTileName() {
+        return this.getRuleTileNames()[0] ?? null;
+    }
+
     getTiles(rotation = 0) {
         if(rotation === 0) {
             return this._tiles;
@@ -65,15 +68,12 @@ class RoomAsset {
             rotatedTile.position = math2d.rotate(tile.position, rotation);
             rotatedTile.data = tile.data;
             rotatedTile.textureOffset = tile.textureOffset;
+            rotatedTile.ruleTileName = tile.ruleTileName;
 
             return rotatedTile;
         });
     }
 
-    /**
-     * @param {int} [rotation] - number of 90° clockwise rotation steps (0-3)
-     * @returns {Array<Door>}
-     */
     getDoors(rotation = 0) {
         return this._doors.map(door => new Door(
             math2d.rotate(door.position, rotation),
@@ -81,10 +81,6 @@ class RoomAsset {
         ));
     }
 
-    /**
-     * @param {int} [rotation] - number of 90° clockwise rotation steps (0-3)
-     * @returns {Array<SpawnPoint>}
-     */
     getSpawnPoints(rotation = 0) {
         if(rotation === 0) {
             return this._spawnPoints;
@@ -102,10 +98,6 @@ class RoomAsset {
         });
     }
 
-    /**
-     * @param {RoomTile} tile
-     * @private
-     */
     _addDoor(tile) {
         let directionVector = new Vector2(0, 0);
 
@@ -131,10 +123,6 @@ class RoomAsset {
         this._doors.push(door);
     }
 
-    /**
-     * @param {RoomTile} tile
-     * @private
-     */
     _addSpawnPoint(tile) {
         const spawnPoint = new SpawnPoint();
         spawnPoint.position = tile.position;

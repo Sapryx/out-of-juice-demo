@@ -43,6 +43,8 @@ class LevelGenerator {
             }
         }
 
+        level.resolveRuleTiles();
+        G.presenter.onRenderLevel(level);
         G.gameView.levelView.bakeTiles();
         return level;
     }
@@ -148,7 +150,14 @@ class LevelGenerator {
         const hallwayTarget = math2d.add(room.position, roomMatch.matchedDoor.position);
         const hallwayDirection = roomMatch.targetDoor.direction;
 
-        this._createHallway(level, hallwayOrigin, hallwayTarget, hallwayDirection);
+        this._createHallway(
+            level,
+            hallwayOrigin,
+            hallwayTarget,
+            hallwayDirection,
+            roomMatch.targetRoom.getPrimaryRuleTileName(),
+            roomMatch.targetRoom.asset.tileset
+        );
 
         roomMatch.targetRoom.reserveDoor(roomMatch.targetDoor);
         room.reserveDoor(roomMatch.matchedDoor);
@@ -161,7 +170,7 @@ class LevelGenerator {
      * @param {Vector2} direction
      * @private
      */
-    _createHallway(level, origin, target, direction) {
+    _createHallway(level, origin, target, direction, ruleTileName, tileset) {
         console.log(`Creating hallway from ${format(origin)} to ${format(target)}`);
 
         for(let i = 1; i < 6; i++) {
@@ -171,9 +180,9 @@ class LevelGenerator {
             const wall1Position = math2d.add(floorPosition, wall1Direction);
             const wall2Position = math2d.add(floorPosition, wall2Direction);
 
-            level.placeFloor(floorPosition);
-            level.placeWall(wall1Position);
-            level.placeWall(wall2Position);
+            level.placeFloor(floorPosition, tileset);
+            level.placeWall(wall1Position, ruleTileName, tileset);
+            level.placeWall(wall2Position, ruleTileName, tileset);
         }
     }
 }

@@ -4,7 +4,9 @@ class Level {
         this._entityGrid = new Map();
         this._colliders = new Set();
         this._rooms = [];
+        this._tiles = new Map();
         this._playerSpawnPoint = null;
+        this._tileset = null;
     }
 
     initRooms() {
@@ -13,26 +15,33 @@ class Level {
         }
     }
 
-    /**
-     * @returns {Array<Room>}
-     */
-    getRooms() {
-        return this._rooms;
+    getTiles() {
+        return [...this._tiles.values()];
     }
 
-    /**
-     * @param {Room} room
-     */
     addRoom(room) {
         this._rooms.push(room);
+
+        if(this._tileset == null) {
+            this._tileset = room.asset.tileset;
+        }
 
         if(room.node.type === "start") {
             this._playerSpawnPoint = room.getSpawnPoints().find(it => it.def === "player");
         }
 
-        for(const tile of room.getTiles().filter(tile => tile.isWall)) {
+        for(const tile of room.getTiles()) {
             const tileGlobalPosition = math2d.add(tile.position, room.position);
-            this._colliders.add(this._getHash(tileGlobalPosition));
+            this._placeTile({
+                position: tileGlobalPosition,
+                textureOffset: tile.textureOffset,
+                ruleTileName: tile.ruleTileName,
+                tileset: room.asset.tileset
+            });
+
+            if(tile.isWall) {
+                this._colliders.add(this._getHash(tileGlobalPosition));
+            }
         }
 
         G.presenter.onAddRoom(room);
@@ -40,19 +49,51 @@ class Level {
 
     /**
      * @param {Vector2} position
+     * @param {string} ruleTileName
+     * @param {Tileset|null} [tileset]
      */
-    placeWall(position) {
+    placeWall(position, ruleTileName, tileset) {
+        if(ruleTileName == null) {
+            throw new Error(`Cannot place wall at ${format(position)} without a Rule Tile`);
+        }
+
         const positionHash = this._getHash(position);
         this._colliders.add(positionHash);
+        this._placeTile({
+            position: math2d.copy(position),
+            textureOffset: null,
+            ruleTileName,
+            tileset
+        });
 
         G.presenter.onPlaceWall(position);
     }
 
-    /**
-     * @param {Vector2} position
-     */
-    placeFloor(position) {
+    placeFloor(position, tileset) {
+        this._placeTile({
+            position: math2d.copy(position),
+            textureOffset: new Vector2(1, 1),
+            ruleTileName: null,
+            tileset
+        });
+
         G.presenter.onPlaceFloor(this, position);
+    }
+
+    resolveRuleTiles() {
+        for(const tile of this._tiles.values()) {
+            if(tile.ruleTileName == null) {
+                continue;
+            }
+
+            const ruleTile = G.ruleTiles.get(tile.ruleTileName);
+            tile.textureOffset = ruleTile.resolve(this._tiles, tile.position);
+        }
+    }
+
+    _placeTile(tile) {
+        const positionHash = this._getHash(tile.position);
+        this._tiles.set(positionHash, tile);
     }
 
     isEntityInTile(position) {
@@ -131,28 +172,15 @@ class Level {
         this.addEntity(G.player, this._playerSpawnPoint.position);
     }
 
-    /**
-     * @param {Vector2} position
-     * @returns {boolean}
-     */
     isTileFree(position) {
         return !this.isTileCollider(position) && !this.isEntityInTile(position);
     }
 
-    /**
-     * @param {Vector2} position
-     * @returns {boolean}
-     */
     isTileCollider(position) {
         const positionHash = this._getHash(position);
         return this._colliders.has(positionHash);
     }
 
-    /**
-     * @param {Vector2} position
-     * @returns {string}
-     * @private
-     */
     _getHash(position) {
         return `${position.x},${position.y}`;
     }

@@ -12,9 +12,6 @@ class Room {
         this._freeDoors = asset.getDoors(rotation);
     }
 
-    /**
-     * @returns {Array<RoomTile>}
-     */
     getTiles() {
         return this.asset.getTiles(this.rotation);
     }
@@ -42,6 +39,13 @@ class Room {
                 entity.setItem(new Item(itemAsset));
             }
         }
+    }
+
+    /**
+     * @returns {string|null}
+     */
+    getPrimaryRuleTileName() {
+        return this.asset.getPrimaryRuleTileName();
     }
 
     /**
