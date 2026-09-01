@@ -49,7 +49,12 @@ function handleMovementInput() {
     }
 
     const targetPosition = math2d.add(G.player.position, movementInputRaw);
-    return G.turnManager.submit(new MoveAction(G.player, targetPosition));
+
+    if(G.level.isTileFree(targetPosition)) {
+        return G.turnManager.submit(new MoveAction(G.player, targetPosition));
+    }
+
+    return null;
 }
 
 function updateCameraPosition() {
