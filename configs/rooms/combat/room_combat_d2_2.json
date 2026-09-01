@@ -1016,7 +1016,10 @@
       },
       "ruleTile": null,
       "resolvedTile": null,
-      "data": null
+      "data": {
+        "type": "spawn",
+        "def": "sweeper"
+      }
     },
     {
       "x": 15,
@@ -1159,7 +1162,10 @@
       },
       "ruleTile": null,
       "resolvedTile": null,
-      "data": null
+      "data": {
+        "type": "spawn",
+        "def": "sweeper"
+      }
     },
     {
       "x": 8,
