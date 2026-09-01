@@ -14,7 +14,7 @@ const LEVEL_TYPE_COUNT = 1;
 const contentBootstrapper = {
     registerConfigs() {
         getJson("configs/game.json", (config) => {
-            G.config = new GameConfig(config);
+            G.config = config;
         });
     },
 

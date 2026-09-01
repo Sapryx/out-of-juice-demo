@@ -116,31 +116,9 @@ class LevelGenerator {
         return null;
     }
 
-    /**
-     * @param {Door} door1
-     * @param {Door} door2
-     * @returns {Vector2}
-     */
-    _calculateRoomOffset(door1, door2) {
-        const doorOffset = math2d.sub(door1.position, door2.position);
-
-        if(door1.direction.x !== 0) {
-            doorOffset.x += door1.direction.x * 6;
-        } else {
-            doorOffset.y += door1.direction.y * 6;
-        }
-
-        return doorOffset;
-    }
-
-    /**
-     * @param {Level} level
-     * @param {RoomMatch} roomMatch
-     * @param {RoomNode} roomNode
-     * @private
-     */
     _appendRoom(level, roomMatch, roomNode) {
-        const roomOffset = this._calculateRoomOffset(roomMatch.targetDoor, roomMatch.matchedDoor);
+        const hallwayLength = randomInt(G.config.hallwayMinLength, G.config.hallwayMaxLength);
+        const roomOffset = this._calculateRoomOffset(roomMatch.targetDoor, roomMatch.matchedDoor, hallwayLength);
         const roomPosition = math2d.add(roomMatch.targetRoom.position, roomOffset);
         const room = new Room(roomNode, roomMatch.matchedRoomAsset, roomMatch.matchedRotation);
 
@@ -155,6 +133,7 @@ class LevelGenerator {
             hallwayOrigin,
             hallwayTarget,
             hallwayDirection,
+            hallwayLength,
             roomMatch.targetRoom.asset.getPrimaryRuleTileName(),
             roomMatch.targetRoom.asset.tileset
         );
@@ -163,17 +142,22 @@ class LevelGenerator {
         room.reserveDoor(roomMatch.matchedDoor);
     }
 
-    /**
-     * @param {Level} level
-     * @param {Vector2} origin
-     * @param {Vector2} target
-     * @param {Vector2} direction
-     * @private
-     */
-    _createHallway(level, origin, target, direction, ruleTileName, tileset) {
+    _calculateRoomOffset(door1, door2, hallwayLength) {
+        const doorOffset = math2d.sub(door1.position, door2.position);
+
+        if(door1.direction.x !== 0) {
+            doorOffset.x += door1.direction.x * hallwayLength;
+        } else {
+            doorOffset.y += door1.direction.y * hallwayLength;
+        }
+
+        return doorOffset;
+    }
+
+    _createHallway(level, origin, target, direction, length, ruleTileName, tileset) {
         console.log(`Creating hallway from ${format(origin)} to ${format(target)}`);
 
-        for(let i = 1; i < 6; i++) {
+        for(let i = 1; i < length; i++) {
             const floorPosition = math2d.add(origin, math2d.mul(direction, i));
             const wall1Direction = math2d.rotateCcw(direction);
             const wall2Direction = math2d.rotateCw(direction);
