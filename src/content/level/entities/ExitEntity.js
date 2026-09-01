@@ -1,5 +1,9 @@
 class ExitEntity extends GameEntity {
-    interactWith() {
+    getInteractionAction(actor) {
+        return new InteractAction(actor, this);
+    }
+
+    interactWith(actor) {
         restartGame();
     }
 }
