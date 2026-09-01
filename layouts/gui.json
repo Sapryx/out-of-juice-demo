@@ -120,6 +120,12 @@
             }
           },
           "_2": {
+            "__spacing": [
+              0,
+              0,
+              4,
+              0
+            ],
             "__size": [
               1,
               1,
@@ -129,6 +135,18 @@
             "__text": {
               "__fontsize": 8,
               "__text": "Space - Interact"
+            }
+          },
+          "_3": {
+            "__size": [
+              1,
+              1,
+              "o",
+              "o"
+            ],
+            "__text": {
+              "__fontsize": 8,
+              "__text": "I - Inventory"
             }
           }
         }
