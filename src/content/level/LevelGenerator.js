@@ -44,6 +44,7 @@ class LevelGenerator {
         }
 
         level.resolveRuleTiles();
+        level.recalculateBounds();
         G.presenter.onRenderLevel(level);
         G.gameView.levelView.bakeTiles();
         return level;

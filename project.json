@@ -33,6 +33,7 @@
             "util/list.js",
             "util/format.js",
             "util/nulls.js",
+            "util/RectBounds.js",
 
             "core/input/Axis.js",
             "core/input/Input.js",

@@ -7,6 +7,11 @@ class Level {
         this._tiles = new Map();
         this._playerSpawnPoint = null;
         this._tileset = null;
+        this._bounds = new RectBounds();
+    }
+
+    get bounds() {
+        return this._bounds;
     }
 
     initRooms() {
@@ -22,11 +27,11 @@ class Level {
     addRoom(room) {
         this._rooms.push(room);
 
-        if(this._tileset == null) {
+        if(!this._tileset) {
             this._tileset = room.asset.tileset;
         }
 
-        if(room.node.type === "start") {
+        if(room.node.type === RoomType.Start) {
             this._playerSpawnPoint = room.getSpawnPoints().find(it => it.def === "player");
         }
 
@@ -47,11 +52,6 @@ class Level {
         G.presenter.onAddRoom(room);
     }
 
-    /**
-     * @param {Vector2} position
-     * @param {string} ruleTileName
-     * @param {Tileset|null} [tileset]
-     */
     placeWall(position, ruleTileName, tileset) {
         if(ruleTileName == null) {
             throw new Error(`Cannot place wall at ${format(position)} without a Rule Tile`);
@@ -178,5 +178,17 @@ class Level {
     isTileCollider(position) {
         const positionHash = math2d.getHash(position);
         return this._colliders.has(positionHash);
+    }
+
+    recalculateBounds() {
+        for(const tile of this._tiles.values()) {
+            const x = tile.position.x;
+            const y = tile.position.y;
+
+            this._bounds.xMin = mmin(this._bounds.xMin, x);
+            this._bounds.xMax = mmax(this._bounds.xMax, x);
+            this._bounds.yMin = mmin(this._bounds.yMin, y);
+            this._bounds.yMax = mmax(this._bounds.yMax, y);
+        }
     }
 }
