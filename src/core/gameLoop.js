@@ -58,7 +58,7 @@ function handleMovementInput() {
 }
 
 function updateCameraPosition() {
-    if(G.player == null) {
+    if(!G.player) {
         return;
     }
 
@@ -66,7 +66,7 @@ function updateCameraPosition() {
     const levelCamera = G.gameView.levelView.camera;
     const playerIsAttacking = G.player.isAttacking;
 
-    if(playerView == null || levelCamera == null || playerIsAttacking) {
+    if(!playerView || !levelCamera || playerIsAttacking) {
         return;
     }
 
