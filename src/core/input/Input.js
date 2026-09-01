@@ -108,6 +108,10 @@ class Input {
     }
 
     _togglePauseWindow() {
+        if(!G.player) {
+            return;
+        }
+
         if(G.windows.hasOpenWindow) {
             G.windows.closeCurrentWindow();
         } else {

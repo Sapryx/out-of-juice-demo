@@ -37,7 +37,7 @@ class Gui {
         this._node.__init({
             __aliasing1: {
                 health_bar_bg: {
-                    __text: G.player.health
+                    __text: G.player ? G.player.health : 0
                 }
             }
         });

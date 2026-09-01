@@ -91,6 +91,7 @@ class Presenter {
             G.windows.closeCurrentWindow();
         }
 
+        G.player = null;
         G.windows.openDeathWindow();
     }
 
