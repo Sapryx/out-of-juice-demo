@@ -143,7 +143,9 @@
             "rooms/combat/room_combat_d2_4.json",
             "rooms/exit/room_exit_1.json",
             "rooms/hub/room_hub_d3_1.json",
-            "rooms/start/room_start_1.json"
+            "rooms/start/room_start_1.json",
+
+            "rule_tiles.json"
         ],
         [
             "sound",

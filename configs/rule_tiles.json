@@ -1,0 +1,411 @@
+{
+  "format": "simple-tile-editor-rule-tiles",
+  "version": 1,
+  "ruleTiles": [
+    {
+      "id": "rt_dcw3jrjgmthoqj5f",
+      "name": "Rule Tile 1",
+      "defaultTile": {
+        "x": 4,
+        "y": 2
+      },
+      "rules": [
+        {
+          "id": "rt_l1r8serimtir52by",
+          "tile": {
+            "x": 0,
+            "y": 2
+          },
+          "dirs": {
+            "N": "this",
+            "E": "this",
+            "S": "this",
+            "W": "empty",
+            "NE": "not",
+            "NW": "empty",
+            "SW": "empty"
+          }
+        },
+        {
+          "id": "rt_434vds25mtiq4pre",
+          "tile": {
+            "x": 0,
+            "y": 2
+          },
+          "dirs": {
+            "N": "this",
+            "NE": "not",
+            "W": "empty",
+            "E": "this",
+            "S": "empty"
+          }
+        },
+        {
+          "id": "rt_ugrpwl8vmtiosb9b",
+          "tile": {
+            "x": 1,
+            "y": 0
+          },
+          "dirs": {
+            "N": "empty",
+            "W": "this",
+            "E": "this",
+            "S": "not"
+          }
+        },
+        {
+          "id": "rt_c0oakx3umtiotrqr",
+          "tile": {
+            "x": 1,
+            "y": 0
+          },
+          "dirs": {
+            "N": "empty",
+            "E": "this",
+            "S": "not"
+          }
+        },
+        {
+          "id": "rt_rwu3pformtioublj",
+          "tile": {
+            "x": 1,
+            "y": 0
+          },
+          "dirs": {
+            "N": "empty",
+            "W": "this",
+            "S": "not"
+          }
+        },
+        {
+          "id": "rt_8q2sv3aamtioss6c",
+          "tile": {
+            "x": 1,
+            "y": 2
+          },
+          "dirs": {
+            "N": "not",
+            "W": "this",
+            "E": "this",
+            "S": "empty"
+          }
+        },
+        {
+          "id": "rt_ts6b0arfmtir74lg",
+          "tile": {
+            "x": 1,
+            "y": 2
+          },
+          "dirs": {
+            "N": "not",
+            "E": "this",
+            "S": "empty"
+          }
+        },
+        {
+          "id": "rt_yvab80rvmtir75b2",
+          "tile": {
+            "x": 1,
+            "y": 2
+          },
+          "dirs": {
+            "N": "not",
+            "W": "this",
+            "S": "empty"
+          }
+        },
+        {
+          "id": "rt_t2i089lcmtipb66e",
+          "tile": {
+            "x": 2,
+            "y": 1
+          },
+          "dirs": {
+            "N": "this",
+            "W": "not",
+            "E": "empty",
+            "S": "this"
+          }
+        },
+        {
+          "id": "rt_b35x3phumtir7ygp",
+          "tile": {
+            "x": 2,
+            "y": 1
+          },
+          "dirs": {
+            "N": "this",
+            "W": "not",
+            "E": "empty"
+          }
+        },
+        {
+          "id": "rt_74jcnj23mtir8202",
+          "tile": {
+            "x": 2,
+            "y": 1
+          },
+          "dirs": {
+            "S": "this",
+            "W": "not",
+            "E": "empty"
+          }
+        },
+        {
+          "id": "rt_ek1uw2wfmtipbbmx",
+          "tile": {
+            "x": 0,
+            "y": 1
+          },
+          "dirs": {
+            "N": "this",
+            "W": "empty",
+            "E": "not",
+            "S": "this"
+          }
+        },
+        {
+          "id": "rt_25mtor3gmtioup7f",
+          "tile": {
+            "x": 0,
+            "y": 1
+          },
+          "dirs": {
+            "N": "this",
+            "W": "empty",
+            "E": "not",
+            "S": "any"
+          }
+        },
+        {
+          "id": "rt_hntkma8kmtir8n5u",
+          "tile": {
+            "x": 0,
+            "y": 1
+          },
+          "dirs": {
+            "S": "this",
+            "W": "empty",
+            "E": "not"
+          }
+        },
+        {
+          "id": "rt_yzc736tpmtipfe4w",
+          "tile": {
+            "x": 3,
+            "y": 1
+          },
+          "dirs": {
+            "NW": "any",
+            "N": "this",
+            "NE": "empty",
+            "W": "not",
+            "E": "this",
+            "SW": "any",
+            "S": "not"
+          }
+        },
+        {
+          "id": "rt_fobczttomtipod7z",
+          "tile": {
+            "x": 3,
+            "y": 1
+          },
+          "dirs": {
+            "N": "this",
+            "NE": "this",
+            "W": "empty",
+            "E": "this",
+            "SW": "any",
+            "S": "empty"
+          }
+        },
+        {
+          "id": "rt_rssefnzxmtipqxpm",
+          "tile": {
+            "x": 0,
+            "y": 2
+          },
+          "dirs": {
+            "N": "this",
+            "NE": "not",
+            "W": "any",
+            "E": "this",
+            "SW": "any",
+            "S": "any"
+          }
+        },
+        {
+          "id": "rt_846s7kmnmtiq3fgm",
+          "tile": {
+            "x": 2,
+            "y": 2
+          },
+          "dirs": {
+            "NW": "not",
+            "N": "this",
+            "W": "this",
+            "E": "empty",
+            "S": "empty"
+          }
+        },
+        {
+          "id": "rt_977nkf1amtipeifu",
+          "tile": {
+            "x": 4,
+            "y": 1
+          },
+          "dirs": {
+            "NW": "not",
+            "N": "this",
+            "W": "this",
+            "E": "not",
+            "S": "not",
+            "SE": "any"
+          }
+        },
+        {
+          "id": "rt_89n0qqmkmtipwvup",
+          "tile": {
+            "x": 4,
+            "y": 1
+          },
+          "dirs": {
+            "NW": "this",
+            "N": "this",
+            "W": "this",
+            "E": "empty",
+            "S": "empty"
+          }
+        },
+        {
+          "id": "rt_uyin89hlmtiot8ke",
+          "tile": {
+            "x": 2,
+            "y": 2
+          },
+          "dirs": {
+            "NW": "not",
+            "N": "this",
+            "W": "this",
+            "E": "any",
+            "S": "any"
+          }
+        },
+        {
+          "id": "rt_kieep6e4mtip01do",
+          "tile": {
+            "x": 0,
+            "y": 0
+          },
+          "dirs": {
+            "N": "empty",
+            "W": "empty",
+            "E": "this",
+            "S": "this",
+            "SE": "not"
+          }
+        },
+        {
+          "id": "rt_k545j2o9mtiq7esu",
+          "tile": {
+            "x": 3,
+            "y": 0
+          },
+          "dirs": {
+            "N": "not",
+            "W": "not",
+            "E": "this",
+            "S": "this",
+            "SE": "not"
+          }
+        },
+        {
+          "id": "rt_wku8ijbbmtipkac0",
+          "tile": {
+            "x": 3,
+            "y": 0
+          },
+          "dirs": {
+            "NW": "any",
+            "N": "empty",
+            "NE": "any",
+            "W": "empty",
+            "E": "this",
+            "SW": "any",
+            "S": "this",
+            "SE": "this"
+          }
+        },
+        {
+          "id": "rt_teeluob9mtiotbj1",
+          "tile": {
+            "x": 0,
+            "y": 0
+          },
+          "dirs": {
+            "N": "any",
+            "W": "any",
+            "E": "this",
+            "S": "this",
+            "SE": "not"
+          }
+        },
+        {
+          "id": "rt_r789cujymtiq9wj0",
+          "tile": {
+            "x": 2,
+            "y": 0
+          },
+          "dirs": {
+            "N": "empty",
+            "W": "this",
+            "E": "empty",
+            "SW": "not",
+            "S": "this"
+          }
+        },
+        {
+          "id": "rt_5rnofu9xmtiqa6xp",
+          "tile": {
+            "x": 4,
+            "y": 0
+          },
+          "dirs": {
+            "N": "not",
+            "W": "this",
+            "E": "not",
+            "SW": "not",
+            "S": "this"
+          }
+        },
+        {
+          "id": "rt_echjnowkmtiqaaz1",
+          "tile": {
+            "x": 4,
+            "y": 0
+          },
+          "dirs": {
+            "N": "empty",
+            "W": "this",
+            "E": "empty",
+            "SW": "this",
+            "S": "this"
+          }
+        },
+        {
+          "id": "rt_ooh44excmtiqajms",
+          "tile": {
+            "x": 2,
+            "y": 0
+          },
+          "dirs": {
+            "W": "this",
+            "SW": "not",
+            "S": "this"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -13,6 +13,7 @@ const G = {
     roomAssets: null,
     levelTypes: null,
     itemAssets: null,
+    ruleTiles: null,
 
     presenter: null,
     entityViews: null,

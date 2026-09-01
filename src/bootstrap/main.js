@@ -15,6 +15,7 @@ function initializeState() {
     G.roomAssets = new RoomAssetRegistry();
     G.levelTypes = new LevelTypeRegistry();
     G.itemAssets = new ItemAssetRegistry();
+    G.ruleTiles = new RuleTileRegistry();
 
     // Systems
     G.input = new Input();
