@@ -81,7 +81,7 @@
                   "a"
                 ],
                 "__text": {
-                  "__fontsize": 12,
+                  "__fontsize": 10,
                   "__align": 0
                 }
               },
@@ -102,10 +102,10 @@
                   "use_button": {
                     "__color": "#b3b9d1",
                     "__padding": [
-                      4,
-                      12,
-                      4,
-                      12
+                      1,
+                      8,
+                      1,
+                      8
                     ],
                     "__size": [
                       1,
@@ -115,7 +115,7 @@
                     ],
                     "__text": {
                       "__color": 0,
-                      "__fontsize": 8,
+                      "__fontsize": 10,
                       "__text": "Use"
                     }
                   }

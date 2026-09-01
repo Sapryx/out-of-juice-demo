@@ -45,12 +45,20 @@
               4,
               0
             ],
+            "__padding": [
+              1,
+              0,
+              1,
+              0
+            ],
             "__size": [
               80,
-              16
+              1,
+              0,
+              "o"
             ],
             "__text": {
-              "__fontsize": 12,
+              "__fontsize": 10,
               "__text": "Resume"
             }
           },
@@ -62,12 +70,20 @@
               4,
               0
             ],
+            "__padding": [
+              1,
+              0,
+              1,
+              0
+            ],
             "__size": [
               80,
-              16
+              1,
+              0,
+              "o"
             ],
             "__text": {
-              "__fontsize": 12,
+              "__fontsize": 10,
               "__text": "Settings"
             }
           },
@@ -79,13 +95,21 @@
               4,
               0
             ],
+            "__padding": [
+              1,
+              0,
+              1,
+              0
+            ],
             "__size": [
               80,
-              16
+              1,
+              0,
+              "o"
             ],
             "__text": {
               "__color": "#ff4646",
-              "__fontsize": 12,
+              "__fontsize": 10,
               "__text": "Abandon Run"
             }
           }
