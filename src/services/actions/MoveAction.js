@@ -4,8 +4,8 @@ class MoveAction extends TurnAction {
         this.targetPosition = math2d.copy(targetPosition);
     }
 
-    start(context) {
-        super.start(context);
+    start() {
+        super.start();
         this.actor.moveTo(this.targetPosition);
     }
 }

@@ -2,11 +2,10 @@ class TurnManager {
     constructor() {
         this._currentEntity = null;
         this._currentAction = null;
-        this._context = new TurnContext();
     }
 
     get isPlayerTurn() {
-        return G.player != null && this._currentEntity === G.player;
+        return G.player && this._currentEntity === G.player;
     }
 
     setEntity(entity) {
@@ -19,11 +18,11 @@ class TurnManager {
             return false;
         }
 
-        if(this._currentAction || !action.canStart(this._context)) {
+        if(this._currentAction || !action.canStart()) {
             return false;
         }
 
-        action.start(this._context);
+        action.start();
 
         if(!action.blocksTurn) {
             this._advance();
@@ -61,7 +60,7 @@ class TurnManager {
     }
 
     _tickEnemy() {
-        const action = this._currentEntity.getTurnAction(this._context);
+        const action = this._currentEntity.getTurnAction();
 
         if(!action) {
             this._advance();

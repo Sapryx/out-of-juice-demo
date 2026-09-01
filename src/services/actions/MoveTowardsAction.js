@@ -4,8 +4,8 @@ class MoveTowardsAction extends TurnAction {
         this.targetPosition = math2d.copy(targetPosition);
     }
 
-    start(context) {
-        super.start(context);
+    start() {
+        super.start();
 
         const vectorToTarget = math2d.sub(this.targetPosition, this.actor.position);
         const offset = new Vector2(0, 0);

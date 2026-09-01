@@ -4,12 +4,12 @@ class InteractAction extends TurnAction {
         this.target = target;
     }
 
-    canStart(context) {
-        return this.target != null && this.actor.canInteractWith(this.target);
+    canStart() {
+        return this.target && this.actor.canInteractWith(this.target);
     }
 
-    start(context) {
-        super.start(context);
+    start() {
+        super.start();
         this.target.interactWith(this.actor);
         this.complete();
     }

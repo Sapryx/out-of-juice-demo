@@ -9,15 +9,15 @@ class Sweeper extends GameEntity {
         return new AttackAction(actor, this);
     }
 
-    getTurnAction(context) {
-        if(!context.player) {
+    getTurnAction() {
+        if(!G.player) {
             return null;
         }
 
-        if(this.canInteractWith(context.player)) {
-            return new AttackAction(this, context.player);
+        if(this.canInteractWith(G.player)) {
+            return new AttackAction(this, G.player);
         } else {
-            return new MoveTowardsAction(this, context.player.position);
+            return new MoveTowardsAction(this, G.player.position);
         }
     }
 }

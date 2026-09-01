@@ -35,7 +35,7 @@ class GameEntity {
         return this._state === EntityState.Moving;
     }
 
-    getTurnAction(context) {
+    getTurnAction() {
         return null;
     }
 

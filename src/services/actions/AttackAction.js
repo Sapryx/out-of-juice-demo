@@ -8,14 +8,14 @@ class AttackAction extends TurnAction {
         return true;
     }
 
-    canStart(context) {
+    canStart() {
         return this.target != null
             && this.actor.canInteractWith(this.target)
             && this.target.isIdle;
     }
 
-    start(context) {
-        super.start(context);
+    start() {
+        super.start();
         this.actor.attack(this.target, undefined, () => this.complete());
     }
 }

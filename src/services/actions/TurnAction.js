@@ -9,11 +9,11 @@ class TurnAction {
         return false;
     }
 
-    canStart(context) {
+    canStart() {
         return true;
     }
 
-    start(context) {
+    start() {
         this._started = true;
     }
 
