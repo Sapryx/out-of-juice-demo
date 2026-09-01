@@ -1,8 +1,8 @@
 class TurnManager {
     constructor() {
         this._currentEntity = null;
-        this.playerHasActed = false;
-        this._actionStarted = false;
+        this._currentAction = null;
+        this._context = new TurnContext();
     }
 
     get isPlayerTurn() {
@@ -11,61 +11,73 @@ class TurnManager {
 
     setEntity(entity) {
         this._currentEntity = entity;
-        this._actionStarted = false;
-        this.playerHasActed = false;
+        this._currentAction = null;
+    }
+
+    submit(action) {
+        if(!action || action.actor !== this._currentEntity) {
+            return false;
+        }
+
+        if(this._currentAction || !action.canStart(this._context)) {
+            return false;
+        }
+
+        action.start(this._context);
+
+        if(!action.blocksTurn) {
+            this._advance();
+            return true;
+        }
+
+        if(action.isComplete) {
+            this._advance();
+        } else {
+            this._currentAction = action;
+        }
+
+        return true;
     }
 
     tick() {
-        const entity = this._currentEntity;
+        if(!this._currentEntity) {
+            return;
+        }
 
-        if(!entity == null) {
+        if(this._currentAction) {
+            if(this._currentAction.isComplete) {
+                this._currentAction = null;
+                this._advance();
+            }
+
             return;
         }
 
         if(this.isPlayerTurn) {
-            this._tickPlayer();
-        } else {
-            this._tickEnemy(entity);
-        }
-    }
-
-    _tickPlayer() {
-        if(G.player.isAttacking) {
             return;
         }
 
-        if(this.playerHasActed) {
-            this.playerHasActed = false;
-            this._advance();
-        }
+        this._tickEnemy();
     }
 
-    _tickEnemy(entity) {
-        if(!this._actionStarted) {
-            if(entity.canInteractWith(G.player) && !G.player.isIdle) {
-                return;
-            }
+    _tickEnemy() {
+        const action = this._currentEntity.getTurnAction(this._context);
 
-            entity.resolveTurn();
-            this._actionStarted = true;
-
-            if(entity.isAttacking) {
-                return;
-            }
-
+        if(!action) {
             this._advance();
             return;
         }
 
-        if(entity.isAttacking) {
-            return;
-        }
-
-        this._advance();
+        this.submit(action);
     }
 
     _advance() {
+        this._currentAction = null;
+
+        if(!this._currentEntity) {
+            return;
+        }
+
         this._currentEntity = this._currentEntity.next;
-        this._actionStarted = false;
     }
 }

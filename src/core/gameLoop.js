@@ -12,21 +12,13 @@ let gameLoop = {
 };
 
 function handleGameInput() {
-    const notPlayerTurn = !G.turnManager.isPlayerTurn;
-    const playerIsDead = G.player == null;
-
-    if(playerIsDead || notPlayerTurn || !G.player.isIdle) {
+    if(!G.player || !G.turnManager.isPlayerTurn || !G.player.isIdle) {
         return;
     }
 
-    if(handleAttackInput() || handleMovementInput()) {
-        G.turnManager.playerHasActed = true;
-    }
+    handleAttackInput() || handleMovementInput();
 }
 
-/**
- * @returns {boolean}
- */
 function handleAttackInput() {
     const attackIsPressed = G.input.consumeAttack();
 
@@ -36,17 +28,14 @@ function handleAttackInput() {
 
     const target = G.targeting.current;
 
-    if(!target || !G.player.canInteractWith(target)) {
+    if(!target) {
         return false;
     }
 
-    target.interactWith();
-    return true;
+    const action = target.getInteractionAction(G.player);
+    return G.turnManager.submit(action);
 }
 
-/**
- * @returns {boolean}
- */
 function handleMovementInput() {
     const movementInputRaw = new Vector2(G.input.getAxis(Axis.Horizontal), G.input.getAxis(Axis.Vertical));
     const inputIsEmpty = movementInputRaw.x === 0 && movementInputRaw.y === 0;
@@ -59,7 +48,8 @@ function handleMovementInput() {
         movementInputRaw.y = 0;
     }
 
-    return G.player.moveBy(movementInputRaw, undefined);
+    const targetPosition = math2d.add(G.player.position, movementInputRaw);
+    return G.turnManager.submit(new MoveAction(G.player, targetPosition));
 }
 
 function updateCameraPosition() {

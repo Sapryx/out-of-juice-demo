@@ -5,18 +5,19 @@ class Sweeper extends GameEntity {
         this.dealDamageSfx = SFX.Burn;
     }
 
-    interactWith() {
-        G.player.attack(this);
+    getInteractionAction(actor) {
+        return new AttackAction(actor, this);
     }
 
-    resolveTurn() {
-        if(G.player != null && this.canInteractWith(G.player)) {
-            this.attack(G.player);
-            return;
+    getTurnAction(context) {
+        if(!context.player) {
+            return null;
         }
 
-        if(G.player != null) {
-            this.moveTowards(G.player.position);
+        if(this.canInteractWith(context.player)) {
+            return new AttackAction(this, context.player);
+        } else {
+            return new MoveTowardsAction(this, context.player.position);
         }
     }
 }

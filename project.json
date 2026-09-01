@@ -45,6 +45,12 @@
             "core/audio/SoundEffect.js",
             "core/audio/SFX.js",
 
+            "services/TurnContext.js",
+            "services/actions/TurnAction.js",
+            "services/actions/MoveAction.js",
+            "services/actions/MoveTowardsAction.js",
+            "services/actions/AttackAction.js",
+            "services/actions/InteractAction.js",
             "services/TurnManager.js",
             "services/PlayerTargeting.js",
 

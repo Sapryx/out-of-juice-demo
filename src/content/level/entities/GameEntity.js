@@ -15,16 +15,10 @@ class GameEntity {
         this._interactionRange = 1;
     }
 
-    /**
-     * @returns {float}
-     */
     get health() {
         return this._health;
     }
 
-    /**
-     * @returns {float}
-     */
     get maxHealth() {
         return this._maxHealth;
     }
@@ -41,13 +35,14 @@ class GameEntity {
         return this._state === EntityState.Moving;
     }
 
-    resolveTurn() {
-
+    getTurnAction(context) {
+        return null;
     }
 
-    /**
-     * @param {GameEntity} target
-     */
+    getInteractionAction(actor) {
+        return null;
+    }
+
     canInteractWith(target) {
         if(target === this) {
             return false;
@@ -56,23 +51,23 @@ class GameEntity {
         return math2d.chebyshevDistance(target.position, this.position) <= this._interactionRange;
     }
 
-    /**
-     * @param {GameEntity} target
-     */
-    attack(target) {
+    attack(target, onHitTarget, onComplete) {
         this._state = EntityState.Attacking;
 
         G.presenter.onEntityAttack(
             this,
             target,
-            () => target.dealDamage(this._damage),
-            () => this._state = EntityState.Idle
+            onHitTarget || (() => target.dealDamage(this._damage)),
+            () => {
+                this._state = EntityState.Idle;
+
+                if(onComplete) {
+                    onComplete();
+                }
+            }
         );
     }
 
-    /**
-     * @param {number} amount
-     */
     dealDamage(amount) {
         this._health = mmax(0, this._health - amount);
         G.presenter.onEntityHurt(this);
@@ -82,10 +77,6 @@ class GameEntity {
         }
     }
 
-    /**
-     * @param {number} amount
-     * @returns {boolean}
-     */
     heal(amount) {
         if(amount < 0) {
             throw new Error(`Heal amount cannot be negative (was "${amount}")`);
@@ -100,10 +91,6 @@ class GameEntity {
         return true;
     }
 
-    /**
-     * @param {Vector2} position
-     * @returns {boolean}
-     */
     moveTo(position) {
         if(!G.level.isTileFree(position)) {
             return false;
@@ -118,39 +105,11 @@ class GameEntity {
         return true;
     }
 
-    /**
-     * @param {Vector2} offset
-     * @returns {boolean}
-     */
     moveBy(offset) {
         return this.moveTo(math2d.add(this.position, offset));
     }
 
-    /**
-     * @param {Vector2} position
-     */
-    moveTowards(position) {
-        const vectorToTarget = math2d.sub(position, this.position);
-        const offset = new Vector2(0, 0);
-        const altOffset = new Vector2(0, 0);
-
-        const xLength = abs(vectorToTarget.x);
-        const yLength = abs(vectorToTarget.y);
-        const xDirection = sign(vectorToTarget.x);
-        const yDirection = sign(vectorToTarget.y);
-
-        if(xLength > yLength) {
-            offset.x = xDirection;
-            altOffset.y = yDirection;
-        } else {
-            offset.y = yDirection;
-            altOffset.x = xDirection;
-        }
-
-        return this.moveBy(offset) || this.moveBy(altOffset);
-    }
-
-    interactWith() {
+    interactWith(actor) {
 
     }
 
