@@ -54,7 +54,7 @@ class RoomAsset {
     }
 
     getPrimaryRuleTileName() {
-        return this.getRuleTileNames()[0] ?? null;
+        return this.getRuleTileNames()[0];
     }
 
     getTiles(rotation = 0) {

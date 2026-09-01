@@ -41,23 +41,10 @@ class Room {
         }
     }
 
-    /**
-     * @returns {string|null}
-     */
-    getPrimaryRuleTileName() {
-        return this.asset.getPrimaryRuleTileName();
-    }
-
-    /**
-     * @returns {Array<Door>}
-     */
     getFreeDoors() {
         return this._freeDoors;
     }
 
-    /**
-     * @param {Door} door
-     */
     reserveDoor(door) {
         const doorIndex = this._freeDoors.findIndex(freeDoor =>
             math2d.equal(freeDoor.position, door.position)

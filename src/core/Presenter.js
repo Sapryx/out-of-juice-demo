@@ -1,7 +1,4 @@
 class Presenter {
-    /**
-     * @param {GameEntity} entity
-     */
     onAddEntity(entity) {
         G.entityViews.add(entity);
     }
@@ -14,6 +11,8 @@ class Presenter {
     onEntitySpriteUpdate(entity, spritePath) {
         const view = G.entityViews.get(entity);
 
+        if(!view) return;
+
         view.node.__setAliasesData({
             sprite: {
                 __img: spritePath
@@ -21,14 +20,14 @@ class Presenter {
         });
     }
 
-    /**
-     * @param {GameEntity} entity
-     * @param {() => void} callback
-     */
     onMoveEntity(entity, callback) {
         const view = G.entityViews.get(entity);
+
+        if(!view) return;
+
         const targetPosition = math2d.flipY(entity.position);
         const animationDuration = G.config.tilePassTime;
+
         view.node.__z = SpriteSorting.getZ(SortingLayer.Entities) + entity.position.y;
 
         if(entity !== G.player && entity.isHostile) {
@@ -49,12 +48,6 @@ class Presenter {
             .__setOnComplete(callback);
     }
 
-    /**
-     * @param {GameEntity} attacker
-     * @param {GameEntity} target
-     * @param {() => void} onHitTarget
-     * @param {() => void} onComplete
-     */
     onEntityAttack(attacker, target, onHitTarget, onComplete) {
         const attackerView = G.entityViews.get(attacker);
         const targetPosition = math2d.flipY(target.position);
@@ -78,9 +71,6 @@ class Presenter {
         G.audio.play(SFX.Swing);
     }
 
-    /**
-     * @param {GameEntity} entity
-     */
     onEntityHurt(entity) {
         const view = G.entityViews.get(entity);
         Anims.hurt(view.node, 0.1);
@@ -136,15 +126,14 @@ class Presenter {
      * @param {Room} room
      */
     onAddRoom(room) {
-        // Room tiles are rendered only after the whole level is assembled and
-        // all Rule Tiles have been resolved.
+
     }
 
     /**
      * @param {Vector2} position
      */
     onPlaceWall(position) {
-        // Corridor walls are logical Rule Tiles until the final resolve step.
+
     }
 
     /**
@@ -152,7 +141,7 @@ class Presenter {
      * @param {Vector2} position
      */
     onPlaceFloor(level, position) {
-        // Floors are rendered together with the rest of the logical tile map.
+
     }
 
     /**

@@ -155,7 +155,7 @@ class LevelGenerator {
             hallwayOrigin,
             hallwayTarget,
             hallwayDirection,
-            roomMatch.targetRoom.getPrimaryRuleTileName(),
+            roomMatch.targetRoom.asset.getPrimaryRuleTileName(),
             roomMatch.targetRoom.asset.tileset
         );
 

@@ -40,7 +40,7 @@ class Level {
             });
 
             if(tile.isWall) {
-                this._colliders.add(this._getHash(tileGlobalPosition));
+                this._colliders.add(math2d.getHash(tileGlobalPosition));
             }
         }
 
@@ -57,7 +57,7 @@ class Level {
             throw new Error(`Cannot place wall at ${format(position)} without a Rule Tile`);
         }
 
-        const positionHash = this._getHash(position);
+        const positionHash = math2d.getHash(position);
         this._colliders.add(positionHash);
         this._placeTile({
             position: math2d.copy(position),
@@ -92,7 +92,7 @@ class Level {
     }
 
     _placeTile(tile) {
-        const positionHash = this._getHash(tile.position);
+        const positionHash = math2d.getHash(tile.position);
         this._tiles.set(positionHash, tile);
     }
 
@@ -101,7 +101,7 @@ class Level {
     }
 
     getEntityInTile(position) {
-        const positionHash = this._getHash(position);
+        const positionHash = math2d.getHash(position);
         return this._entityGrid.get(positionHash);
     }
 
@@ -122,9 +122,8 @@ class Level {
             entity.next = this._rootEntity;
         }
 
-        G.presenter.onAddEntity(entity);
-
         this.moveEntity(entity, position, undefined);
+        G.presenter.onAddEntity(entity);
     }
 
     removeEntity(entity) {
@@ -143,7 +142,7 @@ class Level {
 
         entity.next = null;
         entity.prev = null;
-        this._entityGrid.delete(this._getHash(entity.position));
+        this._entityGrid.delete(math2d.getHash(entity.position));
 
         G.presenter.onRemoveEntity(entity);
     }
@@ -153,8 +152,8 @@ class Level {
             return false;
         }
 
-        const currentPositionHash = this._getHash(entity.position);
-        const targetPositionHash = this._getHash(targetPosition);
+        const currentPositionHash = math2d.getHash(entity.position);
+        const targetPositionHash = math2d.getHash(targetPosition);
 
         entity.position = targetPosition;
         this._entityGrid.delete(currentPositionHash);
@@ -177,11 +176,7 @@ class Level {
     }
 
     isTileCollider(position) {
-        const positionHash = this._getHash(position);
+        const positionHash = math2d.getHash(position);
         return this._colliders.has(positionHash);
-    }
-
-    _getHash(position) {
-        return `${position.x},${position.y}`;
     }
 }

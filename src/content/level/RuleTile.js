@@ -4,7 +4,7 @@ class RuleTile {
         this._name = config.name;
         this._defaultTile = new Vector2(config.defaultTile.x, config.defaultTile.y);
         this._rules = config.rules.map(rule => ({
-            dirs: {...rule.dirs},
+            dirs: Object.assign({}, rule.dirs),
             tile: new Vector2(rule.tile.x, rule.tile.y)
         }));
     }
@@ -31,7 +31,7 @@ class RuleTile {
         for(const [localDirection, condition] of Object.entries(dirs)) {
             const worldDirection = RuleTile._getDirection(localDirection);
             const neighborPosition = math2d.add(position, worldDirection);
-            const neighbor = tiles.get(`${neighborPosition.x},${neighborPosition.y}`) ?? null;
+            const neighbor = tiles.get(math2d.getHash(neighborPosition));
 
             if(!RuleTile._matchesCondition(neighbor, this._name, condition)) {
                 return false;

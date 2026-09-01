@@ -122,5 +122,9 @@ const math2d = {
 
     chebyshevDistance(vector1, vector2) {
         return mmax(abs(vector2.x - vector1.x), abs(vector2.y - vector1.y));
+    },
+
+    getHash(vector) {
+        return `${vector.x},${vector.y}`;
     }
 };
