@@ -53,6 +53,7 @@
             "content/level/entities/Player.js",
             "content/level/entities/Sweeper.js",
             "content/level/entities/ItemEntity.js",
+            "content/level/RuleTile.js",
             "content/level/room/Room.js",
             "content/level/room/RoomNode.js",
             "content/level/room/RoomMatch.js",
@@ -72,6 +73,7 @@
 
             "registry/Defs.js",
             "registry/ItemAssetRegistry.js",
+            "registry/RuleTileRegistry.js",
             "registry/RoomAssetRegistry.js",
             "registry/LevelTypeRegistry.js",
             "registry/EntityViewPrefabs.js",

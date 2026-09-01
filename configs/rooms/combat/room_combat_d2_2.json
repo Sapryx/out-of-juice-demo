@@ -1,6 +1,6 @@
 {
   "format": "simple-tile-editor",
-  "version": 2,
+  "version": 3,
   "tileset": {
     "name": "wall_tileset.png",
     "width": 80,
@@ -12,7 +12,9 @@
     "width": 30,
     "height": 20
   },
-  "ruleTiles": [],
+  "ruleTileNames": [
+    "Rule Tile 1"
+  ],
   "boundingBox": {
     "x": 4,
     "y": 6,
@@ -23,463 +25,463 @@
     {
       "x": 14,
       "y": 12,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 2
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 15,
       "y": 12,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 2
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 16,
       "y": 12,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 2
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 7,
       "y": 14,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 0,
         "y": 2
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 7,
       "y": 13,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 0,
         "y": 1
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 13,
       "y": 12,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 3,
         "y": 0
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 7,
       "y": 7,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 4,
         "y": 1
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 7,
       "y": 6,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 0,
         "y": 0
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 8,
       "y": 6,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 0
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 9,
       "y": 6,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 0
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 10,
       "y": 6,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 0
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 12,
       "y": 6,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 0
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 13,
       "y": 6,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 0
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 14,
       "y": 6,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 0
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 16,
       "y": 6,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 0
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 17,
       "y": 6,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 0
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 18,
       "y": 6,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 2,
         "y": 0
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 18,
       "y": 7,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 2,
         "y": 1
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 18,
       "y": 8,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 2,
         "y": 1
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 18,
       "y": 9,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 2,
         "y": 1
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 18,
       "y": 10,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 2,
         "y": 1
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 18,
       "y": 11,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 2,
         "y": 1
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 18,
       "y": 12,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 2,
         "y": 2
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 17,
       "y": 12,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 2
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 13,
       "y": 13,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 2,
         "y": 1
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 13,
       "y": 14,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 2,
         "y": 2
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 7,
       "y": 12,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 0,
         "y": 1
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 8,
       "y": 14,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 2
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 9,
       "y": 14,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 2
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 11,
       "y": 14,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 2
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 12,
       "y": 14,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 2
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 4,
       "y": 8,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 0,
         "y": 1
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 4,
       "y": 9,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 0,
         "y": 1
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 4,
       "y": 10,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 0,
         "y": 1
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 4,
       "y": 11,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 0,
         "y": 2
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 6,
       "y": 7,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 0
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 5,
       "y": 7,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 0
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 4,
       "y": 7,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 0,
         "y": 0
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 5,
       "y": 11,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 2
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 6,
       "y": 11,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 2
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 7,
       "y": 11,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 4,
         "y": 0
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {
       "x": 15,
       "y": 6,
-      "tile": {
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
         "x": 1,
         "y": 0
       },
-      "ruleTile": null,
-      "resolvedTile": null,
       "data": null
     },
     {

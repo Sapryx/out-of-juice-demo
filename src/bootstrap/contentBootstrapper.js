@@ -64,6 +64,12 @@ const contentBootstrapper = {
     },
 
     registerRoomAssets() {
+        getJson("configs/rule_tiles.json", (config) => {
+            for(const ruleTileConfig of config.ruleTiles) {
+                G.ruleTiles.register(new RuleTile(ruleTileConfig));
+            }
+        });
+
         this._registerRoomAsset(RoomType.Combat, "room_combat_d1_1");
         this._registerRoomAsset(RoomType.Combat, "room_combat_d2_1");
         this._registerRoomAsset(RoomType.Combat, "room_combat_d2_2");
