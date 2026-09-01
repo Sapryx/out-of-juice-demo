@@ -234,7 +234,10 @@
     {
       "x": 14,
       "y": 8,
-      "tile": null,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
       "ruleTile": null,
       "resolvedTile": null,
       "data": {
