@@ -2,7 +2,8 @@ const EntityViewPrefabs = {
     __entityViews: new Map([
         [Player, "entities/player"],
         [Sweeper, "entities/sweeper"],
-        [ItemEntity, "entities/item_entity"]
+        [ItemEntity, "entities/item_entity"],
+        [ExitEntity, "entities/exit_entity"],
     ]),
 
     /**

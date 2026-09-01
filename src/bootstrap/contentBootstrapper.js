@@ -2,6 +2,7 @@ const ENTITY_FACTORIES = [
     ["player", Player],
     ["sweeper", Sweeper],
     ["item_entity", ItemEntity],
+    ["exit_entity", ExitEntity]
 ];
 
 const ITEM_FACTORIES = [

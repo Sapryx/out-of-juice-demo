@@ -365,7 +365,8 @@
       "ruleTile": null,
       "resolvedTile": null,
       "data": {
-        "type": "exit"
+        "type": "spawn",
+        "def": "exit_entity"
       }
     },
     {

@@ -53,6 +53,7 @@
             "content/level/entities/Player.js",
             "content/level/entities/Sweeper.js",
             "content/level/entities/ItemEntity.js",
+            "content/level/entities/ExitEntity.js",
             "content/level/RuleTile.js",
             "content/level/room/Room.js",
             "content/level/room/RoomNode.js",
@@ -131,6 +132,7 @@
             "entities/player.json",
             "entities/sweeper.json",
             "entities/item_entity.json",
+            "entities/exit_entity.json",
 
             "items/bandage.json",
 
@@ -170,6 +172,7 @@
             "entities/player.json",
             "entities/sweeper.json",
             "entities/item_entity.json",
+            "entities/exit_entity.json",
 
             "gui.json",
             "item_card.json",
