@@ -1,8 +1,8 @@
 class RectBounds {
     constructor() {
-        this.xMin = 0;
-        this.xMax = 0;
-        this.yMin = 0;
-        this.yMax = 0;
+        this.left = 0;
+        this.right = 0;
+        this.bottom = 0;
+        this.top = 0;
     }
 }

@@ -72,4 +72,26 @@ function updateCameraPosition() {
 
     levelCamera.__x = playerView.position.x;
     levelCamera.__y = -playerView.position.y;
+
+    fitCameraInLevelBounds(levelCamera);
+}
+
+function fitCameraInLevelBounds(targetCamera) {
+    const levelLeft = G.level.bounds.left * G.config.tileSize;
+    const levelRight = G.level.bounds.right * G.config.tileSize;
+    const levelTop = G.level.bounds.top * G.config.tileSize;
+    const levelBottom = G.level.bounds.bottom * G.config.tileSize;
+    const cameraHalfWidth = (targetCamera.__right - targetCamera.__left) / 2;
+    const cameraHalfHeight = (targetCamera.__top - targetCamera.__bottom) / 2;
+
+    targetCamera.__x = clamp(
+        targetCamera.__x,
+        levelLeft + cameraHalfWidth,
+        levelRight - cameraHalfWidth
+    );
+    targetCamera.__y = clamp(
+        targetCamera.__y,
+        levelBottom + cameraHalfHeight,
+        levelTop - cameraHalfHeight + G.config.tileSize / 2
+    );
 }

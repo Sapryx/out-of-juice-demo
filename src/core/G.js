@@ -17,7 +17,6 @@ const G = {
 
     presenter: null,
     entityViews: null,
-    levelView: null,
     gameView: null,
     windows: null,
 };

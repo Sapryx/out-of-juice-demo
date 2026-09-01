@@ -185,10 +185,10 @@ class Level {
             const x = tile.position.x;
             const y = tile.position.y;
 
-            this._bounds.xMin = mmin(this._bounds.xMin, x);
-            this._bounds.xMax = mmax(this._bounds.xMax, x);
-            this._bounds.yMin = mmin(this._bounds.yMin, y);
-            this._bounds.yMax = mmax(this._bounds.yMax, y);
+            this._bounds.left = mmin(this._bounds.left, x);
+            this._bounds.right = mmax(this._bounds.right, x);
+            this._bounds.bottom = mmin(this._bounds.bottom, y);
+            this._bounds.top = mmax(this._bounds.top, y);
         }
     }
 }
