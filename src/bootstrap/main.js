@@ -40,6 +40,7 @@ function registerContent() {
 }
 
 function initializeGame() {
+    document.body.style.cursor = "none";
     G.input.init();
     G.gameView.init();
 

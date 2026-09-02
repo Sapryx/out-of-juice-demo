@@ -159,6 +159,7 @@ class Presenter {
      */
     onWindowOpen(windowNode) {
         G.gameView.levelView.tileSelection.__alpha = 0;
+        document.body.style.cursor = "auto";
     }
 
     /**
@@ -167,5 +168,6 @@ class Presenter {
      */
     onWindowClose(windowNode) {
         G.gameView.levelView.tileSelection.__alpha = 1;
+        document.body.style.cursor = "none";
     }
 }
