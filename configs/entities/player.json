@@ -1,5 +1,7 @@
 {
     "maxHealth": 100,
     "damage": 5,
-    "inventorySize": 10
+    "inventorySize": 10,
+    "critChance": 0.1,
+    "crisMultiplier": 2
 }

@@ -13,6 +13,8 @@ class GameEntity {
         this._maxHealth = config.maxHealth;
         this._damage = config.damage ? config.damage : 10;
         this._interactionRange = 1;
+        this.critChance = config.critChance ? config.critChance : 0;
+        this.critMultiplier = config.critMultiplier ? config.critMultiplier : 1;
     }
 
     get health() {
@@ -52,11 +54,17 @@ class GameEntity {
     }
 
     attack(target) {
-        this._state = EntityState.Attacking;
-        const randomizedDamage = this._damage * (1 + randomFloatSpread(G.config.damageDeviation * 2));
-        const finalDamage = mmax(round(randomizedDamage), 0);
+        const hitIsCritical = random() < this.critChance;
+        let damage = this._damage * (1 + randomFloatSpread(G.config.damageDeviation * 2));
 
-        BUS.__post(E.EntityAttacked, this, target, finalDamage);
+        if(hitIsCritical) {
+            damage *= (1 + this.critMultiplier);
+        }
+
+        damage = mmax(round(damage), 0);
+
+        this._state = EntityState.Attacking;
+        BUS.__post(E.EntityAttacked, this, target, damage, hitIsCritical);
     }
 
     finishAttack() {

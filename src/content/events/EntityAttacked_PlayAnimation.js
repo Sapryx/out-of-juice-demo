@@ -1,8 +1,9 @@
-BUS.__addEventListener(E.EntityAttacked, (type, attacker, target, damage) => {
+BUS.__addEventListener(E.EntityAttacked, (type, attacker, target, damage, hitIsCritical) => {
     const attackerView = G.entityViews.get(attacker);
 
     const onAttackHit = () => {
-        BUS.__post(E.EntityAttackHit, attacker, target, damage);
+        BUS.__post(E.EntityAttackHit, attacker, target, damage, hitIsCritical);
+        target.dealDamage(damage);
     };
 
     const onAttackFinished = () => {
