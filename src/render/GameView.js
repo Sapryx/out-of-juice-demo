@@ -9,6 +9,7 @@ class GameView {
         this.gui.init();
 
         this.levelView.camera = this._createCamera();
+        this.levelView.camera.__zoom = 1.4;
         this.levelView.node.__allProjectionMatrix = this.levelView.camera.__projectionMatrix;
     }
 
