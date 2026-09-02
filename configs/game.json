@@ -1,7 +1,7 @@
 {
     "tileSize": 16,
     "tilePassTime": 0.15,
-    "hallwayMinLength": 5,
-    "hallwayMaxLength": 10,
+    "hallwayMinLength": 3,
+    "hallwayMaxLength": 5,
     "cameraPadding": 8
 }
