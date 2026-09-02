@@ -4,6 +4,8 @@ const E = Object.freeze({
     EntitySpriteUpdated: "EntitySpriteUpdated",
     EntityMoved: "EntityMoved",
     EntityAttacked: "EntityAttacked",
+    EntityAttackHit: "EntityAttackHit",
+    EntityAttackFinished: "EntityAttackFinished",
     EntityHurt: "EntityHurt",
     EntityHealed: "EntityHealed",
     PlayerDied: "PlayerDied",

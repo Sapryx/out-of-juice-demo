@@ -2,6 +2,7 @@ class AttackAction extends TurnAction {
     constructor(actor, target) {
         super(actor);
         this.target = target;
+        this._onAttackFinished = this._onAttackFinished.bind(this);
     }
 
     get blocksTurn() {
@@ -16,6 +17,16 @@ class AttackAction extends TurnAction {
 
     start() {
         super.start();
-        this.actor.attack(this.target, undefined, () => this.complete());
+        BUS.__addEventListener(E.EntityAttackFinished, this._onAttackFinished);
+        this.actor.attack(this.target);
+    }
+
+    _onAttackFinished(type, attacker) {
+        if(attacker !== this.actor) {
+            return;
+        }
+
+        BUS.__removeEventListener(E.EntityAttackFinished, this._onAttackFinished);
+        this.complete();
     }
 }

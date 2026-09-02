@@ -1,22 +1,26 @@
-BUS.__addEventListener(E.EntityAttacked, (type, attacker, target, onHitTarget, onComplete) => {
+BUS.__addEventListener(E.EntityAttacked, (type, attacker, target, damage) => {
     const attackerView = G.entityViews.get(attacker);
-    const targetPosition = math2d.flipY(target.position);
-    const startPosition = math2d.flipY(attacker.position);
 
-    if(attackerView) {
-        Anims.attack(
-            attackerView.node,
-            startPosition,
-            targetPosition,
-            0.25,
-            () => {
-                G.audio.play(attacker.dealDamageSfx);
-                G.audio.play(target.takeDamageSfx);
-                onHitTarget();
-            },
-            onComplete
-        );
+    const onAttackHit = () => {
+        BUS.__post(E.EntityAttackHit, attacker, target, damage);
+    };
+
+    const onAttackFinished = () => {
+        BUS.__post(E.EntityAttackFinished, attacker);
+    };
+
+    if(!attackerView) {
+        onAttackHit();
+        onAttackFinished();
+        return;
     }
 
-    G.audio.play(SFX.Swing);
+    Anims.attack(
+        attackerView.node,
+        math2d.flipY(attacker.position),
+        math2d.flipY(target.position),
+        0.25,
+        onAttackHit,
+        onAttackFinished
+    );
 });

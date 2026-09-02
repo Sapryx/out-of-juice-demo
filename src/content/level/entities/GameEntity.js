@@ -51,24 +51,16 @@ class GameEntity {
         return math2d.chebyshevDistance(target.position, this.position) <= this._interactionRange;
     }
 
-    attack(target, onHitTarget, onComplete) {
+    attack(target) {
         this._state = EntityState.Attacking;
         const randomizedDamage = this._damage * (1 + randomFloatSpread(G.config.damageDeviation * 2));
         const finalDamage = mmax(round(randomizedDamage), 0);
 
-        BUS.__post(
-            E.EntityAttacked,
-            this,
-            target,
-            onHitTarget || (() => target.dealDamage(finalDamage)),
-            () => {
-                this._state = EntityState.Idle;
+        BUS.__post(E.EntityAttacked, this, target, finalDamage);
+    }
 
-                if(onComplete) {
-                    onComplete();
-                }
-            }
-        );
+    finishAttack() {
+        this._state = EntityState.Idle;
     }
 
     dealDamage(amount) {

@@ -105,6 +105,8 @@
 
             "content/events/EntityAdded_AddView.js",
             "content/events/EntityAttacked_PlayAnimation.js",
+            "content/events/EntityAttackFinished.js",
+            "content/events/EntityAttackHit.js",
             "content/events/EntityHealed_AnimateHealthBar.js",
             "content/events/EntityHurt_AnimateHealthBar.js",
             "content/events/EntityHurt_DisplayDamageText.js",
