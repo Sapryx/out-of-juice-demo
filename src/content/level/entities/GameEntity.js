@@ -70,7 +70,7 @@ class GameEntity {
 
     dealDamage(amount) {
         this._health = mmax(0, this._health - amount);
-        G.presenter.onEntityHurt(this);
+        G.presenter.onEntityHurt(this, amount);
 
         if(this._health === 0) {
             this._die();
