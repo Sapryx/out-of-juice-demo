@@ -31,7 +31,7 @@ class LevelView {
 
         this.tileSelection = this.node.__addChildBox({
             __img: "selection_frame",
-            __size: [G.config.tileSize, G.config.tileSize],
+            __size: [G.config.tileSize + 2, G.config.tileSize + 2],
             __color: Colors.Selection,
             __z: -100
         });
