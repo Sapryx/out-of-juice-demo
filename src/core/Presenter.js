@@ -8,7 +8,7 @@ class Presenter {
         G.targeting.update();
     }
 
-    onEntitySpriteUpdate(entity, spritePath) {
+    onEntitySpriteUpdated(entity, spritePath) {
         const view = G.entityViews.get(entity);
 
         if(!view) return;
@@ -20,7 +20,7 @@ class Presenter {
         });
     }
 
-    onMoveEntity(entity, callback) {
+    onEntityMoved(entity, callback) {
         const view = G.entityViews.get(entity);
 
         if(!view) return;
@@ -28,7 +28,7 @@ class Presenter {
         const targetPosition = math2d.flipY(entity.position);
         const animationDuration = G.config.tilePassTime;
 
-        view.node.__z = SpriteSorting.getZ(SortingLayer.Entities) + entity.position.y;
+        view.node.__z = SortingOrder.getForEntity(entity);
 
         if(entity !== G.player && entity.isHostile) {
             const playerDirection = sign(G.player.position.x - entity.position.x);

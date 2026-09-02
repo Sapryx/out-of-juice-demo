@@ -159,7 +159,7 @@ class Level {
         this._entityGrid.delete(currentPositionHash);
         this._entityGrid.set(targetPositionHash, entity);
 
-        G.presenter.onMoveEntity(entity, callback);
+        G.presenter.onEntityMoved(entity, callback);
 
         return true;
     }

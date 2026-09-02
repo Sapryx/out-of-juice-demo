@@ -1,26 +1,22 @@
 class EntityView {
     constructor(prefab) {
         this._prototype = prefab;
-        this._node = null;
+        this.node = null;
     }
 
     init() {
-        this._node = G.gameView.levelView.addNode(this._prototype);
-    }
-
-    get node() {
-        return this._node;
+        this.node = G.gameView.levelView.addNode(this._prototype);
     }
 
     get position() {
-        return this._node.__ofs;
+        return this.node.__ofs;
     }
 
     set position(value) {
-        this._node.__ofs = math2d.mul(value, G.config.tileSize);
+        this.node.__ofs = math2d.mul(value, G.config.tileSize);
     }
 
     remove() {
-        this._node.__removeFromParent();
+        this.node.__removeFromParent();
     }
 }

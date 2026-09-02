@@ -12,7 +12,7 @@ class ItemEntity extends GameEntity {
 
     setItem(item) {
         this._item = item;
-        G.presenter.onEntitySpriteUpdate(this, item.asset.iconPath);
+        G.presenter.onEntitySpriteUpdated(this, item.asset.iconPath);
     }
 
     getInteractionAction(actor) {

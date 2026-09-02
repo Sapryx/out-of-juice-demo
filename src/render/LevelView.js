@@ -66,7 +66,7 @@ class LevelView {
 
         this._bakedTiles = this._tileBatch.__bake();
         this.node.add(this._bakedTiles);
-        this._bakedTiles.__z = SpriteSorting.getZ(SortingLayer.Floor);
+        this._bakedTiles.__z = SortingOrder.get(SortingLayer.Floor);
     }
 
     update() {

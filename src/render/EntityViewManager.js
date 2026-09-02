@@ -3,23 +3,17 @@ class EntityViewManager {
         this._views = new Map();
     }
 
-    /**
-     * @param {GameEntity} entity
-     * @returns {EntityView}
-     */
     get(entity) {
         return this._views.get(entity);
     }
 
-    /**
-     * @param {GameEntity} entity
-     */
     add(entity) {
         const viewPrefab = EntityViewPrefabs.get(entity);
         const view = new EntityView(viewPrefab);
 
         view.init();
         view.position = math2d.flipY(entity.position);
+        view.node.__z = SortingOrder.getForEntity(entity);
 
         this._views.set(entity, view);
     }
@@ -27,7 +21,7 @@ class EntityViewManager {
     remove(entity) {
         const view = this._views.get(entity);
 
-        if(view === undefined) {
+        if(!view) {
             throw new Error(`Cannot remove view for entity "${entity}": view not found`);
         }
 

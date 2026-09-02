@@ -95,7 +95,8 @@
             "render/Gui.js",
             "render/ItemCardView.js",
             "render/GameWindowManager.js",
-            "render/SpriteSorting.js",
+            "render/SortingOrder.js",
+            "render/SortingLayer.js",
             "render/WindowType.js",
 
             "bootstrap/loading.js",
