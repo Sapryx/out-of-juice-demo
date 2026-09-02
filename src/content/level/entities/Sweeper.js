@@ -3,6 +3,7 @@ class Sweeper extends GameEntity {
         super(config);
         this.takeDamageSfx = SFX.HitMetal;
         this.dealDamageSfx = SFX.Burn;
+        this._detectionRange = config.detectionRange;
     }
 
     getInteractionAction(actor) {
@@ -11,6 +12,12 @@ class Sweeper extends GameEntity {
 
     getTurnAction() {
         if(!G.player) {
+            return null;
+        }
+
+        const distanceToPlayer = math2d.chebyshevDistance(G.player.position, this.position);
+
+        if(distanceToPlayer > this._detectionRange) {
             return null;
         }
 
