@@ -79,7 +79,7 @@ class Input {
             case " ": this._attackIsPressed = true; break;
             case "e": this._selectNextTarget(); break;
             case "q": this._selectPreviousTarget(); break;
-            case "i": this._toggleInventoryWindow(); break;
+            case "tab": this._toggleInventoryWindow(e); break;
             case "escape": this._togglePauseWindow(); break;
         }
     }
@@ -96,13 +96,15 @@ class Input {
         }
     }
 
-    _toggleInventoryWindow() {
+    _toggleInventoryWindow(e) {
         if(G.windows.isOpen(WindowType.Inventory)) {
             G.windows.closeCurrentWindow();
+            e.preventDefault();
             return;
         }
 
         if(!G.windows.hasOpenWindow) {
+            e.preventDefault();
             G.windows.openInventoryWindow();
         }
     }
