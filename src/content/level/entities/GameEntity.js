@@ -53,12 +53,14 @@ class GameEntity {
 
     attack(target, onHitTarget, onComplete) {
         this._state = EntityState.Attacking;
+        const randomizedDamage = this._damage * (1 + randomFloatSpread(G.config.damageDeviation * 2));
+        const finalDamage = mmax(round(randomizedDamage), 0);
 
         BUS.__post(
             E.EntityAttacked,
             this,
             target,
-            onHitTarget || (() => target.dealDamage(this._damage)),
+            onHitTarget || (() => target.dealDamage(finalDamage)),
             () => {
                 this._state = EntityState.Idle;
 
@@ -70,6 +72,10 @@ class GameEntity {
     }
 
     dealDamage(amount) {
+        if(amount < 0) {
+            throw new Error(`Damage amount cannot be negative (was "${amount}")`);
+        }
+
         this._health = mmax(0, this._health - amount);
         BUS.__post(E.EntityHurt, this, amount);
 

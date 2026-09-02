@@ -3,5 +3,6 @@
     "tilePassTime": 0.15,
     "hallwayMinLength": 3,
     "hallwayMaxLength": 5,
-    "cameraPadding": 8
+    "cameraPadding": 8,
+    "damageDeviation": 0.2
 }
