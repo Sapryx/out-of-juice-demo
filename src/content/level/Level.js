@@ -49,7 +49,6 @@ class Level {
             }
         }
 
-        G.presenter.onAddRoom(room);
     }
 
     doesRoomOverlap(room, position) {
@@ -79,7 +78,6 @@ class Level {
             tileset
         });
 
-        G.presenter.onPlaceWall(position);
     }
 
     placeFloor(position, tileset) {
@@ -90,7 +88,6 @@ class Level {
             tileset
         });
 
-        G.presenter.onPlaceFloor(this, position);
     }
 
     resolveRuleTiles() {
@@ -136,7 +133,7 @@ class Level {
         }
 
         this.moveEntity(entity, position, undefined);
-        G.presenter.onAddEntity(entity);
+        BUS.__post(E.EntityAdded, entity);
     }
 
     removeEntity(entity) {
@@ -157,7 +154,7 @@ class Level {
         entity.prev = null;
         this._entityGrid.delete(math2d.getHash(entity.position));
 
-        G.presenter.onRemoveEntity(entity);
+        BUS.__post(E.EntityRemoved, entity);
     }
 
     moveEntity(entity, targetPosition, callback) {
@@ -172,7 +169,7 @@ class Level {
         this._entityGrid.delete(currentPositionHash);
         this._entityGrid.set(targetPositionHash, entity);
 
-        G.presenter.onEntityMoved(entity, callback);
+        BUS.__post(E.EntityMoved, entity, callback);
 
         return true;
     }

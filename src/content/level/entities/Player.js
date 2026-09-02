@@ -6,6 +6,6 @@ class Player extends GameEntity {
 
     _die() {
         super._die();
-        G.presenter.onPlayerDeath(this);
+        BUS.__post(E.PlayerDeath, this);
     }
 }

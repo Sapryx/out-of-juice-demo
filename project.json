@@ -40,8 +40,8 @@
             "core/GameConfig.js",
             "core/Colors.js",
             "core/G.js",
+            "core/E.js",
             "core/gameLoop.js",
-            "core/Presenter.js",
             "core/audio/GameAudio.js",
             "core/audio/SoundEffect.js",
             "core/audio/SFX.js",
@@ -101,7 +101,23 @@
 
             "bootstrap/loading.js",
             "bootstrap/contentBootstrapper.js",
-            "bootstrap/main.js"
+            "bootstrap/main.js",
+
+            "content/events/EntityAdded_AddView.js",
+            "content/events/EntityRemoved_RemoveView.js",
+            "content/events/EntitySpriteUpdated_UpdateSprite.js",
+            "content/events/EntityMoved_Animate.js",
+            "content/events/EntityAttack_Animate.js",
+            "content/events/EntityHurt_Animate.js",
+            "content/events/EntityHurt_DisplayHealthBarDamage.js",
+            "content/events/EntityHurt_DisplayDamageText.js",
+            "content/events/EntityHeal_UpdateHealthBar.js",
+            "content/events/PlayerDeath_OpenDeathWindow.js",
+            "content/events/ItemCollected_PlaySfx.js",
+            "content/events/PlayerInventoryChanged_RefreshWindow.js",
+            "content/events/LevelRender_Render.js",
+            "content/events/WindowOpen_UpdateSelection.js",
+            "content/events/WindowClose_UpdateSelection.js"
         ]
     },
     "options": {

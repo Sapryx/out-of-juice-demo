@@ -25,7 +25,7 @@ class GameWindowManager {
             windowNode.__close();
             this.current = null;
 
-            G.presenter.onWindowClose(windowNode);
+            BUS.__post(E.WindowClose, windowNode);
         }
     }
 
@@ -191,7 +191,7 @@ class GameWindowManager {
             });
 
             if(onOpened) onOpened(windowNode);
-            G.presenter.onWindowOpen(windowNode);
+            BUS.__post(E.WindowOpen, windowNode);
         });
     }
 }

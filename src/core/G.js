@@ -15,7 +15,6 @@ const G = {
     itemAssets: null,
     ruleTiles: null,
 
-    presenter: null,
     entityViews: null,
     gameView: null,
     windows: null,

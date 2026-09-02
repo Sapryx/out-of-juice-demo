@@ -12,7 +12,7 @@ class ItemEntity extends GameEntity {
 
     setItem(item) {
         this._item = item;
-        G.presenter.onEntitySpriteUpdated(this, item.asset.iconPath);
+        BUS.__post(E.EntitySpriteUpdated, this, item.asset.iconPath);
     }
 
     getInteractionAction(actor) {
@@ -23,6 +23,6 @@ class ItemEntity extends GameEntity {
         actor.inventory.addItem(this._item);
         this._die();
 
-        G.presenter.onItemCollected();
+        BUS.__post(E.ItemCollected);
     }
 }

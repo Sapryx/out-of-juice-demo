@@ -63,7 +63,7 @@ class Inventory {
 
         this._itemCount--;
         this._items[slot] = null;
-        G.presenter.onPlayerInventoryChanged();
+        BUS.__post(E.PlayerInventoryChanged);
 
         return true;
     }

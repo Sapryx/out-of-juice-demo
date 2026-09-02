@@ -24,7 +24,6 @@ function initializeState() {
     G.targeting = new PlayerTargeting();
 
     // Rendering
-    G.presenter = new Presenter();
     G.gameView = new GameView(scene);
     G.entityViews = new EntityViewManager();
     G.windows = new GameWindowManager();

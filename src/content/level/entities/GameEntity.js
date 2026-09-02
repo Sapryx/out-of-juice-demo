@@ -54,7 +54,8 @@ class GameEntity {
     attack(target, onHitTarget, onComplete) {
         this._state = EntityState.Attacking;
 
-        G.presenter.onEntityAttack(
+        BUS.__post(
+            E.EntityAttack,
             this,
             target,
             onHitTarget || (() => target.dealDamage(this._damage)),
@@ -70,7 +71,7 @@ class GameEntity {
 
     dealDamage(amount) {
         this._health = mmax(0, this._health - amount);
-        G.presenter.onEntityHurt(this, amount);
+        BUS.__post(E.EntityHurt, this, amount);
 
         if(this._health === 0) {
             this._die();
@@ -87,7 +88,7 @@ class GameEntity {
         }
 
         this._health = mmin(this._health + amount, this._maxHealth);
-        G.presenter.onEntityHeal(this);
+        BUS.__post(E.EntityHeal, this);
         return true;
     }
 
