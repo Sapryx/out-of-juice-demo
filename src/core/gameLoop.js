@@ -81,11 +81,13 @@ function fitCameraInLevelBounds(targetCamera) {
     const levelRight = G.level.bounds.right * G.config.tileSize;
     const levelTop = G.level.bounds.top * G.config.tileSize;
     const levelBottom = G.level.bounds.bottom * G.config.tileSize;
+    const cameraPadding = G.config.cameraPadding * G.config.tileSize;
+    const cameraZoom = targetCamera.__zoom;
 
     const cameraHalfWidth = (targetCamera.__right - targetCamera.__left) / 2;
     const cameraHalfHeight = (targetCamera.__top - targetCamera.__bottom) / 2;
-    const horizontalOffset = cameraHalfWidth - G.config.cameraPadding * G.config.tileSize;
-    const verticalOffset = cameraHalfHeight - G.config.cameraPadding * G.config.tileSize;
+    const horizontalOffset = (cameraHalfWidth - cameraPadding) / cameraZoom;
+    const verticalOffset = (cameraHalfHeight - cameraPadding) / cameraZoom;
 
     targetCamera.__x = clamp(
         targetCamera.__x,
