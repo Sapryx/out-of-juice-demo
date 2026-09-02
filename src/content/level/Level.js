@@ -52,6 +52,19 @@ class Level {
         G.presenter.onAddRoom(room);
     }
 
+    doesRoomOverlap(room, position) {
+        for(const tile of room.getTiles()) {
+            const globalPosition = math2d.add(tile.position, position);
+            const positionHash = math2d.getHash(globalPosition);
+
+            if(this._tiles.has(positionHash)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     placeWall(position, ruleTileName, tileset) {
         if(ruleTileName == null) {
             throw new Error(`Cannot place wall at ${format(position)} without a Rule Tile`);
@@ -82,7 +95,7 @@ class Level {
 
     resolveRuleTiles() {
         for(const tile of this._tiles.values()) {
-            if(tile.ruleTileName == null) {
+            if(!tile.ruleTileName) {
                 continue;
             }
 

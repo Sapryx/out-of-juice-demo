@@ -4,6 +4,25 @@ class LevelGenerator {
     }
 
     generateLevel() {
+        while(true) {
+            const level = this._tryGenerateLevel();
+
+            if(level) {
+                level.resolveRuleTiles();
+                level.recalculateBounds();
+                G.presenter.onRenderLevel(level);
+                G.gameView.levelView.bakeTiles();
+
+                return level;
+            }
+
+            console.warn("Generated level was invalid. Restarting...");
+        }
+    }
+
+    _tryGenerateLevel() {
+        this._roomsToProcess = new Queue();
+
         const level = new Level();
         const levelType = G.levelTypes.getRandom();
         const startRoomNode = levelType.getRooms().find(roomNode => roomNode.type === "start");
@@ -31,30 +50,23 @@ class LevelGenerator {
                 const targetDoorCount = roomNode.connectedNodes.length;
                 const roomMatch = this._findMatchingRoomAsset(roomAssetsOfType, usedAssets, targetRoom, targetDoorCount);
 
-                if(roomMatch == null) {
+                if(!roomMatch) {
                     console.warn(`Could not find a matching asset of type "${roomNode.type}" for "${targetRoom.asset.id}"`);
                     continue;
                 }
 
-                this._appendRoom(level, roomMatch, roomNode);
+                if(!this._appendRoom(level, roomMatch, roomNode)) {
+                    return null;
+                }
 
                 usedAssets.add(roomMatch.matchedRoomAsset);
                 processedNodes.add(roomNode);
             }
         }
 
-        level.resolveRuleTiles();
-        level.recalculateBounds();
-        G.presenter.onRenderLevel(level);
-        G.gameView.levelView.bakeTiles();
         return level;
     }
 
-    /**
-     * @param {Level} level
-     * @param {Room} room
-     * @param {Vector2} position
-     */
     _placeRoom(level, room, position) {
         console.log(`Placing "${room.asset.id}" at (${position.x}; ${position.y})`);
 
@@ -63,14 +75,6 @@ class LevelGenerator {
         this._roomsToProcess.enqueue(room);
     }
 
-    /**
-     * @param {Array<RoomAsset>} assets
-     * @param {Set<RoomAsset>} usedAssets
-     * @param {Room} targetRoom
-     * @param {int} doorCount
-     * @returns {RoomMatch | null}
-     * @private
-     */
     _findMatchingRoomAsset(assets, usedAssets, targetRoom, doorCount) {
         for(const candidateAsset of assets) {
             const doorCountMatches = candidateAsset.getDoors().length === doorCount;
@@ -85,7 +89,7 @@ class LevelGenerator {
                 const rotatedDoors = candidateAsset.getDoors(rotation);
                 const doorPair = this._matchDoors(targetRoom.getFreeDoors(), rotatedDoors);
 
-                if(doorPair != null) {
+                if(doorPair) {
                     const [door1, door2] = doorPair;
                     return new RoomMatch(targetRoom, candidateAsset, door1, door2, rotation);
                 }
@@ -95,18 +99,10 @@ class LevelGenerator {
         return null;
     }
 
-    /**
-     * @param {Array<Door>} doors1
-     * @param {Array<Door>} doors2
-     * @returns {[Door, Door] | null}
-     */
     _matchDoors(doors1, doors2) {
         for(const door1 of doors1) {
             for(const door2 of doors2) {
-                const doorsMatch = math2d.equal(
-                    door2.direction,
-                    math2d.neg(door1.direction)
-                );
+                const doorsMatch = math2d.equal(door2.direction, math2d.neg(door1.direction));
 
                 if(doorsMatch) {
                     return [door1, door2];
@@ -122,6 +118,11 @@ class LevelGenerator {
         const roomOffset = this._calculateRoomOffset(roomMatch.targetDoor, roomMatch.matchedDoor, hallwayLength);
         const roomPosition = math2d.add(roomMatch.targetRoom.position, roomOffset);
         const room = new Room(roomNode, roomMatch.matchedRoomAsset, roomMatch.matchedRotation);
+
+        if(level.doesRoomOverlap(room, roomPosition)) {
+            console.warn(`Room "${room.asset.id}" overlaps existing tiles`);
+            return false;
+        }
 
         this._placeRoom(level, room, roomPosition);
 
@@ -141,6 +142,7 @@ class LevelGenerator {
 
         roomMatch.targetRoom.reserveDoor(roomMatch.targetDoor);
         room.reserveDoor(roomMatch.matchedDoor);
+        return true;
     }
 
     _calculateRoomOffset(door1, door2, hallwayLength) {
