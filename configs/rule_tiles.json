@@ -11,398 +11,415 @@
       },
       "rules": [
         {
-          "id": "rt_l1r8serimtir52by",
+          "id": "rt_tjhdk679mtk34enk",
           "tile": {
-            "x": 0,
-            "y": 2
+            "x": 3,
+            "y": 0
           },
           "dirs": {
-            "N": "this",
             "E": "this",
             "S": "this",
-            "W": "empty",
-            "NE": "not",
-            "NW": "empty",
+            "W": "any",
+            "NW": "any",
+            "N": "any",
+            "SE": "empty"
+          }
+        },
+        {
+          "id": "rt_ce192emsmtk204oy",
+          "tile": {
+            "x": 0,
+            "y": 0
+          },
+          "dirs": {
+            "E": "this",
+            "S": "this",
+            "SE": "not",
+            "W": "any",
+            "N": "any",
+            "SW": "any",
+            "NW": "any",
+            "NE": "any"
+          }
+        },
+        {
+          "id": "rt_e5o291xdmtk34jhl",
+          "tile": {
+            "x": 4,
+            "y": 0
+          },
+          "dirs": {
+            "W": "this",
+            "S": "this",
+            "E": "any",
+            "NE": "any",
+            "N": "any",
             "SW": "empty"
           }
         },
         {
-          "id": "rt_434vds25mtiq4pre",
+          "id": "rt_l90wcnzimtk2uqdk",
           "tile": {
-            "x": 0,
-            "y": 2
-          },
-          "dirs": {
-            "N": "this",
-            "NE": "not",
-            "W": "empty",
-            "E": "this",
-            "S": "empty"
-          }
-        },
-        {
-          "id": "rt_ugrpwl8vmtiosb9b",
-          "tile": {
-            "x": 1,
+            "x": 2,
             "y": 0
           },
           "dirs": {
-            "N": "empty",
             "W": "this",
-            "E": "this",
-            "S": "not"
-          }
-        },
-        {
-          "id": "rt_c0oakx3umtiotrqr",
-          "tile": {
-            "x": 1,
-            "y": 0
-          },
-          "dirs": {
-            "N": "empty",
-            "E": "this",
-            "S": "not"
-          }
-        },
-        {
-          "id": "rt_rwu3pformtioublj",
-          "tile": {
-            "x": 1,
-            "y": 0
-          },
-          "dirs": {
-            "N": "empty",
-            "W": "this",
-            "S": "not"
-          }
-        },
-        {
-          "id": "rt_8q2sv3aamtioss6c",
-          "tile": {
-            "x": 1,
-            "y": 2
-          },
-          "dirs": {
-            "N": "not",
-            "W": "this",
-            "E": "this",
-            "S": "empty"
-          }
-        },
-        {
-          "id": "rt_ts6b0arfmtir74lg",
-          "tile": {
-            "x": 1,
-            "y": 2
-          },
-          "dirs": {
-            "N": "not",
-            "E": "this",
-            "S": "empty"
-          }
-        },
-        {
-          "id": "rt_yvab80rvmtir75b2",
-          "tile": {
-            "x": 1,
-            "y": 2
-          },
-          "dirs": {
-            "N": "not",
-            "W": "this",
-            "S": "empty"
-          }
-        },
-        {
-          "id": "rt_t2i089lcmtipb66e",
-          "tile": {
-            "x": 2,
-            "y": 1
-          },
-          "dirs": {
-            "N": "this",
-            "W": "not",
-            "E": "empty",
-            "S": "this"
-          }
-        },
-        {
-          "id": "rt_b35x3phumtir7ygp",
-          "tile": {
-            "x": 2,
-            "y": 1
-          },
-          "dirs": {
-            "N": "this",
-            "W": "not",
-            "E": "empty"
-          }
-        },
-        {
-          "id": "rt_74jcnj23mtir8202",
-          "tile": {
-            "x": 2,
-            "y": 1
-          },
-          "dirs": {
             "S": "this",
-            "W": "not",
-            "E": "empty"
+            "SW": "not",
+            "SE": "any",
+            "NE": "any",
+            "E": "any",
+            "N": "any",
+            "NW": "any"
           }
         },
         {
-          "id": "rt_ek1uw2wfmtipbbmx",
-          "tile": {
-            "x": 0,
-            "y": 1
-          },
-          "dirs": {
-            "N": "this",
-            "W": "empty",
-            "E": "not",
-            "S": "this"
-          }
-        },
-        {
-          "id": "rt_25mtor3gmtioup7f",
-          "tile": {
-            "x": 0,
-            "y": 1
-          },
-          "dirs": {
-            "N": "this",
-            "W": "empty",
-            "E": "not",
-            "S": "any"
-          }
-        },
-        {
-          "id": "rt_hntkma8kmtir8n5u",
-          "tile": {
-            "x": 0,
-            "y": 1
-          },
-          "dirs": {
-            "S": "this",
-            "W": "empty",
-            "E": "not"
-          }
-        },
-        {
-          "id": "rt_yzc736tpmtipfe4w",
+          "id": "rt_32urpbl6mtk31gb7",
           "tile": {
             "x": 3,
             "y": 1
           },
           "dirs": {
+            "N": "this",
+            "E": "this",
             "NW": "any",
-            "N": "this",
-            "NE": "empty",
-            "W": "not",
-            "E": "this",
+            "W": "any",
             "SW": "any",
-            "S": "not"
+            "S": "any",
+            "NE": "empty"
           }
         },
         {
-          "id": "rt_fobczttomtipod7z",
-          "tile": {
-            "x": 3,
-            "y": 1
-          },
-          "dirs": {
-            "N": "this",
-            "NE": "this",
-            "W": "empty",
-            "E": "this",
-            "SW": "any",
-            "S": "empty"
-          }
-        },
-        {
-          "id": "rt_rssefnzxmtipqxpm",
+          "id": "rt_x7s66xyfmtk2v03s",
           "tile": {
             "x": 0,
             "y": 2
           },
           "dirs": {
+            "E": "this",
             "N": "this",
             "NE": "not",
-            "W": "any",
-            "E": "this",
+            "S": "any",
+            "SE": "any",
             "SW": "any",
-            "S": "any"
+            "W": "any",
+            "NW": "any"
           }
         },
         {
-          "id": "rt_846s7kmnmtiq3fgm",
-          "tile": {
-            "x": 2,
-            "y": 2
-          },
-          "dirs": {
-            "NW": "not",
-            "N": "this",
-            "W": "this",
-            "E": "empty",
-            "S": "empty"
-          }
-        },
-        {
-          "id": "rt_977nkf1amtipeifu",
+          "id": "rt_3lxb8zozmtk3362q",
           "tile": {
             "x": 4,
             "y": 1
           },
           "dirs": {
-            "NW": "not",
             "N": "this",
             "W": "this",
+            "S": "any",
+            "SE": "any",
+            "E": "any",
+            "NW": "empty"
+          }
+        },
+        {
+          "id": "rt_svaojcksmtk2v68z",
+          "tile": {
+            "x": 2,
+            "y": 2
+          },
+          "dirs": {
+            "N": "this",
+            "W": "this",
+            "NW": "not",
+            "NE": "any",
+            "E": "any",
+            "SE": "any",
+            "S": "any",
+            "SW": "any"
+          }
+        },
+        {
+          "id": "rt_23km8bugmtk2iwnk",
+          "tile": {
+            "x": 0,
+            "y": 1
+          },
+          "dirs": {
+            "N": "this",
+            "S": "this",
+            "NW": "any",
+            "W": "empty",
+            "SW": "any",
             "E": "not",
-            "S": "not",
+            "NE": "any",
             "SE": "any"
           }
         },
         {
-          "id": "rt_89n0qqmkmtipwvup",
+          "id": "rt_46m639xbmtk37uto",
           "tile": {
-            "x": 4,
+            "x": 0,
+            "y": 1
+          },
+          "dirs": {
+            "N": "this",
+            "E": "not",
+            "NW": "empty",
+            "W": "empty",
+            "SW": "empty"
+          }
+        },
+        {
+          "id": "rt_r5otoetumtk380iy",
+          "tile": {
+            "x": 0,
+            "y": 1
+          },
+          "dirs": {
+            "NW": "empty",
+            "W": "empty",
+            "SW": "empty",
+            "S": "this",
+            "E": "not"
+          }
+        },
+        {
+          "id": "rt_9d67dwbamtk357ls",
+          "tile": {
+            "x": 0,
             "y": 1
           },
           "dirs": {
             "NW": "this",
-            "N": "this",
             "W": "this",
-            "E": "empty",
-            "S": "empty"
+            "SW": "this",
+            "N": "this",
+            "S": "this",
+            "E": "not"
           }
         },
         {
-          "id": "rt_uyin89hlmtiot8ke",
+          "id": "rt_1tc7njh2mtk2lrmh",
           "tile": {
             "x": 2,
+            "y": 1
+          },
+          "dirs": {
+            "N": "this",
+            "S": "this",
+            "W": "not",
+            "NE": "any",
+            "E": "empty",
+            "SE": "any"
+          }
+        },
+        {
+          "id": "rt_4npsubj9mtk37d9t",
+          "tile": {
+            "x": 2,
+            "y": 1
+          },
+          "dirs": {
+            "N": "this",
+            "W": "not",
+            "NE": "empty",
+            "E": "empty",
+            "SE": "empty"
+          }
+        },
+        {
+          "id": "rt_td7l0ipzmtk37kc2",
+          "tile": {
+            "x": 2,
+            "y": 1
+          },
+          "dirs": {
+            "S": "this",
+            "W": "not",
+            "NE": "empty",
+            "E": "empty",
+            "SE": "empty"
+          }
+        },
+        {
+          "id": "rt_mht1qtjumtk35iaw",
+          "tile": {
+            "x": 2,
+            "y": 1
+          },
+          "dirs": {
+            "N": "this",
+            "S": "this",
+            "W": "not",
+            "NE": "this",
+            "E": "this",
+            "SE": "this"
+          }
+        },
+        {
+          "id": "rt_9p6cuwr4mtk2t765",
+          "tile": {
+            "x": 1,
             "y": 2
           },
           "dirs": {
-            "NW": "not",
-            "N": "this",
+            "E": "this",
             "W": "this",
-            "E": "any",
-            "S": "any"
+            "S": "empty",
+            "SW": "any",
+            "SE": "any",
+            "N": "not"
           }
         },
         {
-          "id": "rt_kieep6e4mtip01do",
+          "id": "rt_9dqc2bvnmtk36x8v",
           "tile": {
-            "x": 0,
-            "y": 0
+            "x": 1,
+            "y": 2
           },
           "dirs": {
-            "N": "empty",
-            "W": "empty",
-            "E": "this",
-            "S": "this",
-            "SE": "not"
+            "E": "any",
+            "N": "not",
+            "SE": "empty",
+            "S": "empty",
+            "SW": "empty",
+            "W": "this"
           }
         },
         {
-          "id": "rt_k545j2o9mtiq7esu",
+          "id": "rt_d8uf7cdpmtk3760v",
           "tile": {
-            "x": 3,
-            "y": 0
+            "x": 1,
+            "y": 2
           },
           "dirs": {
             "N": "not",
-            "W": "not",
             "E": "this",
-            "S": "this",
-            "SE": "not"
+            "SW": "empty",
+            "S": "empty",
+            "SE": "empty"
           }
         },
         {
-          "id": "rt_wku8ijbbmtipkac0",
+          "id": "rt_qs7831avmtk2zg2k",
+          "tile": {
+            "x": 1,
+            "y": 2
+          },
+          "dirs": {
+            "E": "this",
+            "W": "this",
+            "N": "not",
+            "SE": "this",
+            "S": "this",
+            "SW": "this"
+          }
+        },
+        {
+          "id": "rt_mwl3q6ljmtk2tesw",
+          "tile": {
+            "x": 1,
+            "y": 0
+          },
+          "dirs": {
+            "E": "this",
+            "W": "this",
+            "S": "not",
+            "NE": "any",
+            "N": "empty",
+            "NW": "any"
+          }
+        },
+        {
+          "id": "rt_ygfkxspxmtk361kl",
+          "tile": {
+            "x": 1,
+            "y": 0
+          },
+          "dirs": {
+            "NE": "empty",
+            "N": "empty",
+            "NW": "empty",
+            "W": "this",
+            "S": "not"
+          }
+        },
+        {
+          "id": "rt_wnb66r0zmtk366cp",
+          "tile": {
+            "x": 1,
+            "y": 0
+          },
+          "dirs": {
+            "N": "empty",
+            "NE": "empty",
+            "NW": "empty",
+            "E": "this",
+            "S": "not"
+          }
+        },
+        {
+          "id": "rt_uy9ll0b6mtk2yh7q",
+          "tile": {
+            "x": 1,
+            "y": 0
+          },
+          "dirs": {
+            "S": "not",
+            "W": "this",
+            "E": "this",
+            "N": "this",
+            "NE": "this",
+            "NW": "this"
+          }
+        },
+        {
+          "id": "rt_j6nbev5jmtk3nr9d",
           "tile": {
             "x": 3,
             "y": 0
           },
           "dirs": {
-            "NW": "any",
-            "N": "empty",
-            "NE": "any",
-            "W": "empty",
             "E": "this",
-            "SW": "any",
             "S": "this",
             "SE": "this"
           }
         },
         {
-          "id": "rt_teeluob9mtiotbj1",
+          "id": "rt_1wv1rn7omtk3okyj",
           "tile": {
-            "x": 0,
+            "x": 4,
             "y": 0
           },
           "dirs": {
-            "N": "any",
-            "W": "any",
-            "E": "this",
             "S": "this",
-            "SE": "not"
+            "W": "this",
+            "SW": "this"
           }
         },
         {
-          "id": "rt_r789cujymtiq9wj0",
+          "id": "rt_x2958v62mtk3op1r",
           "tile": {
-            "x": 2,
-            "y": 0
+            "x": 3,
+            "y": 1
           },
           "dirs": {
-            "N": "empty",
-            "W": "this",
-            "E": "empty",
-            "SW": "not",
-            "S": "this"
+            "E": "this",
+            "NE": "this",
+            "N": "this"
           }
         },
         {
-          "id": "rt_5rnofu9xmtiqa6xp",
-          "tile": {
-            "x": 4,
-            "y": 0
-          },
-          "dirs": {
-            "N": "not",
-            "W": "this",
-            "E": "not",
-            "SW": "not",
-            "S": "this"
-          }
-        },
-        {
-          "id": "rt_echjnowkmtiqaaz1",
+          "id": "rt_819rh2a7mtk3osgd",
           "tile": {
             "x": 4,
-            "y": 0
+            "y": 1
           },
           "dirs": {
-            "N": "empty",
-            "W": "this",
-            "E": "empty",
-            "SW": "this",
-            "S": "this"
-          }
-        },
-        {
-          "id": "rt_ooh44excmtiqajms",
-          "tile": {
-            "x": 2,
-            "y": 0
-          },
-          "dirs": {
-            "W": "this",
-            "SW": "not",
-            "S": "this"
+            "N": "this",
+            "NW": "this",
+            "W": "this"
           }
         }
       ]
