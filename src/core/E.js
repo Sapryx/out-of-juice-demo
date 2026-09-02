@@ -3,13 +3,13 @@ const E = Object.freeze({
     EntityRemoved: "EntityRemoved",
     EntitySpriteUpdated: "EntitySpriteUpdated",
     EntityMoved: "EntityMoved",
-    EntityAttack: "EntityAttack",
+    EntityAttacked: "EntityAttacked",
     EntityHurt: "EntityHurt",
-    EntityHeal: "EntityHeal",
-    PlayerDeath: "PlayerDeath",
+    EntityHealed: "EntityHealed",
+    PlayerDied: "PlayerDied",
     ItemCollected: "ItemCollected",
     PlayerInventoryChanged: "PlayerInventoryChanged",
-    LevelRender: "LevelRender",
-    WindowOpen: "WindowOpen",
-    WindowClose: "WindowClose"
+    LevelCreated: "LevelCreated",
+    WindowOpened: "WindowOpened",
+    WindowClosed: "WindowClosed"
 });

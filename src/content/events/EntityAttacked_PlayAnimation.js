@@ -1,4 +1,4 @@
-BUS.__addEventListener(E.EntityAttack, (type, attacker, target, onHitTarget, onComplete) => {
+BUS.__addEventListener(E.EntityAttacked, (type, attacker, target, onHitTarget, onComplete) => {
     const attackerView = G.entityViews.get(attacker);
     const targetPosition = math2d.flipY(target.position);
     const startPosition = math2d.flipY(attacker.position);

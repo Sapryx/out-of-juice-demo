@@ -1,4 +1,4 @@
-BUS.__addEventListener(E.LevelRender, (type, level) => {
+BUS.__addEventListener(E.LevelCreated, (type, level) => {
     for(const tile of level.getTiles()) {
         const tileNode = new Node();
         tileNode.__img = "white";
@@ -17,4 +17,6 @@ BUS.__addEventListener(E.LevelRender, (type, level) => {
 
         G.gameView.levelView.addBakedNode(tileNode);
     }
+
+    G.gameView.levelView.bakeTiles();
 });

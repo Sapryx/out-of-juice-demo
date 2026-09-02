@@ -10,8 +10,7 @@ class LevelGenerator {
             if(level) {
                 level.resolveRuleTiles();
                 level.recalculateBounds();
-                BUS.__post(E.LevelRender, level);
-                G.gameView.levelView.bakeTiles();
+                BUS.__post(E.LevelCreated, level);
 
                 return level;
             }

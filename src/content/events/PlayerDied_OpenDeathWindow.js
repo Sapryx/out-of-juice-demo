@@ -1,8 +1,7 @@
-BUS.__addEventListener(E.PlayerDeath, (type, player) => {
+BUS.__addEventListener(E.PlayerDied, (type, player) => {
     if(G.windows.hasOpenWindow) {
         G.windows.closeCurrentWindow();
     }
 
-    G.player = null;
     G.windows.openDeathWindow();
 });

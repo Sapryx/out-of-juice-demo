@@ -55,11 +55,12 @@ const Anims = {
         _setTimeout(() => node.sprite.__color = 0xFFFFFF, duration);
     },
 
-    healthBarDamage(node, duration) {
+    animatePlayerHealthBar() {
+        const node = G.gameView.gui.node.health_bar.health_bar_fill;
         const target = G.player.health / G.player.maxHealth;
 
         anim(node, {
             __width: target
-        }, duration, undefined, easeQuadO);
-    }
+        }, 0.1, undefined, easeQuadO);
+    },
 };

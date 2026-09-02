@@ -104,20 +104,23 @@
             "bootstrap/main.js",
 
             "content/events/EntityAdded_AddView.js",
-            "content/events/EntityRemoved_RemoveView.js",
-            "content/events/EntitySpriteUpdated_UpdateSprite.js",
-            "content/events/EntityMoved_Animate.js",
-            "content/events/EntityAttack_Animate.js",
-            "content/events/EntityHurt_Animate.js",
-            "content/events/EntityHurt_DisplayHealthBarDamage.js",
+            "content/events/EntityAttacked_PlayAnimation.js",
+            "content/events/EntityHealed_AnimateHealthBar.js",
+            "content/events/EntityHurt_AnimateHealthBar.js",
             "content/events/EntityHurt_DisplayDamageText.js",
-            "content/events/EntityHeal_UpdateHealthBar.js",
-            "content/events/PlayerDeath_OpenDeathWindow.js",
+            "content/events/EntityHurt_PlayAnimation.js",
+            "content/events/EntityMoved_PlayAnimation.js",
+            "content/events/EntityRemoved_RemoveView.js",
+            "content/events/EntitySpriteUpdated_UpdateView.js",
+
             "content/events/ItemCollected_PlaySfx.js",
+            "content/events/LevelCreated_ResolveTileTexture.js",
+
+            "content/events/PlayerDied_OpenDeathWindow.js",
             "content/events/PlayerInventoryChanged_RefreshWindow.js",
-            "content/events/LevelRender_Render.js",
-            "content/events/WindowOpen_UpdateSelection.js",
-            "content/events/WindowClose_UpdateSelection.js"
+
+            "content/events/WindowClosed_ShowUiElements.js",
+            "content/events/WindowOpened_HideUiElements.js"
         ]
     },
     "options": {

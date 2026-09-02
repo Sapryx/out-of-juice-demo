@@ -55,7 +55,7 @@ class GameEntity {
         this._state = EntityState.Attacking;
 
         BUS.__post(
-            E.EntityAttack,
+            E.EntityAttacked,
             this,
             target,
             onHitTarget || (() => target.dealDamage(this._damage)),
@@ -88,7 +88,7 @@ class GameEntity {
         }
 
         this._health = mmin(this._health + amount, this._maxHealth);
-        BUS.__post(E.EntityHeal, this);
+        BUS.__post(E.EntityHealed, this);
         return true;
     }
 
