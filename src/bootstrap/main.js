@@ -10,8 +10,6 @@ BUS.__addEventListener(
 );
 
 function initializeState() {
-    const levelGenerator = new LevelGenerator();
-
     // Content
     G.defs = new Defs();
     G.roomAssets = new RoomAssetRegistry();
@@ -20,7 +18,6 @@ function initializeState() {
     G.ruleTiles = new RuleTileRegistry();
 
     // Systems
-    G.factory = new JuiceFactory(levelGenerator);
     G.input = new Input();
     G.turnManager = new TurnManager();
     G.targeting = new PlayerTargeting();
@@ -42,26 +39,24 @@ function registerContent() {
 
 function initializeGame() {
     document.body.style.cursor = "none";
-    G.input.init();
-    G.gameView.init();
 
     updatable.__push(gameLoop);
 }
 
 function startGame() {
+    G.input.init();
     setupLevel();
 }
 
 function restartGame() {
-    G.gameView.reset();
-    G.entityViews.cleanup();
-
     setupLevel();
 }
 
 function setupLevel() {
+    const levelGenerator = new LevelGenerator();
+
     G.player = G.defs.create("player");
+    G.factory = new JuiceFactory(levelGenerator, 2);
     G.factory.generateLevels();
-    // G.factory.switchLevel(0);
     G.turnManager.setEntity(G.player);
 }

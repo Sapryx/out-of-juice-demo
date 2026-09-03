@@ -4,6 +4,7 @@ class ExitEntity extends GameEntity {
     }
 
     interactWith(actor) {
-        restartGame();
+        G.factory.moveToNextLevel();
+        // restartGame();
     }
 }

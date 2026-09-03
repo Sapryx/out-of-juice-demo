@@ -14,9 +14,28 @@ class Level {
         return this._bounds;
     }
 
-    initRooms() {
+    spawnEntities() {
         for(const room of this._rooms) {
-            room.init(this);
+            for(const spawnPoint of room.getSpawnPoints()) {
+                if(spawnPoint.def === "player") {
+                    continue;
+                }
+
+                const entity = G.defs.create(spawnPoint.def);
+                const globalPosition = math2d.add(room.position, spawnPoint.position);
+
+                if(spawnPoint.def === "exit_entity") {
+                    console.log(globalPosition);
+                    this._playerSpawnPoint.position = math2d.add(globalPosition, new Vector2(-1, 0));
+                }
+
+                this.addEntity(entity, globalPosition);
+
+                if(entity instanceof ItemEntity) {
+                    const itemAsset = G.itemAssets.get(spawnPoint.item);
+                    entity.setItem(new Item(itemAsset));
+                }
+            }
         }
     }
 

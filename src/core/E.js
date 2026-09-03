@@ -11,7 +11,7 @@ const E = Object.freeze({
     PlayerDied: "PlayerDied",
     ItemCollected: "ItemCollected",
     PlayerInventoryChanged: "PlayerInventoryChanged",
-    LevelCreated: "LevelCreated",
+    LevelSwitched: "LevelSwitched",
     WindowOpened: "WindowOpened",
     WindowClosed: "WindowClosed"
 });

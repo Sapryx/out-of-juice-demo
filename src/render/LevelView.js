@@ -40,7 +40,9 @@ class LevelView {
     }
 
     cleanup() {
-        this.node.__removeFromParent();
+        if(this.node) {
+            this.node.__removeFromParent();
+        }
     }
 
     /**

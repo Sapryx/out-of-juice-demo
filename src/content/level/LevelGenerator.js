@@ -10,7 +10,6 @@ class LevelGenerator {
             if(level) {
                 level.resolveRuleTiles();
                 level.recalculateBounds();
-                BUS.__post(E.LevelCreated, level);
 
                 return level;
             }

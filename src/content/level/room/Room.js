@@ -23,24 +23,6 @@ class Room {
         return this.asset.getSpawnPoints(this.rotation);
     }
 
-    init(level) {
-        for(const spawnPoint of this.getSpawnPoints()) {
-            if(spawnPoint.def === "player") {
-                continue;
-            }
-
-            const entity = G.defs.create(spawnPoint.def);
-            const globalPosition = math2d.add(this.position, spawnPoint.position);
-
-            level.addEntity(entity, globalPosition);
-
-            if(entity instanceof ItemEntity) {
-                const itemAsset = G.itemAssets.get(spawnPoint.item);
-                entity.setItem(new Item(itemAsset));
-            }
-        }
-    }
-
     getFreeDoors() {
         return this._freeDoors;
     }

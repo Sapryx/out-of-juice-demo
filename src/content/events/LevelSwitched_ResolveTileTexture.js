@@ -1,4 +1,7 @@
-BUS.__addEventListener(E.LevelCreated, (type, level) => {
+BUS.__addEventListener(E.LevelSwitched, (type, level) => {
+    G.gameView.reset();
+    G.entityViews.cleanup();
+
     for(const tile of level.getTiles()) {
         const tileNode = new Node();
         tileNode.__img = "white";
