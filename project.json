@@ -165,6 +165,8 @@
             "entities/exit_entity.json",
 
             "items/bandage.json",
+            "items/juice_bottle.json",
+            "items/juice_jar.json",
 
             "level_types/level_type_1.json",
 

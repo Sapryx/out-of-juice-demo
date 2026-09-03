@@ -6,7 +6,9 @@ const ENTITY_FACTORIES = [
 ];
 
 const ITEM_FACTORIES = [
-    ["bandage", BandageItem]
+    ["bandage", BandageItem],
+    ["juice_bottle", JuiceBottleItem],
+    ["juice_jar", JuiceJarItem],
 ];
 
 const LEVEL_TYPE_COUNT = 1;
