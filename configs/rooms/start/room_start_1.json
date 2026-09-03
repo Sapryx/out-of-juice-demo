@@ -2,7 +2,7 @@
   "format": "simple-tile-editor",
   "version": 3,
   "tileset": {
-    "name": "wall_tileset.png",
+    "name": "first_floor_tileset.png",
     "width": 80,
     "height": 48,
     "tileWidth": 16,
