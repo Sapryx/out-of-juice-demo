@@ -6,7 +6,6 @@ class JuiceFactory {
 
         this.levelGenerator = levelGenerator;
         this.levelCount = levelCount;
-        this.level = null;
         this.levels = [];
         this.currentLevelIndex = 0;
     }
@@ -16,10 +15,9 @@ class JuiceFactory {
     }
 
     generateLevels() {
-        const level = this.levelGenerator.generateLevel();
-        this.level = level;
-        this.levels[0] = level;
-        this.levels[1] = this.levelGenerator.generateLevel();
+        for(let i = 0; i < this.levelCount; i++) {
+            this.levels[i] = this.levelGenerator.generateLevel();
+        }
 
         this._switchLevel(0);
     }
