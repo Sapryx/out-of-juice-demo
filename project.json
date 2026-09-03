@@ -117,6 +117,7 @@
             "content/events/EntitySpriteUpdated_UpdateView.js",
 
             "content/events/ItemCollected_PlaySfx.js",
+            "content/events/LevelSwitched_ResetPlayerTargeting.js",
             "content/events/LevelSwitched_ResolveTileTexture.js",
 
             "content/events/PlayerDied_OpenDeathWindow.js",
