@@ -82,7 +82,8 @@
                 ],
                 "__text": {
                   "__fontsize": 10,
-                  "__align": 0
+                  "__align": 0,
+                  "__autowrap": 1
                 }
               },
               "buttons": {
