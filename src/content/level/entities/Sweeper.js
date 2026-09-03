@@ -6,6 +6,10 @@ class Sweeper extends GameEntity {
         this._detectionRange = config.detectionRange;
     }
 
+    getInteractionName() {
+        return "attack";
+    }
+
     getInteractionAction(actor) {
         return new AttackAction(actor, this);
     }

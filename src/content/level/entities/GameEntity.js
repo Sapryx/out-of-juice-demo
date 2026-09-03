@@ -117,6 +117,10 @@ class GameEntity {
         return this.moveTo(math2d.add(this.position, offset));
     }
 
+    getInteractionName() {
+        return "interact";
+    }
+
     interactWith(actor) {
 
     }

@@ -10,9 +10,8 @@ class ItemEntity extends GameEntity {
         return this._item;
     }
 
-    setItem(item) {
-        this._item = item;
-        BUS.__post(E.EntitySpriteUpdated, this, item.asset.iconPath);
+    getInteractionName() {
+        return "collect";
     }
 
     getInteractionAction(actor) {
@@ -24,5 +23,10 @@ class ItemEntity extends GameEntity {
         this._die();
 
         BUS.__post(E.ItemCollected);
+    }
+
+    setItem(item) {
+        this._item = item;
+        BUS.__post(E.EntitySpriteUpdated, this, item.asset.iconPath);
     }
 }
