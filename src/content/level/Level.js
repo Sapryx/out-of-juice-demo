@@ -1,12 +1,12 @@
 class Level {
     constructor() {
+        this.tileset = null;
         this._rootEntity = null;
         this._entityGrid = new Map();
         this._colliders = new Set();
         this._rooms = [];
         this._tiles = new Map();
         this._playerSpawnPoint = null;
-        this._tileset = null;
         this._bounds = new RectBounds();
     }
 
@@ -23,11 +23,6 @@ class Level {
 
                 const entity = G.defs.create(spawnPoint.def);
                 const globalPosition = math2d.add(room.position, spawnPoint.position);
-
-                // if(spawnPoint.def === "exit_entity") {
-                //     console.log(globalPosition);
-                //     this._playerSpawnPoint.position = math2d.add(globalPosition, new Vector2(-1, 0));
-                // }
 
                 this.addEntity(entity, globalPosition);
 
@@ -46,8 +41,8 @@ class Level {
     addRoom(room) {
         this._rooms.push(room);
 
-        if(!this._tileset) {
-            this._tileset = room.asset.tileset;
+        if(!this.tileset) {
+            this.tileset = room.asset.tileset;
         }
 
         if(room.node.type === RoomType.Start) {
@@ -60,7 +55,7 @@ class Level {
                 position: tileGlobalPosition,
                 textureOffset: tile.textureOffset,
                 ruleTileName: tile.ruleTileName,
-                tileset: room.asset.tileset
+                tileset: this.tileset
             });
 
             if(tile.isWall) {

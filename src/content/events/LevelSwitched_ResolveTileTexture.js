@@ -21,7 +21,7 @@ function fillBackground(level) {
             node.__size = [G.config.tileSize, G.config.tileSize];
             node.__ofs = math2d.flipY(math2d.mul(position, G.config.tileSize));
 
-            level.getTiles()[0].tileset.applyToNode(node, 4, 2);
+            level.tileset.applyToNode(node, 4, 2);
             G.gameView.levelView.addBakedNode(node);
         }
     }
@@ -36,8 +36,8 @@ function drawTiles(level) {
         tileNode.__color = 0xFFFFFF;
         tileNode.__text = null;
 
-        if(tile.tileset != null && tile.textureOffset != null) {
-            tile.tileset.applyToNode(
+        if(level.tileset && tile.textureOffset) {
+            level.tileset.applyToNode(
                 tileNode,
                 tile.textureOffset.x,
                 tile.textureOffset.y

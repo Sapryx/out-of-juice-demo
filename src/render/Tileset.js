@@ -71,6 +71,17 @@ class Tileset {
         };
     }
 
+    // Awful hack, replace with a tileset registry
+    clone() {
+        return new Tileset(
+            this.imageName,
+            this.width,
+            this.height,
+            this.tileWidth,
+            this.tileHeight
+        );
+    }
+
     tilePixelRect(tileX, tileY) {
         return {
             x: tileX * this.tileWidth,

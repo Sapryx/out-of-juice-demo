@@ -3,9 +3,9 @@ class LevelGenerator {
         this._roomsToProcess = new Queue();
     }
 
-    generateLevel() {
+    generateLevel(config) {
         while(true) {
-            const level = this._tryGenerateLevel();
+            const level = this._tryGenerateLevel(config);
 
             if(level) {
                 level.resolveRuleTiles();
@@ -18,7 +18,7 @@ class LevelGenerator {
         }
     }
 
-    _tryGenerateLevel() {
+    _tryGenerateLevel(config) {
         this._roomsToProcess = new Queue();
 
         const level = new Level();
@@ -31,6 +31,10 @@ class LevelGenerator {
 
         console.log("Generating level...");
         console.log(`Using level type: ${levelType.id}`);
+
+        // Awful hack, replace with a tileset registry
+        level.tileset = startRoom.asset.tileset.clone();
+        level.tileset.imageName = config.tileset;
 
         G.roomAssets.shuffle();
         this._placeRoom(level, startRoom, new Vector2(0, 0));
@@ -135,7 +139,7 @@ class LevelGenerator {
             hallwayDirection,
             hallwayLength,
             roomMatch.targetRoom.asset.getPrimaryRuleTileName(),
-            roomMatch.targetRoom.asset.tileset
+            level.tileset
         );
 
         roomMatch.targetRoom.reserveDoor(roomMatch.targetDoor);

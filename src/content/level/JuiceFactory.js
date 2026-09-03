@@ -1,11 +1,12 @@
 class JuiceFactory {
-    constructor(levelGenerator, levelCount) {
-        if(!levelCount || levelCount <= 0) {
-            throw new Error(`Cannot create factory with level count of "${levelCount}"`);
+    constructor(levelGenerator, config) {
+        this.config = config;
+
+        if(!this.levelCount || this.levelCount <= 0) {
+            throw new Error(`Cannot create factory with level count of "${this.levelCount}"`);
         }
 
         this.levelGenerator = levelGenerator;
-        this.levelCount = levelCount;
         this.levels = [];
         this.currentLevelIndex = 0;
     }
@@ -14,9 +15,13 @@ class JuiceFactory {
         return this.levels[this.currentLevelIndex];
     }
 
+    get levelCount() {
+        return this.config.levels.length;
+    }
+
     generateLevels() {
-        for(let i = 0; i < this.levelCount; i++) {
-            this.levels[i] = this.levelGenerator.generateLevel();
+        for(const levelConfig of this.config.levels) {
+            this.levels.push(this.levelGenerator.generateLevel(levelConfig));
         }
 
         this._switchLevel(0);

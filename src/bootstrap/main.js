@@ -48,7 +48,19 @@ function restartGame() {
     const levelGenerator = new LevelGenerator();
 
     G.player = G.defs.create("player");
-    G.factory = new JuiceFactory(levelGenerator, 3);
+    G.factory = new JuiceFactory(levelGenerator, {
+        levels: [
+            {
+                tileset: "surface_tileset"
+            },
+            {
+                tileset: "first_floor_tileset"
+            },
+            {
+                tileset: "first_floor_tileset"
+            }
+        ]
+    });
     G.factory.generateLevels();
     G.turnManager.setEntity(G.player);
 
