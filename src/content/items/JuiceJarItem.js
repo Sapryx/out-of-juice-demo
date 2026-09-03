@@ -1,7 +1,6 @@
-class JuiceJarItem extends ItemAsset {
+class JuiceJarItem extends HealingItem {
     constructor(id, config) {
         super(id, config);
-        this._restorationAmount = 50;
-        this._description = `Restores ${this._restorationAmount} HP. Boosts morale and dopamine levels.`;
+        this._description = `${this._description} Boosts morale and dopamine levels.`;
     }
 }

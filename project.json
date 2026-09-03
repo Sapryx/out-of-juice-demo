@@ -77,6 +77,7 @@
             "content/items/Inventory.js",
             "content/items/Item.js",
             "content/items/ItemAsset.js",
+            "content/items/HealingItem.js",
             "content/items/BandageItem.js",
             "content/items/JuiceBottleItem.js",
             "content/items/JuiceJarItem.js",

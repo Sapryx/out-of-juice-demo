@@ -1,3 +1,4 @@
 {
-    "name": "Bandage"
+    "name": "Bandage",
+    "restorationAmount": 25
 }
