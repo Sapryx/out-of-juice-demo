@@ -2,6 +2,32 @@ BUS.__addEventListener(E.LevelSwitched, (type, level) => {
     G.gameView.reset();
     G.entityViews.cleanup();
 
+    fillBackground(level);
+    drawTiles(level);
+
+    G.gameView.levelView.bakeTiles();
+});
+
+function fillBackground(level) {
+    const xStart = level.bounds.left - G.config.cameraPadding;
+    const xEnd = level.bounds.right + G.config.cameraPadding;
+    const yStart = level.bounds.bottom - G.config.cameraPadding;
+    const yEnd = level.bounds.top + G.config.cameraPadding;
+
+    for(let y = yStart; y < yEnd; y++) {
+        for(let x = xStart; x < xEnd; x++) {
+            const position = new Vector2(x, y);
+            const node = new ENode();
+            node.__size = [G.config.tileSize, G.config.tileSize];
+            node.__ofs = math2d.flipY(math2d.mul(position, G.config.tileSize));
+
+            level.getTiles()[0].tileset.applyToNode(node, 4, 2);
+            G.gameView.levelView.addBakedNode(node);
+        }
+    }
+}
+
+function drawTiles(level) {
     for(const tile of level.getTiles()) {
         const tileNode = new Node();
         tileNode.__img = "white";
@@ -20,6 +46,4 @@ BUS.__addEventListener(E.LevelSwitched, (type, level) => {
 
         G.gameView.levelView.addBakedNode(tileNode);
     }
-
-    G.gameView.levelView.bakeTiles();
-});
+}

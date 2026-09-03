@@ -5,4 +5,12 @@ class RectBounds {
         this.bottom = 0;
         this.top = 0;
     }
+
+    get width() {
+        return this.right - this.left;
+    }
+
+    get height() {
+        return this.top - this.bottom;
+    }
 }
