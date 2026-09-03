@@ -1,0 +1,1512 @@
+{
+  "format": "simple-tile-editor",
+  "version": 3,
+  "tileset": {
+    "name": "first_floor_tileset.png",
+    "width": 80,
+    "height": 48,
+    "tileWidth": 16,
+    "tileHeight": 16
+  },
+  "map": {
+    "width": 30,
+    "height": 20
+  },
+  "ruleTileNames": [
+    "Rule Tile 1"
+  ],
+  "boundingBox": {
+    "x": 6,
+    "y": 3,
+    "width": 15,
+    "height": 15
+  },
+  "cells": [
+    {
+      "x": 13,
+      "y": 7,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 8,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "player"
+      }
+    },
+    {
+      "x": 13,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 12,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 12,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 13,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 13,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 12,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 8,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 7,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_jar"
+      }
+    },
+    {
+      "x": 10,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_jar"
+      }
+    },
+    {
+      "x": 9,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_bottle"
+      }
+    },
+    {
+      "x": 8,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_jar"
+      }
+    },
+    {
+      "x": 7,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_jar"
+      }
+    },
+    {
+      "x": 7,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_bottle"
+      }
+    },
+    {
+      "x": 7,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_bottle"
+      }
+    },
+    {
+      "x": 8,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_bottle"
+      }
+    },
+    {
+      "x": 9,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 10,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 10,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 9,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 8,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 8,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 7,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 6,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_jar"
+      }
+    },
+    {
+      "x": 12,
+      "y": 5,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 4,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_bottle"
+      }
+    },
+    {
+      "x": 12,
+      "y": 14,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_bottle"
+      }
+    },
+    {
+      "x": 12,
+      "y": 15,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_jar"
+      }
+    },
+    {
+      "x": 12,
+      "y": 16,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_jar"
+      }
+    },
+    {
+      "x": 13,
+      "y": 16,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_bottle"
+      }
+    },
+    {
+      "x": 14,
+      "y": 16,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_bottle"
+      }
+    },
+    {
+      "x": 14,
+      "y": 15,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 14,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 13,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_bottle"
+      }
+    },
+    {
+      "x": 13,
+      "y": 14,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 15,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_jar"
+      }
+    },
+    {
+      "x": 17,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 18,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_jar"
+      }
+    },
+    {
+      "x": 19,
+      "y": 11,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_jar"
+      }
+    },
+    {
+      "x": 19,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_bottle"
+      }
+    },
+    {
+      "x": 19,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_bottle"
+      }
+    },
+    {
+      "x": 18,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_jar"
+      }
+    },
+    {
+      "x": 17,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_bottle"
+      }
+    },
+    {
+      "x": 16,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 9,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 17,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 18,
+      "y": 10,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 4,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_jar"
+      }
+    },
+    {
+      "x": 14,
+      "y": 4,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_jar"
+      }
+    },
+    {
+      "x": 14,
+      "y": 5,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_jar"
+      }
+    },
+    {
+      "x": 14,
+      "y": 6,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_bottle"
+      }
+    },
+    {
+      "x": 13,
+      "y": 5,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 6,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 3,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 0
+      },
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 3,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 0
+      },
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 3,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 0
+      },
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 3,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 0,
+        "y": 0
+      },
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 4,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 0,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 5,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 0,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 6,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 0,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 7,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 0,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 8,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 4,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 10,
+      "y": 8,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 0
+      },
+      "data": null
+    },
+    {
+      "x": 9,
+      "y": 8,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 0
+      },
+      "data": null
+    },
+    {
+      "x": 8,
+      "y": 8,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 0
+      },
+      "data": null
+    },
+    {
+      "x": 7,
+      "y": 8,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 0
+      },
+      "data": null
+    },
+    {
+      "x": 6,
+      "y": 8,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 0,
+        "y": 0
+      },
+      "data": null
+    },
+    {
+      "x": 6,
+      "y": 9,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 0,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 6,
+      "y": 10,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 0,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 6,
+      "y": 11,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 0,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 6,
+      "y": 12,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 0,
+        "y": 2
+      },
+      "data": null
+    },
+    {
+      "x": 7,
+      "y": 12,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 2
+      },
+      "data": null
+    },
+    {
+      "x": 8,
+      "y": 12,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 2
+      },
+      "data": null
+    },
+    {
+      "x": 9,
+      "y": 12,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 2
+      },
+      "data": null
+    },
+    {
+      "x": 10,
+      "y": 12,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 2
+      },
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 12,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 4,
+        "y": 0
+      },
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 16,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 0,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 15,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 0,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 14,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 0,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 13,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 0,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 19,
+      "y": 12,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 2
+      },
+      "data": null
+    },
+    {
+      "x": 18,
+      "y": 12,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 2
+      },
+      "data": null
+    },
+    {
+      "x": 17,
+      "y": 12,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 2
+      },
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 12,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 2
+      },
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 12,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 3,
+        "y": 0
+      },
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 16,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 2,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 15,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 2,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 14,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 2,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 13,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 2,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 11,
+      "y": 17,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 0,
+        "y": 2
+      },
+      "data": null
+    },
+    {
+      "x": 12,
+      "y": 17,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 2
+      },
+      "data": null
+    },
+    {
+      "x": 13,
+      "y": 17,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 2
+      },
+      "data": null
+    },
+    {
+      "x": 14,
+      "y": 17,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 2
+      },
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 17,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 2,
+        "y": 2
+      },
+      "data": null
+    },
+    {
+      "x": 20,
+      "y": 12,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 2,
+        "y": 2
+      },
+      "data": null
+    },
+    {
+      "x": 20,
+      "y": 11,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 2,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 20,
+      "y": 10,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 2,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 20,
+      "y": 9,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 2,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 20,
+      "y": 8,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 2,
+        "y": 0
+      },
+      "data": null
+    },
+    {
+      "x": 19,
+      "y": 8,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 0
+      },
+      "data": null
+    },
+    {
+      "x": 18,
+      "y": 8,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 0
+      },
+      "data": null
+    },
+    {
+      "x": 17,
+      "y": 8,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 0
+      },
+      "data": null
+    },
+    {
+      "x": 16,
+      "y": 8,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 0
+      },
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 8,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 3,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 3,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 2,
+        "y": 0
+      },
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 4,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 2,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 5,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 2,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 6,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 2,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 15,
+      "y": 7,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 2,
+        "y": 1
+      },
+      "data": null
+    }
+  ]
+}

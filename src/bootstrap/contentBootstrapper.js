@@ -11,8 +11,6 @@ const ITEM_FACTORIES = [
     ["juice_jar", JuiceJarItem],
 ];
 
-const LEVEL_TYPE_COUNT = 1;
-
 const contentBootstrapper = {
     registerConfigs() {
         getJson("configs/game.json", (config) => {
@@ -55,13 +53,8 @@ const contentBootstrapper = {
     },
 
     registerLevelTypes() {
-        for(let i = 0; i < LEVEL_TYPE_COUNT; i++) {
-            const id = `level_type_${i + 1}`;
-
-            getJson(`configs/level_types/${id}.json`, (config) => {
-                G.levelTypes.register(new LevelType(id, config));
-            });
-        }
+        // this._registerLevelType("level_type_1");
+        this._registerLevelType("level_type_juice");
 
         console.log(`Registered ${G.levelTypes.count} level types`);
     },
@@ -83,6 +76,8 @@ const contentBootstrapper = {
 
         this._registerRoomAsset(RoomType.Hub, "room_hub_d3_1");
 
+        this._registerRoomAsset(RoomType.Juice, "room_juice_1");
+
         this._registerRoomAsset(RoomType.Start, "room_start_1");
 
         console.log(`Registered ${G.roomAssets.count} rooms`);
@@ -91,6 +86,12 @@ const contentBootstrapper = {
     _registerRoomAsset(type, id) {
         getJson(`configs/rooms/${type}/${id}.json`, (config) => {
             G.roomAssets.register(type, new RoomAsset(id, config));
+        });
+    },
+
+    _registerLevelType(id) {
+        getJson(`configs/level_types/${id}.json`, (config) => {
+            G.levelTypes.register(new LevelType(id, config));
         });
     }
 };

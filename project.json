@@ -78,6 +78,8 @@
             "content/items/Item.js",
             "content/items/ItemAsset.js",
             "content/items/BandageItem.js",
+            "content/items/JuiceBottleItem.js",
+            "content/items/JuiceJarItem.js",
 
             "registry/Defs.js",
             "registry/ItemAssetRegistry.js",
@@ -169,6 +171,7 @@
             "items/juice_jar.json",
 
             "level_types/level_type_1.json",
+            "level_types/level_type_juice.json",
 
             "rooms/combat/room_combat_d1_1.json",
             "rooms/combat/room_combat_d2_1.json",
@@ -177,6 +180,7 @@
             "rooms/combat/room_combat_d2_4.json",
             "rooms/exit/room_exit_1.json",
             "rooms/hub/room_hub_d3_1.json",
+            "rooms/juice/room_juice_1.json",
             "rooms/start/room_start_1.json",
 
             "rule_tiles.json"

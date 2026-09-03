@@ -1,11 +1,7 @@
 class LevelType {
-    /**
-     * @param {string} id
-     * @param {Object} config
-     */
     constructor(id, config) {
         this.rooms = config.rooms.map(roomNodeConfig => new RoomNode(roomNodeConfig));
-        this._id = id;
+        this.id = id;
 
         config.links.forEach(link => {
             const nodeA = this.rooms[link.a - 1];
@@ -16,16 +12,6 @@ class LevelType {
         });
     }
 
-    /**
-     * @returns {string}
-     */
-    get id() {
-        return this._id;
-    }
-
-    /**
-     * @returns {Array<RoomNode>}
-     */
     getRooms() {
         return this.rooms;
     }

@@ -45,7 +45,7 @@ class Level {
             this.tileset = room.asset.tileset;
         }
 
-        if(room.node.type === RoomType.Start) {
+        if(room.node.type === RoomType.Start || room.node.type === RoomType.Juice) {
             this._playerSpawnPoint = room.getSpawnPoints().find(it => it.def === "player");
         }
 

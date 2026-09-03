@@ -23,8 +23,10 @@ class LevelGenerator {
 
         const level = new Level();
         const levelType = G.levelTypes.getRandom();
-        const startRoomNode = levelType.getRooms().find(roomNode => roomNode.type === "start");
-        const startRoomAsset = G.roomAssets.getFirstOfType("start");
+        const levelIsLast = levelType.id.contains("juice");
+        const startRoomType = levelIsLast ? RoomType.Juice : RoomType.Start;
+        const startRoomNode = levelType.getRooms().find(roomNode => roomNode.type === startRoomType);
+        const startRoomAsset = G.roomAssets.getFirstOfType(startRoomType);
         const startRoom = new Room(startRoomNode, startRoomAsset);
         const processedNodes = new Set([startRoomNode]);
         const usedAssets = new Set([startRoomAsset]);
