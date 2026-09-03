@@ -24,12 +24,7 @@ class TurnManager {
 
         action.start();
 
-        if(!action.blocksTurn) {
-            this._advance();
-            return true;
-        }
-
-        if(action.isComplete) {
+        if(!action.blocksTurn || action.isComplete) {
             this._advance();
         } else {
             this._currentAction = action;
@@ -52,22 +47,24 @@ class TurnManager {
             return;
         }
 
-        if(this.isPlayerTurn) {
-            return;
+        while(this._currentEntity && !this.isPlayerTurn) {
+            const action = this._currentEntity.getTurnAction();
+
+            if(!action) {
+                this._advance();
+                continue;
+            }
+
+            const submitted = this.submit(action);
+
+            if(!submitted) {
+                return;
+            }
+
+            if(this._currentAction) {
+                return;
+            }
         }
-
-        this._tickEnemy();
-    }
-
-    _tickEnemy() {
-        const action = this._currentEntity.getTurnAction();
-
-        if(!action) {
-            this._advance();
-            return;
-        }
-
-        this.submit(action);
     }
 
     _advance() {
