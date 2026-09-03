@@ -1,20 +1,10 @@
 class Inventory {
-    constructor(size) {
-        if(size < 1) {
-            throw new RangeError(`Cannot create inventory with zero or negative size`);
-        }
-
-        this._itemCount = 0;
-        this._maxSize = size;
-        this._items = new Array(size).fill(null);
+    constructor() {
+        this._items = [];
     }
 
     get itemCount() {
-        return this._itemCount;
-    }
-
-    get maxSize() {
-        return this._maxSize;
+        return this._items.length;
     }
 
     getItem(slot) {
@@ -31,58 +21,37 @@ class Inventory {
     }
 
     addItem(item) {
-        const freeSlot = this._items.indexOf(null);
-        const freeSlotNotFound = freeSlot === -1;
-
-        if(freeSlotNotFound) {
-            return false;
-        }
-
-        this._items[freeSlot] = item;
-        this._itemCount++;
+        this._items.push(item);
+        BUS.__post(E.PlayerInventoryChanged);
         return true;
     }
 
     removeItem(item) {
         const slot = this.getSlot(item);
-
         if(slot === -1) {
             return false;
         }
-
         return this.removeItemAt(slot);
     }
 
     removeItemAt(slot) {
         this._verifySlotIsInRange(slot);
-        const noItemInSlot = this._items[slot] == null;
-
-        if(noItemInSlot) {
-            return false;
-        }
-
-        this._itemCount--;
-        this._items[slot] = null;
+        this._items.splice(slot, 1);
         BUS.__post(E.PlayerInventoryChanged);
-
         return true;
     }
 
     hasItem(slot) {
-        if(!this._slotIsInRange(slot)) {
-            return false;
-        }
-
-        return this._items[slot] != null;
+        return this._slotIsInRange(slot);
     }
 
     _slotIsInRange(slot) {
-        return slot >= 0 && slot < this._maxSize;
+        return Number.isInteger(slot) && slot >= 0 && slot < this._items.length;
     }
 
     _verifySlotIsInRange(slot) {
         if(!this._slotIsInRange(slot)) {
-            throw new RangeError(`Slot "${slot}" is out of range for inventory with size "${this._maxSize}"`);
+            throw new RangeError(`Slot "${slot}" is out of range for inventory with size "${this._items.length}"`);
         }
     }
 }
