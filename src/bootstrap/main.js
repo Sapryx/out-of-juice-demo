@@ -3,7 +3,6 @@ BUS.__addEventListener(
         initializeState();
         registerContent();
         initializeGame();
-        startGame();
 
         return 1;
     }
@@ -39,20 +38,13 @@ function registerContent() {
 
 function initializeGame() {
     document.body.style.cursor = "none";
-
     updatable.__push(gameLoop);
-}
 
-function startGame() {
     G.input.init();
-    setupLevel();
+    restartGame();
 }
 
 function restartGame() {
-    setupLevel();
-}
-
-function setupLevel() {
     const levelGenerator = new LevelGenerator();
 
     G.player = G.defs.create("player");
