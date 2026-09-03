@@ -2,7 +2,8 @@
     "__childs": {
         "sprite": {
             "__img": "white",
-            "__size": [16, 16]
+            "__size": [16, 16],
+            "__fitImg": 1
         }
     }
 }

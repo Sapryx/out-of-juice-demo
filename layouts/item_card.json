@@ -13,6 +13,7 @@
     ],
     "__childs": {
       "item_icon": {
+        "__fitImg": 1,
         "__spacing": [
           0,
           0,
