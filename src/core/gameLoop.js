@@ -50,7 +50,7 @@ function handleMovementInput() {
 
     const targetPosition = math2d.add(G.player.position, movementInputRaw);
 
-    if(G.factory.level.isTileFree(targetPosition)) {
+    if(G.player.level.isTileFree(targetPosition)) {
         return G.turnManager.submit(new MoveAction(G.player, targetPosition));
     }
 
@@ -77,8 +77,7 @@ function updateCameraPosition() {
 }
 
 function fitCameraInLevelBounds(targetCamera) {
-    const levelBounds = G.factory.level.bounds;
-
+    const levelBounds = G.player.level.bounds;
     const levelLeft = levelBounds.left * G.config.tileSize;
     const levelRight = levelBounds.right * G.config.tileSize;
     const levelTop = levelBounds.top * G.config.tileSize;

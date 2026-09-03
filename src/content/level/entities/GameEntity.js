@@ -3,6 +3,7 @@ class GameEntity {
         this.next = this;
         this.prev = this;
         this.position = new Vector2(0, 0);
+        this.level = null;
 
         this.takeDamageSfx = null;
         this.dealDamageSfx = null;
@@ -99,13 +100,13 @@ class GameEntity {
     }
 
     moveTo(position) {
-        if(!G.factory.level.isTileFree(position)) {
+        if(!this.level.isTileFree(position)) {
             return false;
         }
 
         this._state = EntityState.Moving;
 
-        G.factory.level.moveEntity(this, position, () => {
+        this.level.moveEntity(this, position, () => {
             this._state = EntityState.Idle;
         });
 
@@ -121,6 +122,6 @@ class GameEntity {
     }
 
     _die() {
-        G.factory.level.removeEntity(this);
+        this.level.removeEntity(this);
     }
 }

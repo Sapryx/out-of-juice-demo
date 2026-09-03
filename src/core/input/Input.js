@@ -92,7 +92,7 @@ class Input {
 
     _selectPreviousTarget() {
         if(!G.windows.hasOpenWindow) {
-            G.targeting.selectNext();
+            G.targeting.selectPrevious();
         }
     }
 

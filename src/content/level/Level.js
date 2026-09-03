@@ -16,7 +16,7 @@ class Level {
 
     initRooms() {
         for(const room of this._rooms) {
-            room.init();
+            room.init(this);
         }
     }
 
@@ -132,6 +132,7 @@ class Level {
             entity.next = this._rootEntity;
         }
 
+        entity.level = this;
         this.moveEntity(entity, position, undefined);
         BUS.__post(E.EntityAdded, entity);
     }

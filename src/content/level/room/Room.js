@@ -23,7 +23,7 @@ class Room {
         return this.asset.getSpawnPoints(this.rotation);
     }
 
-    init() {
+    init(level) {
         for(const spawnPoint of this.getSpawnPoints()) {
             if(spawnPoint.def === "player") {
                 continue;
@@ -32,7 +32,7 @@ class Room {
             const entity = G.defs.create(spawnPoint.def);
             const globalPosition = math2d.add(this.position, spawnPoint.position);
 
-            G.factory.level.addEntity(entity, globalPosition);
+            level.addEntity(entity, globalPosition);
 
             if(entity instanceof ItemEntity) {
                 const itemAsset = G.itemAssets.get(spawnPoint.item);
