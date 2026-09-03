@@ -704,17 +704,6 @@
       "data": null
     },
     {
-      "x": 23,
-      "y": 3,
-      "tile": {
-        "x": 5,
-        "y": 0
-      },
-      "ruleTile": null,
-      "resolvedTile": null,
-      "data": null
-    },
-    {
       "x": 17,
       "y": 10,
       "tile": null,
