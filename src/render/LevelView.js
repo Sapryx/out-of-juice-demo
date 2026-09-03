@@ -26,7 +26,7 @@ class LevelView {
             __color: Colors.Selection,
             __z: -100
         });
-        this.tileSelection.__addChildBox({
+        this.tileSelection.interaction_name = this.tileSelection.__addChildBox({
             name: "interaction_name",
             __ofs: [0, G.config.tileSize / 1.5 + 2],
             __text: {
