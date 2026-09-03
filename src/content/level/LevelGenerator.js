@@ -22,7 +22,7 @@ class LevelGenerator {
         this._roomsToProcess = new Queue();
 
         const level = new Level();
-        const levelType = G.levelTypes.getRandom();
+        const levelType = G.levelTypes.get(config.type);
         const levelIsLast = levelType.id.contains("juice");
         const startRoomType = levelIsLast ? RoomType.Juice : RoomType.Start;
         const startRoomNode = levelType.getRooms().find(roomNode => roomNode.type === startRoomType);

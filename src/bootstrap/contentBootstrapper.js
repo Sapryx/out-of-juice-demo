@@ -53,7 +53,7 @@ const contentBootstrapper = {
     },
 
     registerLevelTypes() {
-        // this._registerLevelType("level_type_1");
+        this._registerLevelType("level_type_1");
         this._registerLevelType("level_type_juice");
 
         console.log(`Registered ${G.levelTypes.count} level types`);

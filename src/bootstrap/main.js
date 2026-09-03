@@ -51,12 +51,19 @@ function restartGame() {
     G.factory = new JuiceFactory(levelGenerator, {
         levels: [
             {
+                type: "level_type_1",
                 tileset: "surface_tileset"
             },
             {
+                type: "level_type_1",
                 tileset: "first_floor_tileset"
             },
             {
+                type: "level_type_1",
+                tileset: "first_floor_tileset"
+            },
+            {
+                type: "level_type_juice",
                 tileset: "first_floor_tileset"
             }
         ]

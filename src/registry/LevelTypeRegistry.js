@@ -1,24 +1,23 @@
 class LevelTypeRegistry {
     constructor() {
-        this._levelTypes = [];
+        this._levelTypes = new Map();
     }
 
     get count() {
         return this._levelTypes.length;
     }
 
-    /**
-     * @param {LevelType} levelType
-     */
     register(levelType) {
-        this._levelTypes.push(levelType);
+        this._levelTypes.set(levelType.id, levelType);
     }
 
-    /**
-     * @returns {LevelType | undefined}
-     */
-    getRandom() {
-        const randomIndex = ceil(random() * this._levelTypes.length - 1);
-        return this._levelTypes[randomIndex];
+    get(id) {
+        const levelType = this._levelTypes.get(id);
+
+        if(!levelType) {
+            throw new Error(`Level type with id ${id} is no registered`);
+        }
+
+        return levelType;
     }
 }
