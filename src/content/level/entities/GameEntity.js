@@ -99,13 +99,13 @@ class GameEntity {
     }
 
     moveTo(position) {
-        if(!G.level.isTileFree(position)) {
+        if(!G.factory.level.isTileFree(position)) {
             return false;
         }
 
         this._state = EntityState.Moving;
 
-        G.level.moveEntity(this, position, () => {
+        G.factory.level.moveEntity(this, position, () => {
             this._state = EntityState.Idle;
         });
 
@@ -121,6 +121,6 @@ class GameEntity {
     }
 
     _die() {
-        G.level.removeEntity(this);
+        G.factory.level.removeEntity(this);
     }
 }

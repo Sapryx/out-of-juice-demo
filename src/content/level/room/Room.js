@@ -32,7 +32,7 @@ class Room {
             const entity = G.defs.create(spawnPoint.def);
             const globalPosition = math2d.add(this.position, spawnPoint.position);
 
-            G.level.addEntity(entity, globalPosition);
+            G.factory.level.addEntity(entity, globalPosition);
 
             if(entity instanceof ItemEntity) {
                 const itemAsset = G.itemAssets.get(spawnPoint.item);

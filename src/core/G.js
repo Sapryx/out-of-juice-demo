@@ -6,7 +6,7 @@ const G = {
     audio: null,
 
     player: null,
-    level: null,
+    factory: null,
 
     config: null,
     defs: null,

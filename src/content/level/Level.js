@@ -174,11 +174,8 @@ class Level {
         return true;
     }
 
-    respawnPlayer() {
-        const player = G.defs.create("player");
-
-        G.player = player;
-        this.addEntity(G.player, this._playerSpawnPoint.position);
+    addPlayer(player) {
+        this.addEntity(player, this._playerSpawnPoint.position);
     }
 
     isTileFree(position) {

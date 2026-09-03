@@ -50,7 +50,7 @@ function handleMovementInput() {
 
     const targetPosition = math2d.add(G.player.position, movementInputRaw);
 
-    if(G.level.isTileFree(targetPosition)) {
+    if(G.factory.level.isTileFree(targetPosition)) {
         return G.turnManager.submit(new MoveAction(G.player, targetPosition));
     }
 
@@ -77,10 +77,12 @@ function updateCameraPosition() {
 }
 
 function fitCameraInLevelBounds(targetCamera) {
-    const levelLeft = G.level.bounds.left * G.config.tileSize;
-    const levelRight = G.level.bounds.right * G.config.tileSize;
-    const levelTop = G.level.bounds.top * G.config.tileSize;
-    const levelBottom = G.level.bounds.bottom * G.config.tileSize;
+    const levelBounds = G.factory.level.bounds;
+
+    const levelLeft = levelBounds.left * G.config.tileSize;
+    const levelRight = levelBounds.right * G.config.tileSize;
+    const levelTop = levelBounds.top * G.config.tileSize;
+    const levelBottom = levelBounds.bottom * G.config.tileSize;
     const cameraPadding = G.config.cameraPadding * G.config.tileSize;
     const cameraZoom = targetCamera.__zoom;
 

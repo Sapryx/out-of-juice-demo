@@ -32,7 +32,7 @@ class PlayerTargeting {
 
         for(const offset of this._offsets) {
             const position = math2d.add(origin, offset);
-            const entity = G.level.getEntityInTile(position);
+            const entity = G.factory.level.getEntityInTile(position);
 
             if(entity != null) {
                 entitiesInRange.push(entity);

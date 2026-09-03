@@ -72,6 +72,7 @@
             "content/level/LevelGenerator.js",
             "content/level/Level.js",
             "content/level/LevelType.js",
+            "content/level/JuiceFactory.js",
 
             "content/items/Inventory.js",
             "content/items/Item.js",
