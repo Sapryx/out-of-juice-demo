@@ -55,12 +55,10 @@ class GameWindowManager {
                 },
 
                 _show_info(itemCard) {
-                    if(itemCard) {
-                        windowNode.__setAliasesData({
-                            item_info_name: {__text: itemCard.item.asset.name},
-                            item_info_description: {__text: itemCard.item.asset.description}
-                        });
-                    }
+                    windowNode.__setAliasesData({
+                        item_info_name: {__text: itemCard ? itemCard.item.asset.name : ""},
+                        item_info_description: {__text: itemCard ? itemCard.item.asset.description : ""}
+                    });
                 },
 
                 refreshItemSidebar() {
@@ -124,6 +122,7 @@ class GameWindowManager {
 
                                 if(itemWasUsed) {
                                     G.player.inventory.removeItem(item);
+                                    windowNode.selectedItemCard = undefined;
                                 }
                             }
                         }

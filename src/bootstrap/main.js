@@ -51,4 +51,6 @@ function restartGame() {
     G.factory = new JuiceFactory(levelGenerator, 3);
     G.factory.generateLevels();
     G.turnManager.setEntity(G.player);
+
+    G.player.dealDamage(10);
 }

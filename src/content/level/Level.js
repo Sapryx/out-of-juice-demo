@@ -24,10 +24,10 @@ class Level {
                 const entity = G.defs.create(spawnPoint.def);
                 const globalPosition = math2d.add(room.position, spawnPoint.position);
 
-                if(spawnPoint.def === "exit_entity") {
-                    console.log(globalPosition);
-                    this._playerSpawnPoint.position = math2d.add(globalPosition, new Vector2(-1, 0));
-                }
+                // if(spawnPoint.def === "exit_entity") {
+                //     console.log(globalPosition);
+                //     this._playerSpawnPoint.position = math2d.add(globalPosition, new Vector2(-1, 0));
+                // }
 
                 this.addEntity(entity, globalPosition);
 
