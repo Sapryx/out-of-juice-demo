@@ -57,5 +57,16 @@ const SFX = Object.freeze({
             "drink_2",
             "drink_3",
         ]
+    ),
+
+    TearCloth: new SoundEffect(
+        0.8,
+        "sfx",
+        [
+            "tear_cloth_1",
+            "tear_cloth_2",
+            "tear_cloth_3",
+            "tear_cloth_4",
+        ]
     )
 });
