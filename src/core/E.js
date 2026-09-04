@@ -10,6 +10,7 @@ const E = Object.freeze({
     EntityHealed: "EntityHealed",
     PlayerDied: "PlayerDied",
     ItemCollected: "ItemCollected",
+    ItemUsed: "ItemUsed",
     PlayerInventoryChanged: "PlayerInventoryChanged",
     LevelSwitched: "LevelSwitched",
     WindowOpened: "WindowOpened",

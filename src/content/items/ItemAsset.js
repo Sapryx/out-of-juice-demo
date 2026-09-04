@@ -1,5 +1,6 @@
 class ItemAsset {
     constructor(id, config) {
+        this.useSfx = null;
         this._id = id;
         this._name = config.name;
         this._description = config.description;

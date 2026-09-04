@@ -1,23 +1,15 @@
 class Item {
-    /**
-     * @param {ItemAsset} asset
-     */
     constructor(asset) {
-        this._asset = asset;
+        this.asset = asset;
     }
 
-    /**
-     * @returns {ItemAsset}
-     */
-    get asset() {
-        return this._asset;
-    }
-
-    /**
-     * @param {GameEntity} user
-     * @returns {boolean}
-     */
     use(user) {
-        return this._asset.use(user);
+        const itemWasUsed = this.asset.use(user);
+
+        if(itemWasUsed) {
+            BUS.__post(E.ItemUsed, this);
+        }
+
+        return itemWasUsed;
     }
 }

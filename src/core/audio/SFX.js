@@ -47,5 +47,15 @@ const SFX = Object.freeze({
             "collect_3",
             "collect_4",
         ]
+    ),
+
+    Drink: new SoundEffect(
+        0.8,
+        "sfx",
+        [
+            "drink_1",
+            "drink_2",
+            "drink_3",
+        ]
     )
 });
