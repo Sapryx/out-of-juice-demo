@@ -172,6 +172,19 @@ class GameWindowManager {
         });
     }
 
+    openVictoryWindow() {
+        this._openWindow(WindowType.Victory, (windowNode) => {
+            windowNode.__setAliasesData({
+                continue_button: {
+                    __onTap() {
+                        G.windows.closeCurrentWindow();
+                        restartGame();
+                    }
+                }
+            });
+        });
+    }
+
     _openWindow(windowType, onOpened) {
         this.current = showWindow(windowType, (windowNode) => {
             windowNode.init({

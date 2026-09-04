@@ -32,7 +32,10 @@ class JuiceFactory {
 
         if(nextLevelIndex < this.levelCount) {
             this._switchLevel(nextLevelIndex);
+            return true;
         }
+
+        return false;
     }
 
     _switchLevel(index) {

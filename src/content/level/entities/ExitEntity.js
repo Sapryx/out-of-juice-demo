@@ -8,6 +8,10 @@ class ExitEntity extends GameEntity {
     }
 
     interactWith(actor) {
-        G.factory.moveToNextLevel();
+        const levelSwitched = G.factory.moveToNextLevel();
+
+        if(!levelSwitched) {
+            G.windows.openVictoryWindow();
+        }
     }
 }

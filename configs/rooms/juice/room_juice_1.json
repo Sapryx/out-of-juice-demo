@@ -440,7 +440,11 @@
       },
       "ruleTile": null,
       "resolvedTile": null,
-      "data": null
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_jar"
+      }
     },
     {
       "x": 12,
@@ -663,11 +667,7 @@
       },
       "ruleTile": null,
       "resolvedTile": null,
-      "data": {
-        "type": "spawn",
-        "def": "item_entity",
-        "item": "juice_jar"
-      }
+      "data": null
     },
     {
       "x": 19,
@@ -678,11 +678,7 @@
       },
       "ruleTile": null,
       "resolvedTile": null,
-      "data": {
-        "type": "spawn",
-        "def": "item_entity",
-        "item": "juice_jar"
-      }
+      "data": null
     },
     {
       "x": 19,
@@ -764,7 +760,11 @@
       },
       "ruleTile": null,
       "resolvedTile": null,
-      "data": null
+      "data": {
+        "type": "spawn",
+        "def": "item_entity",
+        "item": "juice_jar"
+      }
     },
     {
       "x": 15,
@@ -1192,23 +1192,23 @@
     {
       "x": 19,
       "y": 12,
-      "tile": null,
-      "ruleTile": "Rule Tile 1",
-      "resolvedTile": {
+      "tile": {
         "x": 1,
-        "y": 2
+        "y": 1
       },
+      "ruleTile": null,
+      "resolvedTile": null,
       "data": null
     },
     {
       "x": 18,
       "y": 12,
-      "tile": null,
-      "ruleTile": "Rule Tile 1",
-      "resolvedTile": {
+      "tile": {
         "x": 1,
-        "y": 2
+        "y": 1
       },
+      "ruleTile": null,
+      "resolvedTile": null,
       "data": null
     },
     {
@@ -1217,8 +1217,8 @@
       "tile": null,
       "ruleTile": "Rule Tile 1",
       "resolvedTile": {
-        "x": 1,
-        "y": 2
+        "x": 4,
+        "y": 0
       },
       "data": null
     },
@@ -1350,7 +1350,7 @@
       "ruleTile": "Rule Tile 1",
       "resolvedTile": {
         "x": 2,
-        "y": 2
+        "y": 1
       },
       "data": null
     },
@@ -1506,6 +1506,141 @@
         "x": 2,
         "y": 1
       },
+      "data": null
+    },
+    {
+      "x": 20,
+      "y": 13,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 2,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 20,
+      "y": 14,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 2,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 20,
+      "y": 15,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 2,
+        "y": 2
+      },
+      "data": null
+    },
+    {
+      "x": 19,
+      "y": 15,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 2
+      },
+      "data": null
+    },
+    {
+      "x": 18,
+      "y": 15,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 1,
+        "y": 2
+      },
+      "data": null
+    },
+    {
+      "x": 17,
+      "y": 15,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 0,
+        "y": 2
+      },
+      "data": null
+    },
+    {
+      "x": 17,
+      "y": 14,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 0,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 17,
+      "y": 13,
+      "tile": null,
+      "ruleTile": "Rule Tile 1",
+      "resolvedTile": {
+        "x": 0,
+        "y": 1
+      },
+      "data": null
+    },
+    {
+      "x": 18,
+      "y": 13,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 18,
+      "y": 14,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": null
+    },
+    {
+      "x": 19,
+      "y": 14,
+      "tile": {
+        "x": 3,
+        "y": 2
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
+      "data": {
+        "type": "spawn",
+        "def": "exit_entity"
+      }
+    },
+    {
+      "x": 19,
+      "y": 13,
+      "tile": {
+        "x": 1,
+        "y": 1
+      },
+      "ruleTile": null,
+      "resolvedTile": null,
       "data": null
     }
   ]

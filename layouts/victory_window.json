@@ -1,0 +1,64 @@
+[
+  {
+    "__color": 0,
+    "__padding": 2,
+    "ha": 1,
+    "va": 3,
+    "__size": [
+      160,
+      82
+    ],
+    "__childs": {
+      "_0": {
+        "__color": "#4a5462",
+        "ha": 1,
+        "va": 3,
+        "__size": [
+          1,
+          1
+        ],
+        "__childs": {
+          "_0": {
+            "__color": "#4a5462",
+            "__spacing": [
+              0,
+              0,
+              24,
+              0
+            ],
+            "__size": [
+              1,
+              1,
+              0,
+              "o"
+            ],
+            "__text": {
+              "__color": "#59c135",
+              "__fontsize": 16,
+              "__text": "Victory!"
+            }
+          },
+          "continue_button": {
+            "__color": "#333941",
+            "__padding": [
+              1,
+              0,
+              1,
+              0
+            ],
+            "__size": [
+              80,
+              1,
+              0,
+              "o"
+            ],
+            "__text": {
+              "__fontsize": 10,
+              "__text": "Restart"
+            }
+          }
+        }
+      }
+    }
+  }
+]

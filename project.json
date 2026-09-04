@@ -216,7 +216,8 @@
 
             "inventory_window.json",
             "pause_window.json",
-            "death_window.json"
+            "death_window.json",
+            "victory_window.json"
         ],
         [
             "shaders",
